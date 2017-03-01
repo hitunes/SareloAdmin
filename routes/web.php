@@ -25,3 +25,6 @@ Route::get('/test', [
     'middleware' => 'role',
     'roles' => ['User']
 ]);
+
+
+Route::get('/cart', 'CartsController@addCartItem');
