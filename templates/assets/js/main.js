@@ -29,11 +29,8 @@ const app = {
         const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
         return `
           <li>
-            <label>
-                <input type="checkbox" class="products">
                 <span class="name">${cityName}, ${stateName}</span>
                 <span class="population">${numberWithCommas(place.population)}</span>
-            </label>
           </li>
         `;
       }).join('');
