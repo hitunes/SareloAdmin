@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
+    <link rel="stylesheet" href="assets/css/default.css">
+    <link rel="stylesheet" href="assets/css/default.time.css">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body class="clearfix">
+    <div class="main  clearfix">
+        <div class="overlay p-t-0">
+            <!-- ===Nav bar starts here == -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand navbar-link" href="index.html">
+                            <img src="assets/img/logo/sarelo.svg">
+                        </a>
+                        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li role="presentation"><a href="index.html"><span>How it works</span></a></li>
+                            <li role="presentation"><a href="#"><span>About Us</span></a></li>
+                            <li role="presentation"><a href="signIn.html"><span> Sign In</span></a></li>
+                            <li role="presentation"><a href="signUp.html"><span>Sign Up</span></a></li>
+                            <li role="presentation"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li role="presentation"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li role="presentation"><a href="#"><i class="fa fa-google"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- ===Nav bar endss here == -->
+
+            <!-- ===Main contents begins here ==-->
+            <div class="container-fluid">
+                <div class="contents m-auto width-30p">
+                    <!-- Order details section -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card ">
+                                <div class="header">
+                                    <h4 class="title m-0">Order Details</h4>
+                                    <hr class="m-t-10">
+                                </div>
+                                <div class="content open">
+                                    <p class="category">Today, February 2017</p>
+                                    <p class="text-center fw-700">Items</p>
+                                    <!--product details -->
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12">
+                                            <!-- Slider main container -->
+                                            <div class="swiper-container" style="height: 120px; width: 100%">
+                                                <!-- Additional required wrapper -->
+                                                <div class="swiper-wrapper">
+                                                    <!-- Slides -->
+                                                    <div class="swiper-slide">
+                                                        <p class="product_name">Vegetables</p>
+                                                        <p class="price_container">$12:00</p>
+                                                        <div class="btn-group small-group">
+                                                            <button type="button" class="btn btn-default">-</button>
+                                                            <button type="button" class="btn btn-default">1</button>
+                                                            <button type="button" class="btn btn-default">+</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <p class="product_name">Vegetables</p>
+                                                        <p class="price_container">$12:00</p>
+                                                        <div class="btn-group small-group">
+                                                            <button type="button" class="btn btn-default">-</button>
+                                                            <button type="button" class="btn btn-default">1</button>
+                                                            <button type="button" class="btn btn-default">+</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <p class="product_name">Vegetables</p>
+                                                        <p class="price_container">$12:00</p>
+                                                        <div class="btn-group small-group">
+                                                            <button type="button" class="btn btn-default">-</button>
+                                                            <button type="button" class="btn btn-default">1</button>
+                                                            <button type="button" class="btn btn-default">+</button>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end of slides -->
+                                                </div>
+                                                <!-- If we need pagination -->
+                                                <div class="swiper-pagination"></div>
+                                            </div> 
+                                            <!-- Slider main container -->
+                                        </div> 
+                                    </div>
+                                    <br>
+                                    <!--delivery details -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="text-center fw-700">Delivery Time</p>
+                                            <input type="text" class="form-control date" name="date" placeholder="9:00 AM">
+                                            <!--<div class="btn-group big-group">
+                                                <button type="button" class="btn btn-default">6:00-7:00AM</button>
+                                                <button type="button" class="btn btn-default">7:00-10:00PM</button>
+                                                <button type="button" class="btn btn-default">10:00-1:00PM</button>
+                                                <button type="button" class="btn btn-default">1:00-4:00PM</button>
+                                                <button type="button" class="btn btn-default">4:00-7:00PM</button>
+                                                <button type="button" class="btn btn-default">8:00-1:00PM</button>
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <!--payment break down -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p class="text-center fw-700">Amount</p>
+                                            <p>Sub-total : <b class="pull-right">$ 12.00</b></p>
+                                            <p>Delivey Fees : <b class="pull-right">$ 2.450</b></p>
+                                            <p>Grand Total : <b class="pull-right">$ 14.45</b></p>
+                                        </div>
+                                    </div>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="stats">
+                                            <button class="btn btn-danger continue"><i class="fa fa-arrow-down"></i> Save & Continue</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Order details section ends here -->
+                   
+                    <!-- == Address section here  == -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card ">
+                                <div class="header locked">
+                                    <h4 class="title m-0">Address Details</h4>
+                                    <hr class="m-t-10">
+                                </div>
+                                <div class="content">
+                                    <!-- form here -->
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12">
+                                            <form action="" method="">
+                                                <div class="form-group">
+                                                    <label for="fullname">Full Name:</label>
+                                                    <input type="text" class="form-control" id="fullname">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="phone">Phone Number:</label>
+                                                    <input type="phone" class="form-control" id="phone">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="address">Street Address:</label>
+                                                    <input type="text" class="form-control" id="address">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="city">City/State:</label>
+                                                    <input type="text" class="form-control" id="city">
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox"> Leave at the door step or front desk</label>
+                                                </div>
+                                                
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- form ends here -->
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="stats">
+                                            <button class="btn btn-danger continue"><i class="fa fa-arrow-down"></i> Save & Continue</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- == Address section ends here -->
+                    
+                    <!-- Payment details here-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card ">
+                                <div class="header locked">
+                                    <h4 class="title m-0">Payment Details</h4>
+                                    <hr class="m-t-10">
+                                </div>
+                                <div class="content">
+                                    
+                                    <!--card details -->
+                                    <div class="row">
+                                         <div class="col-xs-12 col-md-12">
+                                           <!--PAYMENT FORM --> 
+                                            <form>
+                                                <div class="form-group">
+                                                    <label for="card">Name on Card:</label>
+                                                    <input type="text" class="form-control" id="card">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="card_no">Card Number:</label>
+                                                    <input type="number" class="form-control" id="card_no">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exp_date">Expiry Date:</label>
+                                                    <input type="date" class="form-control" id="exp_date">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="cvv">CVV:</label>
+                                                    <input type="number" class="form-control" id="cvv">
+                                                </div>
+                                            </form>
+                                            <!--PAYMENT FORM -->
+                                        </div>  
+                                    </div>
+                                    
+                                    <br>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="stats">
+                                            <button class="btn btn-danger continue"><i class="fa fa-arrow-down"></i> Save & Continue</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Payment details ends here -->
+                   
+                    <!--Checkout details -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card ">
+                                <div class="header locked">
+                                    <h4 class="title m-0">Place Order</h4>
+                                    <hr class="m-t-10">
+                                </div>
+                                <div class="content">
+                                    
+                                    <!--product details -->
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12">
+                                            <p>Sub-total : <b class="pull-right">$ 12.00</b></p>
+                                            <p>Delivey Fees : <b class="pull-right">$ 2.450</b></p>
+                                            <p>Grand Total : <b class="pull-right">$ 14.45</b></p>
+                                        </div>  
+                                    </div>
+                                    <br>
+                                    <div class="footer">
+                                        <hr>
+                                        <div class="stats">
+                                            <button class="btn btn-danger continue"><i class="fa fa-money"></i> Place Order</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Checkout details ends here -->
+                </div>
+            </div>
+            <!-- ===Main contents ends here ==-->
+
+            <!-- ===Page footer begins here == -->
+            <div class="footy">
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms and Condition</a></li>
+                    <li><a href="#">Feedbacks</a></li>
+                </ul>
+            </div>
+            <!-- ===Page footer ends here == -->
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
+    <script src="assets/js/picker.js"></script>
+    <script src="assets/js/picker.time.js"></script>
+    <script>
+        $(document).ready(function(){
+             var mySwiper = new Swiper ('.swiper-container', {
+                direction: 'horizontal',
+                loop: true,
+                autoplay: 500,
+                speed: 5000,
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+                slidesPerView:2
+            });
+
+            $('.date').pickatime({
+                interval: 60,
+                min: [9,0],
+                max: [17,0] 
+            });
+        });
+    </script>
+    <script>
+        function Scroll_To(elem, pos){
+
+            var y = elem.scrollTop;
+            y += (pos - y) * 0.3;
+            if (Math.abs(y-pos) < 2)
+            {
+                elem.scrollTop = pos;
+                return;
+            }
+            elem.scrollTop = y;
+            setTimeout(Scroll_To, 40, elem, pos);   
+        }
+     
+        const cards = Array.from(document.querySelectorAll('.card'));
+
+        //use to know current index of cards we are in...
+        let $index = 0;
+
+        //a function that hides/shows content when header is clicked
+        function contentToggler(e){
+            if(this.classList.contains("locked")){
+                return;
+            }
+           this.nextElementSibling.classList.toggle('open');
+        }
+
+        // this collapse panel and focus on the next card
+        function nextHandler(e){
+            //hide the current content inside card
+            this.parentElement.parentElement.parentElement.classList.toggle('open');
+           
+            // move to the next card......
+            /* here I got the current index I and in then add 1 to get to the next card*/
+            $index = cards.indexOf(this.parentElement.parentElement.parentElement.parentElement) + 1;
+            
+            //if card is not found return
+            if(cards[$index] === undefined){
+                return;
+            }
+            //show content of the new card
+            cards[$index].querySelector(".content").classList.toggle('open');
+            //remove locked from new card header
+            cards[$index].querySelector(".header").classList.remove('locked');
+            //scroll to the next card just in case...
+            //cards[$index].scrollIntoView({block: "start", behavior: "smooth"});
+            Scroll_To(cards[$index], cards[$index].offsetTop);
+            
+        }
+
+        cards.forEach(function(card){
+            const $header = card.querySelector('.header');
+            const $continue = card.querySelector('.continue');
+
+           //on clicking on the header hide content in card
+           $header.addEventListener('click', contentToggler);
+           // on clicking on save button hide content in card
+           $continue.addEventListener('click', nextHandler);
+        });
+    </script>
+</body>
+
+</html>
