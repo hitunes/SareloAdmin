@@ -39,3 +39,5 @@ Route::resource('admin/orders', 'Admin\\OrdersController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::resource('admin/charges', 'Admin\\ChargesController');
