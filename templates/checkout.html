@@ -11,6 +11,320 @@
     <link rel="stylesheet" href="assets/css/default.time.css">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <style type="text/css">
+            html, body, .wrapper{height: 100%; width: 100%;}
+
+        .login-page, .signup-page {
+        background: #00BCD4;
+        }
+
+        .logo{
+          text-align: center;
+        }
+
+        .flex-container{
+        padding-left: 0;
+        overflow-x: hidden;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        }
+
+        a, a:hover{
+          outline: 0;
+          text-decoration: none;
+          color: #FFFFFF;
+          font-weight: bold;
+        }
+
+        .align-right{
+          text-align: right;
+        }
+        /*.login-box, .signup-box{
+          width: 25%;
+        }*/
+        .login-page .login-box .msg {
+          color: #555;
+          text-align: center;
+        }
+        .login-page .login-box{
+          font-size: 14px;
+          text-decoration: none;
+          color: #FFFFFF;
+        }
+        .login-page .login-box .logo {
+          margin-bottom: 20px;
+        }
+        .login-page .login-box .logo a,
+        .signup-page .signup-box .logo a
+        {
+        font-size: 36px;
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        }
+        .login-page .login-box .logo small {
+        display: block;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        margin-top: -5px;
+        }
+
+        .card {
+          background: #fff;
+          min-height: 50px;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+          position: relative;
+          margin-bottom: 30px;
+        }
+        .card .body {
+          font-size: 14px;
+          color: #555;
+          padding: 20px;
+        }
+
+        .input {
+          position: relative;
+          z-index: 1;
+          display: inline-block;
+          width: 100%;
+          vertical-align: top;
+        }
+
+        .input-field {
+          position: relative;
+          display: block;
+          float: right;
+          padding: 0.8em;
+          width: 60%;
+          border: none;
+          border-radius: 0;
+          background: #f0f0f0;
+          color: #aaa;
+          font-weight: bold;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+          -webkit-appearance: none; /* for box shadows to show on iOS */
+        }
+
+        .input-field:focus {
+          outline: none;
+        }
+
+        .input-label {
+          display: inline-block;
+          float: right;
+          padding: 0 1em;
+          width: 40%;
+          color: #6a7989;
+          font-weight: bold;
+          font-size: 70.25%;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-touch-callout: none;
+          -webkit-user-select: none;
+          -khtml-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+
+        .input-label-content {
+          position: relative;
+          display: block;
+          padding: 1.6em 0;
+          width: 100%;
+        }
+
+        
+
+        .social-login a.btn {
+          background-size: 100%;
+          font-size: 12px;
+          text-align: center;
+          color: #FFF;
+          text-shadow: 1px 1px 1px #333;
+          margin: 5px auto;
+          padding: 5px;
+        }
+
+        
+        
+        
+
+        /*STYLING OF SWITCH FORMS*/
+        .form-box{
+          width: 50%;
+          margin: 40px auto;
+        }
+        #switchForm {
+          width: 80%;
+          margin: 50px auto;
+          text-align: center;
+          position: relative;
+        }
+        #switchForm fieldset {
+          background: rgba(255,255,255,0.8);
+          border: 0 none;
+          border-radius: 0px;
+          box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+          padding: 20px 30px;
+          box-sizing: border-box;
+          width: 80%;
+          margin: 0 10%;
+          margin-bottom: 40px;
+          /*stacking fieldsets above each other*/
+          position: absolute;
+        }
+        /*Hide all except first fieldset*/
+        #switchForm fieldset:not(:first-of-type) {
+          display: none;
+        }
+
+        /*buttons*/
+        #switchForm .action-button {
+          width: 100px;
+          background: #27AE60;
+          font-weight: bold;
+          color: white;
+          border: 0 none;
+          border-radius: 1px;
+          cursor: pointer;
+          padding: 10px 5px;
+          margin: 10px 5px;
+        }
+        #switchForm .action-button:hover, #switchForm .action-button:focus {
+          box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+          background-color:white ;
+          color: #27AE60;
+        }
+        /*headings*/
+        .fs-title {
+          font-size: 15px;
+          text-transform: uppercase;
+          color: #2C3E50;
+          margin-bottom: 10px;
+        }
+        .fs-subtitle {
+          font-weight: normal;
+          font-size: 13px;
+          color: #666;
+          margin-bottom: 20px;
+        }
+        /*progressbar*/
+        #progressbar {
+          margin-bottom: 30px;
+          overflow: hidden;
+          padding-left: 0px;
+          /*CSS counters to number the steps*/
+          counter-reset: step;
+          /*margin-left: 50px;*/
+        }
+        #progressbar li {
+          list-style-type: none;
+          color:#2C3E50 ;
+          text-transform: uppercase;
+          font-size: 9px;
+          width: 33.33%;
+          float: left;
+          position: relative;
+        }
+        #progressbar li:before {
+          content: counter(step);
+          counter-increment: step;
+          width: 20px;
+          line-height: 20px;
+          display: block;
+          font-size: 10px;
+          color: #333;
+          background: #ddd;
+          border-radius: 3px;
+          margin: 0 auto 5px auto;
+        }
+        /*progressbar connectors*/
+        #progressbar li:after {
+          content: '';
+          width: 100%;
+          height: 2px;
+          background: #ddd;
+          position: absolute;
+          left: -50%;
+          top: 9px;
+          z-index: -1; /*put it behind the numbers*/
+        }
+        #progressbar li:first-child:after {
+          /*connector not needed before the first step*/
+          content: none;
+        }
+        /*marking active/completed steps green*/
+        /*The number of the step and the connector before it = green*/
+        #progressbar li.active:before,  #progressbar li.active:after{
+          background: #27AE60;
+          color: white;
+        }
+
+        .text-left{
+          text-align: left;
+        }
+
+        .others{
+          width: 40px;
+          border-color: #eee;
+        }
+        .radio input[type=radio], .others{
+          margin-left: 20px;
+        }
+
+
+        .current {
+        -webkit-animation: moveToLeft .6s ease both;
+        animation: moveToLeft .6s ease both;
+        }
+
+        .outClass {
+        -webkit-animation: moveFromLeft .6s ease both;
+        animation: moveFromLeft .6s ease both;
+        }
+
+        @-webkit-keyframes moveToLeft {
+        from {-webkit-transform: translateX(100%); display: block; }
+        to { -webkit-transform: translateX(0); display: block;}
+        }
+        @keyframes moveToLeft {
+        from { -webkit-transform: translateX(100%); display: block;}
+        to { -webkit-transform: translateX(0); transform: translateX(0);}
+        }
+
+        @-webkit-keyframes moveFromLeft {
+        0% { }
+        40% { -webkit-transform: rotateX(-15deg); transform: rotateX(-15deg); opacity: .8; -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out; }
+        100% { -webkit-transform: scale(0.8) translateZ(-200px); transform: scale(0.8) translateZ(-200px); opacity:0; }
+        }
+        @keyframes moveFromLeft {
+        0% { }
+        40% { -webkit-transform: rotateX(-15deg); transform: rotateX(-15deg); opacity: .8; -webkit-animation-timing-function: ease-out; animation-timing-function: ease-out; }
+        100% { -webkit-transform: scale(0.8) translateZ(-200px); transform: scale(0.8) translateZ(-200px); opacity:0; }
+        }
+        .checkout-label{
+            font-weight: normal;
+            font-size: 13px;
+            color: #666;   
+        }
+        .btn-danger {
+            background-image: -webkit-linear-gradient(top,#d9534f 0,#c12e2a 100%);
+            background-image: -o-linear-gradient(top,#d9534f 0,#c12e2a 100%);
+            background-image: -webkit-gradient(linear,left top,left bottom,from(#d9534f),to(#c12e2a));
+            background-image: linear-gradient(to bottom,#d9534f 0,#c12e2a 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9534f', endColorstr='#ffc12e2a', GradientType=0);
+            filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+            background-repeat: repeat-x;
+            border-color: #b92c28;
+            height: 40px;
+            border-radius: 0px;
+        }
+    </style>
 </head>
 
 <body class="clearfix">
@@ -21,260 +335,164 @@
                 <div class="container-fluid">
                     <div class="navbar-header">
                         <a class="navbar-brand navbar-link" href="index.html">
-                            <img src="assets/img/logo/sarelo.svg">
-                        </a>
+                            <img src="assets/img/logo/sarelo2.svg">                        </a>
                         <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                     </div>
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li role="presentation"><a href="index.html"><span>How it works</span></a></li>
-                            <li role="presentation"><a href="#"><span>About Us</span></a></li>
-                            <li role="presentation"><a href="signIn.html"><span> Sign In</span></a></li>
-                            <li role="presentation"><a href="signUp.html"><span>Sign Up</span></a></li>
-                            <li role="presentation"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li role="presentation"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li role="presentation"><a href="#"><i class="fa fa-google"></i></a></li>
+                            
+                            <li role="presentation">
+                                <span>Already Have an account</span><br>
+                                <a href="signIn.html" class="c-brand-purple"><span> Sign In</span></a>
+                            </li>
+                            <li>
+                                <div class="divider"></div>
+                            </li>
+                            <li role="presentation">
+                                <span>No Account?</span><br>
+                                <a href="signUp.html">
+                                    <span>Sign Up</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
+                    
                 </div>
             </nav>
             <!-- ===Nav bar endss here == -->
 
             <!-- ===Main contents begins here ==-->
             <div class="container-fluid">
-                <div class="contents m-auto width-30p">
+                <!-- <div class="contents m-auto width-30p"> -->
                     <!-- Order details section -->
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card ">
-                                <div class="header">
-                                    <h4 class="title m-0">Order Details</h4>
-                                    <hr class="m-t-10">
-                                </div>
-                                <div class="content open">
-                                    <p class="category">Today, February 2017</p>
-                                    <p class="text-center fw-700">Items</p>
-                                    <!--product details -->
-                                    <div class="row">
-                                        <div class="col-xs-12 col-md-12">
-                                            <!-- Slider main container -->
-                                            <div class="swiper-container" style="height: 120px; width: 100%">
-                                                <!-- Additional required wrapper -->
-                                                <div class="swiper-wrapper">
-                                                    <!-- Slides -->
-                                                    <div class="swiper-slide">
-                                                        <p class="product_name">Vegetables</p>
-                                                        <p class="price_container">$12:00</p>
-                                                        <div class="btn-group small-group">
-                                                            <button type="button" class="btn btn-default">-</button>
-                                                            <button type="button" class="btn btn-default">1</button>
-                                                            <button type="button" class="btn btn-default">+</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="swiper-slide">
-                                                        <p class="product_name">Vegetables</p>
-                                                        <p class="price_container">$12:00</p>
-                                                        <div class="btn-group small-group">
-                                                            <button type="button" class="btn btn-default">-</button>
-                                                            <button type="button" class="btn btn-default">1</button>
-                                                            <button type="button" class="btn btn-default">+</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="swiper-slide">
-                                                        <p class="product_name">Vegetables</p>
-                                                        <p class="price_container">$12:00</p>
-                                                        <div class="btn-group small-group">
-                                                            <button type="button" class="btn btn-default">-</button>
-                                                            <button type="button" class="btn btn-default">1</button>
-                                                            <button type="button" class="btn btn-default">+</button>
-                                                        </div>
-                                                    </div>
-                                                    <!-- end of slides -->
-                                                </div>
-                                                <!-- If we need pagination -->
-                                                <div class="swiper-pagination"></div>
-                                            </div> 
-                                            <!-- Slider main container -->
-                                        </div> 
-                                    </div>
-                                    <br>
-                                    <!--delivery details -->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p class="text-center fw-700">Delivery Time</p>
-                                            <input type="text" class="form-control date" name="date" placeholder="9:00 AM">
-                                            <!--<div class="btn-group big-group">
-                                                <button type="button" class="btn btn-default">6:00-7:00AM</button>
-                                                <button type="button" class="btn btn-default">7:00-10:00PM</button>
-                                                <button type="button" class="btn btn-default">10:00-1:00PM</button>
-                                                <button type="button" class="btn btn-default">1:00-4:00PM</button>
-                                                <button type="button" class="btn btn-default">4:00-7:00PM</button>
-                                                <button type="button" class="btn btn-default">8:00-1:00PM</button>
-                                            </div>-->
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <!--payment break down -->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <p class="text-center fw-700">Amount</p>
-                                            <p>Sub-total : <b class="pull-right">$ 12.00</b></p>
-                                            <p>Delivey Fees : <b class="pull-right">$ 2.450</b></p>
-                                            <p>Grand Total : <b class="pull-right">$ 14.45</b></p>
-                                        </div>
-                                    </div>
-                                    <div class="footer">
-                                        <hr>
-                                        <div class="stats">
-                                            <button class="btn btn-danger continue"><i class="fa fa-arrow-down"></i> Save & Continue</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Order details section ends here -->
-                   
-                    <!-- == Address section here  == -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card ">
-                                <div class="header locked">
-                                    <h4 class="title m-0">Address Details</h4>
-                                    <hr class="m-t-10">
-                                </div>
-                                <div class="content">
-                                    <!-- form here -->
-                                    <div class="row">
-                                        <div class="col-xs-12 col-md-12">
-                                            <form action="" method="">
-                                                <div class="form-group">
-                                                    <label for="fullname">Full Name:</label>
-                                                    <input type="text" class="form-control" id="fullname">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="phone">Phone Number:</label>
-                                                    <input type="phone" class="form-control" id="phone">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="address">Street Address:</label>
-                                                    <input type="text" class="form-control" id="address">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="city">City/State:</label>
-                                                    <input type="text" class="form-control" id="city">
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label><input type="checkbox"> Leave at the door step or front desk</label>
-                                                </div>
-                                                
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <!-- form ends here -->
-                                    <div class="footer">
-                                        <hr>
-                                        <div class="stats">
-                                            <button class="btn btn-danger continue"><i class="fa fa-arrow-down"></i> Save & Continue</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- == Address section ends here -->
-                    
-                    <!-- Payment details here-->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card ">
-                                <div class="header locked">
-                                    <h4 class="title m-0">Payment Details</h4>
-                                    <hr class="m-t-10">
-                                </div>
-                                <div class="content">
+                
+                            <!-- multistep form -->
+                            <div class="form-box">
+                                <form id="switchForm" class="clearfix forms">
+                                    <!-- progressbar -->
+                                    <ul id="progressbar">
+                                        <li class="active">BILLING ADDRESS</li>
+                                        <li>PAYMENT METHOD</li>
+                                        <li>REVIEW YOUR ORDER</li>
+                                    </ul>
+                                    <!-- fieldsets -->
+                                    <fieldset>
+                                    <!--  <span class="input input-switch">
+                                        <input class="input-field input-field-switch" type="text" name="fullname"/>
+                                        <label class="input-label input-label-switch input-label-switch-color-1" for="fullname">
+                                            <span class="input-label-content input-label-content-switch">Full Name</span>
+                                        </label>
+                                    </span>
+                                    <span class="input input-switch">
+                                        <input class="input-field input-field-switch" type="text" name="email"/>
+                                        <label class="input-label input-label-switch input-label-switch-color-1" for="address">
+                                            <span class="input-label-content input-label-content-switch">Address</span>
+                                        </label>
+                                    </span>
+                                    <span class="input input-switch">
+                                        <input class="input-field input-field-switch" type="text" name="phone"/>
+                                        <label class="input-label input-label-switch input-label-switch-color-1" for="phone">
+                                            <span class="input-label-content input-label-content-switch">Phone Number</span>
+                                        </label>
+                                    </span> -->
+                                    <!-- <span class="input input-switch">
+                                        <input class="input-field input-field-switch" type="date" name="date"/>
+                                        <label class="input-label input-label-switch input-label-switch-color-1" for="phone">
+                                            <span class="input-label-content input-label-content-switch">Time of Delivery</span><br>
+                                        </label>
+                                    </span> -->
                                     
-                                    <!--card details -->
-                                    <div class="row">
-                                         <div class="col-xs-12 col-md-12">
-                                           <!--PAYMENT FORM --> 
-                                            <form>
-                                                <div class="form-group">
-                                                    <label for="card">Name on Card:</label>
-                                                    <input type="text" class="form-control" id="card">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="card_no">Card Number:</label>
-                                                    <input type="number" class="form-control" id="card_no">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="exp_date">Expiry Date:</label>
-                                                    <input type="date" class="form-control" id="exp_date">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="cvv">CVV:</label>
-                                                    <input type="number" class="form-control" id="cvv">
-                                                </div>
-                                            </form>
-                                            <!--PAYMENT FORM -->
-                                        </div>  
-                                    </div>
+                                        <div class="form-group">
+                                            <label for="email" class="checkout-label pull-left">Full Name</label>
+                                            <input type="email" class="form-control" id="email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="address" class="checkout-label pull-left">Address</label>
+                                            <input type="text" class="form-control" id="address">
+                                        </div>
+                                        <div class="form-group" >
+                                            <label for="tel-nos" class="checkout-label pull-left">Telephone Number</label>
+                                            <input type="text" class="form-control" id="tel-nos">
+                                        </div>
+                                        
                                     
-                                    <br>
-                                    <div class="footer">
-                                        <hr>
-                                        <div class="stats">
-                                            <button class="btn btn-danger continue"><i class="fa fa-arrow-down"></i> Save & Continue</button>
+                                    
+
+                                        <input type="button" name="next" class="next action-button pull-right" value="Next" />
+                                    </fieldset>
+                                    <fieldset>
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-3">
+                                            <label class="checkbox-inline pull-left checkout-label"><input type="checkbox" value="">Credit Card</label>
+                                        </div>
+                                        <div class="col-xs-6 col-md-4 col-md-offset-5 ">
+                                            <img src="assets/img/icon/master.png">
+                                            <img src="assets/img/icon/visa.png">
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Payment details ends here -->
-                   
-                    <!--Checkout details -->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card ">
-                                <div class="header locked">
-                                    <h4 class="title m-0">Place Order</h4>
-                                    <hr class="m-t-10">
-                                </div>
-                                <div class="content">
-                                    
-                                    <!--product details -->
-                                    <div class="row">
-                                        <div class="col-xs-12 col-md-12">
-                                            <p>Sub-total : <b class="pull-right">$ 12.00</b></p>
-                                            <p>Delivey Fees : <b class="pull-right">$ 2.450</b></p>
-                                            <p>Grand Total : <b class="pull-right">$ 14.45</b></p>
-                                        </div>  
+                                    <div class="form-group">
+                                        <label for="sel1" class="pull-left checkout-label">Credit Card Type</label>
+                                        <select class="form-control" id="sel1">
+                                        <option></option>
+                                        <option>Master Card</option>
+                                        <option>VISA Card</option>
+                                        </select>
                                     </div>
-                                    <br>
-                                    <div class="footer">
-                                        <hr>
-                                        <div class="stats">
-                                            <button class="btn btn-danger continue"><i class="fa fa-money"></i> Place Order</button>
+                                    <div class="form-group" >
+                                        <label for="credit-card-nos" class="checkout-label pull-left">Credit Card Number</label>
+                                        <input type="text" class="form-control" id="credit-card-nos">
+                                    </div>
+                                    <div class="form-group" >
+                                        <label for="expire-date" class="checkout-label pull-left">Expiry Date</label>
+                                        <input type="date" class="form-control" id="expire-date">
+                                    </div>
+                                    <div class="form-group" >
+                                        <label for="ver-nos" class="checkout-label pull-left">Card Verification nos</label>
+                                        <input type="text" class="form-control" id="ver-nos">
+                                    </div>
+
+                                        
+                                    <input type="button" name="previous" class="previous action-button pull-left" value="Previous" />
+                                    <input type="button" name="next" class="next action-button pull-right" value="Next" />
+                                    </fieldset>
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="col-xs-12 col-md-12">
+                                                <p class="checkout-label">Sub-total : 
+                                                <b class="pull-right">$ 12.00</b></p>
+                                                <p class="checkout-label">Delivey Fees : 
+                                                <b class="pull-right">$ 2.450</b></p>
+                                                <p class="checkout-label">Grand Total : 
+                                                <b class="pull-right">$ 14.45</b></p>
+                                            </div>  
                                         </div>
-                                    </div>
-                                </div>
+                                        <br>
+                                        
+                                            <input type="button" name="previous" class="previous action-button pull-left" value="Previous" />
+                                            <button class="btn continue pull-right"><i class="fa fa-money"></i> Place Order</button>
+                                
+                                    </fieldset>
+                                </form>
                             </div>
+                             
                         </div>
-                    </div>
+                              
+                            
                     <!--Checkout details ends here -->
                 </div>
             </div>
             <!-- ===Main contents ends here ==-->
 
             <!-- ===Page footer begins here == -->
-            <div class="footy">
+           <!--  <div class="footy">
                 <ul>
                     <li><a href="#">Privacy</a></li>
                     <li><a href="#">Terms and Condition</a></li>
                     <li><a href="#">Feedbacks</a></li>
                 </ul>
-            </div>
+            </div> -->
             <!-- ===Page footer ends here == -->
         </div>
     </div>
@@ -283,84 +501,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
     <script src="assets/js/picker.js"></script>
     <script src="assets/js/picker.time.js"></script>
+    <script src="assets/js/main.js"></script>
     <script>
-        $(document).ready(function(){
-             var mySwiper = new Swiper ('.swiper-container', {
-                direction: 'horizontal',
-                loop: true,
-                autoplay: 500,
-                speed: 5000,
-                pagination: '.swiper-pagination',
-                paginationClickable: true,
-                slidesPerView:2
-            });
-
-            $('.date').pickatime({
-                interval: 60,
-                min: [9,0],
-                max: [17,0] 
-            });
-        });
-    </script>
-    <script>
-        function Scroll_To(elem, pos){
-
-            var y = elem.scrollTop;
-            y += (pos - y) * 0.3;
-            if (Math.abs(y-pos) < 2)
-            {
-                elem.scrollTop = pos;
-                return;
-            }
-            elem.scrollTop = y;
-            setTimeout(Scroll_To, 40, elem, pos);   
-        }
-     
-        const cards = Array.from(document.querySelectorAll('.card'));
-
-        //use to know current index of cards we are in...
-        let $index = 0;
-
-        //a function that hides/shows content when header is clicked
-        function contentToggler(e){
-            if(this.classList.contains("locked")){
-                return;
-            }
-           this.nextElementSibling.classList.toggle('open');
-        }
-
-        // this collapse panel and focus on the next card
-        function nextHandler(e){
-            //hide the current content inside card
-            this.parentElement.parentElement.parentElement.classList.toggle('open');
-           
-            // move to the next card......
-            /* here I got the current index I and in then add 1 to get to the next card*/
-            $index = cards.indexOf(this.parentElement.parentElement.parentElement.parentElement) + 1;
-            
-            //if card is not found return
-            if(cards[$index] === undefined){
-                return;
-            }
-            //show content of the new card
-            cards[$index].querySelector(".content").classList.toggle('open');
-            //remove locked from new card header
-            cards[$index].querySelector(".header").classList.remove('locked');
-            //scroll to the next card just in case...
-            //cards[$index].scrollIntoView({block: "start", behavior: "smooth"});
-            Scroll_To(cards[$index], cards[$index].offsetTop);
-            
-        }
-
-        cards.forEach(function(card){
-            const $header = card.querySelector('.header');
-            const $continue = card.querySelector('.continue');
-
-           //on clicking on the header hide content in card
-           $header.addEventListener('click', contentToggler);
-           // on clicking on save button hide content in card
-           $continue.addEventListener('click', nextHandler);
-        });
+        app.switchForm();
     </script>
 </body>
 
