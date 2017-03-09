@@ -11,13 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'IndexController@index');
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/signin', 'Auth\\LoginController@showLoginForm');
+Route::post('/signin', 'Auth\\LoginController@login');
+
+
+Route::get('signup', 'Auth\\RegisterController@showRegistrationForm');
+Route::post('signup', 'Auth\\RegisterController@register');
 
 Route::get('/test', [
     'uses' => 'HomeController@test',
@@ -28,8 +31,11 @@ Route::get('/test', [
 
 
 Route::get('/cart', 'CartsController@addCartItem');
-Route::resource('products', 'ProductsController');
+// Route::resource('products', 'ProductsController');
 Route::resource('admin/products', 'Admin\\ProductsController');
 Route::resource('admin/categories', 'Admin\\CategoriesController');
 Route::resource('admin/unit-types', 'Admin\\UnitTypesController');
 Route::resource('admin/orders', 'Admin\\OrdersController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

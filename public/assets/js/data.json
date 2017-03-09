@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "product": "Yam",
+      "price": 2150,
+      "unit": "per 10kg",
+      "img": "http://www.foodsubs.com/Photos/yamaimo.jpg"
+    },
+    {
+      "id": 2,
+      "product": "Rice",
+      "price": 2450,
+      "unit": "per 10kg",
+      "img": "https://thumbs.dreamstime.com/z/unpolished-rice-whole-grain-burlap-bag-25395443.jpg"
+    },
+    {
+      "id": "3",
+      "product": "Egusi",
+      "price": 250,
+      "unit": "per Tin"
+    },
+    {
+      "id": "4",
+      "product": "Elubo",
+      "price": 2500,
+      "unit": "per Bag"
+    },
+    {
+      "id": "5",
+      "product": "Fish",
+      "price": 700,
+      "unit": "per Kg"
+    }
+  ],
+  "percent": 10,
+  "delivery": 1000
+}
+
+ 
