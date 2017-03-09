@@ -180,7 +180,7 @@
                     </form>
                     <div class="or-separator">OR</div>
                     <div class="social-login">
-                        <a class="btn btn-block btn-facebook"><i class="fa fa-facebook m-r-20"></i> Sign in with Facebook</a>
+                        <a href="/social/login/facebook/callback" class="btn btn-block btn-facebook"><i class="fa fa-facebook m-r-20"></i> Sign in with Facebook</a>
                     </div>
                  
                 </div>

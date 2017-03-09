@@ -41,3 +41,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 Route::resource('admin/charges', 'Admin\\ChargesController');
+
+
+
+Route::get('social/login/{provider}', 'Auth\\SocialAuthController@redirectToProvider');
+Route::get('social/login/{provider}/callback', 'Auth\\SocialAuthController@handleProviderCallback');
