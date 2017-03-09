@@ -28,3 +28,8 @@ Route::get('/test', [
 
 
 Route::get('/cart', 'CartsController@addCartItem');
+Route::resource('products', 'ProductsController');
+Route::resource('admin/products', 'Admin\\ProductsController');
+Route::resource('admin/categories', 'Admin\\CategoriesController');
+Route::resource('admin/unit-types', 'Admin\\UnitTypesController');
+Route::resource('admin/orders', 'Admin\\OrdersController');
