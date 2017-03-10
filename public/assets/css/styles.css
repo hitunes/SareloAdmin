@@ -8,7 +8,7 @@
   font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }*/
 
-@font-face {
+/*@font-face {
     font-family: "Rubik-Black";
     src: url(assets/fonts/rubik/Rubik-Black.ttf) format("truetype");
 }
@@ -57,7 +57,7 @@
     font-family: "Rubik-Regular";
     src: url(assets/fonts/rubik/Rubik-Regular.ttf) format("truetype");
 }
-
+*/
 
 body, html{
   width:100%;
@@ -112,6 +112,10 @@ body, html{
   width: 70% !important;
 }
 
+.width-80p{
+  width: 80% !important;
+}
+
 .width-100p{
   width: 100% !important;
 }
@@ -157,6 +161,10 @@ body, html{
   margin-bottom: 0px !important;
 }
 
+.m-b-50{
+  margin-bottom: 50px !important;
+}
+
 .m-b-80{
   margin-bottom: 80px !important;
 }
@@ -180,6 +188,10 @@ body, html{
 
 .l-spacing-1{
   letter-spacing: 1px;
+}
+
+.l-spacing-2{
+  letter-spacing: 2px;
 }
 
 .l-spacing-5{
@@ -243,6 +255,10 @@ h5{
 }
 
 .dis-flex{display: flex;align-content: center;align-items: center; justify-content: center;}
+
+.line-40{
+  line-height: 40px;
+}
 /* general styling ends here */
 
 /*overwriting a tags to our taste */
@@ -305,13 +321,13 @@ a, a:hover, a:active, a:visited{
 /*main wrapper must have same height as body i.e behave as the body */
 div.main{
   min-height: 100vh;
-  background:url(../../assets/img/fruit.jpeg) no-repeat;
+  background:url(../../assets/img/vegetable2.png) no-repeat;
   background-size:cover;
   position:relative;
    display: flex;
   flex-direction: column;
   width: 100%;
-  background-position: -10% -85%; 
+  background-position: 0px 350px; 
   transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
 
 }
@@ -473,6 +489,7 @@ navbar-default .navbar-nav > li {
     background: #FFF;
     padding: 0px;
     overflow: hidden;
+    border-left: 3px solid #D2D2D2;
     -webkit-transform: translate3d(450px, 0, 0);
     -moz-transform: translate3d(450px, 0, 0);
     -o-transform: translate3d(450px, 0, 0);
@@ -491,8 +508,8 @@ navbar-default .navbar-nav > li {
     -o-transform: translate3d(0px, 0, 0);
     -ms-transform: translate3d(0px, 0, 0);
     transform: translate3d(0px, 0, 0); 
-    -moz-box-shadow: -7px 2px 16px -8px rgba(0,0,0,0.77);
-    box-shadow: -7px 2px 16px -8px rgba(0,0,0,0.77);
+    /*-moz-box-shadow: -7px 2px 16px -8px rgba(0,0,0,0.77);
+    box-shadow: -7px 2px 16px -8px rgba(0,0,0,0.77);*/
 }
 
 #menu-right .header, 
@@ -510,7 +527,7 @@ navbar-default .navbar-nav > li {
 }
 
 #menu-right .body{
-  height: calc(100% - 308px);
+  height: calc(100% - 224px);
   overflow-y: scroll;
 }
 
@@ -597,31 +614,51 @@ navbar-default .navbar-nav > li {
   margin: 0px 10px;
 }
 
+#menu-right .full_bag{
+  display: none;
+  height: calc(100% - 84px);
+  z-index: 10;
+}
+
+#menu-right .empty_bag{
+    height: calc(100% - 84px);
+    padding: 10px;
+    background: #E8E8E8;
+    border-top: 3px solid #9B9B9B;
+    opacity: 0.5;
+    position: absolute;
+    top: 84px;
+    left: 0px;
+    width: 100%;
+    z-index: 100;
+}
+
+
+
 /*animation*/
 @-webkit-keyframes slideInRight {
+	
 	0% {
-	opacity:0;
-	-webkit-transform:translateX(250px);
-	transform:translateX(250px);
-	}
-	100% {
 	opacity:1;
 	-webkit-transform:translateX(0);
 	transform:translateX(0);
+	}
+  100% {
+	opacity:0;
+	-webkit-transform:translateX(448px);
+	transform:translateX(448px);
 	}
 }
 @keyframes slideInRight {
 	0% {
-	opacity:0;
-	-webkit-transform:translateX(250px);
-	-ms-transform:translateX(250px);
-	transform:translateX(250px);
-	}
-	100% {
 	opacity:1;
 	-webkit-transform:translateX(0);
-	-ms-transform:translateX(0);
 	transform:translateX(0);
+	}
+  100% {
+	opacity:0;
+	-webkit-transform:translateX(448px);
+	transform:translateX(448px);
 	}
 }
 /*animation ends here*/
@@ -644,14 +681,17 @@ navbar-default .navbar-nav > li {
 }
 
 /*index page */
+
 ul.suggestions{
   list-style-type: none;
   /*height: 115px !important;*/
+   max-height: 240px;
+  overflow: hidden;
   overflow: hidden;
   padding-left: 0px;
-   -webkit-box-shadow: 0px 3px 6px 1px rgba(221,221,221,0.61);
--moz-box-shadow: 0px 3px 6px 1px rgba(221,221,221,0.61);
-box-shadow: 0px 3px 6px 1px rgba(221,221,221,0.61);
+ -webkit-box-shadow: 0px 4px 6px -1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 4px 6px -1px rgba(0,0,0,0.75);
+  box-shadow: 0px 4px 6px -1px rgba(0,0,0,0.75);
   
 }
 
@@ -801,7 +841,6 @@ div.clearfix small{
 
 /* form-control styling*/
 .query{
-  max-width: 700px;
   margin: 0 auto;
 }
 

@@ -2,7 +2,7 @@
 
 
 @section('content')
-<div class="main clearfix">
+  <div class="main clearfix">
         <div class="overlay">
             <!-- ===Nav bar starts here == -->
             <nav class="navbar navbar-default">
@@ -18,14 +18,14 @@
                             
                             <li role="presentation">
                                 <span>Already Have an account</span><br>
-                                <a href="signIn.html" class="c-brand-purple"><span> Sign In</span></a>
+                                <a href="/signin" class="c-brand-purple"><span> Sign In</span></a>
                             </li>
                             <li>
                                 <div class="divider"></div>
                             </li>
                             <li role="presentation">
                                 <span>No Account?</span><br>
-                                <a href="signUp.html">
+                                <a href="/signup">
                                     <span>Sign Up</span>
                                 </a>
                             </li>
@@ -37,8 +37,8 @@
 
             <!-- ===Main contents begins here ==-->
             <div class="container-fluid">
-                <div class="contents m-auto m-t-60 m-b-100 width-70p">
-                    <h1 class="text-center l-spacing-5 fw-900">We will buy & deliver <span class="c-brand-green">fresh foodstuff!</span><br> from the market to you.</h1>
+                <div class="contents m-auto m-t-60 m-b-100 width-80p">
+                    <h1 class="text-left l-spacing-5 fw-900 line-40">We will buy & deliver <span class="c-brand-green">fresh foodstuff!</span> from the market to you.</h1>
                     <br><br><br>
                     <form class="query pos-rel">
                         <input class="form-control search p-r-20 p-l-20" type="search" placeholder="What do you want to buy?...." id="querySelector">
@@ -105,76 +105,87 @@
                 <span class="t-u-c">items</span>
             </h3>
         </div>
-        <div class="body" id="basket">
-            <ul class="p-l-0 list-type-none" id="basketList">
-                <!--<li class="pos-rel animated slideInDown">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <div class="row">
-                                <div class="col-xs-6 p-r-0">
-                                    <div class="thumbnail">
-                                        <img src="assets/img/loaders/map-loader.gif">
+        <div class="full_bag">
+            <div class="body" id="basket">
+                <ul class="p-l-0 list-type-none" id="basketList">
+                    <!--<li class="pos-rel animated slideInDown">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="row">
+                                    <div class="col-xs-6 p-r-0">
+                                        <div class="thumbnail">
+                                            <img src="assets/img/loaders/map-loader.gif">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-xs-6 p-l-0">
-                                    <div class="pr-text">
-                                        <h4 class="m-b-0 m-t-5">Beans</h4>
-                                        <small>Paint bucket</small>
+                                    <div class="col-xs-6 p-l-0">
+                                        <div class="pr-text">
+                                            <h4 class="m-b-0 m-t-5">Beans</h4>
+                                            <small>Paint bucket</small>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-xs-3">
+                                m
+                            </div>
+                            <div class="col-xs-3">
+                                m
+                            </div>
                         </div>
-                        <div class="col-xs-3">
-                            m
-                        </div>
-                        <div class="col-xs-3">
-                            m
-                        </div>
-                    </div>
-                    <span class="fa fa-remove pos-abs"></span>
-                </li>-->
-            </ul>
+                        <span class="fa fa-remove pos-abs"></span>
+                    </li>-->
+                </ul>
+            </div>
+            <div class="footer" style="">
+                <ul class="p-l-0">
+                    <li>
+                        <p class="menus">
+                            <span>
+                                TOTAL
+                            </span>
+                            <span class="pull-right">&#8358; <span id="totalP">9480</span></span>
+                        </p>
+                    </li>
+                    <li>
+                        <p class="menus">
+                            <span>
+                                10% Service Charge
+                            </span>
+                            <span class="pull-right">&#8358; <span id="serviceCharge">9480</span></span>
+                        </p>
+                        <small>Cost for service & packaging</small>
+                    </li>
+                    <li>
+                        <p class="menus">
+                            <span>
+                                Delivery Fee
+                            </span>
+                            <span class="pull-right">&#8358; <span id="deliveryFee">9480</span></span>
+                        </p>
+                        <small>Cost for delivering your product</small>
+                    </li>
+                    <li>
+                        <p class="menus fw-700">
+                            <span>
+                                TOTAL
+                            </span>
+                            <span class="pull-right">&#8358; <span id="grandTP">9480</span></span>
+                        </p>
+                    </li>
+                    <li>
+                        <a href="checkout.html" class="btn btn-success btn-block btn-cart btn-larger">Proceed To Checkout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="footer">
-            <ul class="p-l-0">
-                <li>
-                    <p class="menus">
-                        <span>
-                            TOTAL
-                        </span>
-                        <span class="pull-right">&#8358; <span id="totalP">9480</span></span>
-                    </p>
-                </li>
-                <li>
-                    <p class="menus">
-                        <span>
-                            10% Service Charge
-                        </span>
-                        <span class="pull-right">&#8358; <span id="serviceCharge">9480</span></span>
-                    </p>
-                     <small>Cost for service & packaging</small>
-                </li>
-                <li>
-                    <p class="menus">
-                        <span>
-                            Delivery Fee
-                        </span>
-                        <span class="pull-right">&#8358; <span id="deliveryFee">9480</span></span>
-                    </p>
-                     <small>Cost for delivering your product</small>
-                </li>
-                <li>
-                    <p class="menus fw-700">
-                        <span>
-                            TOTAL
-                        </span>
-                        <span class="pull-right">&#8358; <span id="grandTP">9480</span></span>
-                    </p>
-                </li>
-                <li>
-                    <a href="checkout.html" class="btn btn-success btn-block btn-cart btn-larger">Proceed To Checkout</a>
-                </li>
-            </ul>
+        <div class="empty_bag dis-flex">
+            <div class="wrap text-center">
+                <span class="fa fa-shopping-basket m-b-50" style="font-size: 150px;"></span>
+                
+                <h4 class="m-b-50 l-spacing-2">Your food basket is empty</h4>
+            
+                <h4 class="l-spacing-2">Use the search bar to ﬁnd<br> and add items to your basket</h4>
+            </div>
         </div>
     </nav>
 @endsection
