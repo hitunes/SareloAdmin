@@ -228,27 +228,27 @@ const app = {
   var dataLog = obj.products;
   
   $("#querySelector").on("keyup", function(e){
-      $.getJSON('http://switch.ng/sarelo/assets/js/data.json')
+   
+      $.getJSON('/api/search/'+ $("#querySelector").val())
       
       .done(function(response) {
           
-          var search = $("#querySelector").val();
-          var regex = new RegExp(search, 'i');
-          var output;
-          $.each(response.products, function(key, val){
-            console.log(response.products);
-            //console.log(key, val);
-            if((val.unit.search(regex) != -1) || (val.name.search(regex) != -1)){
-              output += "<li>";
+          var output = '<ul class="suggestions">';
+          $.each(response.data.products, function(key, val){
+            
+              output += `<li id="${val.id}" data-product-id="${val.id}" data-product = "${val.name}" data-price = "${val.price}" data-unit = "${val.unit}" data-img = "${val.img}">`;
               output += `<div class="clearfix pos-rel">
-                    <span class="pull-left products pos-abs">${val.product}</span>
-                    <span class="pull-right price">&#8358; ${val.product}</span><br>
-                    <small class="pull-right">${val.product}</small>
+                    <span class="pull-left products pos-abs">${val.name}</span>
+                    <span class="pull-right price">&#8358; ${val.price}</span><br>
+                    <small class="pull-right">${val.unit}</small>
                 </div>`;
               output += "</li>";
-            }
+ 
           });
-          $(".suggestions").html(output);
+          output += '</ul>';
+
+         $(".update").html(output);
+        
       }).fail(function() {
           var searchField = $("#querySelector").val();
           
@@ -259,7 +259,7 @@ const app = {
             
             if((val.unit.search(myExp) != -1) || (val.product.search(myExp) != -1)) {
 
-                output += `<li id="${val.id}" data-product = "${val.product}" data-price = "${val.price}" data-unit = "${val.unit}" data-img = "${val.img}">`;
+                output += `<li id="${val.id}" data-product-id="${val.id}" data-product = "${val.product}" data-price = "${val.price}" data-unit = "${val.unit}" data-img = "${val.img}">`;
                 output += `<div class="clearfix pos-rel">
                               <span class="pull-left products pos-abs">${val.product}</span>
                               <span class="pull-right price">&#8358; ${val.price}</span><br>
@@ -275,60 +275,70 @@ const app = {
           }
           $(".update").html(output);
       }).always(function(){
-        console.log("oh!");
+      
         $('.loading').hide();
       });
     });
   },
   cartCtrl: function(){
     var cart = [];
-    console.log(cart);
+  
     //function that returns objects
-    function Item (name, price, count, unit, img){
+    function Item (name, price, count, unit, img, product_id){
       this.name = name;
       this.price = price;
       this.count = count;
       this.unit = unit;
       this.img = img;
+      this.id = product_id
     }
    
     //addItemToCart(name, price, count)
-    function addItemToCart(name, price, count, unit, img){
-      for(var i in cart){
-        if(cart[i].name === name){
-          cart[i].count += count;
-          saveCart();
-          return;
-        }
-      }
-      var item = new Item(name, price, count, unit, img);
-      cart.unshift(item);
-      saveCart();
+    function addItemToCart(name, price, count, unit, img, product_id){
+      console.log(unit);
+      // for(var i in cart){
+      //   if(cart[i].name === name){
+      //     cart[i].count += count;
+      //     saveCart();
+      //     return;
+      //   }
+      // }
+      var item = new Item(name, price, count, unit, img, product_id);
+      
+      saveCartItem(item);
     }
 
     //removeItemFromCart(name) from the cart, just one item
-    function removeItemFromCart(name){
-      for(var i in cart){
-        if(cart[i].name === name){
-          cart[i].count--;
-          if(cart[i].count === 0){
-            cart.splice(i, 1);
-          }
-          break;
-        }
-      }
-      saveCart();
+    function removeItemFromCart(cart_item_id){
+      var action = 'subtract';
+
+      $.getJSON('/cart/update/' + cart_item_id + '/' + action).done(function () {
+         displayCart();
+      })
+      // for(var i in cart){
+      //   if(cart[i].name === name){
+      //     cart[i].count--;
+      //     if(cart[i].count === 0){
+      //       cart.splice(i, 1);
+      //     }
+      //     break;
+      //   }
+      // }
+      // saveCart();
     }
 
     //removeItemFromCartAll, all items....
-    function removeItemFromCartAll(name){
-      for(var i in cart){
-        if(cart[i].name === name){
-            cart.splice(i, 1);
-            break;
-        }
-      }
-      saveCart();
+    function removeItemFromCartAll(cart_item_id){
+      $.getJSON('/cart/delete/' + cart_item_id ).done(function () {
+         displayCart();
+      })
+      // for(var i in cart){
+      //   if(cart[i].name === name){
+      //       cart.splice(i, 1);
+      //       break;
+      //   }
+      // }
+      // saveCart();
     }
 
     //clear cart
@@ -367,14 +377,14 @@ const app = {
         }
         cartCopy.push(itemCopy);
       }
-      console.log(cartCopy);
+ 
       return cartCopy;
     }
 
     //save cart.............
     function saveCart(){
       localStorage.setItem("shoppingCart", JSON.stringify(cart));
-    }
+    } 
 
     //load the cart
     function loadCart(){
@@ -406,52 +416,72 @@ const app = {
 
     //display items in cart
     function displayCart(){
-      var cartArray = listCart();
-      
-      cartArray.length === 0 ? a() : b();
 
-      var output = "";
-      for(var i in cartArray){
-        output += `
-           <li class="pos-rel animated" data-product="${cartArray[i].name}" id="pr_${cartArray[i].name}">
+      $.getJSON('/cart').done(function(response){
+          
+          var output = "";
+          
+          $.each(response.data, function(key, val){
+            response.data.length === 0 ? a() : b();
+            output += `
+            <li class="pos-rel animated" data-product="${val.name}" id="pr_${val.name}">
               <div class="row">
                   <div class="col-xs-6">
                       <div class="row">
                           <div class="col-xs-5 p-r-0">
                               <div class="thumbnail">
-                                  <img src="${cartArray[i].img}">
+                                  <img src="${val.img}">
                               </div>
                           </div>
                           <div class="col-xs-7 p-l-0">
                               <div class="pr-text">
-                                  <h4 class="m-b-0 m-t-5">${cartArray[i].name}</h4>
-                                  <small>${cartArray[i].unit}</small>
+                                  <h4 class="m-b-0 m-t-5">${val.name}</h4>
+                                  <small>${val.options.unit}</small>
                               </div>
                           </div>
                       </div>
                   </div>
                   <div class="col-xs-3 p-l-0">
                       <div class="counter">
-                          <div class="minus" data-product="${cartArray[i].name}">-</div>
-                          <div class="count">${cartArray[i].count}</div>
-                          <div class="plus" data-product="${cartArray[i].name}">+</div>
+                          <div class="minus" data-product="${val.name}" data-cart-item-id="${key}">-</div>
+                          <div class="count">${val.qty}</div>
+                          <div class="plus" data-product="${val.name}" data-cart-item-id="${key}">+</div>
                       </div>
                   </div>
                   <div class="col-xs-3">
-                      <h4 class="m-b-0 m-t-5">&#8358; ${cartArray[i].price}</h4>
+                      <h4 class="m-b-0 m-t-5">&#8358; ${val.price}</h4>
                   </div>
               </div>
-              <span class="fa fa-remove pos-abs" data-product="${cartArray[i].name}"></span>
-           </li>
-        `;
-      }
-     
-      $("#basketList").html(output);
-      $("#items").html(countCart());
-      $("#totalP").html(totalCart());
-      $("#serviceCharge").html(serviceChargeCtrl(10));
-      $("#deliveryFee").html(deliveryCtrl(1000));
-      $("#grandTP").html(totalCart() + serviceChargeCtrl(10) + deliveryCtrl(1000));
+              <span class="fa fa-remove pos-abs" data-product="${val.name}" data-cart-item-id="${key}"></span>
+           </li>`;
+
+        })
+          
+
+            $("#basketList").html(output);
+            $("#items").html(countCart());
+            $("#totalP").html(totalCart());
+            $("#serviceCharge").html(serviceChargeCtrl(10));
+            $("#deliveryFee").html(deliveryCtrl(1000));
+            $("#grandTP").html(totalCart() + serviceChargeCtrl(10) + deliveryCtrl(1000));
+      })
+  
+    }
+
+    function saveCartItem(item){
+
+      postData = item
+        $.post('/cart/add', postData, function (data) {
+          // displayCart();
+        })
+    }
+
+    function updateCartItem(cart_id) {
+       var action = 'addition';
+
+      $.getJSON('/cart/update/' + cart_id + '/' + action).done(function () {
+         displayCart();
+      })
     }
 
   
@@ -466,30 +496,31 @@ const app = {
         var name = $(this).attr("data-product");
         var price = $(this).attr("data-price");
         var unit = $(this).attr("data-unit");
-         var img = $(this).attr("data-img");
-        addItemToCart(name, price, 1, unit, img);
+        var img = $(this).attr("data-img");
+        var product_id = $(this).attr("data-product-id");
+        addItemToCart(name, price, 1, unit, img, product_id);
         displayCart();
-        console.log(cart);
+
         e.stopImmediatePropagation();
     });
 
     //remove items from cart
     $(document).on('click', 'li .fa-remove', function(){
-      var name = $(this).attr('data-product');
-      removeItemFromCartAll(name);
-      displayCart();
+      var id = $(this).attr('data-cart-item-id');
+      removeItemFromCartAll(id);
+  
     });
 
     $(document).on('click', '.counter .plus', function(){
       var name = $(this).attr('data-product');
-     
-      addItemToCart(name, 0, 1, 0, 0);
-      displayCart();
+      var cart_id = $(this).attr('data-cart-item-id');
+      
+      updateCartItem(cart_id);
     });
 
     $(document).on('click', '.counter .minus', function(){
-      var name = $(this).attr('data-product');
-      removeItemFromCart(name);
+      var id = $(this).attr('data-cart-item-id');
+      removeItemFromCart(id);
       displayCart();
     });
 
@@ -498,231 +529,5 @@ const app = {
     displayCart();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //add items to cart
-    /*
-    $(document).on('click','.suggestions li', function(e){
-          //add open to html
-          $("html").addClass("sidebar-lg");
-          
-          //var $this = $(this);
-          
-          var buys = `
-              <li class="pos-rel animated slideInDown" data-product="${$(this).attr('data-product')}" id="pr_${$(this).attr('id')}">
-                  <div class="row">
-                      <div class="col-xs-6">
-                          <div class="row">
-                              <div class="col-xs-5 p-r-0">
-                                  <div class="thumbnail">
-                                      <img src="assets/img/loaders/map-loader.gif">
-                                  </div>
-                              </div>
-                              <div class="col-xs-7 p-l-0">
-                                  <div class="pr-text">
-                                      <h4 class="m-b-0 m-t-5">${$(this).attr('data-product')}</h4>
-                                      <small>${$(this).attr('data-unit')}</small>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-xs-3 p-l-0">
-                          <div class="counter">
-                              <div class="minus">-</div><div class="count">1</div><div class="plus">+</div>
-                          </div>
-                      </div>
-                      <div class="col-xs-3">
-                          <h4 class="m-b-0 m-t-5">&#8358; ${$(this).attr('data-price')}</h4>
-                      </div>
-                  </div>
-                  <span class="fa fa-remove pos-abs"></span>
-              </li>
-          `;
-          
-          //count items as a click on list
-          
-
-          //if I have a product in the list already don't append just count on
-          if($("#basketList").find('#' + $(buys)[0].id).length){
-            $("#" + `pr_${$(this).attr('id')}`).find('.count').text(Number( $("#" + `pr_${$(this).attr('id')}`).find('.count').text()) + 1);
-            
-            return;
-          }
-          //.context
-          $("#basketList").prepend(buys);
-          e.stopImmediatePropagation();   
-    });
-
-    //increase the items
-    $(document).on('click', '.counter div', function(){
-      // console.log($(this));
-      if($(this).hasClass("minus")){
-        if(Number($(this).next().text()) == 1 ){
-          return;
-        }
-        $(this).next().text(Number($(this).next().text()) - 1);
-      }
-      if($(this).hasClass("plus")){
-          $(this).prev().text(Number($(this).prev().text()) + 1);
-      }
-    });
-
-    //remove items from cart
-    $(document).on('click', 'li .fa-remove', function(){
-      $(this).parent("li").remove();
-    });
-    */
-
-  },
-  switchForm : function(){
-
-        //var current_fs, next_fs, previous_fs; //fieldsets
-        //var left, opacity, scale; //fieldset properties which we will animate
-       // var animating; //flag to prevent quick multi-click glitches
-	   let current_fs,
-	   next_fs,
-	   previous_fs,
-	   left,
-	   opacity,
-	   scale,
-	   animating;
-
-	   const next = Array.from(document.querySelectorAll('.next'));
-	   const previous = document.querySelectorAll('.previous');
-     const prowess = document.getElementById('progressbar');
-	   console.log(next);
-	   //arrays of element...
-	   const progressbar = prowess.querySelectorAll('li');
-	   const fieldsets = Array.from(document.getElementsByTagName('fieldset'));
-	   //console.log(fieldsets);
-	 
-	   function clickHandler () {
-		 // if(animating){ return false;}
-		  //animating = true;
-		  current_fs = this.parentNode;
-		 // console.log(current_fs);
-		  next_fs = this.parentNode.nextElementSibling; 
-		  progressbar[fieldsets.indexOf(next_fs)].classList.add("active");
-		  next_fs.classList.add("current");
-		  next_fs.style.display = 'block';
-		  current_fs.classList.remove('current');
-		  current_fs.classList.add('outClass');
-		   current_fs.style.display = 'none';
-	   }
-
-	    function clickHandler2 () {
-		 // if(animating){ return false;}
-		  //animating = true;
-		  current_fs = this.parentNode;
-		  console.log(current_fs);
-		  prev_fs = this.parentNode.previousElementSibling; 
-		  console.log(prev_fs);
-		  progressbar[fieldsets.indexOf(current_fs)].classList.remove("active");
-		  current_fs.classList.remove("current");
-		  current_fs.style.display = 'none';
-		  prev_fs.classList.add('current');
-		  prev_fs.classList.remove('outClass');
-		  prev_fs.style.display = 'block';
-	   }
-
-	   next.forEach(function(nexting){
-		    nexting.addEventListener('click', clickHandler);
-	   });
-
-	   previous.forEach(function(prev){
-		   prev.addEventListener('click', clickHandler2);
-	   });
-	  
-
-        /*$(".next").click(function(){
-          if(animating) return false;
-          animating = true;
-
-          current_fs = $(this).parent();
-          next_fs = $(this).parent().next();
-
-          //activate next step on progressbar using the index of next_fs
-          $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-          //show the next fieldset
-          next_fs.show();
-          //hide the current fieldset with style
-          current_fs.animate({opacity: 0}, {
-          step: function(now, mx) {
-              //as the opacity of current_fs reduces to 0 - stored in "now"
-              //1. scale current_fs down to 80%
-              scale = 1 - (1 - now) * 0.2;
-			  console.log(now);
-              //2. bring next_fs from the right(50%)
-              left = (now * 50)+"%";
-              //3. increase opacity of next_fs to 1 as it moves in
-              opacity = 1 - now;
-              current_fs.css({'transform': 'scale('+scale+')'});
-              next_fs.css({'left': left, 'opacity': opacity});
-            },
-            duration: 800,
-            complete: function(){
-              current_fs.hide();
-              animating = false;
-            }//,
-            //this comes from the custom easing plugin
-            //easing: 'easeInOutBack'
-          });
-        });
-
-        $(".previous").click(function(){
-          if(animating) return false;
-          animating = true;
-
-          current_fs = $(this).parent();
-          previous_fs = $(this).parent().prev();
-
-          //de-activate current step on progressbar
-          $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-
-          //show the previous fieldset
-          previous_fs.show();
-          //hide the current fieldset with style
-          current_fs.animate({opacity: 0}, {
-            step: function(now, mx) {
-              //as the opacity of current_fs reduces to 0 - stored in "now"
-              //1. scale previous_fs from 80% to 100%
-              scale = 0.8 + (1 - now) * 0.2;
-              //2. take current_fs to the right(50%) - from 0%
-              left = ((1-now) * 50)+"%";
-              //3. increase opacity of previous_fs to 1 as it moves in
-              opacity = 1 - now;
-              current_fs.css({'left': left});
-              previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
-            },
-            duration: 800,
-            complete: function(){
-              current_fs.hide();
-              animating = false;
-            }//,
-            //this comes from the custom easing plugin
-            //easing: 'easeInOutBack'
-          });
-        });
-*/
-        $(".submit").click(function(){
-          return false;
-        })
-      }  
-  
+  } 
 }

@@ -155,7 +155,7 @@
                 <div class="login-box">
                   <!-- logo in here -->
                   <div class="logo">
-                      <a href="index.html">
+                      <a href="/">
                          <img src="assets/img/logo/sarelo2.svg">
                       </a>
                   </div>
@@ -188,7 +188,7 @@
                     </form>
                     <div class="or-separator">OR</div>
                     <div class="social-login">
-                        <button class="btn btn-block btn-facebook"><i class="fa fa-facebook m-r-20"></i> Sign in with Facebook</button>
+                        <a href="/social/login/facebook" class="btn btn-block btn-facebook"><i class="fa fa-facebook m-r-20"></i> Sign in with Facebook</a>
                     </div>
                  
                 </div>

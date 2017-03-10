@@ -13,7 +13,8 @@ class ProductTransformer extends Fractal\TransformerAbstract
             'id' => $product->id,
             'name' => $product->name,
             'description' => $product->description,
-            'price' => $product->price
+            'price' => $product->price,
+            'unit' => ($product->unit_type)? $product->unit_type->name: null
         ];
     }
 }

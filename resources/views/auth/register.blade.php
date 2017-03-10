@@ -164,7 +164,7 @@
                 <div class="login-box">
                   <!-- logo in here -->
                   <div class="logo">
-                      <a href="index.html">
+                      <a href="/">
                          <img src="assets/img/logo/sarelo2.svg">
                       </a>
                   </div>

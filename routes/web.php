@@ -30,7 +30,7 @@ Route::get('/test', [
 ]);
 
 
-Route::get('/cart', 'CartsController@addCartItem');
+// Route::get('/cart', 'CartsController@addCartItem');
 // Route::resource('products', 'ProductsController');
 Route::resource('admin/products', 'Admin\\ProductsController');
 Route::resource('admin/categories', 'Admin\\CategoriesController');
@@ -46,3 +46,12 @@ Route::resource('admin/charges', 'Admin\\ChargesController');
 
 Route::get('social/login/{provider}', 'Auth\\SocialAuthController@redirectToProvider');
 Route::get('social/login/{provider}/callback', 'Auth\\SocialAuthController@handleProviderCallback');
+
+
+Route::post('/cart/add', 'CartsController@addCartItem');
+Route::get('/cart', 'CartsController@getCartItems');
+Route::get('/cart/update/{cart_id}/{action}/', 'CartsController@updateCart');
+Route::get('/cart/delete/{cart_id}', 'CartsController@deleteCartItem');
+Route::get('/undefined', function(){
+    echo json_encode(['status' => 'success']);
+});
