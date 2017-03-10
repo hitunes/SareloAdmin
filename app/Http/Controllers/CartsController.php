@@ -5,8 +5,26 @@ use \Cart;
 
 use Illuminate\Http\Request;
 
+use League\Fractal;
+
+use League\Fractal\Serializer\DataArraySerializer;
+
+use App\Transformers\ChargeTransformer;
+
+
+use App\Models\Charge;
+
 class CartsController extends Controller
 {
+    public function __construct()
+    {
+        $this->manager = new Fractal\Manager();
+
+        $this->manager->setSerializer(new DataArraySerializer());
+
+        $this->charges = $this->getCharges();
+        
+    }
 
     public function addCartItem(Request $request)
     {
@@ -34,7 +52,8 @@ class CartsController extends Controller
 
     public function getCartItems()
     {
-        return response()->json(['status' => 'success', 'data' => Cart::content()]);
+        $payload = ['cart' => Cart::content(), 'charges' => $this->charges['data']];
+        return response()->json(['status' => 'success', 'data' => $payload]);
     }
 
     public function updateCart(Request $request, $cart_id)
@@ -64,5 +83,15 @@ class CartsController extends Controller
         Cart::remove($id);
 
         return response()->json(['status' => 'success', 'data' => Cart::content()]);        
+    }
+
+
+    private function getCharges()
+    {
+        $charges = Charge::all();
+
+        $resource = new Fractal\Resource\Collection($charges, new ChargeTransformer);
+
+        return $this->manager->createData($resource)->toArray();
     }
 }

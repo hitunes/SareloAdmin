@@ -392,9 +392,9 @@ const app = {
     }
 
     //calculates service charges here....
-    function serviceChargeCtrl(percent){
+    function serviceChargeCtrl(percent, total_cost){
       serviceCharge = 0;
-      serviceCharge = (percent/100) * totalCart();
+      serviceCharge = (percent/100) * total_cost;
       return serviceCharge;
     }
 
@@ -420,9 +420,11 @@ const app = {
       $.getJSON('/cart').done(function(response){
           
           var output = "";
+          var totalCount = 0;
+          var total_cost = 0;
           
-          $.each(response.data, function(key, val){
-            response.data.length === 0 ? a() : b();
+          $.each(response.data.cart, function(key, val){
+            
             output += `
             <li class="pos-rel animated" data-product="${val.name}" id="pr_${val.name}">
               <div class="row">
@@ -454,16 +456,40 @@ const app = {
               </div>
               <span class="fa fa-remove pos-abs" data-product="${val.name}" data-cart-item-id="${key}"></span>
            </li>`;
+            totalCount += val.qty;
+            total_cost += val.subtotal;
 
+            
         })
-          
+     
+        total_cost === 0 ? a() : b();
+          for (var i = 0; i < response.data.charges.length; i++) {
+        
+             if(response.data.charges[i].name == "Delivery fee"){
+               var delivery_fee = deliveryCtrl(response.data.charges[i].fixed_amount);
+               $("#deliveryFee").html(delivery_fee);
+               
+             }
 
-            $("#basketList").html(output);
-            $("#items").html(countCart());
-            $("#totalP").html(totalCart());
-            $("#serviceCharge").html(serviceChargeCtrl(10));
-            $("#deliveryFee").html(deliveryCtrl(1000));
-            $("#grandTP").html(totalCart() + serviceChargeCtrl(10) + deliveryCtrl(1000));
+             if(response.data.charges[i].name == "Service Charge"){
+               var service_charge = serviceChargeCtrl(response.data.charges[i].percentage, total_cost);                              
+               $("#serviceCharge").html(service_charge);
+             }
+      
+          }
+        
+          
+          $("#basketList").html(output);
+          $("#items").html(totalCount/*countCart()*/);
+          $("#totalP").html(totalCart());
+          // $("#serviceCharge").html(serviceChargeCtrl(10));
+          // $("#deliveryFee").html(deliveryCtrl(1000));
+          // $("#grandTP").html(totalCart() + serviceChargeCtrl(10) + deliveryCtrl(1000));
+
+            $("#grandTP").html(total_cost + service_charge + delivery_fee);
+
+          
+          
       })
   
     }
