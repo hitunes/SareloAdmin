@@ -481,7 +481,7 @@ const app = {
           
           $("#basketList").html(output);
           $("#items").html(totalCount/*countCart()*/);
-          $("#totalP").html(totalCart());
+          $("#totalP").html(total_cost);
           // $("#serviceCharge").html(serviceChargeCtrl(10));
           // $("#deliveryFee").html(deliveryCtrl(1000));
           // $("#grandTP").html(totalCart() + serviceChargeCtrl(10) + deliveryCtrl(1000));
