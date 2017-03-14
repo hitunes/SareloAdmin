@@ -74,7 +74,7 @@ namespace :deploy do
         on roles(:app) do
             within release_path  do
             	execute "cp #{release_path}/.env.example #{release_path}/.env"
-                execute :composer, "install --no-dev" # install dependencies
+                execute :composer, "install" # install dependencies --no-dev on production
                 execute :composer, "dump-autoload -o" # reload autoload file dependencies
                 execute "php #{release_path}/artisan key:generate"
                 execute "chmod -R 777 #{release_path}/storage"
