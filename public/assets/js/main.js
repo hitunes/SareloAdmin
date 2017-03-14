@@ -485,11 +485,7 @@ const app = {
           // $("#serviceCharge").html(serviceChargeCtrl(10));
           // $("#deliveryFee").html(deliveryCtrl(1000));
           // $("#grandTP").html(totalCart() + serviceChargeCtrl(10) + deliveryCtrl(1000));
-
-            $("#grandTP").html(total_cost + service_charge + delivery_fee);
-
-          
-          
+          $("#grandTP").html(total_cost + service_charge + delivery_fee); 
       })
   
     }
@@ -547,7 +543,6 @@ const app = {
     $(document).on('click', '.counter .minus', function(){
       var id = $(this).attr('data-cart-item-id');
       removeItemFromCart(id);
-      displayCart();
     });
 
     saveCart();
