@@ -322,11 +322,11 @@
             <!-- ===Nav bar starts here == -->
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
-                    <div class="navbar-header">
+                    <!--<div class="navbar-header">
                         <a class="navbar-brand navbar-link" href="index.html">
                             <img src="assets/img/logo/sarelo2.svg">                        </a>
                         <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                    </div>
+                    </div>-->
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav navbar-right">
                             
@@ -355,116 +355,40 @@
                 <!-- <div class="contents m-auto width-30p"> -->
                     <!-- Order details section -->
                     <div class="row">
-                        <div class="col-md-12">
-                
-                            <!-- multistep form -->
-                            <div class="form-box clearfix">
-                                <form id="switchForm" class="clearfix forms">
-                                    <!-- progressbar -->
-                                    <ul id="progressbar">
-                                        <li class="active">BILLING ADDRESS</li>
-                                        <li>PAYMENT METHOD</li>
-                                        <li>REVIEW YOUR ORDER</li>
-                                    </ul>
-                                    <!-- fieldsets -->
-                                    <fieldset>
-                                    <!--  <span class="input input-switch">
-                                        <input class="input-field input-field-switch" type="text" name="fullname"/>
-                                        <label class="input-label input-label-switch input-label-switch-color-1" for="fullname">
-                                            <span class="input-label-content input-label-content-switch">Full Name</span>
-                                        </label>
-                                    </span>
-                                    <span class="input input-switch">
-                                        <input class="input-field input-field-switch" type="text" name="email"/>
-                                        <label class="input-label input-label-switch input-label-switch-color-1" for="address">
-                                            <span class="input-label-content input-label-content-switch">Address</span>
-                                        </label>
-                                    </span>
-                                    <span class="input input-switch">
-                                        <input class="input-field input-field-switch" type="text" name="phone"/>
-                                        <label class="input-label input-label-switch input-label-switch-color-1" for="phone">
-                                            <span class="input-label-content input-label-content-switch">Phone Number</span>
-                                        </label>
-                                    </span> -->
-                                    <!-- <span class="input input-switch">
-                                        <input class="input-field input-field-switch" type="date" name="date"/>
-                                        <label class="input-label input-label-switch input-label-switch-color-1" for="phone">
-                                            <span class="input-label-content input-label-content-switch">Time of Delivery</span><br>
-                                        </label>
-                                    </span> -->
-                                    
-                                        <div class="form-group">
-                                            <label for="email" class="checkout-label pull-left">Full Name</label>
-                                            <input type="email" class="form-control" id="email">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="address" class="checkout-label pull-left">Address</label>
-                                            <input type="text" class="form-control" id="address">
-                                        </div>
-                                        <div class="form-group" >
-                                            <label for="tel-nos" class="checkout-label pull-left">Telephone Number</label>
-                                            <input type="text" class="form-control" id="tel-nos">
-                                        </div>
-                                        
-                                    
-                                    
-
-                                        <input type="button" name="next" class="next action-button pull-right" value="Next" />
-                                    </fieldset>
-                                    <fieldset>
-                                    <div class="row">
-                                        <div class="col-xs-6 col-md-3">
-                                            <label class="checkbox-inline pull-left checkout-label"><input type="checkbox" value="">Credit Card</label>
-                                        </div>
-                                        <div class="col-xs-6 col-md-4 col-md-offset-5 ">
-                                            <img src="assets/img/icon/master.png">
-                                            <img src="assets/img/icon/visa.png">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="sel1" class="pull-left checkout-label">Credit Card Type</label>
-                                        <select class="form-control" id="sel1">
-                                            <option></option>
-                                            <option>Master Card</option>
-                                            <option>VISA Card</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group" >
-                                        <label for="credit-card-nos" class="checkout-label pull-left">Credit Card Number</label>
-                                        <input type="text" class="form-control" id="credit-card-nos">
-                                    </div>
-                                    <div class="form-group" >
-                                        <label for="expire-date" class="checkout-label pull-left">Expiry Date</label>
-                                        <input type="date" class="form-control" id="expire-date">
-                                    </div>
-                                    <div class="form-group" >
-                                        <label for="ver-nos" class="checkout-label pull-left">Card Verification nos</label>
-                                        <input type="text" class="form-control" id="ver-nos">
-                                    </div>
-
-                                        
-                                    <input type="button" name="previous" class="previous action-button pull-left" value="Previous" />
-                                    <input type="button" name="next" class="next action-button pull-right" value="Next" />
-                                    </fieldset>
-                                    <fieldset>
-                                        <div class="row">
-                                            <div class="col-xs-12 col-md-12">
-                                                <p class="checkout-label">Sub-total : 
-                                                <b class="pull-right">$ 12.00</b></p>
-                                                <p class="checkout-label">Delivey Fees : 
-                                                <b class="pull-right">$ 2.450</b></p>
-                                                <p class="checkout-label">Grand Total : 
-                                                <b class="pull-right">$ 14.45</b></p>
-                                            </div>  
-                                        </div>
-                                        <br>
-                                        
-                                            <input type="button" name="previous" class="previous action-button pull-left" value="Previous" />
-                                            <button class="btn continue pull-right"><i class="fa fa-money"></i> Place Order</button>
-                                
-                                    </fieldset>
-                                </form>
+                        <div class="col-md-8 col-md-offset-2">
+                            <h3 class="align-right"><strong>Payment Method</strong></h3>
+                            <div>
+                                <br>
                             </div>
+                            <form>
+                                <div class="form-group">
+                                    <label for="sel1">Credit Card Type:</label>
+                                    <select class="form-control" id="sel1">
+                                        <option></option>
+                                        <option>Master Card</option>
+                                        <option>VISA Card</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="digits">Card Number:</label>
+                                    <input type="text" class="form-control" id="digits">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pwd">Phone Number:</label>
+                                    <input type="text" class="form-control" id="pwd">
+                                </div>
+                                 <div class="form-group">
+                                    <label for="exp">Expiry Date:</label>
+                                    <input type="text" class="form-control" id="exp">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV:</label>
+                                    <input type="text" class="form-control" id="cvv">
+                                </div>
+                                
+                                <a class="btn btn-success btn-cart pull-left" href="checkout_address.html">Previous</a>
+                                <a type="submit" class="btn btn-success btn-cart pull-right" href="checkout_order.html">Next</a>
+                            </form>
                              
                         </div>
                               
@@ -487,9 +411,11 @@
     </div>
     <nav id="menu-right" class="l-0  border-right">
         <div class="header">
-            <h3>MY FOOD BASKET <span class="pull-right items_container">
-                <span id="items">0</span>
-                <span class="t-u-c">items</span>
+            <h3>MY FOOD BASKET 
+                <span class="pull-right items_container">
+                    <span id="items">0</span>
+                    <span class="t-u-c">items</span>
+                </span>
             </h3>
         </div>
         <div class="full_bag">
@@ -523,8 +449,8 @@
                     </li>-->
                 </ul>
             </div>
-            <div class="footer">
-                <ul class="p-l-0">
+            <div class="footer dis-flex">
+                <ul class="p-l-0 width-100p">
                     <li>
                         <p class="menus">
                             <span>
@@ -559,9 +485,9 @@
                             <span class="pull-right">&#8358; <span id="grandTP">9480</span></span>
                         </p>
                     </li>
-                    <li>
+                    <!--<li>
                         <a href="checkout.html" class="btn btn-success btn-block btn-cart btn-larger">Proceed To Checkout</a>
-                    </li>
+                    </li>-->
                 </ul>
             </div>
         </div>

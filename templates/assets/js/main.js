@@ -228,7 +228,8 @@ const app = {
   var dataLog = obj.products;
   
   $("#querySelector").on("keyup", function(e){
-      $.getJSON('http://switch.ng/sarelo/assets/js/data.json')
+      e.preventDefault();
+      $.getJSON('#')
       
       .done(function(response) {
           
@@ -438,7 +439,7 @@ const app = {
                       </div>
                   </div>
                   <div class="col-xs-3">
-                      <h4 class="m-b-0 m-t-5">&#8358; ${cartArray[i].price}</h4>
+                      <h4 class="m-b-0 m-t-5 align-right">&#8358; ${cartArray[i].price}</h4>
                   </div>
               </div>
               <span class="fa fa-remove pos-abs" data-product="${cartArray[i].name}"></span>
@@ -493,7 +494,7 @@ const app = {
       displayCart();
     });
 
-    saveCart();
+    //saveCart();
     loadCart();
     displayCart();
 
@@ -720,9 +721,9 @@ const app = {
           });
         });
 */
-        $(".submit").click(function(){
-          return false;
-        })
-      }  
+    $(".submit").click(function(){
+      return false;
+    })
+  }  
   
 }

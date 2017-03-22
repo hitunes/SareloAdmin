@@ -70,7 +70,7 @@ body, html{
   top: 0px;
   left: 0px;
   right: 0px;
-  font-family: "Rubik-Black", -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
 /* general styling */
@@ -103,6 +103,10 @@ body, html{
 /*==Width ==*/
 .width-100{
   width: 100px;
+}
+
+.width-200{
+  width: 200px;
 }
 .width-30p{
   width: 30% !important;
@@ -177,10 +181,20 @@ body, html{
   margin-bottom: 100px !important;
 }
 
+.m-l-450{
+  margin-left: 450px;
+}
+
 /* fonts and @font-face */
 
 .fw-900{
   font-weight: 900;
+}
+.fw-700{
+  font-weight: 700;
+}
+.fw-500{
+  font-weight: 500;
 }
 .fw-700{
   font-weight: 700;
@@ -217,6 +231,22 @@ body, html{
   position: absolute !important;
 }
 
+.r-0{
+  right: 0px;
+}
+
+.l-0{
+  left: 0px;
+}
+
+.t-0{
+  top: 0px;
+}
+
+.b-0{
+  bottom: 0px;
+}
+
 h1,h2{
   color: #4A4A4A;
   font-size: 33px;
@@ -226,12 +256,11 @@ h1,h2{
 h3{
   color: #4A4A4A;
   font-size: 17px;
-  font-weight: 200px;
-  font-family: "Rubik-Medium";
+  font-weight: 500;
 }
 
 h4{
-  font-weight: 600;
+  font-weight: 400;
   font-size: 19px;
 }
 
@@ -258,6 +287,14 @@ h5{
 
 .line-40{
   line-height: 40px;
+}
+
+.border-left{
+  border-left: 3px solid #D2D2D2;
+}
+
+.border-right{
+  border-right: 3px solid #D2D2D2;
 }
 /* general styling ends here */
 
@@ -311,6 +348,7 @@ a, a:hover, a:active, a:visited{
 .btn-facebook, .btn-facebook:focus,
 .btn-facebook:hover, .btn-facebook:visited{
   color: #FFF;
+  border-radius: 0px;
 }
 
 /*over write bootstrap thumbnail */
@@ -319,18 +357,22 @@ a, a:hover, a:active, a:visited{
   border:none;
 }
 /*main wrapper must have same height as body i.e behave as the body */
+.homePage div.main{
+ background:url(../../assets/img/vegetable2.png) no-repeat;
+ background-size:cover;
+  background-position: -60px 450px; 
+}
+
 div.main{
   min-height: 100vh;
-  background:url(../../assets/img/vegetable2.png) no-repeat;
-  background-size:cover;
   position:relative;
    display: flex;
   flex-direction: column;
   width: 100%;
-  background-position: 0px 350px; 
   transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
-
 }
+
+
 
 .sidebar-lg div.main{
   width: calc(100% - 450px);
@@ -351,7 +393,7 @@ div.main{
   background: rgba(0,0,0, 0);
   width: 100%;
   min-height: 100vh;
-  padding: 40px;
+  padding: 10px 40px 40px 40px;
   position: relative;
 }
 
@@ -485,11 +527,9 @@ navbar-default .navbar-nav > li {
     left: auto;
     top: 0px;
     height: 100%;
-    right: 0px;
     background: #FFF;
     padding: 0px;
     overflow: hidden;
-    border-left: 3px solid #D2D2D2;
     -webkit-transform: translate3d(450px, 0, 0);
     -moz-transform: translate3d(450px, 0, 0);
     -o-transform: translate3d(450px, 0, 0);
@@ -514,7 +554,7 @@ navbar-default .navbar-nav > li {
 
 #menu-right .header, 
 #menu-right .footer{
-  background: #E8E8E8;
+  background: #F7F7F7;
   padding: 10px 20px;
 }
 
@@ -528,7 +568,7 @@ navbar-default .navbar-nav > li {
 
 #menu-right .body{
   height: calc(100% - 224px);
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 #menu-right .body ul li{
@@ -543,6 +583,7 @@ navbar-default .navbar-nav > li {
 .items_container{
   font-size: 12px;
   padding-top: 5px;
+  font-weight: 400;
 }
 
 #items{
@@ -570,6 +611,14 @@ navbar-default .navbar-nav > li {
   right: 12px;
   top: 10px;
   color: #E8E8E8;
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all  0.5s ease;
+  transition: all  0.5s ease;
+}
+
+#basketList li:hover .fa-remove{
+  opacity: 1;
 }
 
 #menu-right .footer ul{
@@ -591,8 +640,7 @@ navbar-default .navbar-nav > li {
 
 #menu-right .footer ul small{
   color: #9B9B9B;
-  font-family: "Rubik-Regular";
-
+  font-weight: 400;
 }
 
 .counter{
@@ -623,7 +671,7 @@ navbar-default .navbar-nav > li {
 #menu-right .empty_bag{
     height: calc(100% - 84px);
     padding: 10px;
-    background: #E8E8E8;
+    background: #F7F7F7;
     border-top: 3px solid #9B9B9B;
     opacity: 0.5;
     position: absolute;
@@ -729,7 +777,9 @@ div.clearfix .price{
   font-weight: 700;
 }
 
-div.clearfix small{
+div.clearfix small,
+#menu-right small
+{
   color: #9B9B9B;
   /*font-size: 10px;*/
 }
@@ -752,7 +802,7 @@ div.clearfix small{
     letter-spacing: 0.5px;
     display: block;
     text-align: center;
-    color: #FFF;
+    color: #9B9B9B;
     font-size: 14px;
     letter-spacing: 3px;
     margin: 14px 0;
@@ -761,7 +811,7 @@ div.clearfix small{
 
 .or-separator:before, .or-separator:after {
     content: ' ';
-    border-bottom: 1px solid rgba(255,255,255,0.5);
+    border-bottom: 1px solid #9B9B9B;
     width: 42%;
     display: block;
     position: absolute;
@@ -845,6 +895,7 @@ div.clearfix small{
 }
 
 .form-control{
+  border-radius: 0px;
   box-shadow: none;
 }
 .form-control:focus{
@@ -854,11 +905,10 @@ div.clearfix small{
 
 .query .form-control{
   height: 70px;
-  border: none;
+  border-color: #D2D2D2;
   border-radius: 0px;
-  font-weight: 600;
+  font-weight: 300;
   font-size: 17px;
-  font-family: "Rubik-Light";
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 0 0 1px rgba(0,0,0,0.08);
 }
 
