@@ -59,3 +59,32 @@
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+#
+#
+role :app, %w{root@104.131.168.249}
+server '104.131.168.249', user: 'root', roles: %w{app}
+
+set :ssh_options, {
+    user: 'root',
+}
+
+namespace :deploy do
+    desc "Build"
+    after :updated, :build do
+        on roles(:app) do
+            within release_path  do
+            	execute "cp #{release_path}/.env.example #{release_path}/.env"
+                execute :composer, "install" # install dependencies --no-dev on production
+                execute :composer, "dump-autoload -o" # reload autoload file dependencies
+                execute "php #{release_path}/artisan key:generate"
+                execute "chmod -R 777 #{release_path}/storage"
+                execute "chmod -R 777 #{release_path}/bootstrap/cache"
+                execute "chmod -R 777 #{release_path}/vendor"
+                execute "chmod -R 777 #{release_path}/public"
+                execute "php #{release_path}/artisan migrate"
+                # execute "php #{release_path}/artisan storage:link"
+                # execute "php #{release_path}/artisan cache:clear"
+            end
+        end
+    end
+end

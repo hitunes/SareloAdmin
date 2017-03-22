@@ -81,6 +81,13 @@
   border-radius: 0px;
 }
 
+.login-box .logo a{
+    display: flex;
+}
+
+.login-box .logo a img{
+    margin: 0 auto;
+}
 
 
 .form-control {
@@ -117,36 +124,36 @@
 
 <body class="clearfix">
     <div class="main clearfix">
-        <div class="overlay dis-flex">
+        <div class="overlay">
             <!-- ===Nav bar starts here == -->
-            <!-- <nav class="navbar navbar-default">
+             <nav class="navbar navbar-default">
                 <div class="container-fluid">
-                    <div class="navbar-header">
+                    <!--<div class="navbar-header">
                         <a class="navbar-brand navbar-link" href="index.html">
                             <img src="assets/img/logo/sarelo2.svg">
                         </a>
                         <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                    </div>
+                    </div>-->
                     <div class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav navbar-right">
                             
                             <li role="presentation">
                                 <span>Already Have an account</span><br>
-                                <a href="signIn.html" class="c-brand-purple"><span> Sign In</span></a>
+                                <a href="/signin" class="c-brand-purple"><span> Sign In</span></a>
                             </li>
-                            <li>
+                            <li class="hidden">
                                 <div class="divider"></div>
                             </li>
-                            <li role="presentation">
+                            <li role="presentation" class="hidden">
                                 <span>No Account?</span><br>
-                                <a href="signUp.html">
+                                <a href="/signup">
                                     <span>Sign Up</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-            </nav> -->
+             </nav>
             <!-- ===Nav bar endss here == -->
 
             <!-- ===Main contents begins here ==-->
@@ -161,7 +168,6 @@
                          <img src="assets/img/logo/sarelo2.svg">
                       </a>
                   </div>
-                  <div><br><br></div>
                   <form action="{{ route('register') }}" method="post" class="forms">
                     {{ csrf_field() }}
                       <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -195,8 +201,9 @@
                       </div>
                       <button id="submit-form" class="btn  btn-block btn-cart" data-style="expand-left"><span class="ladda-label">Sign Up</span></button>
                   </form>
-                  <div class="login-links">
-                      <a href="/signin">Already have an account? <strong>Sign In</strong></a>
+                  <div class="or-separator">OR</div>
+                  <div class="social-login">
+                    <a href="/social/login/facebook" class="btn btn-block btn-facebook"><i class="fa fa-facebook m-r-20"></i> Sign Up with Facebook</a>
                   </div>
                  
                 </div>
@@ -207,13 +214,7 @@
             <!-- ===Main contents ends here ==-->
 
             <!-- ===Page footer begins here == -->
-            <!--<div class="footy">
-                <ul>
-                    <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Terms and Condition</a></li>
-                    <li><a href="#">Feedbacks</a></li>
-                </ul>
-            </div>-->
+          
             <!-- ===Page footer ends here == -->
         </div>
     </div>
@@ -227,32 +228,7 @@
         </div>
         <div class="body" id="basket">
             <ul class="p-l-0 list-type-none" id="basketList">
-                <!--<li class="pos-rel animated slideInDown">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <div class="row">
-                                <div class="col-xs-6 p-r-0">
-                                    <div class="thumbnail">
-                                        <img src="assets/img/loaders/map-loader.gif">
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 p-l-0">
-                                    <div class="pr-text">
-                                        <h4 class="m-b-0 m-t-5">Beans</h4>
-                                        <small>Paint bucket</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-3">
-                            m
-                        </div>
-                        <div class="col-xs-3">
-                            m
-                        </div>
-                    </div>
-                    <span class="fa fa-remove pos-abs"></span>
-                </li>-->
+              
             </ul>
         </div>
         <div class="footer">
@@ -305,16 +281,10 @@
     <script>
         
         $(document).ready(function(){
-           // app.dataFetcher();
+
            app.fecther();
            app.cartCtrl();
-        
 
-           /* $('.loading').bind('ajaxStart', function(){
-                $(this).show();
-            }).bind('ajaxStop', function(){
-                $(this).hide();
-            });*/
             
         });
     </script>

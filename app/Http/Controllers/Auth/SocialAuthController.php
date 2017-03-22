@@ -30,13 +30,9 @@ class SocialAuthController extends Controller
     public function handleProviderCallback(SocialAccountService $service, $provider)
     {
         $user = $service->createOrGetUser(Socialite::driver($provider)->user(), $provider);
-        
-        // $profile = Developer::where('user_id', $user->id)->first();
-        // if($profile){
-        //     auth()->login($user);
-        //     return redirect()->to('developer/dashboard');
-        // }
-        session(['user' => $user]);
+      
+        auth()->login($user);
+       
         return redirect()->to('home');
     }
 }

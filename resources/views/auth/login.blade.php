@@ -73,7 +73,13 @@
   border-radius: 0px;
 }
 
+.login-box .logo a{
+    display: flex;
+}
 
+.login-box .logo a img{
+    margin: 0 auto;
+}
 
 .form-control {
     display: inline-block;
@@ -143,15 +149,16 @@
 
             <!-- ===Main contents begins here ==-->
             <div class="container clearfix" style="padding: 20px; width: 30%; margin: 0 auto; color: #222;">
+
+
                 <!--login box in here -->
                 <div class="login-box">
                   <!-- logo in here -->
                   <div class="logo">
-                      <a href="index.html">
+                      <a href="/">
                          <img src="assets/img/logo/sarelo2.svg">
                       </a>
                   </div>
-               
                   <div><br><br></div>
                     <form action="{{ route('login') }}" method="post" class="forms">
                         {{ csrf_field() }}
@@ -178,9 +185,10 @@
                         </div>
                         <button type="submit" class="btn btn-cart btn-block">Sign In</button>
                     </form>
+                    </form>
                     <div class="or-separator">OR</div>
                     <div class="social-login">
-                        <a href="/social/login/facebook/callback" class="btn btn-block btn-facebook"><i class="fa fa-facebook m-r-20"></i> Sign in with Facebook</a>
+                        <a href="/social/login/facebook" class="btn btn-block btn-facebook"><i class="fa fa-facebook m-r-20"></i> Sign in with Facebook</a>
                     </div>
                  
                 </div>

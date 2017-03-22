@@ -27,5 +27,11 @@ class Product extends Model
      */
     protected $fillable = ['name', 'description', 'category_id', 'price', 'unit', 'unit_type_id'];
 
+
+    public function unit_type()
+    {
+        return $this->belongsTo('App\Models\UnitType');
+    }
+
     
 }
