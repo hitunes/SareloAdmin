@@ -550,5 +550,70 @@ const app = {
     displayCart();
 
 
-  } 
+  },
+
+switchForm : function(){
+
+        //var current_fs, next_fs, previous_fs; //fieldsets
+        //var left, opacity, scale; //fieldset properties which we will animate
+       // var animating; //flag to prevent quick multi-click glitches
+	   let current_fs,
+	   next_fs,
+	   previous_fs,
+	   left,
+	   opacity,
+	   scale,
+	   animating;
+
+	   const next = Array.from(document.querySelectorAll('.next'));
+	   const previous = document.querySelectorAll('.previous');
+     const prowess = document.getElementById('progressbar');
+	   console.log(next);
+	   //arrays of element...
+	   const progressbar = prowess.querySelectorAll('li');
+	   const fieldsets = Array.from(document.getElementsByTagName('fieldset'));
+	   //console.log(fieldsets);
+	 
+	   function clickHandler () {
+		 // if(animating){ return false;}
+		  //animating = true;
+		  current_fs = this.parentNode;
+		 // console.log(current_fs);
+		  next_fs = this.parentNode.nextElementSibling; 
+		  progressbar[fieldsets.indexOf(next_fs)].classList.add("active");
+		  next_fs.classList.add("current");
+		  next_fs.style.display = 'block';
+		  current_fs.classList.remove('current');
+		  current_fs.classList.add('outClass');
+		   current_fs.style.display = 'none';
+	   }
+
+	    function clickHandler2 () {
+		 // if(animating){ return false;}
+		  //animating = true;
+		  current_fs = this.parentNode;
+		  console.log(current_fs);
+		  prev_fs = this.parentNode.previousElementSibling; 
+		  console.log(prev_fs);
+		  progressbar[fieldsets.indexOf(current_fs)].classList.remove("active");
+		  current_fs.classList.remove("current");
+		  current_fs.style.display = 'none';
+		  prev_fs.classList.add('current');
+		  prev_fs.classList.remove('outClass');
+		  prev_fs.style.display = 'block';
+	   }
+
+	   next.forEach(function(nexting){
+		    nexting.addEventListener('click', clickHandler);
+	   });
+
+	   previous.forEach(function(prev){
+		   prev.addEventListener('click', clickHandler2);
+	   });
+	  
+    $(".submit").click(function(){
+      return false;
+    })
+  }  
+
 }

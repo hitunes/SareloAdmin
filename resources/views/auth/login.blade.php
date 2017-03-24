@@ -57,7 +57,6 @@
 }
 .or-separator:before, .or-separator:after {
     content: ' ';
-    border-bottom: 1px solid #fff;
     width: 42%;
     display: block;
     position: absolute;
@@ -65,7 +64,6 @@
 }
 .login-box{
   margin-bottom: 20px;
-  background: rgba(181,181,181,0.3);
   min-height: 50px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -130,14 +128,14 @@
                             
                             <li role="presentation" class="hidden">
                                 <span>Already Have an account</span><br>
-                                <a href="/signin" class="c-brand-purple"><span> Sign In</span></a>
+                                <a href="signin" class="c-brand-purple"><span> Sign In</span></a>
                             </li>
                             <li class="hidden">
                                 <div class="divider"></div>
                             </li>
                             <li role="presentation">
                                 <span>No Account?</span><br>
-                                <a href="/signup">
+                                <a href="signup">
                                     <span>Sign Up</span>
                                 </a>
                             </li>
@@ -155,8 +153,8 @@
                 <div class="login-box">
                   <!-- logo in here -->
                   <div class="logo">
-                      <a href="/">
-                         <img src="assets/img/logo/sarelo2.svg">
+                      <a href="index.html">
+                         <img src="/assets/img/logo/sarelo2.svg">
                       </a>
                   </div>
                   <div><br><br></div>
@@ -185,8 +183,7 @@
                         </div>
                         <button type="submit" class="btn btn-cart btn-block">Sign In</button>
                     </form>
-                    </form>
-                    <div class="or-separator">OR</div>
+                     <div class="or-separator">OR</div>
                     <div class="social-login">
                         <a href="/social/login/facebook" class="btn btn-block btn-facebook"><i class="fa fa-facebook m-r-20"></i> Sign in with Facebook</a>
                     </div>
@@ -207,16 +204,10 @@
     <script>
         
         $(document).ready(function(){
-           // app.dataFetcher();
+       
            app.fecther();
            app.cartCtrl();
-        
 
-           /* $('.loading').bind('ajaxStart', function(){
-                $(this).show();
-            }).bind('ajaxStop', function(){
-                $(this).hide();
-            });*/
             
         });
     </script>

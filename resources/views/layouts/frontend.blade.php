@@ -58,7 +58,7 @@
 }
 </style>
 
-<body class="clearfix">
+<body class="clearfix homePage">
     @yield('content')
 
     <script src="assets/js/jquery.min.js"></script>

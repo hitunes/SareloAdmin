@@ -36,6 +36,8 @@ Route::resource('admin/products', 'Admin\\ProductsController');
 Route::resource('admin/categories', 'Admin\\CategoriesController');
 Route::resource('admin/unit-types', 'Admin\\UnitTypesController');
 Route::resource('admin/orders', 'Admin\\OrdersController');
+Route::resource('admin/slots', 'Admin\\SlotsController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
@@ -52,6 +54,10 @@ Route::post('/cart/add', 'CartsController@addCartItem');
 Route::get('/cart', 'CartsController@getCartItems');
 Route::get('/cart/update/{cart_id}/{action}/', 'CartsController@updateCart');
 Route::get('/cart/delete/{cart_id}', 'CartsController@deleteCartItem');
+Route::match(['POST', 'GET'],'/checkout/billing-address', 'CheckoutController@billingAddress');
+Route::get('/checkout/payment-details', 'CheckoutController@payment');
+
+
 Route::get('/undefined', function(){
     echo json_encode(['status' => 'success']);
 });
