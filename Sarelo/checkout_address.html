@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sarelo</title>
+        <!--my icons here -->
+        <link rel="stylesheet" type="text/css" href="assets/icon/font-awesome/css/font-awesome.min.css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
+        <!-- Main CSS here -->
+        <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    </head>
+    <body>
+    
+        <div class="wrapper clearfix">
+            <header class="m-b-30">
+                <!-- ===Nav bar starts here == -->
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand navbar-link" href="index.html">
+                                <img src="assets/img/logo/sarelo2.svg">
+                            </a>
+                        </div>
+                        
+                    </div>
+                </nav>
+            <!-- ===Nav bar endss here == -->
+                <div class="progressContainer dis-flex clearfix">
+                    <ul id="progressbar" class="p-l-0 list-style-none text-center width-60p">
+                        <li class="active">
+                            <div class="ball"></div>Address
+                        </li>
+                        <li>
+                            <div class="ball"></div>Delivery Slot
+                        </li>
+                        <li>
+                            <div class="ball"></div>Payment
+                        </li>
+                        <li>
+                            <div class="ball"></div>Confirmation
+                        </li>
+                    </ul>
+                </div>
+            </header>
+            <section>
+                <div class="container width-94p">
+                   <div class="row">
+                       <div class="col-md-8">
+                           <div class="card">
+                                <div class="content clearfix">
+                                    <form>
+                                        <fieldset>
+                                            <h4 class="title">
+                                                <i class="fa fa-map-marker"></i>
+                                                Enter Delivery Address
+                                            </h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="address">
+                                                            Street Address
+                                                            <sup>
+                                                                <i class="fa fa-asterisk"></i>
+                                                            </sup>
+                                                        </label>
+                                                        <input type="text" class="form-control" id="address" name="address">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="number">
+                                                            Phone Number
+                                                            <sup>
+                                                                <i class="fa fa-asterisk"></i>
+                                                            </sup>
+                                                        </label>
+                                                        <input type="text" class="form-control" id="number" name="number">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="city">
+                                                            City
+                                                            <sup>
+                                                                <i class="fa fa-asterisk"></i>
+                                                            </sup>
+                                                        </label>
+                                                        <input type="text" class="form-control" id="city" name="city">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="instruction">
+                                                            Instruction for Delivery(optional)
+                                                        </label>
+                                                        <textarea class="form-control" name="instruction" id="instruction"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <div class="divider">
+                                            <hr>
+                                        </div>
+                                        <fieldset>
+                                            <h4 class="title">
+                                                <i class="fa fa-user-circle-o"></i>
+                                                Personal Details
+                                            </h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="first_name">
+                                                            First Name
+                                                            <sup>
+                                                                <i class="fa fa-asterisk"></i>
+                                                            </sup>
+                                                        </label>
+                                                        <input type="text" class="form-control" id="first_name" name="first_name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="last_name">
+                                                            Last Name
+                                                            <sup>
+                                                                <i class="fa fa-asterisk"></i>
+                                                            </sup>
+                                                        </label>
+                                                        <input type="text" class="form-control" id="last_name" name="last_name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="email">
+                                                            Email Address
+                                                            <sup>
+                                                                <i class="fa fa-asterisk"></i>
+                                                            </sup>
+                                                        </label>
+                                                        <input type="email" class="form-control" id="email" name="email">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="password">
+                                                            Password
+                                                        </label>
+                                                       <input type="password" class="form-control" name="password" id="password">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <button type="submit" class="btn btn-primary pull-right" disabled="">Continue</button>
+                                    </form>
+                                </div>
+                           </div>
+                           <p class="text-center">*Terms and condtions apply on free delivery. Learn more</p>
+                       </div>
+                       <div class="col-md-4">
+                           <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Cart Summary</h4>
+                                </div>
+                                <div class="content">
+                                    <p class="category">The total cost is inclusive of tax, delivery and service charge.</p>
+                                    <ul class="p-l-0 list-style-none">
+                                        <li>
+                                            <hr>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Your Basket</span>
+                                                <span class="pull-right"> 
+                                                    &#8358;
+                                                    <span class="cash">9882</span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Sales Tax</span>
+                                                <span class="pull-right"> 
+                                                    &#8358;
+                                                    <span class="cash">9882</span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Service charge</span>
+                                                <span class="pull-right"> 
+                                                    &#8358;
+                                                    <span class="cash">9882</span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Delivery Charge</span>
+                                                <span class="pull-right"> 
+                                                    &#8358;
+                                                    <span class="cash">9882</span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <hr>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Total Due</span>
+                                                <span class="pull-right"> 
+                                                    &#8358;
+                                                    <span class="cash">9882</span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                           </div>
+                       </div>
+                   </div> 
+                </div>
+            </section>
+        </div>
+
+        
+        <!-- jQuery -->
+        <script src="assets/js/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+         <script>
+             
+         </script>
+    </body>
+</html>
