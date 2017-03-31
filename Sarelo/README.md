@@ -1,1 +1,0 @@
-An E-Commerce site where buyers and sellers get things done swiftly and realtime.
