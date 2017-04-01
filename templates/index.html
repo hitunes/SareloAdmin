@@ -30,8 +30,7 @@
                             <ul class="nav navbar-nav navbar-right">
                                 
                                 <li role="presentation">
-                                    <span>Already Have an account</span><br>
-                                    <a href="signIn.html" class="c-brand-purple"><span>Login</span></a>
+                                    <span>Already have an Account?</span><br>
                                     <a href="signIn.html" class="c-brand-purple"><span> Login</span></a>
                                 </li>
                                 <li>
@@ -147,9 +146,13 @@
         <script src="assets/js/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
         <script src="assets/js/bootstrap/bootstrap.min.js"></script>
+        <!-- Main JS -->
+        <script src="assets/js/main.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
          <script>
              $(document).ready(function(){
+                app.fecther();
+                app.cartCtrl();
                 $("#cart_action, #overlay").on("click", function(){
                     $("html").toggleClass("open");
                     //if this is a button toggle it's content....
