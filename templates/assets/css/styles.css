@@ -197,11 +197,11 @@ div.clearfix small,
 }
 
 #sidebar .footer{
-  height: 224px;
+  height: 300px;
 }
 
 #sidebar .body{
-  height: calc(100% - 224px);
+  height: calc(100% - 300px);
   overflow-y: hidden;
 }
 
