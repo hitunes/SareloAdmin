@@ -24,16 +24,15 @@ aside.sidebar{
   height: 100%;
   right: 0px;
   top: 75px;
-  padding: 20px 20px 10px 20px;
+  /*padding: 20px 20px 10px 20px;*/
   overflow: hidden;
   z-index: 1;
-  background: #F7F7F7;
   transform: translate3d(450px, 0, 0);
   transition: all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1);
 }
 
 #overlay{
-  width: 100%;
+  width: calc(100% - 450px);
   height: 100%;
   position: absolute;
   top: 75px;
@@ -296,6 +295,8 @@ div.clearfix small,
   display: none;
   height: 100%;
   z-index: 10;
+  background: #FFF;
+  border-top: 3px solid #9B9B9B;
 }
 
 #sidebar .empty_bag{
