@@ -280,7 +280,8 @@ const app = {
         $('.loading').hide();
       });
     });
-  },
+},
+
   cartCtrl: function(){
     var cart = [];
     console.log(cart);
@@ -462,7 +463,7 @@ const app = {
     $(document).on('click', '.suggestions li', function(e){
         e.preventDefault();
        //add open to html
-       $("html").addClass("sidebar-lg");
+       $("html").addClass("open");
        //name, price, and count
         var name = $(this).attr("data-product");
         var price = $(this).attr("data-price");
@@ -497,98 +498,6 @@ const app = {
     //saveCart();
     loadCart();
     displayCart();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //add items to cart
-    /*
-    $(document).on('click','.suggestions li', function(e){
-          //add open to html
-          $("html").addClass("sidebar-lg");
-          
-          //var $this = $(this);
-          
-          var buys = `
-              <li class="pos-rel animated slideInDown" data-product="${$(this).attr('data-product')}" id="pr_${$(this).attr('id')}">
-                  <div class="row">
-                      <div class="col-xs-6">
-                          <div class="row">
-                              <div class="col-xs-5 p-r-0">
-                                  <div class="thumbnail">
-                                      <img src="assets/img/loaders/map-loader.gif">
-                                  </div>
-                              </div>
-                              <div class="col-xs-7 p-l-0">
-                                  <div class="pr-text">
-                                      <h4 class="m-b-0 m-t-5">${$(this).attr('data-product')}</h4>
-                                      <small>${$(this).attr('data-unit')}</small>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-xs-3 p-l-0">
-                          <div class="counter">
-                              <div class="minus">-</div><div class="count">1</div><div class="plus">+</div>
-                          </div>
-                      </div>
-                      <div class="col-xs-3">
-                          <h4 class="m-b-0 m-t-5">&#8358; ${$(this).attr('data-price')}</h4>
-                      </div>
-                  </div>
-                  <span class="fa fa-remove pos-abs"></span>
-              </li>
-          `;
-          
-          //count items as a click on list
-          
-
-          //if I have a product in the list already don't append just count on
-          if($("#basketList").find('#' + $(buys)[0].id).length){
-            $("#" + `pr_${$(this).attr('id')}`).find('.count').text(Number( $("#" + `pr_${$(this).attr('id')}`).find('.count').text()) + 1);
-            
-            return;
-          }
-          //.context
-          $("#basketList").prepend(buys);
-          e.stopImmediatePropagation();   
-    });
-
-    //increase the items
-    $(document).on('click', '.counter div', function(){
-      // console.log($(this));
-      if($(this).hasClass("minus")){
-        if(Number($(this).next().text()) == 1 ){
-          return;
-        }
-        $(this).next().text(Number($(this).next().text()) - 1);
-      }
-      if($(this).hasClass("plus")){
-          $(this).prev().text(Number($(this).prev().text()) + 1);
-      }
-    });
-
-    //remove items from cart
-    $(document).on('click', 'li .fa-remove', function(){
-      $(this).parent("li").remove();
-    });
-    */
-
   },
   switchForm : function(){
 
