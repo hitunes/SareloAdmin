@@ -378,35 +378,10 @@ div.clearfix small,
     border-bottom-color: transparent;
 }
 
-
-
-
 .wizard .nav-tabs > li {
     width: 25%;
     height: 100%;
 }
-
-/*.wizard li:after {
-    content: " ";
-    position: absolute;
-    opacity: 0;
-    margin: 0 auto;
-    bottom: 0px;
-    border: 2px solid  #fecb3f;
-    border-bottom-color: #fecb3f;
-    transition: 0.1s ease-in-out;
-    width: 100%;
-}
-*/
-/*.wizard li.active:after {
-    content: " ";
-    position: absolute;
-    opacity: 1;
-    margin: 0 auto;
-    bottom: 0px;
-    border: 2px solid transparent;
-    border-bottom-color: #fecb3f;
-}*/
 
 .wizard .nav-tabs > li a {
     font-size: 12px;
@@ -842,6 +817,7 @@ a, a:focus, a:hover, a:active { outline: 0; text-decoration: none; }
 .f-150{font-size:150px !important;}
 
 /****  Font Weight  ****/
+.w-100 {font-weight: 100 !important;}
 .w-300 {font-weight: 300 !important;}
 .w-500 {font-weight:500 !important;}
 .w-600 {font-weight:600 !important;}
@@ -896,4 +872,22 @@ label.required:after {content: '*';color: #FF5757;margin-left: 2px;}
   background-image:url(../img/tomatoes-min.jpeg);
   background-size:cover;
   background-position:center center;
+}
+
+.addresses{
+  top: 40%;
+  right: 20px;
+  display: none;
+}
+
+.form-control{
+  resize: none;
+}
+
+.form-control:hover,
+.form-control:active,
+.form-control:visited,
+.form-control:focus{
+  border-color: #CCC;
+  box-shadow: none;
 }
