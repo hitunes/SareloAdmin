@@ -513,7 +513,7 @@ const app = {
     $(document).on('click', '.suggestions li', function(e){
         e.preventDefault();
        //add open to html
-       $("html").addClass("sidebar-lg");
+       $("html").addClass("open");
        //name, price, and count
         var name = $(this).attr("data-product");
         var price = $(this).attr("data-price");
@@ -550,6 +550,23 @@ const app = {
     displayCart();
 
 
+  },
+
+   chooser: function(){
+    $("label.card").find(".addresses").on("change", function(){
+      $("#addressContent").find(".bg-brand-purple-op").removeClass("bg-brand-purple-op");
+      $(this).parent().addClass("bg-brand-purple-op");
+    });
+  },
+  validator: function(){
+    console.log($("#addressForm").parsley().isValid());
+    var form = $("#addressForm");
+    if( form.parsley().isValid()){
+      $("#submit").prop('disabled', false); 
+    }
+    else{
+      $("#submit").prop('disabled', 'disabled'); 
+    }
   },
 
 switchForm : function(){

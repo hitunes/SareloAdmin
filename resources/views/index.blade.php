@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Sarelo</title>
         <!--my icons here -->
-        <link rel="stylesheet" type="text/css" href="assets/icon/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/assets/icon/font-awesome/css/font-awesome.min.css">
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.min.css">
         <!-- Main CSS here -->
@@ -128,7 +128,7 @@
             <div class="empty_bag dis-flex">
                 <div class="wrap text-center">
                     <span class="fa fa-shopping-basket m-b-50" style="font-size: 150px;"></span>
-                    <!--<img src="assets/img/icon/Sarelo-basket.png" class="width-200">-->
+
 
                     <h4 class="m-b-50 l-spacing-2">Your food basket is empty</h4>
 
@@ -144,7 +144,7 @@
         <!-- jQuery -->
         <script src="/assets/js/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
-        <script src=/"assets/js/bootstrap/bootstrap.min.js"></script>
+        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- Main JS -->
         <script src="/assets/js/main.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

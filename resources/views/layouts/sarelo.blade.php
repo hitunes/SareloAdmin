@@ -93,8 +93,12 @@
         <script src="/assets/js/parsley.min.js"></script>
         <script src="/assets/js/main.js"></script>
         <script>
-            app.validator();
-        </script>
+      
+             $(document).ready(function(){
+                app.validator();
+                app.chooser();
+             });
+         </script>
 
     </body>
 </html>

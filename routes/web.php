@@ -55,7 +55,15 @@ Route::get('/cart', 'CartsController@getCartItems');
 Route::get('/cart/update/{cart_id}/{action}/', 'CartsController@updateCart');
 Route::get('/cart/delete/{cart_id}', 'CartsController@deleteCartItem');
 Route::match(['POST', 'GET'],'/checkout/billing-address', 'CheckoutController@billingAddress');
-Route::get('/checkout/payment-details', 'CheckoutController@payment');
+Route::get('/checkout/choose-address', 'CheckoutController@chooseAddress');
+Route::get('/checkout/choose-delivery-slot', 'DeliveryController@index');
+Route::get('/checkout/confirm', 'ConfirmCheckoutController@confirm');
+Route::get('/checkout/payment-details', 'PaymentController@payment');
+
+
+Route::get('/new-address', 'AddressController@create');
+Route::post('/new-address', 'AddressController@store');
+
 
 
 Route::get('/undefined', function(){
