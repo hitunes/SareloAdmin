@@ -55,25 +55,9 @@
     transform: scale(1);
   }
 }
-.or-separator:before, .or-separator:after {
-    content: ' ';
-    border-bottom: 1px solid #B5B5B5;
-    width: 42%;
-    display: block;
-    position: absolute;
-    top: 0.6em;
-}
-.or-separator:before, .or-separator:after {
-    content: ' ';
-    border-bottom: 1px solid #fff;
-    width: 42%;
-    display: block;
-    position: absolute;
-    top: 0.6em;
-}
+
 .login-box{
   margin-bottom: 20px;
-  background: rgba(181,181,181,0.3);
   min-height: 50px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -139,14 +123,14 @@
                             
                             <li role="presentation">
                                 <span>Already Have an account</span><br>
-                                <a href="/signin" class="c-brand-purple"><span> Sign In</span></a>
+                                <a href="signIn.html" class="c-brand-purple"><span> Sign In</span></a>
                             </li>
                             <li class="hidden">
                                 <div class="divider"></div>
                             </li>
                             <li role="presentation" class="hidden">
                                 <span>No Account?</span><br>
-                                <a href="/signup">
+                                <a href="signUp.html">
                                     <span>Sign Up</span>
                                 </a>
                             </li>
@@ -214,66 +198,18 @@
             <!-- ===Main contents ends here ==-->
 
             <!-- ===Page footer begins here == -->
-          
+            <!--<div class="footy">
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms and Condition</a></li>
+                    <li><a href="#">Feedbacks</a></li>
+                </ul>
+            </div>-->
             <!-- ===Page footer ends here == -->
         </div>
     </div>
     <!-- BEGIN RIGHT MENU -->
-    <nav id="menu-right" >
-        <div class="header">
-            <h3>MY FOOD BASKET <span class="pull-right items_container">
-                <span id="items">0</span>
-                <span class="t-u-c">items</span>
-            </h3>
-        </div>
-        <div class="body" id="basket">
-            <ul class="p-l-0 list-type-none" id="basketList">
-              
-            </ul>
-        </div>
-        <div class="footer">
-            <ul class="p-l-0">
-                <li>
-                    <p class="menus">
-                        <span>
-                            TOTAL
-                        </span>
-                        <span class="pull-right">&#8358; <span id="totalP">9480</span></span>
-                    </p>
-                </li>
-                <li>
-                    <p class="menus">
-                        <span>
-                            10% Service Charge
-                        </span>
-                        <span class="pull-right">&#8358; <span id="serviceCharge">9480</span></span>
-                    </p>
-                     <small>Cost for service & packaging</small>
-                </li>
-                <li>
-                    <p class="menus">
-                        <span>
-                            Delivery Fee
-                        </span>
-                        <span class="pull-right">&#8358; <span id="deliveryFee">9480</span></span>
-                    </p>
-                     <small>Cost for delivering your product</small>
-                </li>
-                <li>
-                    <p class="menus fw-700">
-                        <span>
-                            TOTAL
-                        </span>
-                        <span class="pull-right">&#8358; <span id="grandTP">9480</span></span>
-                    </p>
-                </li>
-                <li>
-                    <a href="#" class="btn btn-success btn-block btn-cart">Proceed To Checkout</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
+   
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
@@ -284,7 +220,6 @@
 
            app.fecther();
            app.cartCtrl();
-
             
         });
     </script>

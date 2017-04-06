@@ -4,14 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class OrderProducts extends Model
+class UserAddress extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'OrderProducts';
+    protected $table = 'user_addresses';
 
     /**
     * The database primary key value.
@@ -21,11 +21,16 @@ class OrderProducts extends Model
     protected $primaryKey = 'id';
 
     /**
-     * Attributes that should be mass-assignable.
+     * Attributes that is not mass-assignable.
      *
      * @var array
      */
-    protected $fillable = ['order_id','product_id', 'price'];
+    protected $guarded = ['id'];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
     
 }

@@ -28,7 +28,7 @@ const app = {
     }
 
     function displayMatches(e) {
-      
+
       const matchArray = findMatches(this.value, cities);
       const html = matchArray.map(place => {
         const regex = new RegExp(this.value, 'gi');
@@ -49,12 +49,12 @@ const app = {
       lists.forEach(function(list){
         list.addEventListener('click', triga);
       })
-      
+
       /* ternary operator to hide or show list */
       this.value.length > 0 ? suggestions.style.display = 'block' : suggestions.style.display = 'none';
     }
 
-    
+
 
     const searchInput = document.querySelector('.search');
     const suggestions = document.querySelector('.suggestions');
@@ -65,7 +65,7 @@ const app = {
     //a function to show sidebar as soon as I click on the list of products filtered...
     /*const $html = document.getElementsByTagName('html')[0];
     const lists = Array.from(suggestions.querySelectorAll("li"));
-  
+
 
     lists.forEach(function(list){
       list.addEventListener('click', function(){
@@ -73,11 +73,11 @@ const app = {
         console.log(this.textContent);
       });
     })*/
-    
+
 
   },
   fecther: function(){
-  
+
   var obj = {
     products: [
       {
@@ -226,13 +226,13 @@ const app = {
   };
 
   var dataLog = obj.products;
-  
+
   $("#querySelector").on("keyup", function(e){
       e.preventDefault();
       $.getJSON('#')
-      
+
       .done(function(response) {
-          
+
           var search = $("#querySelector").val();
           var regex = new RegExp(search, 'i');
           var output;
@@ -252,12 +252,12 @@ const app = {
           $(".suggestions").html(output);
       }).fail(function() {
           var searchField = $("#querySelector").val();
-          
+
           var myExp = new RegExp(searchField, 'i');
-      
+
           var output = '<ul class="suggestions">';
           $.each(dataLog, function(key, val){
-            
+
             if((val.unit.search(myExp) != -1) || (val.product.search(myExp) != -1)) {
 
                 output += `<li id="${val.id}" data-product = "${val.product}" data-price = "${val.price}" data-unit = "${val.unit}" data-img = "${val.img}">`;
@@ -268,7 +268,7 @@ const app = {
                           </div>`;
                 output += "</li>";
             }
-            
+
           });
           output += '</ul>';
           if(searchField.length === 0){
@@ -293,7 +293,7 @@ const app = {
       this.unit = unit;
       this.img = img;
     }
-   
+
     //addItemToCart(name, price, count)
     function addItemToCart(name, price, count, unit, img){
       for(var i in cart){
@@ -360,7 +360,7 @@ const app = {
     //listCart return array[] of items
     function listCart(){
       var cartCopy = [];
-      
+
       for(var i in cart){
         var item = cart[i];
         var itemCopy = {};
@@ -409,7 +409,7 @@ const app = {
     //display items in cart
     function displayCart(){
       var cartArray = listCart();
-      
+
       cartArray.length === 0 ? a() : b();
 
       var output = "";
@@ -447,7 +447,7 @@ const app = {
            </li>
         `;
       }
-     
+
       $("#basketList").html(output);
       $("#items").html(countCart());
       $("#totalP").html(totalCart());
@@ -456,22 +456,24 @@ const app = {
       $("#grandTP").html(totalCart() + serviceChargeCtrl(10) + deliveryCtrl(1000));
     }
 
-  
 
 
 
-    $(document).on('click', '.suggestions li', function(e){
+
+      $(document).on('click', '.suggestions li', function(e){
         e.preventDefault();
        //add open to html
+
         $("html").addClass("open");
        //name, price, and count
         var name = $(this).attr("data-product");
         var price = $(this).attr("data-price");
         var unit = $(this).attr("data-unit");
-         var img = $(this).attr("data-img");
-        addItemToCart(name, price, 1, unit, img);
+        var img = $(this).attr("data-img");
+        var product_id = $(this).attr("data-product-id");
+        addItemToCart(name, price, 1, unit, img, product_id);
         displayCart();
-        console.log(cart);
+
         e.stopImmediatePropagation();
     });
 
@@ -484,7 +486,7 @@ const app = {
 
     $(document).on('click', '.counter .plus', function(){
       var name = $(this).attr('data-product');
-     
+
       addItemToCart(name, 0, 1, 0, 0);
       displayCart();
     });
@@ -543,13 +545,13 @@ const app = {
 	   const progressbar = prowess.querySelectorAll('li');
 	   const fieldsets = Array.from(document.getElementsByTagName('fieldset'));
 	   //console.log(fieldsets);
-	 
+
 	   function clickHandler () {
 		 // if(animating){ return false;}
 		  //animating = true;
 		  current_fs = this.parentNode;
 		 // console.log(current_fs);
-		  next_fs = this.parentNode.nextElementSibling; 
+		  next_fs = this.parentNode.nextElementSibling;
 		  progressbar[fieldsets.indexOf(next_fs)].classList.add("active");
 		  next_fs.classList.add("current");
 		  next_fs.style.display = 'block';
@@ -563,7 +565,7 @@ const app = {
 		  //animating = true;
 		  current_fs = this.parentNode;
 		  console.log(current_fs);
-		  prev_fs = this.parentNode.previousElementSibling; 
+		  prev_fs = this.parentNode.previousElementSibling;
 		  console.log(prev_fs);
 		  progressbar[fieldsets.indexOf(current_fs)].classList.remove("active");
 		  current_fs.classList.remove("current");
@@ -580,7 +582,7 @@ const app = {
 	   previous.forEach(function(prev){
 		   prev.addEventListener('click', clickHandler2);
 	   });
-	  
+
 
         /*$(".next").click(function(){
           if(animating) return false;
@@ -656,6 +658,6 @@ const app = {
     $(".submit").click(function(){
       return false;
     })
-  }  
-  
+  }
+
 }

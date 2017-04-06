@@ -1,191 +1,167 @@
-@extends('layouts.frontend')
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sarelo</title>
+        <!--my icons here -->
+        <link rel="stylesheet" type="text/css" href="/assets/icon/font-awesome/css/font-awesome.min.css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.min.css">
+        <!-- Main CSS here -->
+        <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+        <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    </head>
+    <body>
+        <div class="wrapper clearfix">
+            <header class="p-l-100">
+                <!-- ===Nav bar starts here == -->
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand navbar-link" href="/">
+                                <img src="/assets/img/logo/sarelo2.svg">
+                            </a>
+                            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="navcol-1">
+                            <ul class="nav navbar-nav navbar-right">
 
-
-@section('content')
-  <div class="main clearfix">
-        <div class="overlay">
-            <!-- ===Nav bar starts here == -->
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand navbar-link" href="index.html">
-                            <img src="assets/img/logo/sarelo2.svg">
-                        </a>
-                        <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                                <li role="presentation">
+                                    <span>Already have an Account?</span><br>
+                                    <a href="/login" class="c-brand-purple"><span> Login</span></a>
+                                </li>
+                                <li>
+                                    <div class="divider"></div>
+                                </li>
+                                <li role="presentation">
+                                    <span>No Account?</span><br>
+                                    <a href="/signup">
+                                        <span>Sign Up</span>
+                                    </a>
+                                </li>
+                                <li class="p-r-5 p-l-5">
+                                    <button class="btn btn_cart btn_action f-18 w-500" id="cart_action">
+                                        <i class="fa fa-shopping-basket m-r-5"></i>
+                                        <!--<img src="assets/img/icon/Sarelo-basket.png" width="27px">-->  My Basket
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="collapse navbar-collapse" id="navcol-1">
-                        <ul class="nav navbar-nav navbar-right">
-                            
-                            <li role="presentation">
-                                <span>Already Have an account</span><br>
-                                <a href="/signin" class="c-brand-purple"><span> Sign In</span></a>
-                            </li>
-                            <li>
-                                <div class="divider"></div>
-                            </li>
-                            <li role="presentation">
-                                <span>No Account?</span><br>
-                                <a href="/signup">
-                                    <span>Sign Up</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+                </nav>
             <!-- ===Nav bar endss here == -->
-
-            <!-- ===Main contents begins here ==-->
-            <div class="container-fluid">
-                <div class="contents m-auto m-t-60 m-b-100 width-80p">
-                    <h1 class="text-left l-spacing-5 fw-900 line-40">We will buy & deliver <span class="c-brand-green">fresh foodstuff!</span> from the market to you.</h1>
+            </header>
+            <section class="p-l-100">
+                <div class="contents m-t-80 m-b-100 width-50p">
+                    <h1 class="text-left l-spacing-2 fw-900 line-40 w-600">We will buy & deliver <span class="c-brand-green">fresh<br> foodstuff!</span> from the market to you.</h1>
                     <br><br><br>
                     <form class="query pos-rel">
-                        <input class="form-control search p-r-20 p-l-20" type="search" placeholder="What do you want to buy?...." id="querySelector">
-                        <div class="loading">
-                            <div class="loading-bar"></div>
-                            <div class="loading-bar"></div>
-                            <div class="loading-bar"></div>
-                            <div class="loading-bar"></div>
-                        </div>
-                        <div class="update"> 
-                            <!--<ul class="suggestions">
-                                <li class="clearfix">
-                                    <div class="clearfix pos-rel">
-                                        <span class="pull-left products pos-abs">RICE</span>
-                                        <span class="pull-right price">&#8358; 500</span><br>
-                                        <small class="pull-right">blah blahdf</small>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <div class="clearfix pos-rel">
-                                        <span class="pull-left products pos-abs">RICE</span>
-                                        <span class="pull-right price">&#8358; 500</span><br>
-                                        <small class="pull-right">blah blahdf</small>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <div class="clearfix pos-rel">
-                                        <span class="pull-left products pos-abs">RICE</span>
-                                        <span class="pull-right price">&#8358; 500</span><br>
-                                        <small class="pull-right">blah blahdf</small>
-                                    </div>
-                                </li>
-                                <li class="clearfix">
-                                    <div class="clearfix pos-rel">
-                                        <span class="pull-left products pos-abs">RICE</span>
-                                        <span class="pull-right price">&#8358; 500</span><br>
-                                        <small class="pull-right">blah blahdf</small>
-                                    </div>
-                                </li>
-                            </ul>-->
+                        <input class="form-control search p-r-20 p-l-40" type="search" placeholder="What do you want to buy?...." id="querySelector">
+                        <div class="update">
+
                         </div>
                     </form>
                 </div>
-                <!--<button class="btn btn-default btn-sm btn-cart" type="button"><i class="fa fa-shopping-cart"></i> Cart</button>-->
-            </div>
-            <!-- ===Main contents ends here ==-->
+            </section>
+        </div>
 
-            <!-- ===Page footer begins here == -->
-            <!--<div class="footy">
-                <ul>
-                    <li><a href="#">Privacy</a></li>
-                    <li><a href="#">Terms and Condition</a></li>
-                    <li><a href="#">Feedbacks</a></li>
-                </ul>
+        <!--sidebar menu on the right hand -->
+        <aside class="sidebar" id="sidebar">
+            <!--<div class="header">
+                <h3>MY FOOD BASKET
+                    <span class="pull-right items_container">
+                    <span id="items">0</span>
+                    <span class="t-u-c">items</span>
+                    </span>
+                </h3>
             </div>-->
-            <!-- ===Page footer ends here == -->
-        </div>
-    </div>
-    <!-- BEGIN RIGHT MENU -->
-    <nav id="menu-right" >
-        <div class="header">
-            <h3>MY FOOD BASKET <span class="pull-right items_container">
-                <span id="items">0</span>
-                <span class="t-u-c">items</span>
-            </h3>
-        </div>
-        <div class="full_bag">
-            <div class="body" id="basket">
-                <ul class="p-l-0 list-type-none" id="basketList">
-                    <!--<li class="pos-rel animated slideInDown">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="row">
-                                    <div class="col-xs-6 p-r-0">
-                                        <div class="thumbnail">
-                                            <img src="assets/img/loaders/map-loader.gif">
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 p-l-0">
-                                        <div class="pr-text">
-                                            <h4 class="m-b-0 m-t-5">Beans</h4>
-                                            <small>Paint bucket</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-3">
-                                m
-                            </div>
-                            <div class="col-xs-3">
-                                m
-                            </div>
-                        </div>
-                        <span class="fa fa-remove pos-abs"></span>
-                    </li>-->
-                </ul>
+            <div class="full_bag">
+                <div class="body" id="basket">
+                    <ul class="p-l-0 list-style-none" id="basketList">
+
+                    </ul>
+                </div>
+                <div class="footer">
+                    <ul class="p-l-0 list-style-none">
+                        <li>
+                            <p class="menus">
+                                <span>
+                                    TOTAL
+                                </span>
+                                <span class="pull-right">&#8358; <span id="totalP">9480</span></span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="menus">
+                                <span>
+                                    10% Service Charge
+                                </span>
+                                <span class="pull-right">&#8358; <span id="serviceCharge">9480</span></span>
+                            </p>
+                            <small>Cost for service & packaging</small>
+                        </li>
+                        <li>
+                            <p class="menus">
+                                <span>
+                                    Delivery Fee
+                                </span>
+                                <span class="pull-right">&#8358; <span id="deliveryFee">9480</span></span>
+                            </p>
+                            <small>Cost for delivering your product</small>
+                        </li>
+                        <li>
+                            <p class="menus fw-700">
+                                <span>
+                                    TOTAL
+                                </span>
+                                <span class="pull-right">&#8358; <span id="grandTP">9480</span></span>
+                            </p>
+                        </li>
+                        <li>
+                            <a href="/checkout/billing-address" class="btn btn-block btn_cart btn-larger">Proceed To Checkout</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer" style="">
-                <ul class="p-l-0">
-                    <li>
-                        <p class="menus">
-                            <span>
-                                TOTAL
-                            </span>
-                            <span class="pull-right">&#8358; <span id="totalP">9480</span></span>
-                        </p>
-                    </li>
-                    <li>
-                        <p class="menus">
-                            <span>
-                                10% Service Charge
-                            </span>
-                            <span class="pull-right">&#8358; <span id="serviceCharge">9480</span></span>
-                        </p>
-                        <small>Cost for service & packaging</small>
-                    </li>
-                    <li>
-                        <p class="menus">
-                            <span>
-                                Delivery Fee
-                            </span>
-                            <span class="pull-right">&#8358; <span id="deliveryFee">9480</span></span>
-                        </p>
-                        <small>Cost for delivering your product</small>
-                    </li>
-                    <li>
-                        <p class="menus fw-700">
-                            <span>
-                                TOTAL
-                            </span>
-                            <span class="pull-right">&#8358; <span id="grandTP">9480</span></span>
-                        </p>
-                    </li>
-                    <li>
-                        <a href="checkout.html" class="btn btn-success btn-block btn-cart btn-larger">Proceed To Checkout</a>
-                    </li>
-                </ul>
+            <div class="empty_bag dis-flex">
+                <div class="wrap text-center">
+                    <span class="fa fa-shopping-basket m-b-50" style="font-size: 150px;"></span>
+
+
+                    <h4 class="m-b-50 l-spacing-2">Your food basket is empty</h4>
+
+                    <h4 class="l-spacing-2">Use the search bar to ﬁnd<br> and add items to your basket</h4>
+                </div>
             </div>
+        </aside>
+
+        <!--overlay to call -->
+        <div id="overlay">
         </div>
-        <div class="empty_bag dis-flex">
-            <div class="wrap text-center">
-                <span class="fa fa-shopping-basket m-b-50" style="font-size: 150px;"></span>
-                
-                <h4 class="m-b-50 l-spacing-2">Your food basket is empty</h4>
-            
-                <h4 class="l-spacing-2">Use the search bar to ﬁnd<br> and add items to your basket</h4>
-            </div>
-        </div>
-    </nav>
-@endsection
+
+        <!-- jQuery -->
+        <script src="/assets/js/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+        <!-- Main JS -->
+        <script src="/assets/js/main.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+         <script>
+             $(document).ready(function(){
+                app.fecther();
+                app.cartCtrl();
+                $("#cart_action, #overlay").on("click", function(){
+                    $("html").toggleClass("open");
+                    //if this is a button toggle it's content....
+                    /*if (this.id == "cart_action") {
+                       $(this).html("<i class='fa fa-remove'></i> Close");
+                       $(this).html("<i class='fa fa-shopping-basket m-r-5'></i> My Basket");
+                       true ? a : b;
+                    }*/
+                });
+             });
+         </script>
+    </body>
+</html>

@@ -27,5 +27,10 @@ class Order extends Model
      */
     protected $fillable = ['user_id', 'total'];
 
+
+    public function transactions()
+    {
+        return $this->hasMany('App\Models\Transaction');
+    }
     
 }

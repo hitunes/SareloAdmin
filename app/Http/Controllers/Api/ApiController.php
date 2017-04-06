@@ -23,9 +23,9 @@ class ApiController extends Controller
         $this->manager->setSerializer(new DataArraySerializer());
 
         $this->charges = $this->getCharges();
-        
+
     }
-    
+
     private function getCharges()
     {
         $charges = Charge::all();
