@@ -500,6 +500,22 @@ const app = {
     loadCart();
     displayCart();
   },
+  chooser: function(){
+    $("label.card").find(".addresses").on("change", function(){
+      $("#addressContent").find(".bg-brand-purple-op").removeClass("bg-brand-purple-op");
+      $(this).parent().addClass("bg-brand-purple-op");
+    });
+  },
+  validator: function(){
+    console.log($("#addressForm").parsley().isValid());
+    var form = $("#addressForm");
+    if( form.parsley().isValid()){
+      $("#submit").prop('disabled', false); 
+    }
+    else{
+      $("#submit").prop('disabled', 'disabled'); 
+    }
+  },
   switchForm : function(){
 
         //var current_fs, next_fs, previous_fs; //fieldsets
