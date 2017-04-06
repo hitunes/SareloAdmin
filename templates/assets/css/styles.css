@@ -560,6 +560,7 @@ div.clearfix small,
 .p-r-3 {padding-right:3px !important;}
 .p-r-5 {padding-right:5px !important;}
 .p-r-10 {padding-right:10px !important;}
+.p-r-12 {padding-right:12px !important;}
 .p-r-15 {padding-right:15px !important;}
 .p-r-20 {padding-right:20px !important;}
 .p-r-30 {padding-right:30px !important;}
@@ -658,7 +659,7 @@ div.clearfix small,
 .bg-opacity-white-80 {background-color: rgba(255, 255, 255, 0.8);}
 .bg-transparent{background-color: transparent; background: transparent; border: 2px solid rgba(61, 178, 6, 1); color: rgba(61, 178, 6, 1)}
 .bg-transparent-white{background-color: transparent; background: transparent; border: 2px solid #fff; color: #fff}
-.bg-transparent-black{background-color: transparent; background: transparent; border: none; color: rgba(0, 0, 0, 1)}
+.bg-transparent-black{background-color: transparent; background: transparent; color: rgba(0, 0, 0, 1)}
 
 /****  Opacity  ****/
 .opacity-0 {opacity:0;}

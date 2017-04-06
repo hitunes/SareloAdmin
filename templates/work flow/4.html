@@ -37,10 +37,10 @@
                             
                             <ul class="nav nav-tabs">
 
-                                <li role="presentation" >
+                                <li role="presentation" class="active">
                                     <a href="#">
                                         <span class="round-tab">
-                                            <span class="badge bg-transparent">
+                                            <span class="badge bg-brand-green">
                                                 <i class="fa fa-check"></i>
                                             </span>
                                             Address
@@ -52,26 +52,28 @@
                                     <a href="#">
                                         <span class="round-tab">
                                             <span class="badge bg-brand-green">
-                                                2
+                                                <i class="fa fa-check"></i>
                                             </span>
                                             Delivery Slot
                                         </span>
                                     </a>
                                 </li>
-                                <li role="presentation" >
+                                <li role="presentation" class="active">
                                     <a href="#">
                                         <span class="round-tab">
-                                            <span class="badge bg-brand-green">3</span>
-                                            Payment
+                                            <span class="badge bg-brand-green">
+                                                <i class="fa fa-check"></i>
+                                            </span>
+                                            Confirmation
                                         </span>
                                     </a>
                                 </li>
 
-                                <li role="presentation">
+                                <li role="presentation"  class="active">
                                     <a href="#">
                                         <span class="round-tab">
-                                            <span class="badge bg-brand-green">4</span>
-                                            Confirmation
+                                            <span class="badge bg-transparent">4</span>
+                                            Payment
                                         </span>
                                     </a>
                                 </li>
@@ -94,15 +96,17 @@
                                 </div>
                                 <div class="content">
                                 	<div class="row">
-                                		<div class="col-md-4 col-sm-12 text-center p-b-40">
-                                			<button type="button" class="btn p-l-30 p-r-30 p-t-10 p-b-10 bg-transparent-black bd-gray">
-                                				<span><i class="fa fa-credit-card"></i></span> Pay Now
-                                			</button>
+                                		<div class="col-md-4 col-sm-12 p-b-40">
+                                			<label class="btn p-l-30 p-r-30 p-t-10 p-b-10 bg-transparent-black bd-gray">
+                                				<input type="radio" name="bank" class="addresses">
+                                                <span><i class="fa fa-credit-card"></i></span> Pay Now
+                                			</label>
                                 		</div>
-                                		<div class="col-md-4 col-sm-12 text-center p-b-40">
-                                			<button type="button" class="btn p-l-30 p-r-30 p-t-10 p-b-10 bg-dark">
+                                		<div class="col-md-4 col-sm-12 p-b-40">
+                                			<label class="btn p-l-30 p-r-30 p-t-10 p-b-10 bg-transparent-black bd-gray bg-dark">
+                                                <input type="radio" name="bank" class="addresses">
                                 				<span><i class="fa fa-university"></i></span> Bank Transfer
-                                			</button>
+                                			</label>
                                 		</div>
                                 		
                                 	</div>
@@ -128,12 +132,12 @@
                                 			</div>
                                 		</div>
                                 	</div>
-                                	<div class="clearfix p-r-20 p-l-20 p-b-20">
+                                	<div class="clearfix p-b-20">
                                 	    <div class="f-left">
-                                	        <button type="button" class="btn btn-md f-18 c-white">Back</button>
+                                	        <button type="button" class="btn btn-md bg-transparent f-18">Back</button>
                                 	    </div>
                                 	    <div class="f-right">
-                                	        <button type="button" class="btn btn-md f-18 c-white" disabled>Continue</button>
+                                	        <button type="button" class="btn btn-md bg-brand-green f-18">Continue</button>
                                 	    </div>
                                 	</div>
                                 </div>
@@ -225,8 +229,11 @@
         <!-- Bootstrap JavaScript -->
         <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+         <script src="../assets/js/main.js"></script>
          <script>
-             
+            $(document).ready(function(){
+                app.radioChooser();
+            });
          </script>
     </body>
 </html>

@@ -505,6 +505,13 @@ const app = {
       $(this).parent().addClass("bg-brand-purple-op");
     });
   },
+
+  radioChooser: function(){
+    $(document).find("input[type='radio']").on('change', function(){
+      $(document).find(".bg-dark").removeClass("bg-dark");
+       $(this).parent().addClass("bg-dark");
+    });
+  },
   validator: function(){
     console.log($("#addressForm").parsley().isValid());
     var form = $("#addressForm");
