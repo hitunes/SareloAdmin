@@ -2,26 +2,25 @@ body{
   margin: 0px;
   padding: 0px;
   position: relative;
-  width: 100%;
-  min-height: 100vh;
   font-family: 'Rubik', sans-serif;
 }
 
 .wrapper{
   width: 100%;
   min-height: 100vh;
-  height: 100%;
   background: #F7F7F7;
 }
 
 .wrapper header{
   background: #FFF;
+  width: 100%;
+  z-index: 100;
 }
 
 aside.sidebar{
   position: fixed;
   width: 450px;
-  height: 100%;
+  height: calc(100% - 75px);
   right: 0px;
   top: 75px;
   /*padding: 20px 20px 10px 20px;*/
@@ -102,21 +101,20 @@ nav.navbar.navbar-default {
   text-rendering: optimizeLegibility;
 }
 
-.btn_cart{
-  color: rgba(255, 255, 255, 1);
-  background: rgba(61, 178, 6, 1);
-  transition: all 0.5s ease;
-  outline: 0 !important;
-}
 
-.btn_cart:hover, .btn_cart:focus,
-.btn_cart:visited
+
+.btn_cart:hover,.btn_cart:focus,.btn_cart:visited
 {
   color:rgba(61, 178, 6, 1);
   background: transparent;
   border-color:rgba(61, 178, 6, 1); 
 }
-
+.btn_cart, a.btn_cart{
+  color: rgba(255, 255, 255, 1);
+  background: rgba(61, 178, 6, 1);
+  transition: all 0.5s ease;
+  outline: 0 !important;
+}
 .btn_action{
   padding: 9px 12px;
 }
@@ -126,6 +124,10 @@ nav.navbar.navbar-default {
   border: none;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
   font-size: 20px;
+}
+
+.query .update{
+  margin-top: 8px;
 }
 
 /* Hre*/
@@ -195,11 +197,11 @@ div.clearfix small,
 }
 
 #sidebar .footer{
-  height: 300px;
+  height: 225px;
 }
 
 #sidebar .body{
-  height: calc(100% - 300px);
+  height: calc(100% - 225px);
   overflow-y: hidden;
 }
 
@@ -388,8 +390,7 @@ div.clearfix small,
     height: 40px;
     margin: 0px auto;
     padding: 0;
-    font-family: 'Nunito', sans-serif;
-   font-weight: 500;
+   font-weight: 400;
    font-style: normal;
    font-stretch: normal;
    color: #3a405b;
@@ -469,7 +470,7 @@ div.clearfix small,
 .m-t-60{margin-top:60px !important;}
 .m-t-80{margin-top:80px !important;}
 .m-t-100{margin-top:100px !important;}
-
+.m-t-160{margin-top:160px !important;}
 /****  Margin Bottom  ****/
 .m-b-0 {margin-bottom:0px !important;}
 .m-b-5 {margin-bottom:5px !important;}
