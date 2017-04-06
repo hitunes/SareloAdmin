@@ -30,7 +30,7 @@ class CheckoutController extends Controller
                 'name' => 'required',
                 'phone' => 'required|min:11',
                 'address' => 'required|min:10',
-                'delivery_slot_id' => 'required|integer'
+                'city' => 'required|min:3'
             ]);
 
             $request->session()->put('billing_address', $request->all());
@@ -53,10 +53,10 @@ class CheckoutController extends Controller
          foreach ($items as $item) {
              $total += $item->price * $item->qty;
          }
+
          $charges = Charge::all();
 
-
-        $charges_subtotal = 0;
+         $charges_subtotal = 0;
 
          foreach ($charges as $charge) {
 
