@@ -47,11 +47,11 @@ aside.sidebar{
   transform: translate3d(0px, 0, 0);
 }
 
-/*overlay to cover*/
+/*overlay to cover
 .open #overlay{
   display: block;
 }
-
+*/
 nav.navbar.navbar-default {
   background: transparent;
   color: #9B9B9B;
@@ -299,6 +299,7 @@ div.clearfix small,
   z-index: 10;
   background: #FFF;
   border-top: 3px solid #9B9B9B;
+  border-left: 3px solid #9B9B9B;
 }
 
 #sidebar .empty_bag{
@@ -306,6 +307,7 @@ div.clearfix small,
   padding: 10px;
   background: #F7F7F7;
   border-top: 3px solid #9B9B9B;
+  border-left: 3px solid #9B9B9B;
   opacity: 0.5;
   position: absolute;
   top: 0px;

@@ -463,7 +463,7 @@ const app = {
     $(document).on('click', '.suggestions li', function(e){
         e.preventDefault();
        //add open to html
-       $("html").addClass("open");
+        $("html").addClass("open");
        //name, price, and count
         var name = $(this).attr("data-product");
         var price = $(this).attr("data-price");
