@@ -537,6 +537,27 @@ const app = {
       $("#submit").prop('disabled', 'disabled'); 
     }
   },
+  contentEditor: function(){
+    var editBtn = $('#editBtn');
+    var editor = $('#editor');
+
+    editBtn.on('click', function(e) {
+        
+        if (!editor[0].isContentEditable) {
+            console.log(editor);
+            editor[0].contentEditable = true;
+            editor[0].focus();
+            editBtn.text('Save');
+            editBtn.css('backgroundColor', '#6F9');
+        } else {
+            editor[0].contentEditable = false;
+            // Change Button Text and Color
+            editBtn.text('Edit');
+            editBtn.css('backgroundColor', '#F96');
+        
+        }
+    });
+  },
   switchForm : function(){
 
         //var current_fs, next_fs, previous_fs; //fieldsets

@@ -902,3 +902,8 @@ label.required:after {content: '*';color: #FF5757;margin-left: 2px;}
   border-color: #CCC;
   box-shadow: none;
 }
+
+[contenteditable="true"] {
+  color: #C00;
+  outline: 1px solid #9B9B9B;
+}

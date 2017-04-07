@@ -127,10 +127,10 @@
                                         <div class="row">
                                             <div class="col-md-8">
                                                <p>Phone Number</p>
-                                               <a href="tel:+234(0)9028521055" class="w-600">234(0)9028521055</a>
+                                               <p class="w-600" id="editor">234(0)9028521055</p>
                                             </div>
                                             <div class="col-md-4">
-                                               <button class="btn bg-white pull-right uppercase w-600">edit</button>
+                                               <button class="btn bg-white pull-right uppercase w-600" id="editBtn">edit</button>
                                             </div>
                                         </div>
                                     </div>
@@ -230,8 +230,10 @@
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
          <script>
              $(document).ready(function(){
-               // app.chooser();
+        
                 app.radioChooser("bg-brand-purple-op");
+                app.contentEditor();
+                
              });
          </script>
     </body>
