@@ -39,6 +39,16 @@
                                         <li>
                                             <hr>
                                         </li>
+                                        {{--<li>
+                                            <p class="menus">
+                                                <span>Delivery Slot</span>
+                                                <span class="pull-right"> 
+                                                    <span class="cash">
+                                                        7pm - 8pm, Fri 24 Mar
+                                                    </span>
+                                                </span>
+                                            </p>
+                                        </li>--}}
                                         <li>
                                             <p class="menus">
                                                 <span>Total Due</span>

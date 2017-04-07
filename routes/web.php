@@ -54,10 +54,13 @@ Route::post('/cart/add', 'CartsController@addCartItem');
 Route::get('/cart', 'CartsController@getCartItems');
 Route::get('/cart/update/{cart_id}/{action}/', 'CartsController@updateCart');
 Route::get('/cart/delete/{cart_id}', 'CartsController@deleteCartItem');
-Route::match(['POST', 'GET'],'/checkout/billing-address', 'CheckoutController@billingAddress');
-Route::get('/checkout/choose-address', 'CheckoutController@chooseAddress');
+
+Route::match(['POST', 'GET'], '/checkout/billing-address', 'CheckoutController@billingAddress');
+Route::match(['POST', 'GET'], '/checkout/choose-address', 'CheckoutController@chooseAddress');
+
+
 Route::get('/checkout/choose-delivery-slot', 'DeliveryController@index');
-Route::get('/checkout/confirm', 'ConfirmCheckoutController@confirm');
+Route::get('/checkout/confirm', 'ConfirmCheckoutController@index');
 Route::get('/checkout/payment-details', 'PaymentController@payment');
 
 

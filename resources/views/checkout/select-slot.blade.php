@@ -15,186 +15,44 @@
                                     <div class="card">
                                         <div class="tabcordion">
                                             <ul id="myTab" class="nav nav-tabs">
-                                                <li class="active">
-                                                    <a href="#order_resume" data-toggle="tab">
-                                                        <p>Today</p>
-                                                        <p>Mar 21</p>
+                                                @foreach($slots as $key=>$value)
+                                                <li @if($key == date('Y-m-d'))class="active"@endif>
+                                                    <a href="#{{$key}}" data-toggle="tab">
+                                                        @if($key == date('Y-m-d'))
+                                                            <p>Today</p>
+                                                        @else
+                                                           <p>{{date('l', strtotime($key))}}</p> 
+                                                        @endif
+                                                        <p>{{date('M d', strtotime($key))}}</p>
                                                     </a>
                                                 </li>
-                                                <li>
-                                                    <a href="#order_details" data-toggle="tab">
-                                                        <p>Tomorrow</p>
-                                                        <p>Mar 21</p>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#customer_details" data-toggle="tab">
-                                                        <p>Thursday</p>
-                                                        <p>Mar 21</p>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="#order_history" data-toggle="tab">
-                                                        <p>Friday</p>
-                                                        <p>Mar 21</p>
-                                                    </a> 
-                                                </li>
-                                                <li>
-                                                    <a href="#customer_resume" data-toggle="tab">
-                                                        <p>Saturday</p>
-                                                        <p>Mar 21</p>
-                                                    </a> 
-                                                </li>
-                                                <li>
-                                                    <a href="#customer_history" data-toggle="tab">
-                                                        <p>Sunday</p>
-                                                        <p>Mar 21</p>
-                                                    </a> 
-                                                </li>
+                                                @endforeach
                                             </ul>
+                                          
+                                            
                                             <div id="myTabContent" class="tab-content">
-                                                <div class="tab-pane fade active in" id="order_resume">
+                                            @foreach($slots as $key=>$value)
+                                                <div class="tab-pane fade @if($key == date('Y-m-d')) active in @endif" id="{{$key}}">
                                                     <div class="table-responsive">
                                                         <table class="table border-bottom table-hover m-b-0">
                                                             <tbody>
-                                                                @foreach($slots as $slot)
+                                                                    @foreach($value as $slot_details)
+           
                                                                     <tr>
-                                                                        <td class="p-t-14 no-bd opacity-70">{{$slot->time_range}}</td>
+                                                                        <td class="p-t-14">{{$slot_details->time_range}}</td>
                                                                         <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
                                                                     </tr>
-                                                                @endforeach
+                                                                    @endforeach
+                                                            
                                 
                                                             </tbody>
                                                         </table>
                                                     </div>
-                                                    <button class="btn btn-block bg-transparent-black text-center p-b-15 p-t-15">See more...</button>
+                                                    {{--<button class="btn btn-block bg-transparent-black text-center p-b-15 p-t-15">See more...</button>--}}
                                                 </div>
-                                                <div class="tab-pane fade" id="order_details">
-                                                    <div class="table-responsive">
-                                                        <table class="table border-bottom table-hover m-b-0">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class="p-t-14 no-bd opacity-70">Within 2 hours</td>
-                                                                    <td class="p-t-14 no-bd text-right"><button class="btn bg-transparent-black no-bd p-0 uppercase" disabled>change</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="p-t-14">10am - 11am</td>
-                                                                    <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="p-t-14">10am - 11am</td>
-                                                                    <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="p-t-14">10am - 11am</td>
-                                                                    <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <button class="btn btn-block bg-transparent-black text-center p-b-15 p-t-15">See more...</button>
-                                                </div>
-                                                <div class="tab-pane fade" id="customer_details">
-                                                    <div class="table-responsive">
-                                                        <table class="table border-bottom table-hover m-b-0">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class="p-t-14 no-bd opacity-70">Within 2 hours</td>
-                                                                    <td class="p-t-14 no-bd text-right"><button class="btn bg-transparent-black no-bd p-0 uppercase" disabled>change</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="p-t-14">10am - 11am</td>
-                                                                    <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="p-t-14">10am - 11am</td>
-                                                                    <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="p-t-14">10am - 11am</td>
-                                                                    <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <button class="btn btn-block bg-transparent-black text-center p-b-15 p-t-15">See more...</button>
-                                                </div>
-                                                <div class="tab-pane fade" id="order_history">
-                                                    <div class="table-responsive">
-                                                        <table class="table border-bottom table-hover m-b-0">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class="p-t-14 no-bd opacity-70">Within 2 hours</td>
-                                                                    <td class="p-t-14 no-bd text-right"><button class="btn bg-transparent-black no-bd p-0 uppercase" disabled>change</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="p-t-14">10am - 11am</td>
-                                                                    <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="p-t-14">10am - 11am</td>
-                                                                    <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="p-t-14">10am - 11am</td>
-                                                                    <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <button class="btn btn-block bg-transparent-black text-center p-b-15 p-t-15">See more...</button>
-                                                </div>
-                                                <div class="tab-pane fade" id="customer_resume">
-                                                    <div class="table-responsive">
-                                                        <table class="table border-bottom table-hover m-b-0">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class="p-t-14 no-bd opacity-70">Within 2 hours</td>
-                                                                    <td class="p-t-14 no-bd text-right"><button class="btn bg-transparent-black no-bd p-0 uppercase" disabled>change</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="p-t-14">10am - 11am</td>
-                                                                    <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="p-t-14">10am - 11am</td>
-                                                                    <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="p-t-14">10am - 11am</td>
-                                                                    <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <button class="btn btn-block bg-transparent-black text-center p-b-15 p-t-15">See more...</button>
-                                                </div>
-                                                <div class="tab-pane fade" id="customer_history">
-                                                    <div class="table-responsive">
-                                                        <table class="table border-bottom table-hover m-b-0">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td class="p-t-14 no-bd opacity-70">Within 2 hours</td>
-                                                                    <td class="p-t-14 no-bd text-right"><button class="btn bg-transparent-black no-bd p-0 uppercase" disabled>change</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="p-t-14">10am - 11am</td>
-                                                                    <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="p-t-14">10am - 11am</td>
-                                                                    <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="p-t-14">10am - 11am</td>
-                                                                    <td class="text-right"><button class="btn bg-transparent uppercase f-12">change</button></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                    <button class="btn btn-block bg-transparent-black text-center p-b-15 p-t-15">See more...</button>
-                                                </div>
+                                            @endforeach
                                             </div>
+                                         
                                         </div>
                                     </div>
                                     <!-- starts here end -->

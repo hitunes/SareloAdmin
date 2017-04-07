@@ -78,10 +78,21 @@ class CheckoutController extends Controller
     }
 
 
-    public function chooseAddress()
+    public function chooseAddress(Request $request)
     {
         $basket = Helpers::getCartSummary();
+
         $addresses = UserAddress::where('user_id', Auth::user()->id)->get();
+
+        if($request->isMethod('post'))
+        {
+            $request->session()->put('order_details.user_address_id', $request->user_address_id);
+            
+            if($request->receiver_phone)
+                $request->session()->put('order_details.receiver_phone', $request->receiver_phone);
+            
+            return redirect('/checkout/choose-delivery-slot');
+        }
         
         return view('checkout.choose-address', compact('basket', 'addresses'));
     }

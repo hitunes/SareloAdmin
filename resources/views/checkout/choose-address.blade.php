@@ -12,24 +12,27 @@
                                         <i class="fa fa-map-marker c-brand-green f-27"></i> Choose Delivery Address
                                     </h4>
                                 </div>
-                                @foreach($addresses as $address)
-                                <div class="content p-t-10 clearfix m-t-20">
-                                    <!--starts here -->
-                                    <label class="card m-b-0 bd-brand-purple bd-4 width-100p pos-rel w-100">
-                                        <div class="p-15 clearfix">
-                                            <p class="pull-left m-b-0 c-brand-purple"><span><i class="fa fa-home"></i></span> {{$address->address}}</p>
-                                            <div class="pull-right"><i class="fa fa-check-circle-o f-23 c-brand-purple"></i></div>
-                                        </div>
-                                        <input type="radio" name="address" value="{{$address->id}}" class="addresses pos-abs">
-                                    </label>
-                                    <!-- starts here end -->
-                                </div>
-                                @endforeach
+                                <form method="post">
+                                    {{csrf_field()}}
+                                    @foreach($addresses as $address)
+                                    <div class="content p-t-10 clearfix m-t-20">
+                                        <!--starts here -->
+                                        <label class="card m-b-0 bd-brand-purple bd-4 width-100p pos-rel w-100">
+                                            <div class="p-15 clearfix">
+                                                <p class="pull-left m-b-0 c-brand-purple"><span><i class="fa fa-home"></i></span> {{$address->address}}</p>
+                                                <div class="pull-right"><i class="fa fa-check-circle-o f-23 c-brand-purple"></i></div>
+                                            </div>
+                                            <input type="radio" name="user_address_id" value="{{$address->id}}" class="addresses pos-abs">
+                                        </label>
+                                        <!-- starts here end -->
+                                    </div>
+                                    @endforeach
+                                
                                
                                 <div class="content p-t-10 clearfix">
                                     <a href="/new-address" class="btn btn-block bg-white bd-gray bd-4">Add New Address</a>
                                 </div>
-                                <div class="content p-t-10">
+                                    <div class="content p-t-10">
                                     <div class="divider">
                                         <hr>
                                     </div>
@@ -47,13 +50,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="content p-t-10">
-                                    <div class="card no-bd m-0">
-                                        <div class="content p-b-30 clearfix">
-                                            <button class="btn btn-md bg-brand-green pull-right f-18">Continue</button>
-                                        </div>
-                                    </div>
+                                <div class="content p-t-10 clearfix">
+                                    <button class="btn btn-md bg-brand-green pull-right f-18">Continue</button>
                                 </div>
+                                </form>
                            </div>
                             <p class="text-center">*Terms and conditions apply on free delivery. <a href="#" class="c-brand-purple">Learn more</a></p>
                            

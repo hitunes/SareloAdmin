@@ -29,7 +29,7 @@ class Slot extends Model
 
     public function OrderSlot()
     {
-        return $this->HasMany('App\Models\OrderSlot');
+        return $this->hasMany('App\Models\OrderSlot');
     }
 
     
