@@ -54,31 +54,31 @@
                             </a>
                             <ul class="sub-menu">
                                 <li class="nav-item  ">
-                                    <a href="ecommerce_index.html" class="nav-link ">
+                                    <a href="{{url('/admin/index')}}" class="nav-link ">
                                         <i class="icon-home"></i>
                                         <span class="title">Dashboard</span>
                                     </a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="ecommerce_orders.html" class="nav-link ">
+                                    <a href="{{url('/admin/orders')}}" class="nav-link ">
                                         <i class="icon-basket"></i>
                                         <span class="title">Orders</span>
                                     </a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="ecommerce_orders_view.html" class="nav-link ">
+                                    <a href="{{url('/admin/order_view')}}" class="nav-link ">
                                         <i class="icon-tag"></i>
                                         <span class="title">Order View</span>
                                     </a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="ecommerce_products.html" class="nav-link ">
+                                    <a href="{{url('/admin/products')}}" class="nav-link ">
                                         <i class="icon-graph"></i>
                                         <span class="title">Products</span>
                                     </a>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a href="ecommerce_products_edit.html" class="nav-link ">
+                                    <a href="{{url('/admin/product_edit')}}" class="nav-link ">
                                         <i class="icon-graph"></i>
                                         <span class="title">Product Edit</span>
                                     </a>
