@@ -1,3 +1,7 @@
 .lgreen {
     background: green;
 }
+.prod_img {
+    position: relative;
+    left: 6%;
+}
