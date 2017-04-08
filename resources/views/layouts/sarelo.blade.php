@@ -95,8 +95,7 @@
         <script>
       
              $(document).ready(function(){
-                // app.validator();
-                app.chooser();
+                app.validator();
              });
          </script>
 

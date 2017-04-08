@@ -50,12 +50,12 @@ class CheckoutController extends Controller
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'email' => $request->email,
+                'email' => $request->phone,
                 'password' => bcrypt($request->password),
             ]);
             
             $new_address = new UserAddress([
                                 'address' => $request->address,
-                                'phone' => $request->phone,
                                 'city' => $request->city
                             ]);
 
@@ -86,10 +86,16 @@ class CheckoutController extends Controller
 
         if($request->isMethod('post'))
         {
-            $request->session()->put('order_details.user_address_id', $request->user_address_id);
+
+            $this->validate($request, [
+                'address' => 'integer|required',
+                'receiver_no' => 'required|digits:11',
+            ]);
+
+            $request->session()->put('order_details.user_address_id', $request->address);
             
-            if($request->receiver_phone)
-                $request->session()->put('order_details.receiver_phone', $request->receiver_phone);
+            if($request->receiver_no)
+                $request->session()->put('order_details.receiver_phone', $request->receiver_no);
             
             return redirect('/checkout/choose-delivery-slot');
         }
