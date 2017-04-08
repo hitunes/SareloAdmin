@@ -45,6 +45,9 @@ aside.sidebar{
 
 .open #sidebar{
   transform: translate3d(0px, 0, 0);
+  -webkit-box-shadow: -4px 2px 5px 0px rgba(221,221,221,1);
+  -moz-box-shadow: -4px 2px 5px 0px rgba(221,221,221,1);
+  box-shadow: -4px 2px 5px 0px rgba(221,221,221,1);
 }
 
 /*overlay to cover
@@ -299,7 +302,7 @@ div.clearfix small,
   z-index: 10;
   background: #FFF;
   border-top: 3px solid #9B9B9B;
-  border-left: 3px solid #9B9B9B;
+  box-shadow: 20px 2px 5px 0 rgba(0,0,0,.16), 20px 2px 10px 0 rgba(0,0,0,.12);
 }
 
 #sidebar .empty_bag{
@@ -307,7 +310,6 @@ div.clearfix small,
   padding: 10px;
   background: #F7F7F7;
   border-top: 3px solid #9B9B9B;
-  border-left: 3px solid #9B9B9B;
   opacity: 0.5;
   position: absolute;
   top: 0px;
@@ -770,6 +772,11 @@ a, a:focus, a:hover, a:active { outline: 0; text-decoration: none; }
     color: rgba(61, 178, 6, 1) !important;
 }
 
+.bg-gray-light .btn.bg-transparent {
+    color: rgba(255, 255, 255, 1) !important;
+    background: rgba(61, 178, 6, 1) !important;
+}
+
 
 .btn.bg-transparent-white {
     color: #fff !important;
@@ -894,4 +901,9 @@ label.required:after {content: '*';color: #FF5757;margin-left: 2px;}
 .form-control:focus{
   border-color: #CCC;
   box-shadow: none;
+}
+
+[contenteditable="true"] {
+  color: #C00;
+  outline: 1px solid #9B9B9B;
 }

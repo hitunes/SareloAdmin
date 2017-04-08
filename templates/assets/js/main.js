@@ -501,21 +501,34 @@ const app = {
     loadCart();
     displayCart();
   },
+  /*
   chooser: function(){
     $("label.card").find(".addresses").on("change", function(){
       $("#addressContent").find(".bg-brand-purple-op").removeClass("bg-brand-purple-op");
       $(this).parent().addClass("bg-brand-purple-op");
     });
   },
-
   radioChooser: function(){
     $(document).find("input[type='radio']").on('change', function(){
       $(document).find(".bg-dark").removeClass("bg-dark");
        $(this).parent().addClass("bg-dark");
     });
+  },*/
+  radioChooser: function(para){
+    $(document).find("input[type='radio']").on('change', function(){
+      $(document).find("." + para).removeClass("" + para);
+       $(this).parent().addClass(""+ para);
+    });
+  },
+  buttonChooser: function(){
+    $("table").find("input[type='radio']").on("change", function(){
+        $("table").find(".bg-gray-light").removeClass("bg-gray-light");
+        $(this).parents("tr").addClass("bg-gray-light");
+       
+    });
   },
   validator: function(){
-    console.log($("#addressForm").parsley().isValid());
+    //console.log($("#addressForm").parsley().isValid());
     var form = $("#addressForm");
     if( form.parsley().isValid()){
       $("#submit").prop('disabled', false); 
@@ -523,6 +536,27 @@ const app = {
     else{
       $("#submit").prop('disabled', 'disabled'); 
     }
+  },
+  contentEditor: function(){
+    var editBtn = $('#editBtn');
+    var editor = $('#editor');
+
+    editBtn.on('click', function(e) {
+        
+        if (!editor[0].isContentEditable) {
+            console.log(editor);
+            editor[0].contentEditable = true;
+            editor[0].focus();
+            editBtn.text('Save');
+            editBtn.css('backgroundColor', '#6F9');
+        } else {
+            editor[0].contentEditable = false;
+            // Change Button Text and Color
+            editBtn.text('Edit');
+            editBtn.css('backgroundColor', '#F96');
+        
+        }
+    });
   },
   switchForm : function(){
 
