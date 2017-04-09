@@ -12,6 +12,11 @@
         <!-- Main CSS here -->
         <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    
+    
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
     </head>
     <body>
     
@@ -40,7 +45,7 @@
                                 <li role="presentation" class="active">
                                     <a href="#">
                                         <span class="round-tab">
-                                            <span class="badge bg-transparent">
+                                            <span class="badge bg-brand-green">
                                                 <i class="fa fa-check"></i>
                                             </span>
                                             Address
@@ -52,7 +57,7 @@
                                     <a href="#">
                                         <span class="round-tab">
                                             <span class="badge bg-brand-green">
-                                                2
+                                                <i class="fa fa-check"></i>
                                             </span>
                                             Delivery Slot
                                         </span>
@@ -61,16 +66,18 @@
                                 <li role="presentation" class="active">
                                     <a href="#">
                                         <span class="round-tab">
-                                            <span class="badge bg-brand-green">3</span>
+                                            <span class="badge bg-brand-green">
+                                                <i class="fa fa-check"></i>
+                                            </span>
                                             Confirmation
                                         </span>
                                     </a>
                                 </li>
 
-                                <li role="presentation" class="active">
+                                <li role="presentation"  class="active">
                                     <a href="#">
                                         <span class="round-tab">
-                                            <span class="badge bg-brand-green">4</span>
+                                            <span class="badge bg-transparent">4</span>
                                             Payment
                                         </span>
                                     </a>
@@ -86,67 +93,59 @@
                 <div class="container width-94p">
                    <div class="row">
                        <div class="col-md-8">
-                           <div class="card" id="addressContent">
+                           <div class="card">
                                 <div class="header">
                                     <h4 class="title">
-                                        <i class="fa fa-map-marker c-brand-green f-27"></i> Choose Delivery Address
+                                        <i class="fa fa-money"></i> Select Payment Method
                                     </h4>
                                 </div>
-                               <form method="post">
-                                    {{csrf_field()}}
-                                    
-                                    @foreach($addresses as $address)
-                                        <div class="content p-t-10 clearfix m-t-20">
-                                            <!--starts here -->
-                                            <label class="card m-b-0 bd-brand-purple bd-4 width-100p pos-rel w-100">
-                                                
-                                                <div class="p-15 clearfix">
-                                                    <p class="pull-left m-b-0 c-brand-purple"><span><i class="fa fa-home"></i></span> {{$address->address}}</p>
-                                                    <div class="pull-right"><i class="fa fa-check-circle-o f-23 c-brand-purple"></i></div>
-                                                </div>
-                                                <input type="radio" name="address" value="{{$address->id}}" class="addresses pos-abs">
-                                                 
-                                            </label>
-                                            <!-- starts here end -->
-                                        </div>
-
-                                    @endforeach
-                                    @if ($errors->has('address'))
-                                                            <span class="help-block">
-                                                                <strong>{{ $errors->first('address') }}</strong>
-                                                            </span>
-                                                 @endif
-                                <div class="content p-t-10 clearfix">
-                                    <a href="/new-address" class="btn btn-block bg-white bd-gray bd-4">Add New Address</a>
+                                <div class="content">
+                                	<div class="row">
+                                		<div class="col-md-4 col-sm-12 p-b-40">
+                                			<label class="online-pay btn p-l-30 p-r-30 p-t-10 p-b-10 bg-transparent-black bd-gray" onclick="payWithPaystack({{$order->id}})">
+                                				<input type="radio" name="bank" class="addresses">
+                                                <span><i class="fa fa-credit-card"></i></span> Pay Now
+                                			</label>
+                                		</div>
+                                		<div class="col-md-4 col-sm-12 p-b-40">
+                                			<label class="btn p-l-30 p-r-30 p-t-10 p-b-10 bg-transparent-black bd-gray bg-dark">
+                                                <input type="radio" name="bank" class="addresses">
+                                				<span><i class="fa fa-university"></i></span> Bank Transfer
+                                			</label>
+                                		</div>
+                                		
+                                	</div>
+                                	<p>Use the following details to pay via Bank transfer</p>
+                                	<div class="p-l-30 p-b-60">
+                                		<table>
+                                			<tbody>
+                                				<tr>
+                                					<td class="p-b-10">Account Name</td>
+                                					<td class="w-600 p-l-20 p-b-10">Sarelo Ltd</td>
+                                				</tr>
+                                				<tr>
+                                					<td class="p-b-10">Account Number</td>
+                                					<td class="w-600 p-l-20 p-b-10">0032014612</td>
+                                				</tr>
+                                			</tbody>
+                                		</table>
+                                		<div class="row">
+                                			<p class="col-md-8">Paying via mobile app? Use this number in the comment</p>
+                                			<p class="col-md-2 w-600">{{$order->order_unique_reference}}</p>
+                                			<div class="col-md-2">
+                                				<button class="btn bg-transparent uppercase f-12">copy</button>
+                                			</div>
+                                		</div>
+                                	</div>
+                                	<div class="clearfix p-b-20">
+                                	    {{-- <div class="f-left">
+                                	        <button type="button" class="btn btn-md bg-transparent f-18">Back</button>
+                                	    </div> --}}
+                                	    <div class="f-right">
+                                	        <button type="button" class="btn btn-md bg-brand-green f-18">Continue</button>
+                                	    </div>
+                                	</div>
                                 </div>
-                                <div class="content p-t-10">
-                                    <div class="divider">
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="content p-t-10">
-                                    <div class="card no-bd m-b-0">
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                               <p>Phone Number</p>
-                                               <p class="w-600" id="editor">{{Auth::user()->phone}}</p>
-                                               @if ($errors->has('receiver_no'))
-                                                            <span class="help-block">
-                                                                <strong>Phone number must be 11 digits</strong>
-                                                            </span>
-                                                 @endif
-                                               <input type="hidden" name="receiver_no" id="receiverNo" value="{{Auth::user()->phone}}">
-                                            </div>
-                                            <div class="col-md-4">
-                                               <button class="btn bg-white pull-right uppercase w-600" id="editBtn">edit</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="content p-t-10 clearfix">
-                                    <button class="btn btn-md bg-brand-green pull-right f-18">Continue</button>
-                                </div>
-                                </form>
                            </div>
                             <p class="text-center">*Terms and conditions apply on free delivery. <a href="#" class="c-brand-purple">Learn more</a></p>
                            
@@ -159,21 +158,20 @@
             </section>
         </div>
 
-        
+        <script src="https://js.paystack.co/v1/inline.js"></script>
         <!-- jQuery -->
         <script src="/assets/js/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
         <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="/assets/js/main.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+         <script src="/assets/js/main.js"></script>
+         <script src="/js/payment.js"></script>
          <script>
-             $(document).ready(function(){
-        
-                app.radioChooser("bg-brand-purple-op");
-                app.contentEditor();
-                
-             });
+            $(document).ready(function(){
+                app.radioChooser("bg-dark");
+
+
+            });
          </script>
     </body>
 </html>

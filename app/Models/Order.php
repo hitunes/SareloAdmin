@@ -25,12 +25,26 @@ class Order extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'total'];
+    protected $guarded = ['id'];
 
+    public function orderSlot()
+    {
+        return $this->hasOne('App\Models\OrderSlot');
+    }
+
+    public function orderProducts()
+    {
+        return $this->hasMany('App\Models\OrderProduct');
+    }
 
     public function transactions()
     {
         return $this->hasMany('App\Models\Transaction');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
     
 }

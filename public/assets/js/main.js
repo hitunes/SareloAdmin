@@ -601,6 +601,16 @@ const app = {
         }
     });
   },
+selectDeliveryDate: function () {
+  $('.delivery_date').on('click', function ( ) {
+      var option = $(document).find("input[type='radio']");
+      //get unselect previously selected radio button
+      $("input:radio").attr("checked", false);
+      $("input:radio").removeAttr("checked");
+      var delivery_date = $(this).data("payload");
+      $(".delivery_date_v").val(delivery_date);    
+  });
+},
 
 switchForm : function(){
 

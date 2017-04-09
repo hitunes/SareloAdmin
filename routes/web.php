@@ -59,13 +59,20 @@ Route::match(['POST', 'GET'], '/checkout/billing-address', 'CheckoutController@b
 Route::match(['POST', 'GET'], '/checkout/choose-address', 'CheckoutController@chooseAddress');
 
 
-Route::get('/checkout/choose-delivery-slot', 'DeliveryController@index');
-Route::get('/checkout/confirm', 'ConfirmCheckoutController@index');
-Route::get('/checkout/payment-details', 'PaymentController@payment');
+Route::match(['POST', 'GET'], '/checkout/choose-delivery-slot', 'DeliveryController@index');
+Route::match(['POST', 'GET'], '/checkout/confirm-order', 'ConfirmCheckoutController@index');
+Route::get('/checkout', 'ConfirmCheckoutController@checkout');
+
+Route::get('/checkout/payment/{order_unique_reference}', 'PaymentController@index');
 
 
 Route::get('/new-address', 'AddressController@create');
 Route::post('/new-address', 'AddressController@store');
+
+
+Route::post('/transaction', 'TransactionController@store');
+Route::post('/transaction/{transaction_id}/edit', 'TransactionController@update');
+
 
 
 

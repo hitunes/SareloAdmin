@@ -22,6 +22,7 @@ use App\Models\UserAddress;
 use App\User;
 use App\Models\Transaction;
 
+use Session;
 
 
 class CheckoutController extends Controller
@@ -67,7 +68,7 @@ class CheckoutController extends Controller
 
 
             if($request->instruction)
-                $request->session()->put('order_details.delivery_instruction', $request->instruction);
+                Session::put('order_details.delivery_instruction', $request->instruction);
 
             return redirect('/checkout/choose-address');
         }
@@ -92,10 +93,10 @@ class CheckoutController extends Controller
                 'receiver_no' => 'required|digits:11',
             ]);
 
-            $request->session()->put('order_details.user_address_id', $request->address);
+            Session::put('order_details.user_address_id', $request->address);
             
             if($request->receiver_no)
-                $request->session()->put('order_details.receiver_phone', $request->receiver_no);
+                Session::put('order_details.receiver_phone', $request->receiver_no);
             
             return redirect('/checkout/choose-delivery-slot');
         }

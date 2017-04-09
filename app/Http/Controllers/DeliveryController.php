@@ -39,7 +39,16 @@ class DeliveryController extends Controller
         
         if($request->isMethod('post')){
             //check if slot is still available
+        
+            $this->validate($request, [
+                'delivery_date' => 'required',
+                'slot_id' => 'required',
+            ]);
             //save slot to session and redirect
+            $request->session()->put('order_details.slot_id', $request->slot_id);
+            $request->session()->put('order_details.delivery_date', $request->delivery_date);
+
+            return redirect('/checkout/confirm-order');
         }
 
         $basket = Helpers::getCartSummary();
