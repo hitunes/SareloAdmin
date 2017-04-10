@@ -142,7 +142,7 @@
                                 	        <button type="button" class="btn btn-md bg-transparent f-18">Back</button>
                                 	    </div> --}}
                                 	    <div class="f-right">
-                                	        <button type="button" class="btn btn-md bg-brand-green f-18">Continue</button>
+                                	        <a href="/checkout/bank/{{$order->order_unique_reference}}" type="button" class="btn btn-md bg-brand-green f-18">Continue</a>
                                 	    </div>
                                 	</div>
                                 </div>
@@ -151,7 +151,71 @@
                            
                        </div>
                        <div class="col-md-4">
-                           @include('checkout.billing-summary')
+                           
+                           <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Cart Summary</h4>
+                                </div>
+                                <div class="content">
+                                    <p class="category">The total cost is inclusive of tax, delivery and service charge.</p>
+                                    <ul class="p-l-0 list-style-none">
+                                        <li>
+                                            <hr>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Your Basket</span>
+                                                <span class="pull-right"> 
+                                                    &#8358;
+                                                    <span class="cash">{{$order->orderProducts->sum('sub_total')}}</span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        
+                                        <li>
+                                            <p class="menus">
+                                                <span>Service charge</span>
+                                                <span class="pull-right"> 
+                                                    &#8358;
+                                                    <span class="cash">{{$charge_arr['service_charge']}}</span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Delivery Charge</span>
+                                                <span class="pull-right"> 
+                                                    &#8358;
+                                                    <span class="cash">{{$order->orderProducts->sum('sub_total') * .1}}</span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Delivery Slot</span>
+                                                <span class="pull-right"> 
+                                                    <span class="cash">
+                                                        {{$order->orderSlot->slot->time_range}}, {{date('l d M', strtotime($order->orderSlot->slot->delivery_date))}}
+                                                    </span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <hr>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Total Due</span>
+                                                <span class="pull-right c-brand-green f-20"> 
+                                                    &#8358;
+                                                    <span class="cash">{{number_format($order->total)}}</span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                           </div>
+                       </div>
                        </div>
                    </div> 
                 </div>

@@ -29,12 +29,14 @@ class CheckoutController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['billingAddress']);
     }
 
     public function billingAddress(Request $request)
-    {
-        
+    {  
+        if(Auth::user())
+            return redirect('/checkout/choose-address');
+            
         if($request->isMethod('post')){
 
             $this->validate($request,[
@@ -128,10 +130,6 @@ class CheckoutController extends Controller
          }
 
          $total +=  $charges_subtotal;
-
-        // dd(\Session::get('billing_address'));
-
-        // return view('checkout.payment');
     }
 
     public function makeOrder(Request $request)

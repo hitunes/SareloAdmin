@@ -15,19 +15,19 @@
     </head>
     <body>
         <div class="wrapper clearfix">
-            <header class="p-l-100">
+            <header class="p-l-100 pos-fx">
                 <!-- ===Nav bar starts here == -->
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
                         <div class="navbar-header">
-                            <a class="navbar-brand navbar-link" href="/">
+                            <a class="navbar-brand navbar-link" href="index.html">
                                 <img src="/assets/img/logo/sarelo2.svg">
                             </a>
                             <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
                         </div>
                         <div class="collapse navbar-collapse" id="navcol-1">
                             <ul class="nav navbar-nav navbar-right">
-
+                                
                                 <li role="presentation">
                                     <span>Already have an Account?</span><br>
                                     <a href="/login" class="c-brand-purple"><span> Login</span></a>
@@ -44,7 +44,7 @@
                                 <li class="p-r-5 p-l-5">
                                     <button class="btn btn_cart btn_action f-18 w-500" id="cart_action">
                                         <i class="fa fa-shopping-basket m-r-5"></i>
-                                        <!--<img src="assets/img/icon/Sarelo-basket.png" width="27px">-->  My Basket
+                                        <!--<img src="/assets/img/icon/Sarelo-basket.png" width="27px">-->  My Basket
                                     </button>
                                 </li>
                             </ul>
@@ -54,13 +54,13 @@
             <!-- ===Nav bar endss here == -->
             </header>
             <section class="p-l-100">
-                <div class="contents m-t-80 m-b-100 width-50p">
+                <div class="contents m-t-160 m-b-100 width-50p">
                     <h1 class="text-left l-spacing-2 fw-900 line-40 w-600">We will buy & deliver <span class="c-brand-green">fresh<br> foodstuff!</span> from the market to you.</h1>
                     <br><br><br>
                     <form class="query pos-rel">
                         <input class="form-control search p-r-20 p-l-40" type="search" placeholder="What do you want to buy?...." id="querySelector">
-                        <div class="update">
-
+                        <div class="update"> 
+                            
                         </div>
                     </form>
                 </div>
@@ -70,7 +70,7 @@
         <!--sidebar menu on the right hand -->
         <aside class="sidebar" id="sidebar">
             <!--<div class="header">
-                <h3>MY FOOD BASKET
+                <h3>MY FOOD BASKET 
                     <span class="pull-right items_container">
                     <span id="items">0</span>
                     <span class="t-u-c">items</span>
@@ -80,7 +80,7 @@
             <div class="full_bag">
                 <div class="body" id="basket">
                     <ul class="p-l-0 list-style-none" id="basketList">
-
+                        
                     </ul>
                 </div>
                 <div class="footer">
@@ -120,7 +120,7 @@
                             </p>
                         </li>
                         <li>
-                            <a href="/checkout/billing-address" class="btn btn-block btn_cart btn-larger">Proceed To Checkout</a>
+                            <a href="/checkout/billing-address" class="btn btn-block btn_cart">Proceed To Checkout</a>
                         </li>
                     </ul>
                 </div>
@@ -128,10 +128,10 @@
             <div class="empty_bag dis-flex">
                 <div class="wrap text-center">
                     <span class="fa fa-shopping-basket m-b-50" style="font-size: 150px;"></span>
-
-
+                    <!--<img src="/assets/img/icon/Sarelo-basket.png" class="width-200">-->
+                    
                     <h4 class="m-b-50 l-spacing-2">Your food basket is empty</h4>
-
+                
                     <h4 class="l-spacing-2">Use the search bar to ﬁnd<br> and add items to your basket</h4>
                 </div>
             </div>
@@ -144,7 +144,7 @@
         <!-- jQuery -->
         <script src="/assets/js/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
-        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="/assets/js/bootstrap/bootstrap.min.js"></script>
         <!-- Main JS -->
         <script src="/assets/js/main.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

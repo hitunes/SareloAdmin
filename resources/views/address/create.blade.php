@@ -72,7 +72,7 @@
                                             <hr>
                                         </div>
                                    
-                                     <button type="submit" class="btn btn-md f-18 pull-right c-white" id="submit">Add</button>
+                                     <button type="submit" class="btn btn-md f-18 pull-right c-white">Add</button>
                                         
                                     </form>
                                 </div>

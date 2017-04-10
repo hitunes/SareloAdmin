@@ -73,7 +73,7 @@ Route::post('/new-address', 'AddressController@store');
 Route::post('/transaction', 'TransactionController@store');
 Route::post('/transaction/{transaction_id}/edit', 'TransactionController@update');
 
-
+Route::get('/checkout/bank/{order_unique_reference}', 'TransactionController@bankCheckout');
 
 
 Route::get('/undefined', function(){

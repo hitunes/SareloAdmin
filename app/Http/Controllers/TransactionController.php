@@ -8,6 +8,8 @@ use App\Models\Order;
 
 use App\Models\Transaction;
 
+use \Cart;
+
 class TransactionController extends Controller
 {
     public function store(Request $request)
@@ -20,10 +22,12 @@ class TransactionController extends Controller
             'order_id' => $order->id,
             'amount' => $order->total,
             'reference' => $order->order_unique_reference,
-            'status' => 'pending'
+            'status' => 'pending',
         ];
 
         $transaction = (Transaction::create($data))->toArray();
+
+        Order::where('id', $order->id)->update(['payment_method' => 'online']);
 
         $transaction['user'] = $order->user;
 
@@ -35,10 +39,24 @@ class TransactionController extends Controller
     {
         $transaction = Transaction::find($transaction_id)->update($request->all());
       
-        if($request->status == 'success')
+        if($request->status == 'success'){
+            
+            $transaction = Transaction::find($transaction_id);
+
             Order::where('id', $transaction->order_id)->update(['payment_status' => 'success']);
+            
+            Cart::destroy();
+        }
 
         return response()->json(['status' => 'success']);
+    }
+
+
+    public function bankCheckout($order_unique_reference)
+    {
+        Order::where('order_unique_reference', $order_unique_reference)->update(['payment_method' => 'bank']);
+        
+        return redirect('/my-account');
     }
 
 }

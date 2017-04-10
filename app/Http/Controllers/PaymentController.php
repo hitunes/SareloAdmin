@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Domain\Helpers;
 
+use App\Models\Charge;
+
 use App\Models\Order;
+
 
 class PaymentController extends Controller
 {
@@ -15,15 +18,21 @@ class PaymentController extends Controller
 
     public function index($order_unique_reference)
     {
-        $basket = Helpers::getCartSummary();
+        $charges = Charge::all();
+    
+        $order = Order::with(['orderProducts', 'orderSlot' => function ($q) {
+                                return $q->with('slot');
+                            }])->where('order_unique_reference', $order_unique_reference)->first();
 
-        $order = Order::where('order_unique_reference', $order_unique_reference)->first();
+        foreach ($charges as $charge) {
 
-        return view('payment.index', compact('basket', 'order'));
+            if($charge['percentage'] <= 0)
+                $charge_arr['service_charge'] = $charge['fixed_amount'];
+            else  
+                $charge_arr['ten_percent'] = $order->sub_total * ($charge['percentage']/100);
+         }
+
+        return view('payment.index', compact('order', 'charge_arr'));
     }
 
-    public function pay($value='')
-    {
-        # code...
-    }
 }
