@@ -15,7 +15,6 @@ class AddNameToOrderBillingAddressTable extends Migration
     {
         Schema::table('order_billing_addresses', function (Blueprint $table) {
 		$table->string('name')->after('order_id');
-		$table->string('phone')->after('name');
         });
     }
 
