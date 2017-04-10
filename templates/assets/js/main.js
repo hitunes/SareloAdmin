@@ -562,7 +562,7 @@ const app = {
     editBtn.on('click', function(e) {
         
         if (!editor[0].isContentEditable) {
-            console.log(editor);
+           // console.log(editor);
             editor[0].contentEditable = true;
             editor[0].focus();
             editBtn.text('Save');
@@ -573,6 +573,24 @@ const app = {
             editBtn.text('Edit');
             editBtn.css('backgroundColor', '#F96');
         
+        }
+    });
+  },
+  inlineEditor: function(){
+    var editBtn = $('.change');
+    /*var editor = editBtn.parents("td");
+    console.log(editor);*/
+
+    editBtn.on('click', function(e) {
+        console.log($(this).parent());
+       var editor = $(this).parent()[0].previousElementSibling.firstElementChild
+
+       if (!editor.isContentEditable) {
+            editor.contentEditable = true;
+            editor.focus();
+            
+        } else {
+            editor.contentEditable = false;
         }
     });
   }

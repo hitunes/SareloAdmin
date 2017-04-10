@@ -53,6 +53,18 @@
     display: none;
 }
 
+.progressContainer {
+   height: auto !important;
+}
+.wizard .nav-tabs > li a{
+  text-align: center;
+  font-size: 10px;
+}
+
+.wizard .badge {
+   display: block;
+}
+
 }
 
 @media (min-width: 992px) {

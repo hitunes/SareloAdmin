@@ -298,7 +298,6 @@ div.clearfix small,
 .counter div{
   display: inline-block;
   font-size: 18px;
-  
 }
 .counter .count{
   width: 30px;
@@ -307,6 +306,10 @@ div.clearfix small,
   border: 1px solid #eee;
   text-align: center;
   margin: 0px 10px;
+}
+
+.counter .minus, .count .plus{
+  cursor: pointer;
 }
 
 #right_sidebar .full_bag{
@@ -975,6 +978,7 @@ label.required:after {content: '*';color: #FF5757;margin-left: 2px;}
 }
 
 .parsley-errors-list.filled{
+  color: #E9003B !important;
   list-style-type: none;
   padding-left: 0px;
 }
