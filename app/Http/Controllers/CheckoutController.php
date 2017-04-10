@@ -53,7 +53,7 @@ class CheckoutController extends Controller
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'email' => $request->email,
-                'email' => $request->phone,
+                'phone' => $request->phone,
                 'password' => bcrypt($request->password),
             ]);
             
@@ -64,15 +64,16 @@ class CheckoutController extends Controller
 
             $new_user->user_addresses()->save($new_address);
 
-
-            if($new_user)
-                Auth::attempt(['email'=> $request->email, 'password' => $request->password]);
-
-
             if($request->instruction)
                 Session::put('order_details.delivery_instruction', $request->instruction);
 
-            return redirect('/checkout/choose-address');
+            if (Auth::attempt(['email'=> $request->email, 'password' => $request->password])) {
+           
+                return redirect()->intended('/checkout/choose-address');
+            }
+                 
+
+            return redirect()->intended('/checkout/choose-address');
         }
        
         $basket = Helpers::getCartSummary();
