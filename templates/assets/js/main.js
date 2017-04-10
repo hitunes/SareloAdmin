@@ -524,13 +524,36 @@ const app = {
   },
   validator: function(){
     //console.log($("#addressForm").parsley().isValid());
-    var form = $("#addressForm");
-    if( form.parsley().isValid()){
+   var $form = $('#addressForm');
+
+   var $submit = $form.find('#submit');
+   console.log( $form.parsley().isValid());
+
+   var checkValid = function(){
+      if( $form.parsley().isValid() ) {
+         // $submit.removeAttr("disabled");
+         // $submit.prop('disabled', false);
+      } else {
+          //$submit.attr("disabled", "disabled");
+          // $submit.prop('disabled', 'disabled');
+      }
+    }
+    checkValid();
+
+    $form.parsley( 'addListener', {
+      onFieldSuccess: function ( elem ) {
+          checkValid();
+      }
+      , onFieldError: function ( elem ) {
+          checkValid();
+      }
+    } );
+   /* if( form.parsley().isValid()){
       $("#submit").prop('disabled', false); 
     }
     else{
       $("#submit").prop('disabled', 'disabled'); 
-    }
+    }*/
   },
   contentEditor: function(){
     var editBtn = $('#editBtn');
