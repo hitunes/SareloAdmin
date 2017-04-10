@@ -69,6 +69,9 @@ Route::get('/checkout/payment/{order_unique_reference}', 'PaymentController@inde
 Route::get('/new-address', 'AddressController@create');
 Route::post('/new-address', 'AddressController@store');
 
+Route::get('/my-account', 'HomeController@index');
+
+
 
 Route::post('/transaction', 'TransactionController@store');
 Route::post('/transaction/{transaction_id}/edit', 'TransactionController@update');
