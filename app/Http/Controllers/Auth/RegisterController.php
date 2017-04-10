@@ -64,7 +64,6 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $role = Role::where('name', 'User')->first();
-
         $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -74,7 +73,8 @@ class RegisterController extends Controller
         $user->role()->associate($role);
        
         $user->save();
-       
+        
         return $user;
+         
     }
 }

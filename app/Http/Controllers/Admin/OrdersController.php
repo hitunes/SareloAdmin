@@ -30,7 +30,7 @@ class OrdersController extends Controller
             $orders = Order::paginate($perPage);
         }
 
-        return view('admin.orders.index', compact('orders'));
+        return view('admin.dashboard.order', compact('orders'));
     }
 
     /**
