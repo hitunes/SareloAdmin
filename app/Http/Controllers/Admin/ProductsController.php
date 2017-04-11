@@ -3,12 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
+use App\Http\UploadedFile;
+
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\UnitType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Session;
+
 
 class ProductsController extends Controller
 {
@@ -66,22 +71,26 @@ class ProductsController extends Controller
             'price' => 'required',
             'unit' => 'required',
             'unit_type_id' => 'required',
-            'category_id' => 'required'
+            'category_id' => 'required',
+            'product_image' => 'required'
+
         ]);
         //inserting data
+        $filepath = $request->file('product_image')->store('product_images');
         $product = new Product([
             'name' => $request->input('name'), //colecting value from user from the text box to column names on the right handside
             'description' => $request->input('description'),
             'price' => $request->input('price'),
             'unit' => $request->input('unit'),
             'unit_type_id' => $request->input('unit_type_id'),
-            'category_id' => $request->input('category_id')
-            ]);
-        //retrieving data
-        // dd($product);
-        $product->save();
-        return redirect('admin/products')->with('success', 'Product Uploaded Successfully!.');
-    }
+            'category_id' => $request->input('category_id'),
+            'product_image' => $filepath
+        ]);
+            if ($request->file('product_image')->isValid()) {
+                $product->save();
+                return redirect('admin/products')->with('success', 'Product Uploaded Successfully!.');
+            }
+        }
 
     /**
      * Display the specified resource.

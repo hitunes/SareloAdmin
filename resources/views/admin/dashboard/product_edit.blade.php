@@ -95,8 +95,15 @@
                                 <div class="alert alert-danger">
                                     {{ session('delete_message') }}
                                 </div>
+                                @elseif(count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    @foreach($errors->all() as $error)
+                                        <strong>Error Upon Submission...</strong> {{ $error }}
+                                    @endforeach
+                                </div>
                             @endif
-                            <form method="POST" action="{{url('admin/products')}}" class="form-horizontal form-row-seperated" action="#">
+                            <form method="POST"  enctype='multipart/form-data' action="{{url('admin/products')}}" class="form-horizontal form-row-seperated" action="#">
                             {{csrf_field()}}
                                 <div class="portlet light">
                                     <div class="portlet-title">
@@ -722,8 +729,7 @@
                                                                 <span class="required"> * </span>
                                                             </label>
                                                             <div class="col-md-2">
-                                                                <input type="text" class="form-control" name="price" placeholder=""> </div>
-
+                                                                <input type="text" class="form-control" name="price" placeholder=""> </div>    
                                                         </div>
                                                         <!--<div class="form-group">
                                                             <label class="col-md-2 control-label">Tax Class:
@@ -753,14 +759,12 @@
                                                         </div>-->
 
                                                         <div class="prod_im\g">
-                                                        <div id="tab_images_uploader_container" class="margin-bottom-10">
-                                                            <a id="tab_images_uploader_pickfiles" href="javascript:;" class="btn btn-success">
-                                                                <i class="fa fa-plus"></i> Product Image </a>
-                                                            <a id="tab_images_uploader_uploadfiles" href="javascript:;" class="btn btn-primary">
-                                                                <i class="fa fa-share"></i> Upload</a>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div id="tab_images_uploader_filelist" class="col-md-6 col-sm-12"> </div>
+                                                            <div id="tab_images_uploader_container" class="margin-bottom-10">
+                                                               
+                                                                <input type="file" name="product_image"  id="tab_images_uploader_pickfiles" href="javascript:;" class="btn btn-success">
+                                                                </input>
+                                                                
+                                                            </div>
                                                         </div>
                                                         <button class="btn btn-success"><i class="fa fa-check"></i> Add</button>
                                                         </div>
@@ -810,6 +814,7 @@
                                                         </td>
                                                         <td>
                                                             <div class="img-responsive img-circle" style="background: #eee;">
+                                                                <img class="img img-responsive" src="{{ asset("storage/$product->product_image") }}"  >
                                                             </div>
                                                         </td>
                                                         <td>
