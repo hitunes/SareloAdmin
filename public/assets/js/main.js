@@ -552,14 +552,21 @@ const app = {
 
   },
 
-   chooser: function(){
-    $("label.card").find(".addresses").on("change", function(){
-      $("#addressContent").find(".bg-brand-purple-op").removeClass("bg-brand-purple-op");
-      $(this).parent().addClass("bg-brand-purple-op");
+  radioChooser: function(para){
+    $(document).find("input[type='radio']").on('change', function(){
+      $(document).find("." + para).removeClass("" + para);
+       $(this).parent().addClass(""+ para);
+    });
+  },
+  buttonChooser: function(){
+    $("table").find("input[type='radio']").on("change", function(){
+        $("table").find(".bg-gray-light").removeClass("bg-gray-light");
+        $(this).parents("tr").addClass("bg-gray-light");
+       
     });
   },
   validator: function(){
-    console.log($("#addressForm").parsley().isValid());
+    //console.log($("#addressForm").parsley().isValid());
     var form = $("#addressForm");
     if( form.parsley().isValid()){
       $("#submit").prop('disabled', false); 
@@ -568,6 +575,42 @@ const app = {
       $("#submit").prop('disabled', 'disabled'); 
     }
   },
+  contentEditor: function(){
+    var editBtn = $('#editBtn');
+    var editor = $('#editor');
+    var receiverNo = $('#receiverNo');
+
+    editBtn.on('click', function(e) {
+      e.preventDefault();
+        
+        if (!editor[0].isContentEditable) {
+            console.log(editor);
+            editor[0].contentEditable = true;
+            editor[0].focus();
+            editBtn.text('Save');
+            editBtn.css('backgroundColor', '#6F9');
+        } else {
+           
+            editor[0].contentEditable = false;
+            // Change Button Text and Color
+            editBtn.text('Edit');
+            editBtn.css('backgroundColor', '#F96');
+           
+            receiverNo.val(editor[0].innerHTML);
+        
+        }
+    });
+  },
+selectDeliveryDate: function () {
+  $('.delivery_date').on('click', function ( ) {
+      var option = $(document).find("input[type='radio']");
+      //get unselect previously selected radio button
+      $("input:radio").attr("checked", false);
+      $("input:radio").removeAttr("checked");
+      var delivery_date = $(this).data("payload");
+      $(".delivery_date_v").val(delivery_date);    
+  });
+},
 
 switchForm : function(){
 

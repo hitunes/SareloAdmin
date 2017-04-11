@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddNameToOrderBillingAddressTable extends Migration
+class AddPhoneUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddNameToOrderBillingAddressTable extends Migration
      */
     public function up()
     {
-        Schema::table('order_billing_addresses', function (Blueprint $table) {
-		$table->string('name')->after('order_id');
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('phone')->after('email')->nullable();
         });
     }
 
@@ -25,7 +25,7 @@ class AddNameToOrderBillingAddressTable extends Migration
      */
     public function down()
     {
-        Schema::table('order_billing_addresses', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             //
         });
     }

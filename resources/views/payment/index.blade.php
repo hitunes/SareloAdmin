@@ -6,12 +6,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Sarelo</title>
         <!--my icons here -->
-        <link rel="stylesheet" type="text/css" href="../assets/icon/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="/assets/icon/font-awesome/css/font-awesome.min.css">
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.min.css">
         <!-- Main CSS here -->
-        <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+        <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    
+    
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
     </head>
     <body>
     
@@ -21,8 +26,8 @@
                 <nav class="navbar navbar-default">
                     <div class="container-fluid dis-flex">
                         <div class="navbar-header">
-                            <a class="navbar-brand navbar-link" href="index.html">
-                                <img src="../assets/img/logo/sarelo3.svg">
+                            <a class="navbar-brand navbar-link" href="/">
+                                <img src="/assets/img/logo/sarelo3.svg">
                             </a>
                         </div>
                         
@@ -40,7 +45,7 @@
                                 <li role="presentation" class="active">
                                     <a href="#">
                                         <span class="round-tab">
-                                            <span class="badge bg-transparent">
+                                            <span class="badge bg-brand-green">
                                                 <i class="fa fa-check"></i>
                                             </span>
                                             Address
@@ -52,7 +57,7 @@
                                     <a href="#">
                                         <span class="round-tab">
                                             <span class="badge bg-brand-green">
-                                                2
+                                                <i class="fa fa-check"></i>
                                             </span>
                                             Delivery Slot
                                         </span>
@@ -61,16 +66,18 @@
                                 <li role="presentation" class="active">
                                     <a href="#">
                                         <span class="round-tab">
-                                            <span class="badge bg-brand-green">3</span>
+                                            <span class="badge bg-brand-green">
+                                                <i class="fa fa-check"></i>
+                                            </span>
                                             Confirmation
                                         </span>
                                     </a>
                                 </li>
 
-                                <li role="presentation" class="active">
+                                <li role="presentation"  class="active">
                                     <a href="#">
                                         <span class="round-tab">
-                                            <span class="badge bg-brand-green">4</span>
+                                            <span class="badge bg-transparent">4</span>
                                             Payment
                                         </span>
                                     </a>
@@ -86,63 +93,65 @@
                 <div class="container width-94p">
                    <div class="row">
                        <div class="col-md-8">
-                           <div class="card" id="addressContent">
+                           <div class="card">
                                 <div class="header">
                                     <h4 class="title">
-                                        <i class="fa fa-map-marker c-brand-green f-27"></i> Choose Delivery Address
+                                        <i class="fa fa-money"></i> Select Payment Method
                                     </h4>
                                 </div>
-                                <div class="content p-t-10 clearfix m-t-20">
-                                    <!--starts here -->
-                                    <label class="card m-b-0 bg-brand-purple-op bd-brand-purple bd-4 width-100p pos-rel w-100">
-                                        <div class="p-15 clearfix">
-                                            <p class="pull-left m-b-0 c-brand-purple"><span><i class="fa fa-home"></i></span> 294 Herbert Macaulay Way, Sabo.</p>
-                                            <div class="pull-right"><i class="fa fa-check-circle-o f-23 c-brand-purple"></i></div>
-                                        </div>
-                                        <input type="radio" name="address" class="addresses pos-abs">
-                                    </label>
-                                    <!-- starts here end -->
-                                </div>
-                                <div class="content p-t-10 clearfix m-t-20">
-                                    <!--starts here -->
-                                    <label class="card m-b-0 bd-brand-purple bd-4 width-100p pos-rel w-100">
-                                        <div class="p-15 clearfix">
-                                            <p class="pull-left m-b-0 c-brand-purple"><span><i class="fa fa-home"></i></span> 294 Herbert Macaulay Way, Sabo.</p>
-                                            <div class="pull-right"><i class="fa fa-check-circle-o f-23 c-brand-purple"></i></div>
-                                        </div>
-                                        <input type="radio" name="address" class="addresses pos-abs">
-                                    </label>
-                                    <!-- starts here end -->
-                                </div>
-                                <div class="content p-t-10 clearfix">
-                                    <button class="btn btn-block bg-white bd-gray bd-4">Add New Address</button>
-                                </div>
-                                <div class="content p-t-10">
-                                    <div class="divider">
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="content p-t-10">
-                                    <div class="card no-bd m-b-0">
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                               <p>Phone Number</p>
-                                               <p class="w-600" id="editor">234(0)9028521055</p>
-                                            </div>
-                                            <div class="col-md-4">
-                                               <button class="btn bg-white pull-right uppercase w-600" id="editBtn">edit</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="content p-t-10 clearfix">
-                                    <button class="btn btn-md bg-brand-green pull-right f-18">Continue</button>
+                                <div class="content">
+                                	<div class="row">
+                                		<div class="col-md-4 col-sm-12 p-b-40">
+                                			<label class="online-pay btn p-l-30 p-r-30 p-t-10 p-b-10 bg-transparent-black bd-gray" onclick="payWithPaystack({{$order->id}})">
+                                				<input type="radio" name="bank" class="addresses">
+                                                <span><i class="fa fa-credit-card"></i></span> Pay Now
+                                			</label>
+                                		</div>
+                                		<div class="col-md-4 col-sm-12 p-b-40">
+                                			<label class="btn p-l-30 p-r-30 p-t-10 p-b-10 bg-transparent-black bd-gray bg-dark">
+                                                <input type="radio" name="bank" class="addresses">
+                                				<span><i class="fa fa-university"></i></span> Bank Transfer
+                                			</label>
+                                		</div>
+                                		
+                                	</div>
+                                	<p>Use the following details to pay via Bank transfer</p>
+                                	<div class="p-l-30 p-b-60">
+                                		<table>
+                                			<tbody>
+                                				<tr>
+                                					<td class="p-b-10">Account Name</td>
+                                					<td class="w-600 p-l-20 p-b-10">Sarelo Ltd</td>
+                                				</tr>
+                                				<tr>
+                                					<td class="p-b-10">Account Number</td>
+                                					<td class="w-600 p-l-20 p-b-10">0032014612</td>
+                                				</tr>
+                                			</tbody>
+                                		</table>
+                                		<div class="row">
+                                			<p class="col-md-8">Paying via mobile app? Use this number in the comment</p>
+                                			<p class="col-md-2 w-600">{{$order->order_unique_reference}}</p>
+                                			<div class="col-md-2">
+                                				<button class="btn bg-transparent uppercase f-12">copy</button>
+                                			</div>
+                                		</div>
+                                	</div>
+                                	<div class="clearfix p-b-20">
+                                	    {{-- <div class="f-left">
+                                	        <button type="button" class="btn btn-md bg-transparent f-18">Back</button>
+                                	    </div> --}}
+                                	    <div class="f-right">
+                                	        <a href="/checkout/bank/{{$order->order_unique_reference}}" type="button" class="btn btn-md bg-brand-green f-18">Continue</a>
+                                	    </div>
+                                	</div>
                                 </div>
                            </div>
                             <p class="text-center">*Terms and conditions apply on free delivery. <a href="#" class="c-brand-purple">Learn more</a></p>
                            
                        </div>
                        <div class="col-md-4">
+                           
                            <div class="card">
                                 <div class="header">
                                     <h4 class="title">Cart Summary</h4>
@@ -158,25 +167,17 @@
                                                 <span>Your Basket</span>
                                                 <span class="pull-right"> 
                                                     &#8358;
-                                                    <span class="cash">9882</span>
+                                                    <span class="cash">{{$order->orderProducts->sum('sub_total')}}</span>
                                                 </span>
                                             </p>
                                         </li>
-                                        <li>
-                                            <p class="menus">
-                                                <span>Sales Tax</span>
-                                                <span class="pull-right"> 
-                                                    &#8358;
-                                                    <span class="cash">9882</span>
-                                                </span>
-                                            </p>
-                                        </li>
+                                        
                                         <li>
                                             <p class="menus">
                                                 <span>Service charge</span>
                                                 <span class="pull-right"> 
                                                     &#8358;
-                                                    <span class="cash">9882</span>
+                                                    <span class="cash">{{$charge_arr['service_charge']}}</span>
                                                 </span>
                                             </p>
                                         </li>
@@ -185,7 +186,7 @@
                                                 <span>Delivery Charge</span>
                                                 <span class="pull-right"> 
                                                     &#8358;
-                                                    <span class="cash">9882</span>
+                                                    <span class="cash">{{$order->orderProducts->sum('sub_total') * .1}}</span>
                                                 </span>
                                             </p>
                                         </li>
@@ -194,7 +195,7 @@
                                                 <span>Delivery Slot</span>
                                                 <span class="pull-right"> 
                                                     <span class="cash">
-                                                        7pm - 8pm, Fri 24 Mar
+                                                        {{$order->orderSlot->slot->time_range}}, {{date('l d M', strtotime($order->orderSlot->slot->delivery_date))}}
                                                     </span>
                                                 </span>
                                             </p>
@@ -203,11 +204,11 @@
                                             <hr>
                                         </li>
                                         <li>
-                                            <p class="menus m-0 clearfix">
-                                                <span class="p-t-10">Total Due</span>
+                                            <p class="menus">
+                                                <span>Total Due</span>
                                                 <span class="pull-right c-brand-green f-20"> 
                                                     &#8358;
-                                                    <span class="cash">9882</span>
+                                                    <span class="cash">{{number_format($order->total)}}</span>
                                                 </span>
                                             </p>
                                         </li>
@@ -215,26 +216,26 @@
                                 </div>
                            </div>
                        </div>
+                       </div>
                    </div> 
                 </div>
             </section>
         </div>
 
-        
+        <script src="https://js.paystack.co/v1/inline.js"></script>
         <!-- jQuery -->
-        <script src="../assets/js/jquery.min.js"></script>
+        <script src="/assets/js/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
-        <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../assets/js/main.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+         <script src="/assets/js/main.js"></script>
+         <script src="/js/payment.js"></script>
          <script>
-             $(document).ready(function(){
-        
-                app.radioChooser("bg-brand-purple-op");
-                app.contentEditor();
-                
-             });
+            $(document).ready(function(){
+                app.radioChooser("bg-dark");
+
+
+            });
          </script>
     </body>
 </html>

@@ -25,7 +25,7 @@ class OrderProduct extends Model
      *
      * @var array
      */
-    protected $fillable = ['order_id','product_id', 'price'];
+    protected $guarded = ['id'];
 
     
 }

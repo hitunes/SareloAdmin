@@ -33,7 +33,7 @@
                                                      
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6 p-b-20">
+                                                {{-- <div class="col-md-6 p-b-20">
                                                     <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                                                         <label for="number" class="w-500">
                                                             Phone Number
@@ -48,7 +48,7 @@
                                                             </span>
                                                          @endif
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <div class="col-md-6">
                                                     <div class="form-group{{ $errors->has('city') ? ' has-error' : '' }}">
                                                         <label for="city" class="w-500">
@@ -72,7 +72,7 @@
                                             <hr>
                                         </div>
                                    
-                                     <button type="submit" class="btn btn-md f-18 pull-right c-white" id="submit">Add</button>
+                                     <button type="submit" class="btn btn-md f-18 pull-right c-white">Add</button>
                                         
                                     </form>
                                 </div>

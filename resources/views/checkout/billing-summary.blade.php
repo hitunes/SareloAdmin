@@ -36,9 +36,22 @@
                                                 </span>
                                             </p>
                                         </li>
+                                        @if(isset($options['slot']))
+                                        <li>
+                                            <p class="menus">
+                                                <span>Delivery Slot</span>
+                                                <span class="pull-right"> 
+                                                    <span class="cash">
+                                                        {{$options['slot']['time_range']}}, {{date('l d M', strtotime($options['delivery_date']))}}
+                                                    </span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        @endif
                                         <li>
                                             <hr>
                                         </li>
+                        
                                         <li>
                                             <p class="menus">
                                                 <span>Total Due</span>
