@@ -172,7 +172,7 @@ ul.suggestions li{
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
- 
+  cursor: pointer;
 }
 
 ul.suggestions li:first-child{
@@ -181,6 +181,10 @@ ul.suggestions li:first-child{
 
 ul.suggestions li div.clearfix{
   width: 100%;
+}
+
+ul.suggestions li:visited{
+  opacity: 0.4;
 }
 
 div.clearfix .products{
@@ -717,7 +721,8 @@ div.clearfix small,
   .width-10p,.width-20p,.width-30p,
   .width-40p,.width-50p,.width-60p,
   .width-65p,.width-70p,.width-75p,
-  .width-80p,.width-90p,.width-100p{
+  .width-80p,.width-90p,.width-94p,
+  .width-100p{
     width: 100% !important;
   }
 }

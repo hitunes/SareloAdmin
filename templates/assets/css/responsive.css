@@ -60,10 +60,22 @@
   text-align: center;
   font-size: 10px;
 }
+.wizard .nav-tabs > li {
+    padding-top: 5px;
+}
 
 .wizard .badge {
    display: block;
-}
+   margin: 0px auto;
+ }
+
+ .card .header {
+    padding: 10px 10px 0;
+ }
+
+ .card .content {
+    padding: 30px 10px 20px 10px;
+ }
 
 }
 
