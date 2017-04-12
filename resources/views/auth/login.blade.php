@@ -86,7 +86,7 @@
         <!-- jQuery -->
         <script src="/assets/js/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
-        <script src="/assets/js/bootstrap/bootstrap.min.js"></script>
+        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
          <script>
              
