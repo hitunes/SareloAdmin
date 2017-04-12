@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.min.css">
         <!-- Main CSS here -->
         <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+
+         <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     </head>
     <body>
@@ -102,13 +104,13 @@
                                                 <tbody>
                                                     <tr>
                                                         <td class="p-t-14 no-bd">Delivers to</td>
-                                                        <td class="p-t-14 no-bd">{{$options['address']}}</td>
-                                                        <td class="no-bd text-right"><button class="btn bg-transparent no-bd">Change</button></td>
+                                                        <td class="p-t-14 no-bd"><span class="location">294 Herbert Macaulay str.</span></td>
+                                                        <td class="no-bd text-right"><button class="btn bg-transparent no-bd change">Change</button></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="p-t-14">Delivery Slot</td>
-                                                        <td class="p-t-14">{{date("l, M d",strtotime($options['delivery_date']))}}, {{ $options['slot']['time_range'] }}</td>
-                                                        <td class="text-right"><button class="btn bg-transparent no-bd">Change</button></td>
+                                                        <td class="p-t-14"><span class="location">Fri, Mar 24, 7pm - 8pm</span></td>
+                                                        <td class="text-right"><button class="btn bg-transparent no-bd change">Change</button></td>
                                                     </tr>
                                                    
                                                 </tbody>
@@ -127,7 +129,7 @@
                                         <div class="table-responsive">
                                             <table class="table table-hover border-bottom m-0">
                                                 <tbody>
-                                                    @foreach($order as $item)
+                                                @foreach($order as $item)
                                                     <tr class="no-bd p-t-14 width-33_3p">
                                                         <td class="no-bd">
                                                             <div class="clearfix">
@@ -142,24 +144,23 @@
                                                         </td>
                                                         <td class="width-33_3p no-bd">
                                                             <div class="counter">
-                                                                <div class="minus"></div>
-                                                                <div class="count"></div>
-                                                                <div class="plus"></div>
+                                                                <div data-cart-item-id="{{$item->rowId}}" class="minus">-</div>
+                                                                <div class="count">{{$item->qty}}</div>
+                                                                <div data-cart-item-id="{{$item->rowId}}" class="plus">+</div>
                                                             </div>
                                                         </td>
                                                         <td class="p-t-14 width-33_3p text-right no-bd">
                                                             <div class="w-600 p-r-12">
-                                                                &#8358; <span class="cash">{{$item->price * $item->qty}}</span>
+                                                                &#8358; <span class="cash">{{$item->price}}</span>
                                                             </div>
-                                                            <a href="/cart/{{$item->rowId}}/remove" class="btn bg-transparent-black opacity-50 f-12">REMOVE</a>
+                                                            <button class="btn bg-transparent-black opacity-50 f-12">REMOVE</button>
                                                         </td>
                                                     </tr>
                                                     @endforeach
-                                                    
                                                 </tbody>
                                             </table>
                                         </div>
-                                        {{-- <button class="btn btn-block bg-transparent-black text-center p-b-15 p-t-15">See more...</button> --}}
+                                        <button class="btn btn-block bg-transparent-black text-center p-b-15 p-t-15">See more...</button>
                                     </div>
                                 </div>
                                 <div class="content">
@@ -171,7 +172,7 @@
                                                     <p>Place your order and enjoy the rest of your day.</p>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <a href="/checkout" class="btn btn-md bg-brand-green f-18 f-right">Place order</a>
+                                                    <button class="btn btn-md bg-brand-green f-18 f-right">Place order</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -193,10 +194,12 @@
         <!-- jQuery -->
         <script src="/assets/js/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
-        <script src="/assets/js/bootstrap/bootstrap.min.js"></script>
+        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="/assets/js/main.js"></script>
          <script>
-             
+            app.inlineEditor();
+            app.cartCtrl();
          </script>
     </body>
 </html>

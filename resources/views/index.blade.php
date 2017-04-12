@@ -11,19 +11,49 @@
         <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.min.css">
         <!-- Main CSS here -->
         <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+        <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     </head>
     <body>
+
+        <!--sidebar menu on the right hand -->
+        <aside class="sidebar left_sidebar visible-xs" id="left_sidebar">
+            <ul class="nav navbar-nav navbar-right">            
+                <li role="presentation">
+                    <span>Already have an Account?</span><br>
+                    <a href="/login" class="c-brand-purple"><span> Login</span></a>
+                </li>
+                <li>
+                    <div class="divider"></div>
+                </li>
+                <li role="presentation">
+                    <span>No Account?</span><br>
+                    <a href="/signup">
+                        <span>Sign Up</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <!--left side bar for mobile ends here-->
+
+        <!-- main contents begins here-->
         <div class="wrapper clearfix">
             <header class="p-l-100 pos-fx">
                 <!-- ===Nav bar starts here == -->
                 <nav class="navbar navbar-default">
                     <div class="container-fluid">
                         <div class="navbar-header">
-                            <a class="navbar-brand navbar-link" href="index.html">
+                            <button class="navbar-toggle menu_toggle">
+                                <span class="fa fa-bars"></span>
+                            </button>
+
+                            <a class="navbar-brand navbar-link hidden-xs" href="/">
                                 <img src="/assets/img/logo/sarelo2.svg">
                             </a>
-                            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                            <button class="navbar-toggle cart_toggle pos-rel">
+                                <i class="fa fa-shopping-basket"></i>
+                                 <span class="badge bg-red pos-abs t-0 r-0 items">0</span>
+                            </button>
                         </div>
                         <div class="collapse navbar-collapse" id="navcol-1">
                             <ul class="nav navbar-nav navbar-right">
@@ -41,11 +71,12 @@
                                         <span>Sign Up</span>
                                     </a>
                                 </li>
-                                <li class="p-r-5 p-l-5">
-                                    <button class="btn btn_cart btn_action f-18 w-500" id="cart_action">
+                                <li class="p-r-5 p-l-5 pos-rel">
+                                    <button class="btn btn_cart btn_action f-18 w-500 cart_toggle">
                                         <i class="fa fa-shopping-basket m-r-5"></i>
                                         <!--<img src="/assets/img/icon/Sarelo-basket.png" width="27px">-->  My Basket
                                     </button>
+                                    <span class="badge bg-red pos-abs t-10 l-0 items">0</span>
                                 </li>
                             </ul>
                         </div>
@@ -66,9 +97,10 @@
                 </div>
             </section>
         </div>
+        <!-- main contents ends here -->
 
         <!--sidebar menu on the right hand -->
-        <aside class="sidebar" id="sidebar">
+        <aside class="sidebar right_sidebar" id="right_sidebar">
             <!--<div class="header">
                 <h3>MY FOOD BASKET 
                     <span class="pull-right items_container">
@@ -90,7 +122,7 @@
                                 <span>
                                     TOTAL
                                 </span>
-                                <span class="pull-right">&#8358; <span id="totalP">9480</span></span>
+                                <span class="pull-right">&#8358; <span id="totalP">0</span></span>
                             </p>
                         </li>
                         <li>
@@ -98,7 +130,7 @@
                                 <span>
                                     10% Service Charge
                                 </span>
-                                <span class="pull-right">&#8358; <span id="serviceCharge">9480</span></span>
+                                <span class="pull-right">&#8358; <span id="serviceCharge">0</span></span>
                             </p>
                             <small>Cost for service & packaging</small>
                         </li>
@@ -107,7 +139,7 @@
                                 <span>
                                     Delivery Fee
                                 </span>
-                                <span class="pull-right">&#8358; <span id="deliveryFee">9480</span></span>
+                                <span class="pull-right">&#8358; <span id="deliveryFee">0</span></span>
                             </p>
                             <small>Cost for delivering your product</small>
                         </li>
@@ -116,20 +148,18 @@
                                 <span>
                                     TOTAL
                                 </span>
-                                <span class="pull-right">&#8358; <span id="grandTP">9480</span></span>
+                                <span class="pull-right">&#8358; <span id="grandTP">0</span></span>
                             </p>
                         </li>
                         <li>
-                            <a href="/checkout/billing-address" class="btn btn-block btn_cart">Proceed To Checkout</a>
+                            <a href="/checkout/billing-address" class="btn btn-block" id="submit_cart">Proceed To Checkout</a>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="empty_bag dis-flex">
                 <div class="wrap text-center">
-                    <span class="fa fa-shopping-basket m-b-50" style="font-size: 150px;"></span>
-                    <!--<img src="/assets/img/icon/Sarelo-basket.png" class="width-200">-->
-                    
+                    <span class="fa fa-shopping-basket m-b-50" style="font-size: 150px;"></span>                    
                     <h4 class="m-b-50 l-spacing-2">Your food basket is empty</h4>
                 
                     <h4 class="l-spacing-2">Use the search bar to ﬁnd<br> and add items to your basket</h4>
@@ -143,24 +173,30 @@
 
         <!-- jQuery -->
         <script src="/assets/js/jquery.min.js"></script>
+
+        <!--jQuery UI -->
+        
         <!-- Bootstrap JavaScript -->
-        <script src="/assets/js/bootstrap/bootstrap.min.js"></script>
+        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- Main JS -->
         <script src="/assets/js/main.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
          <script>
              $(document).ready(function(){
+                $("input.search").focus();
                 app.fecther();
                 app.cartCtrl();
-                $("#cart_action, #overlay").on("click", function(){
+                
+                $(".cart_toggle").on("click", function(){
+                    $("html").removeClass("open_left");
                     $("html").toggleClass("open");
-                    //if this is a button toggle it's content....
-                    /*if (this.id == "cart_action") {
-                       $(this).html("<i class='fa fa-remove'></i> Close");
-                       $(this).html("<i class='fa fa-shopping-basket m-r-5'></i> My Basket");
-                       true ? a : b;
-                    }*/
                 });
+
+                $(".menu_toggle").on("click", function(){
+                   $("html").removeClass("open");
+                   $("html").toggleClass("open_left");
+                });
+
              });
          </script>
     </body>

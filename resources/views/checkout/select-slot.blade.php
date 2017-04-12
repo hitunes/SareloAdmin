@@ -92,6 +92,11 @@
                                         <i class="fa fa-clock-o c-brand-green f-27"></i> Choose Delivery Times
                                     </h4>
                                 </div>
+                                @if (session('error_message'))
+                                    <div class="alert alert-warning">
+                                        {{ session('error_message') }}
+                                    </div>
+                                @endif
                                 <div class="content clearfix">
                                     <!--starts here -->
                                     <div class="card">
