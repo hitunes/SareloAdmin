@@ -422,6 +422,7 @@ const app = {
       cartArray.length === 0 ? a() : b();
 
       var output = "";
+      var output2 = "";
       for(var i in cartArray){
         output += `
            <li class="pos-rel animated" data-product="${cartArray[i].name}" id="pr_${cartArray[i].name}">
@@ -452,12 +453,42 @@ const app = {
                       <h4 class="m-b-0 m-t-5 align-right">&#8358; ${cartArray[i].price}</h4>
                   </div>
               </div>
-              <span class="fa fa-remove pos-abs" data-product="${cartArray[i].name}"></span>
+              <span class="fa fa-remove pos-abs removeItem" data-product="${cartArray[i].name}"></span>
            </li>
         `;
+
+         output2 += `
+          <tr class="p-t-14 width-33_3p">
+              <td class="">
+                  <div class="clearfix">
+                      <div class="f-left p-r-15">
+                          <img src="${cartArray[i].img}" class="width-40 h-40 bd-50p">
+                      </div>
+                      <div class="f-left">
+                          <div>${cartArray[i].name}</div>
+                          <div class="f-12 opacity-50">${cartArray[i].unit}</div>
+                      </div>
+                  </div>
+              </td>
+              <td class="width-33_3p">
+                  <div class="counter text-center p-t-0">
+                      <div class="minus" data-product="${cartArray[i].name}">-</div>
+                      <div class="count">${cartArray[i].count}</div>
+                      <div class="plus" data-product="${cartArray[i].name}">+</div>
+                  </div>
+              </td>
+              <td class="p-t-14 width-33_3p text-right">
+                  <div class="w-600 p-r-12">
+                      ₦ <span class="cash">${cartArray[i].price}</span>
+                  </div>
+                  <button class="btn bg-transparent-black opacity-50 f-12 removeItem" data-product="${cartArray[i].name}">REMOVE</button>
+              </td>
+          </tr>`;
       }
 
+
       $("#basketList").html(output);
+      $("#cartTable").html(output2);
       $(".items").html(countCart());
       $("#totalP").html(totalCart());
       $("#serviceCharge").html(serviceChargeCtrl(10));
@@ -487,7 +518,7 @@ const app = {
     });
 
     //remove items from cart
-    $(document).on('click', 'li .fa-remove', function(){
+    $(document).on('click', '.removeItem', function(){
       var name = $(this).attr('data-product');
       removeItemFromCartAll(name);
       displayCart();
@@ -613,5 +644,10 @@ const app = {
         $("html").removeClass("open");
         $("html").toggleClass("open_left");
     });
+  },
+  numberWithCommas: function (x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
   }
 }
