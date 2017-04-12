@@ -414,6 +414,15 @@ const app = {
     }
 
 
+    //function that animates counter
+    function aniCounter(){
+       setTimeout(function(){
+          $(".items").addClass("shakers");
+        }, 50);
+        $(".items").removeClass("shakers");
+    }
+
+
     //display items in cart
     function displayCart(){
 
@@ -480,7 +489,7 @@ const app = {
         
           
           $("#basketList").html(output);
-          $("#items").html(totalCount/*countCart()*/);
+          $(".items").html(totalCount/*countCart()*/);
           $("#totalP").html(total_cost);
           // $("#serviceCharge").html(serviceChargeCtrl(10));
           // $("#deliveryFee").html(deliveryCtrl(1000));
@@ -611,6 +620,24 @@ selectDeliveryDate: function () {
       $(".delivery_date_v").val(delivery_date);    
   });
 },
+inlineEditor: function(){
+    var editBtn = $('.change');
+    /*var editor = editBtn.parents("td");
+    console.log(editor);*/
+
+    editBtn.on('click', function(e) {
+        console.log($(this).parent());
+       var editor = $(this).parent()[0].previousElementSibling.firstElementChild
+
+       if (!editor.isContentEditable) {
+            editor.contentEditable = true;
+            editor.focus();
+            
+        } else {
+            editor.contentEditable = false;
+        }
+    });
+  },
 
 switchForm : function(){
 

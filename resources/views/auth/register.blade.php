@@ -100,11 +100,11 @@
                                                 <button type="submit" class="btn btn-md btn-block bg-brand-green">Log In</button>
                                             </form> --}}
                                             <div class="or-separator m-b-10">or</div>
-                                            <a href="" class="btn btn-md btn-block bg-facebook m-b-10"><span class="p-r-30"><i class="fa fa-facebook-square"></i></span> Log in with Facebook</a>
-                                            <a href="" class="btn btn-md btn-block bg-twitter m-b-10"><span class="p-r-30"><i class="fa fa-google-plus-square"></i></span> Log in with Google</a>
+                                            <a href="/social/login/facebook" class="btn btn-md btn-block bg-facebook m-b-10"><span class="p-r-30"><i class="fa fa-facebook-square"></i></span> Log in with Facebook</a>
+                                            <a href="/social/login/google" class="btn btn-md btn-block bg-twitter m-b-10"><span class="p-r-30"><i class="fa fa-google-plus-square"></i></span> Log in with Google</a>
                                             <div class="p-t-30">
-                                                <p class="text-center">Don't have an account? <a href="#" class="c-brand-purple">Sign Up</a></p>
-                                                <p class="text-center">Forgot your password? <a href="#" class="c-brand-purple">Reset It</a></p>
+                                                <p class="text-center">Don't have an account? <a href="/signup" class="c-brand-purple">Sign Up</a></p>
+                                                <p class="text-center">Forgot your password? <a href="/password/reset" class="c-brand-purple">Reset It</a></p>
                                             </div>
                                         </div>
                                     </div>
