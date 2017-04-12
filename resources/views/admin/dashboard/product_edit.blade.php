@@ -825,7 +825,7 @@
                                                                 <a href="{{url('admin/products',$product->id)}}" class="btn btn-sm btn-default margin-bottom" id="edit_product">
                                                                     <i class="fa fa-pencil"></i> Edit</a>
 
-                                                                <a id="btn_del" href="{{url('admin/products/destroy',$product->id)}}" class="btn btn-sm btn-danger margin-bottom">
+                                                                <a id="a_del" href="{{url('admin/products/destroy',$product->id)}}" class="btn btn-sm btn-danger margin-bottom">
                                                                     <i class="fa fa-trash"></i> Delete</a>
 
                                                                 <button class="btn btn-sm btn-success margin-bottom">

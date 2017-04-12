@@ -36,6 +36,9 @@
         #edit_each_product{
             display: none;
         }
+        .dataTables_extended_wrapper div.dataTables_info, .dataTables_extended_wrapper div.dataTables_length, .dataTables_extended_wrapper div.dataTables_paginate{
+            display: none;
+        }
     </style>
     <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
         <!-- BEGIN HEADER -->
@@ -253,15 +256,15 @@
                 return false;
               }
 
-              $("a#btn_del").click(function(){
+              $("a#a_del").click(function(){
                return ConfirmDelete();
               });
 
-              $("a#edit_product").click(function(){
-                $("#edit_each_product").show();
-                $("#add_product").hide();
-                $(window).scrollTop(0);
-              });
+              // $("a#edit_product").click(function(){
+              //   $("#edit_each_product").show();
+              //   $("#add_product").hide();
+              //   $(window).scrollTop(0);
+              // });
         </script>
         <!-- END THEME LAYOUT SCRIPTS -->
     </body>

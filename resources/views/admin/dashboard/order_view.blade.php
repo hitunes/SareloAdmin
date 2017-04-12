@@ -72,7 +72,7 @@
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-settings font-dark"></i>
-                                        <span class="caption-subject font-dark sbold uppercase"> Order #12313232
+                                        <span class="caption-subject font-dark sbold uppercase"> Order {{"#000000".$order->user_id}}
                                             <span class="hidden-xs">| Dec 27, 2013 7:16:25 </span>
                                         </span>
                                     </div>
@@ -141,27 +141,27 @@
                                                             <div class="portlet-body">
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Order No: </div>
-                                                                    <div class="col-md-7 value"> 12313232
+                                                                    <div class="col-md-7 value"> {{"000000".$order->user_id}}
                                                                         <!--<span class="label label-info label-sm"> Email confirmation was sent </span>-->
                                                                     </div>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Order Date & Time: </div>
-                                                                    <div class="col-md-7 value"> Dec 27, 2013 7:16:25 PM </div>
+                                                                    <div class="col-md-7 value"> {{$order->created_at->diffForHumans()}} </div>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Order Status: </div>
                                                                     <div class="col-md-7 value">
-                                                                        <span class="label label-success"> Delivered </span>
+                                                                        <span class="label label-success"> {{$order->status}} </span>
                                                                     </div>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Grand Total: </div>
-                                                                    <div class="col-md-7 value"> &#8358; 175.25 </div>
+                                                                    <div class="col-md-7 value"> &#8358; {{$order->total}} </div>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Payment Information: </div>
-                                                                    <div class="col-md-7 value"> Paystack </div>
+                                                                    <div class="col-md-7 value"> {{$order->payment_method}} </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -178,20 +178,21 @@
                                                             </div>
                                                             <div class="portlet-body">
                                                                 <div class="row static-info">
+
                                                                     <div class="col-md-5 name"> Customer Name: </div>
-                                                                    <div class="col-md-7 value"> Ekene John </div>
+                                                                    <div class="col-md-7 value"> {{$order->user->first_name}} </div>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Email: </div>
-                                                                    <div class="col-md-7 value"> john@cchub.com </div>
+                                                                    <div class="col-md-7 value"> {{$order->user->email}} </div>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Area: </div>
-                                                                    <div class="col-md-7 value"> Yaba</div>
+                                                                    <div class="col-md-7 value"> {{$order->user_address->city}} </div>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Phone Number: </div>
-                                                                    <div class="col-md-7 value"> 12234389 </div>
+                                                                    <div class="col-md-7 value"> {{$order->user->phone}} </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -262,38 +263,31 @@
                                                                 <div class="table-responsive">
                                                                     <table class="table table-hover table-bordered table-striped">
                                                                         <thead>
-                                                                            <tr>
-                                                                                <th> Product Name</th>
-                                                                                <th> Quantity </th>
-                                                                                <th> Price (per each item) </th>
-                                                                                <th> Total </th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <a href="javascript:;"> Beans </a>
-                                                                                </td>
-                                                                                <td> 2 </td>
-                                                                                <td>&#8358; 345.50 </td>
-                                                                                <td>&#8358; 691.00 </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <a href="javascript:;"> Rice </a>
-                                                                                </td>
-                                                                                <td> 2 </td>
-                                                                                <td>&#8358; 345.50 </td>
-                                                                                <td>&#8358; 691.00 </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>
-                                                                                    <a href="javascript:;"> Garri </a>
-                                                                                </td>
-                                                                                <td> 1 </td>
-                                                                                <td>&#8358; 790.00 </td>
-                                                                                <td>&#8358; 790.00 </td>
-                                                                            </tr>
+
+                                                                                <tr>
+                                                                                    <th> Product Name</th>
+                                                                                    <th> Quantity </th>
+                                                                                    <th> Price (per each item) </th>
+                                                                                    <th> Total </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                @foreach($order->order_products as $item)
+                                                                                
+
+                                                                                  
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a target="_blank" href="/admin/products/{{$item->product->id}}">  
+                                                                                            {{$item->product->name}}
+                                                                                            </a>
+                                                                                        </td>
+                                                                                        <td> {{$item->qty}} </td>
+                                                                                        <td>&#8358;  {{$item->price}}</td>
+                                                                                        <td>&#8358; {{$item->sub_total}} </td>
+                                                                                    </tr>
+                                                                                  
+                                                                                @endforeach
                                                                         </tbody>
                                                                     </table>
                                                                 </div>

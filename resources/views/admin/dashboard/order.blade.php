@@ -119,6 +119,7 @@
                                             <button class="btn btn-sm btn-default table-group-action-submit">
                                                 <i class="fa fa-check"></i> Submit</button>-->
                                         </div>
+                                        {{ $orders->links() }}
                                         <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_orders">
                                             <thead>
                                                 <tr role="row" class="heading">
@@ -185,35 +186,44 @@
                                                 </tr>-->
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        
-                                                    </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td> </td>
-                                                    <td>
-                                                        <select name="order_status" class="form-control form-filter input-sm">
-                                                            <option value="">Select...</option>
-                                                            <option value="pending">Pending Delivery</option>
-                                                            <option value="delivered">Delivered</option>
-                                                        </select>
-                                                    </td>
-                                                    <td>
-                                                        
-                                                            <span class="label label-sm lgreen label-success"> Delivered </span>
-                                                        
-                                                    </td>
-                                                    <td>
-                                                        <a href="order_view.html"><button class="btn btn-sm btn-success margin-bottom">
-                                                                <i class="fa fa-eye"></i> View</button></a>
-                                                    </td>
+                                                <?php $num = 1; ?>
+                                                <form method="POST" action="/update_orders">
+                                                    @foreach($orders as $order)
 
-                                                </tr>
+                                                            <tr>
+
+                                                                <td>
+                                                                   {{$num++}} 
+                                                                </td>
+                                                                <td> {{$order->created_at->diffForHumans()}} </td>
+                                                                <td> {{$order->price}} </td>
+                                                                <td> {{$order->payment_method}} </td>
+                                                                <td> {{"0000".$order->user_id}} </td>
+                                                                <td>
+                                                                    <select name="order_status" class="form-control form-filter input-sm">
+                                                                        <option value="">Select...</option>
+                                                                        <option value="pending">Pending Delivery</option>
+                                                                        <option value="delivered">Delivered</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    
+                                                                        <span class="label label-sm lgreen label-success"> {{$order->status}} </span>
+                                                                    
+                                                                </td>
+                                                            </form>
+                                                                <td>
+                                                                    <a href="{{url('admin/order_views',$order->id)}}"><button class="btn btn-sm btn-success margin-bottom">
+                                                                            <i class="fa fa-eye"></i> View</button></a>
+                                                                </td>
+
+                                                            </tr>
+                                                    @endforeach
+                                                
                                             </tbody>
                                         </table>
                                     </div>
+                                    {{ $orders->links() }}
                                 </div>
                             </div>
                             <!-- End: life time stats -->
