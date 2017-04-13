@@ -614,16 +614,17 @@ const app = {
     console.log(editor);*/
 
     editBtn.on('click', function(e) {
-        console.log($(this).parent());
-       var editor = $(this).parent()[0].previousElementSibling.firstElementChild
-
-       if (!editor.isContentEditable) {
-            editor.contentEditable = true;
-            editor.focus();
-            
-        } else {
-            editor.contentEditable = false;
-        }
+       //console.log($(this).parent());
+       var editor = $(this).parent()[0].previousElementSibling.firstElementChild;
+      
+       if(editor.disabled){
+         editor.disabled = false;
+         $(this).text('Save');
+       }
+       else{
+         editor.disabled = true;
+         $(this).text('Change');
+       }
     });
   },
   preventFormSubmit: function(){
