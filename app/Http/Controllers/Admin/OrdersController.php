@@ -19,7 +19,7 @@ class OrdersController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 25;
+        $perPage = 2;
 
         if (!empty($keyword)) {
             $orders = Order::where('user_id', 'LIKE', "%$keyword%")
@@ -30,7 +30,7 @@ class OrdersController extends Controller
             $orders = Order::paginate($perPage);
         }
 
-        return view('admin.orders.index', compact('orders'));
+        return view('admin.dashboard.order', compact('orders'));
     }
 
     /**
@@ -40,7 +40,7 @@ class OrdersController extends Controller
      */
     public function create()
     {
-        return view('admin.orders.create');
+        return view('admin.order.create');
     }
 
     /**
@@ -59,7 +59,7 @@ class OrdersController extends Controller
 
         Session::flash('flash_message', 'Order added!');
 
-        return redirect('admin/orders');
+        return redirect('admin.dashboard.orders');
     }
 
     /**
@@ -71,9 +71,11 @@ class OrdersController extends Controller
      */
     public function show($id)
     {
-        $order = Order::findOrFail($id);
-
-        return view('admin.orders.show', compact('order'));
+        $order = Order::with(['order_products' => function($q){
+                        $q->with('product');
+                }])->findOrFail($id);
+        // dd($order);
+        return view('admin.dashboard.order_view', compact('order'));
     }
 
     /**
@@ -87,7 +89,7 @@ class OrdersController extends Controller
     {
         $order = Order::findOrFail($id);
 
-        return view('admin.orders.edit', compact('order'));
+        return view('admin.dashboard.order_view', compact('order'));
     }
 
     /**

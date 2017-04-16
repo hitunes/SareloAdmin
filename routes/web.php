@@ -11,6 +11,18 @@
 |
 */
 
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/index', 'Admin\IndexController@index');
+    Route::resource('/users', 'Admin\UserController');
+	Route::get('/products', 'Admin\ProductsController@index');
+	Route::post('/products', 'Admin\ProductsController@add_product');
+	Route::get('/products/{id}', 'Admin\ProductsController@edit');
+	Route::post('/products/{id}', 'Admin\ProductsController@update');
+	Route::get('/products/destroy/{id}', 'Admin\ProductsController@destroy');
+    Route::get('/order_views/{id}', 'Admin\OrdersController@show');
+
+});
+
 Route::get('/', 'IndexController@index');
 
 // Auth::routes();
@@ -32,7 +44,6 @@ Route::get('/test', [
 
 // Route::get('/cart', 'CartsController@addCartItem');
 // Route::resource('products', 'ProductsController');
-Route::resource('admin/products', 'Admin\\ProductsController');
 Route::resource('admin/categories', 'Admin\\CategoriesController');
 Route::resource('admin/unit-types', 'Admin\\UnitTypesController');
 Route::resource('admin/orders', 'Admin\\OrdersController');
