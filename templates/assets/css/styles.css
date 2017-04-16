@@ -987,3 +987,7 @@ label.required:after {content: '*';color: #FF5757;margin-left: 2px;}
   list-style-type: none;
   padding-left: 0px;
 }
+
+select:focus, select:hover{
+  outline: 0 !important;
+}
