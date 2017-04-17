@@ -1014,3 +1014,10 @@ label.required:after {content: '*';color: #FF5757;margin-left: 2px;}
 .btn.c-blue {
     color: #00A2D9 !important;
 }
+
+@media screen and (max-width: 767px) {
+  .table-responsive {
+      border: none;
+      margin-bottom: 0;
+  }
+}
