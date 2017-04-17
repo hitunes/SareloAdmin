@@ -282,7 +282,7 @@ const app = {
   },
   cartCtrl: function(){
     var cart = [];
-  
+    
     //function that returns objects
     function Item (name, price, count, unit, img, product_id){
       this.name = name;
@@ -388,7 +388,7 @@ const app = {
 
     //load the cart
     function loadCart(){
-      cart = JSON.parse(localStorage.getItem("shoppingCart"));
+        cart = JSON.parse(localStorage.getItem("shoppingCart"));       
     }
 
     //calculates service charges here....
@@ -429,6 +429,7 @@ const app = {
       $.getJSON('/cart').done(function(response){
           
           var output = "";
+          var output2 = "";
           var totalCount = 0;
           var total_cost = 0;
           
@@ -460,29 +461,58 @@ const app = {
                       </div>
                   </div>
                   <div class="col-xs-3">
-                      <h4 class="m-b-0 m-t-5">&#8358; ${val.price}</h4>
+                      <h4 class="m-b-0 m-t-5">&#8358; ${roundToTwo(val.price).toLocaleString()}</h4>
                   </div>
               </div>
               <span class="fa fa-remove pos-abs" data-product="${val.name}" data-cart-item-id="${key}"></span>
            </li>`;
+           
+           output2 += `
+          <tr class="p-t-14 width-33_3p" data-product="${val.name}" id="pr_${val.name}">
+              <td class="">
+                  <div class="clearfix">
+                      <div class="f-left p-r-15">
+                          <img src="${val.img}" class="width-40 h-40 bd-50p">
+                      </div>
+                      <div class="f-left">
+                          <div>${val.name}</div>
+                          <div class="f-12 opacity-50">${val.options.unit}</div>
+                      </div>
+                  </div>
+              </td>
+              <td class="width-33_3p">
+                  <div class="counter text-center p-t-0">
+                      <div class="minus" data-cart-item-id="${key}">-</div>
+                      <div class="count">${val.qty}</div>
+                      <div class="plus" data-cart-item-id="${key}">+</div>
+                  </div>
+              </td>
+              <td class="p-t-14 width-33_3p text-right">
+                  <div class="w-600 p-r-12">
+                      ₦ <span class="cash">${roundToTwo(val.price).toLocaleString()}</span>
+                  </div>
+                  <button class="btn bg-transparent-black opacity-50 f-12 removeItem" data-cart-item-id="${key}">REMOVE</button>
+              </td>
+          </tr>`;
+
             totalCount += val.qty;
             total_cost += val.subtotal;
-
             
         })
-     
+        total_cost =  roundToTwo(total_cost)
         total_cost === 0 ? a() : b();
           for (var i = 0; i < response.data.charges.length; i++) {
         
              if(response.data.charges[i].name == "Delivery fee"){
                var delivery_fee = deliveryCtrl(response.data.charges[i].fixed_amount);
-               $("#deliveryFee").html(delivery_fee);
+               $("#deliveryFee").html(roundToTwo(delivery_fee.toLocaleString()));
                
              }
 
              if(response.data.charges[i].name == "Service Charge"){
-               var service_charge = serviceChargeCtrl(response.data.charges[i].percentage, total_cost);                              
-               $("#serviceCharge").html(service_charge);
+               var service_charge = serviceChargeCtrl(response.data.charges[i].percentage, total_cost);
+               service_charge = roundToTwo(service_charge);                            
+               $("#serviceCharge").html(service_charge.toLocaleString());
              }
       
           }
@@ -490,11 +520,13 @@ const app = {
           
           $("#basketList").html(output);
           $(".items").html(totalCount/*countCart()*/);
-          $("#totalP").html(total_cost);
+          $("#totalP").html(total_cost.toLocaleString());
+          $("#cartTable").html(output2);
+
           // $("#serviceCharge").html(serviceChargeCtrl(10));
           // $("#deliveryFee").html(deliveryCtrl(1000));
           // $("#grandTP").html(totalCart() + serviceChargeCtrl(10) + deliveryCtrl(1000));
-          $("#grandTP").html(total_cost + service_charge + delivery_fee); 
+          $("#grandTP").html((total_cost + service_charge + delivery_fee).toLocaleString('en-NG')); 
       })
   
     }
@@ -556,6 +588,12 @@ const app = {
       var id = $(this).attr('data-cart-item-id');
       removeItemFromCart(id);
     });
+
+    $(document).on('click', '.removeItem', function(){
+      var id = $(this).attr('data-cart-item-id');
+      removeItemFromCartAll(id);
+    });
+
 
     saveCart();
     loadCart();
@@ -623,23 +661,28 @@ selectDeliveryDate: function () {
       $(".delivery_date_v").val(delivery_date);    
   });
 },
-inlineEditor: function(){
+  inlineEditor: function(){
+    
     var editBtn = $('.change');
     /*var editor = editBtn.parents("td");
     console.log(editor);*/
 
     editBtn.on('click', function(e) {
-        console.log($(this).parent());
-       var editor = $(this).parent()[0].previousElementSibling.firstElementChild
-
-       if (!editor.isContentEditable) {
-            editor.contentEditable = true;
-            editor.focus();
-            
-        } else {
-            editor.contentEditable = false;
-        }
+       //console.log($(this).parent());
+        e.preventDefault();
+       
+       var editor = $(this).parent()[0].previousElementSibling.firstElementChild;
+      
+       if(editor.disabled){
+         editor.disabled = false;
+         $(this).text('Save');
+       }
+       else{
+         editor.disabled = true;
+         $(this).text('Change');
+       }
     });
+    
   },
   preventFormSubmit: function(){
     $(window).keydown(function(event){
@@ -666,4 +709,7 @@ inlineEditor: function(){
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
   }
+}
+function roundToTwo(num) {    
+    return +(Math.round(num + "e+2")  + "e-2");
 }
