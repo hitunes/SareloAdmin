@@ -6,12 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Sarelo</title>
         <!--my icons here -->
-        <link rel="stylesheet" type="text/css" href="/assets/icon/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/icon/font-awesome/css/font-awesome.min.css">
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/bootstrap/bootstrap.min.css">
         <!-- Main CSS here -->
-        <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
-        <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     </head>
     <body>
@@ -48,7 +48,7 @@
                             </button>
 
                             <a class="navbar-brand navbar-link hidden-xs" href="/">
-                                <img src="/assets/img/logo/sarelo2.svg">
+                                <img src="assets/img/logo/sarelo2.svg">
                             </a>
                             <button class="navbar-toggle cart_toggle pos-rel">
                                 <i class="fa fa-shopping-basket"></i>
@@ -74,7 +74,7 @@
                                 <li class="p-r-5 p-l-5 pos-rel">
                                     <button class="btn btn_cart btn_action f-18 w-500 cart_toggle">
                                         <i class="fa fa-shopping-basket m-r-5"></i>
-                                        <!--<img src="/assets/img/icon/Sarelo-basket.png" width="27px">-->  My Basket
+                                        <!--<img src="assets/img/icon/Sarelo-basket.png" width="27px">-->  My Basket
                                     </button>
                                     <span class="badge bg-red pos-abs t-10 l-0 items">0</span>
                                 </li>
@@ -89,7 +89,7 @@
                     <h1 class="text-left l-spacing-2 fw-900 line-40 w-600">We will buy & deliver <span class="c-brand-green">fresh<br> foodstuff!</span> from the market to you.</h1>
                     <br><br><br>
                     <form class="query pos-rel">
-                        <input class="form-control search p-r-20 p-l-40" type="search" placeholder="What do you want to buy?...." id="querySelector">
+                        <input class="form-control search p-r-20 p-l-40" type="search" placeholder="What do you want to buy?...." id="querySelector" autocomplete="off">
                         <div class="update"> 
                             
                         </div>
@@ -122,7 +122,7 @@
                                 <span>
                                     TOTAL
                                 </span>
-                                <span class="pull-right">&#8358; <span id="totalP">0</span></span>
+                                <span class="pull-right">&#8358; <span id="totalP">9480</span></span>
                             </p>
                         </li>
                         <li>
@@ -130,7 +130,7 @@
                                 <span>
                                     10% Service Charge
                                 </span>
-                                <span class="pull-right">&#8358; <span id="serviceCharge">0</span></span>
+                                <span class="pull-right">&#8358; <span id="serviceCharge">9480</span></span>
                             </p>
                             <small>Cost for service & packaging</small>
                         </li>
@@ -139,7 +139,7 @@
                                 <span>
                                     Delivery Fee
                                 </span>
-                                <span class="pull-right">&#8358; <span id="deliveryFee">0</span></span>
+                                <span class="pull-right">&#8358; <span id="deliveryFee">9480</span></span>
                             </p>
                             <small>Cost for delivering your product</small>
                         </li>
@@ -148,7 +148,7 @@
                                 <span>
                                     TOTAL
                                 </span>
-                                <span class="pull-right">&#8358; <span id="grandTP">0</span></span>
+                                <span class="pull-right">&#8358; <span id="grandTP">9480</span></span>
                             </p>
                         </li>
                         <li>
@@ -159,9 +159,11 @@
             </div>
             <div class="empty_bag dis-flex">
                 <div class="wrap text-center">
-                    <span class="fa fa-shopping-basket m-b-50" style="font-size: 150px;"></span>                    
+                    <span class="fa fa-shopping-basket m-b-50" style="font-size: 150px;"></span>
+                    <!--<img src="assets/img/icon/Sarelo-basket.png" class="width-200">-->
+                    
                     <h4 class="m-b-50 l-spacing-2">Your food basket is empty</h4>
-                
+                    <br>
                     <h4 class="l-spacing-2">Use the search bar to ﬁnd<br> and add items to your basket</h4>
                 </div>
             </div>
@@ -172,31 +174,31 @@
         </div>
 
         <!-- jQuery -->
-        <script src="/assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
 
         <!--jQuery UI -->
         
         <!-- Bootstrap JavaScript -->
-        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <!-- Slim Scroll -->
+        <script src="assets/js/slimScroll.min.js"></script>
         <!-- Main JS -->
-        <script src="/assets/js/main.js"></script>
+        <script src="assets/js/main.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
          <script>
              $(document).ready(function(){
-                $("input.search").focus();
                 app.fecther();
                 app.cartCtrl();
-                
-                $(".cart_toggle").on("click", function(){
-                    $("html").removeClass("open_left");
-                    $("html").toggleClass("open");
-                });
-
-                $(".menu_toggle").on("click", function(){
-                   $("html").removeClass("open");
-                   $("html").toggleClass("open_left");
-                });
-
+                app.preventFormSubmit();
+                app.toggleSidebars();
+                $("#basketList").slimScroll({
+                    height: '100%',
+                    size: '2px',
+                    railVisible: true,
+                    railColor: '#222',
+                    railOpacity: 0.3,
+                    wheelStep: 10
+                });     
              });
          </script>
     </body>
