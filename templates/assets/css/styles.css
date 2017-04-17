@@ -342,7 +342,7 @@ div.clearfix small,
 }
 /*sidebar styling starts here */
 .card{
-  border-radius: 5px;
+  border-radius: 5px !important;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(63, 63, 68, 0.1);
   background-color: #FFFFFF;
   margin-bottom: 30px;
@@ -527,6 +527,7 @@ div.clearfix small,
 .m-l-60 {margin-left:60px !important;}
 
 /****  Margin Right  ****/
+.m-r-0 {margin-right:0 !important;}
 .m-r-3 {margin-right:3px !important;}
 .m-r-5 {margin-right:5px !important;}
 .m-r-10 {margin-right:10px !important;}
@@ -638,6 +639,7 @@ div.clearfix small,
 .no-bd{border:none !important;box-shadow: none}
 .border-bottom {border-bottom: 1px solid #EFEFEF !important;}
 .border-top {border-top: 1px solid #EFEFEF !important;}
+.bd-top-gray{border-top: 1px solid #9B9B9B !important;}
 .bd-gray{border: 1px solid #9B9B9B !important;}
 .bd-gray-lite{border: 1px solid #EFEFEF !important;}
 .bd-black{border: 1px solid #000 !important;}
@@ -1002,9 +1004,13 @@ label.required:after {content: '*';color: #FF5757;margin-left: 2px;}
 
 .page-sidebar .page-sidebar-menu>li.active.open>a, .page-sidebar .page-sidebar-menu>li.active>a, .page-sidebar-closed.page-sidebar-fixed .page-sidebar:hover .page-sidebar-menu>li.active>a {
     border: 1px solid #EFEFEF !important;
-    color:#00A2D9;
+    color:#00A2D9 !important;
     background: #FFFFFF;
     margin-left: 0;
     margin-top: 0;
     padding-left: 15px;
+}
+
+.btn.c-blue {
+    color: #00A2D9 !important;
 }
