@@ -312,7 +312,7 @@ div.clearfix small,
   margin: 0px 10px;
 }
 
-.counter .minus, .count .plus{
+.counter .minus, .counter .plus{
   cursor: pointer;
 }
 
@@ -703,13 +703,13 @@ div.clearfix small,
 .opacity-70 {opacity:.7;}
 .opacity-90 {opacity:.9;}
 
-
 /****  Width  ****/
 .width-0 {width:0 !important;}
 .width-40 {width:40px !important;}
 .width-50 {width:50px !important;}
 .width-90 {width:90px !important;}
 .width-120 {width:120px !important;}
+.width-150 {width:150px !important;}
 .width-300 {width:300px !important;}
 .min-width-40  {min-width: 40px}
 .width-10p {width:10% !important;}
@@ -729,7 +729,7 @@ div.clearfix small,
 .width-100p{width:100% !important;}
 @media (max-width: 991px) {
   .width-10p,.width-20p,.width-30p,
-  .width-40p,.width-50p,.width-60p,
+  .width-40p,.width-50p,.width-60p,  
   .width-65p,.width-70p,.width-75p,
   .width-80p,.width-90p,.width-94p,
   .width-100p{
@@ -1022,4 +1022,8 @@ label.required:after {content: '*';color: #FF5757;margin-left: 2px;}
       border: none;
       margin-bottom: 0;
   }
+}
+
+#loader{
+  display: none;
 }

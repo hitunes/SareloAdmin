@@ -83,10 +83,23 @@
    padding-right: 0px;
  }
 
+ #loader{
+   display: flex;
+   align-content: center;
+   align-items: center;
+   justify-content: center;
+ }
+
 }
 
 @media (min-width: 992px) {
   .table>tbody>tr>td{
     vertical-align: inherit !important;
+  }
+
+  #loader img{
+    position: absolute;
+    top: 20%;
+    right: 140px;
   }
 }
