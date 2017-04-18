@@ -39,50 +39,60 @@ class ConfirmCheckoutController extends Controller
         $order = Cart::content();
 
         $slot = Slot::find(Session::get('order_details.slot_id'));
-
+        $slots = Slot::getAvailableSlot(Session::get('order_details.delivery_date'));
+        
         $address = UserAddress::find(Session::get('order_details.user_address_id'));
-
+        $addresses = UserAddress::where('user_id', Auth::user()->id)->get();
+        
         $options = array_merge($address->toArray(), Session::get('order_details'));
 
         $options['slot'] = $slot->toArray();
 
-        return view('checkout.confirm', compact('basket', 'order', 'options'));
+        return view('checkout.confirm', compact('basket', 'order', 'options', 'addresses', 'slots'));
     }
 
 
-    public function checkout()
+    public function checkout(Request $request)
     {
-        $basket = Helpers::getCartSummary();
 
-        $items = Cart::content();
+        if($request->isMethod('post')){
 
-        $order = Order::create([
-            'user_id' => Auth::user()->id,
-            'status' => 'pending',
-            'total' => $basket['total'],
-            'delivery_instruction' => Session::get('order_details.delivery_instruction'),
-            'user_address_id' => Session::get('order_details.user_address_id'),
-            'receiver_phone' => Session::get('order_details.receiver_phone'),
-            'order_unique_reference' => Uuid::uuid4()->toString()
-        ]);
+            $slot_id = $request->slot_id? $request->slot_id: Session::get('order_details.slot_id');
+            $user_address_id =  $request->user_address_id? $request->slot_id: Session::get('order_details.user_address_id');
+            $basket = Helpers::getCartSummary();
 
-        $order->orderSlot()->save(new OrderSlot([
-            'slot_id' => Session::get('order_details.slot_id'),
-            'delivery_date' => Session::get('order_details.delivery_date')
-        ]));
 
-        $order_product = [];
+            $items = Cart::content();
 
-        foreach($items as $item){
-            $order_product[] = new OrderProduct([
-                'product_id' => $item->id,
-                'qty' => $item->qty,
-                'price' => $item->price,
-                'sub_total' => round($item->price * $item->qty,2),
+            $order = Order::create([
+                'user_id' => Auth::user()->id,
+                'status' => 'pending',
+                'total' => $basket['total'],
+                'delivery_instruction' => Session::get('order_details.delivery_instruction'),
+                'user_address_id' => $user_address_id,
+                'receiver_phone' => Session::get('order_details.receiver_phone'),
+                'order_unique_reference' => Uuid::uuid4()->toString()
             ]);
-        }
 
-        $order->orderProducts()->saveMany($order_product);
+            $order->orderSlot()->save(new OrderSlot([
+                'slot_id' => $slot_id,
+                'delivery_date' => Session::get('order_details.delivery_date')
+            ]));
+
+            $order_product = [];
+
+            foreach($items as $item){
+                $order_product[] = new OrderProduct([
+                    'product_id' => $item->id,
+                    'qty' => $item->qty,
+                    'price' => $item->price,
+                    'sub_total' => round($item->price * $item->qty,2),
+                ]);
+            }
+
+            $order->orderProducts()->saveMany($order_product);
+    
+        }
 
         return redirect('/checkout/payment/'.$order->order_unique_reference);
 

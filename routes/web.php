@@ -72,7 +72,7 @@ Route::match(['POST', 'GET'], '/checkout/choose-address', 'CheckoutController@ch
 
 Route::match(['POST', 'GET'], '/checkout/choose-delivery-slot', 'DeliveryController@index');
 Route::match(['POST', 'GET'], '/checkout/confirm-order', 'ConfirmCheckoutController@index')->middleware('checkslot');
-Route::get('/checkout', 'ConfirmCheckoutController@checkout')->middleware('checkslot');
+Route::post('/checkout', 'ConfirmCheckoutController@checkout')->middleware('checkslot');
 
 Route::get('/checkout/payment/{order_unique_reference}', 'PaymentController@index');
 

@@ -226,7 +226,7 @@ const app = {
     };
 
     var dataLog = obj.products;
-    //focus on the input 
+    //focus on the input
     $("input.search").focus();
     //filter list
     $("#querySelector").on("keyup", function(e){
@@ -502,9 +502,9 @@ const app = {
 
        //open cart if width is big enough...
         if($(window).width() >= 768){
-          $("html").addClass("open"); 
+          $("html").addClass("open");
         }
-       
+
        //name, price, and count
         var name = $(this).attr("data-product");
         var price = $(this).attr("data-price");
@@ -551,7 +551,7 @@ const app = {
     $("table").find("input[type='radio']").on("change", function(){
         $("table").find(".bg-gray-light").removeClass("bg-gray-light");
         $(this).parents("tr").addClass("bg-gray-light");
-       
+
     });
   },
   validator: function(){
@@ -581,10 +581,10 @@ const app = {
       }
     } );
    /* if( form.parsley().isValid()){
-      $("#submit").prop('disabled', false); 
+      $("#submit").prop('disabled', false);
     }
     else{
-      $("#submit").prop('disabled', 'disabled'); 
+      $("#submit").prop('disabled', 'disabled');
     }*/
   },
   contentEditor: function(){
@@ -592,7 +592,7 @@ const app = {
     var editor = $('#editor');
 
     editBtn.on('click', function(e) {
-        
+
         if (!editor[0].isContentEditable) {
            // console.log(editor);
             editor[0].contentEditable = true;
@@ -604,7 +604,7 @@ const app = {
             // Change Button Text and Color
             editBtn.text('Edit');
             editBtn.css('backgroundColor', '#F96');
-        
+
         }
     });
   },
@@ -616,7 +616,7 @@ const app = {
     editBtn.on('click', function(e) {
        //console.log($(this).parent());
        var editor = $(this).parent()[0].previousElementSibling.firstElementChild;
-      
+
        if(editor.disabled){
          editor.disabled = false;
          $(this).text('Save');
