@@ -672,6 +672,7 @@ div.clearfix small,
 .bg-gray-light  {background-color:#ECECEC !important; color:#000 !important; }
 .bg-red {background-color:#C75757 !important;color:#fff !important;}
 .bg-white {background-color:#fff !important; color:black !important;}
+.bg-white-plain {background-color:#fff !important;}
 .bg-green  {background-color:#18a689 !important; color:#fff !important;}
 .bg-blue  {background-color:#0090D9 !important ; color:#fff !important;}
 .bg-orange {background-color:#f27835 !important ; color:#fff !important;}
@@ -848,6 +849,7 @@ a, a:focus, a:hover, a:active { outline: 0; text-decoration: none; }
 .f-18{font-size:18px !important;}
 .f-20{font-size:20px !important;}
 .f-23{font-size:23px !important;}
+.f-24{font-size:24px !important;}
 .f-25{font-size:25px !important;}
 .f-27{font-size:27px !important;}
 .f-32{font-size:32px !important;}
