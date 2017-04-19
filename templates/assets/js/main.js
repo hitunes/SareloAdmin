@@ -485,8 +485,22 @@ const app = {
               </td>
           </tr>`;
       }
+      
+      $.ajax({
+        type: "POST",
+        //pass url into here....
+        url: "#",
+        data: cart,
+        dataType: 'json',                        
+        success: function(data){                
+           $('#loader').hide();
+        },
+        error: function (response) {
+           $('#loader').hide();
+        }
+      });
 
-
+      //$('#loader').hide();
       $("#basketList").html(output);
       $("#cartTable").html(output2);
       $(".items").html(countCart());
@@ -498,8 +512,9 @@ const app = {
 
     $(document).on('click', '.suggestions li', function(e){
         e.preventDefault();
-       //add open to html
-
+       
+       //show loader....
+       $("#loader").show();
        //open cart if width is big enough...
         if($(window).width() >= 768){
           $("html").addClass("open");
