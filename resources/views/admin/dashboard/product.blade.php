@@ -12,7 +12,7 @@
                 <div class="page-sidebar navbar-collapse collapse">    
                     <ul class="page-sidebar-menu">
                         <li class="nav-item  ">
-                            <a href="{{url('/admin/index')}}" class="nav-link ">
+                            <a href="{{url('/admin')}}" class="nav-link ">
                                 <i class="icon-home"></i>
                                 <span class="title">Dashboard</span>
                             </a>
