@@ -55,7 +55,7 @@ class Helpers
 
          });
         
-         $total +=  $charges_subtotal + $items_total;
+         $total +=  round($charges_subtotal + $items_total, 2);
 
 
          return [

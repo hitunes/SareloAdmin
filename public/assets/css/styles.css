@@ -45,13 +45,16 @@ aside.sidebar{
 
 .open #sidebar{
   transform: translate3d(0px, 0, 0);
+  -webkit-box-shadow: -4px 2px 5px 0px rgba(221,221,221,1);
+  -moz-box-shadow: -4px 2px 5px 0px rgba(221,221,221,1);
+  box-shadow: -4px 2px 5px 0px rgba(221,221,221,1);
 }
 
-/*overlay to cover*/
+/*overlay to cover
 .open #overlay{
   display: block;
 }
-
+*/
 nav.navbar.navbar-default {
   background: transparent;
   color: #9B9B9B;
@@ -299,6 +302,7 @@ div.clearfix small,
   z-index: 10;
   background: #FFF;
   border-top: 3px solid #9B9B9B;
+  box-shadow: 20px 2px 5px 0 rgba(0,0,0,.16), 20px 2px 10px 0 rgba(0,0,0,.12);
 }
 
 #sidebar .empty_bag{
@@ -558,6 +562,7 @@ div.clearfix small,
 .p-r-3 {padding-right:3px !important;}
 .p-r-5 {padding-right:5px !important;}
 .p-r-10 {padding-right:10px !important;}
+.p-r-12 {padding-right:12px !important;}
 .p-r-15 {padding-right:15px !important;}
 .p-r-20 {padding-right:20px !important;}
 .p-r-30 {padding-right:30px !important;}
@@ -656,7 +661,7 @@ div.clearfix small,
 .bg-opacity-white-80 {background-color: rgba(255, 255, 255, 0.8);}
 .bg-transparent{background-color: transparent; background: transparent; border: 2px solid rgba(61, 178, 6, 1); color: rgba(61, 178, 6, 1)}
 .bg-transparent-white{background-color: transparent; background: transparent; border: 2px solid #fff; color: #fff}
-.bg-transparent-black{background-color: transparent; background: transparent; border: none; color: rgba(0, 0, 0, 1)}
+.bg-transparent-black{background-color: transparent; background: transparent; color: rgba(0, 0, 0, 1)}
 
 /****  Opacity  ****/
 .opacity-0 {opacity:0;}
@@ -765,6 +770,11 @@ a, a:focus, a:hover, a:active { outline: 0; text-decoration: none; }
 
 .btn.bg-transparent {
     color: rgba(61, 178, 6, 1) !important;
+}
+
+.bg-gray-light .btn.bg-transparent {
+    color: rgba(255, 255, 255, 1) !important;
+    background: rgba(61, 178, 6, 1) !important;
 }
 
 
@@ -891,4 +901,9 @@ label.required:after {content: '*';color: #FF5757;margin-left: 2px;}
 .form-control:focus{
   border-color: #CCC;
   box-shadow: none;
+}
+
+[contenteditable="true"] {
+  color: #C00;
+  outline: 1px solid #9B9B9B;
 }

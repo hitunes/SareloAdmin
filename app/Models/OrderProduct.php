@@ -25,7 +25,12 @@ class OrderProduct extends Model
      *
      * @var array
      */
-    protected $fillable = ['order_id','product_id', 'price'];
+    protected $guarded = ['id'];
 
+
+    public function product()
+    {
+        return $this->belongsTo('App\Models\Product');
+    }
     
 }

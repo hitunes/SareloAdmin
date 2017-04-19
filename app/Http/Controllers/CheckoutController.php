@@ -22,18 +22,21 @@ use App\Models\UserAddress;
 use App\User;
 use App\Models\Transaction;
 
+use Session;
 
 
 class CheckoutController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(['billingAddress']);
     }
 
     public function billingAddress(Request $request)
-    {
-        
+    {  
+        if(Auth::user())
+            return redirect('/checkout/choose-address');
+            
         if($request->isMethod('post')){
 
             $this->validate($request,[
@@ -50,26 +53,27 @@ class CheckoutController extends Controller
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
                 'email' => $request->email,
+                'phone' => $request->phone,
                 'password' => bcrypt($request->password),
             ]);
             
             $new_address = new UserAddress([
                                 'address' => $request->address,
-                                'phone' => $request->phone,
                                 'city' => $request->city
                             ]);
 
             $new_user->user_addresses()->save($new_address);
 
-
-            if($new_user)
-                Auth::attempt(['email'=> $request->email, 'password' => $request->password]);
-
-
             if($request->instruction)
-                $request->session()->put('order_details.delivery_instruction', $request->instruction);
+                Session::put('order_details.delivery_instruction', $request->instruction);
 
-            return redirect('/checkout/choose-address');
+            if (Auth::attempt(['email'=> $request->email, 'password' => $request->password])) {
+           
+                return redirect()->intended('/checkout/choose-address');
+            }
+                 
+
+            return redirect()->intended('/checkout/choose-address');
         }
        
         $basket = Helpers::getCartSummary();
@@ -78,10 +82,27 @@ class CheckoutController extends Controller
     }
 
 
-    public function chooseAddress()
+    public function chooseAddress(Request $request)
     {
         $basket = Helpers::getCartSummary();
+
         $addresses = UserAddress::where('user_id', Auth::user()->id)->get();
+
+        if($request->isMethod('post'))
+        {
+
+            $this->validate($request, [
+                'address' => 'integer|required',
+                'receiver_no' => 'required|digits:11',
+            ]);
+
+            Session::put('order_details.user_address_id', $request->address);
+            
+            if($request->receiver_no)
+                Session::put('order_details.receiver_phone', $request->receiver_no);
+            
+            return redirect('/checkout/choose-delivery-slot');
+        }
         
         return view('checkout.choose-address', compact('basket', 'addresses'));
     }
@@ -110,10 +131,6 @@ class CheckoutController extends Controller
          }
 
          $total +=  $charges_subtotal;
-
-        // dd(\Session::get('billing_address'));
-
-        // return view('checkout.payment');
     }
 
     public function makeOrder(Request $request)

@@ -11,6 +11,18 @@
 |
 */
 
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('/index', 'Admin\IndexController@index');
+    Route::resource('/users', 'Admin\UserController');
+	Route::get('/products', 'Admin\ProductsController@index');
+	Route::post('/products', 'Admin\ProductsController@add_product');
+	Route::get('/products/{id}', 'Admin\ProductsController@edit');
+	Route::post('/products/{id}', 'Admin\ProductsController@update');
+	Route::get('/products/destroy/{id}', 'Admin\ProductsController@destroy');
+    Route::get('/order_views/{id}', 'Admin\OrdersController@show');
+
+});
+
 Route::get('/', 'IndexController@index');
 Route::get('/admin/index', 'AdminController@index');
 Route::get('/admin/users', 'AdminController@users');
@@ -41,7 +53,6 @@ Route::get('/test', [
 
 // Route::get('/cart', 'CartsController@addCartItem');
 // Route::resource('products', 'ProductsController');
-Route::resource('admin/products', 'Admin\\ProductsController');
 Route::resource('admin/categories', 'Admin\\CategoriesController');
 Route::resource('admin/unit-types', 'Admin\\UnitTypesController');
 Route::resource('admin/orders', 'Admin\\OrdersController');
@@ -64,16 +75,29 @@ Route::post('/cart/add', 'CartsController@addCartItem');
 Route::get('/cart', 'CartsController@getCartItems');
 Route::get('/cart/update/{cart_id}/{action}/', 'CartsController@updateCart');
 Route::get('/cart/delete/{cart_id}', 'CartsController@deleteCartItem');
-Route::match(['POST', 'GET'],'/checkout/billing-address', 'CheckoutController@billingAddress');
-Route::get('/checkout/choose-address', 'CheckoutController@chooseAddress');
-Route::get('/checkout/choose-delivery-slot', 'DeliveryController@index');
-Route::get('/checkout/confirm', 'ConfirmCheckoutController@confirm');
-Route::get('/checkout/payment-details', 'PaymentController@payment');
+
+Route::match(['POST', 'GET'], '/checkout/billing-address', 'CheckoutController@billingAddress');
+Route::match(['POST', 'GET'], '/checkout/choose-address', 'CheckoutController@chooseAddress');
+
+
+Route::match(['POST', 'GET'], '/checkout/choose-delivery-slot', 'DeliveryController@index');
+Route::match(['POST', 'GET'], '/checkout/confirm-order', 'ConfirmCheckoutController@index');
+Route::get('/checkout', 'ConfirmCheckoutController@checkout');
+
+Route::get('/checkout/payment/{order_unique_reference}', 'PaymentController@index');
 
 
 Route::get('/new-address', 'AddressController@create');
 Route::post('/new-address', 'AddressController@store');
 
+Route::get('/my-account', 'HomeController@index');
+
+
+
+Route::post('/transaction', 'TransactionController@store');
+Route::post('/transaction/{transaction_id}/edit', 'TransactionController@update');
+
+Route::get('/checkout/bank/{order_unique_reference}', 'TransactionController@bankCheckout');
 
 
 Route::get('/undefined', function(){

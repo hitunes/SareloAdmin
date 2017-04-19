@@ -29,7 +29,6 @@ class AddressController extends Controller
         if($request->isMethod('post')){
 
             $this->validate($request, [
-                'phone' => 'required|digits:11',
                 'address' => 'required|min:10',
                 'city' => 'required|min:3',
             ]);

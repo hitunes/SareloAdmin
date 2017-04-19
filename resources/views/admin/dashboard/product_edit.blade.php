@@ -1,8 +1,16 @@
 @extends('layouts.dashboard')
     @section('title')
+<<<<<<< HEAD
         Sarelo | Product Edit
     @endsection
     @section('content')
+=======
+        Dashboard | Edit Product
+    @endsection
+
+    @section('content')
+        <!-- BEGIN CONTAINER -->
+>>>>>>> template
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
@@ -10,6 +18,7 @@
                 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                 <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
                 <div class="page-sidebar navbar-collapse collapse">
+<<<<<<< HEAD
                                     <!-- BEGIN SIDEBAR MENU -->
                                     <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
                                     <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
@@ -62,6 +71,59 @@
                 </div>
                
             
+=======
+                    <!-- BEGIN SIDEBAR MENU -->
+                    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                    
+                        <ul class="page-sidebar-menu ">
+                            <li class="nav-item  ">
+                                <a href="{{url('admin/index')}}" class="nav-link ">
+                                    <i class="icon-home"></i>
+                                    <span class="title">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url('admin/users')}}" class="nav-link ">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Users</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="{{url('admin/orders')}}" class="nav-link ">
+                                    <i class="icon-basket"></i>
+                                    <span class="title">Orders</span>
+                                </a>
+                            </li>
+                            <!--<li class="nav-item  ">
+                                <a href="order_view.html" class="nav-link ">
+                                    <i class="icon-tag"></i>
+                                    <span class="title">Order View</span>
+                                </a>
+                            </li>-->
+                            <!--<li class="nav-item  ">
+                                <a href="product.html" class="nav-link ">
+                                    <i class="icon-graph"></i>
+                                    <span class="title">Products</span>
+                                </a>
+                            </li>-->
+                            <li class="nav-item  active open">
+                                <a href="{{url('admin/products')}}" class="nav-link ">
+                                    <i class="icon-graph"></i>
+                                    <span class="title">Products</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    <!-- END SIDEBAR MENU -->
+                </div>
+                <!-- END SIDEBAR -->
+>>>>>>> template
             </div>
             <!-- END SIDEBAR -->
             <!-- BEGIN CONTENT -->
@@ -75,14 +137,48 @@
                     
                     <!-- END PAGE BREADCRUMB -->
                     <!-- BEGIN PAGE BASE CONTENT -->
+<<<<<<< HEAD
                     <div class="row">
                         <div class="col-md-12">
                             <form class="form-horizontal form-row-seperated" action="#">
                                 <div class="portlet">
+=======
+
+                    {{-- EDIT EACH PRODUCT BEGINS --}}
+                    <span>
+                        
+                    
+                    
+                    {{-- EDIT EACH PRODUCT ENDS --}}
+
+
+                    <div class="row">
+                        <div class="col-md-12" id="add_product">
+                            @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @elseif(session('delete_message'))
+                                <div class="alert alert-danger">
+                                    {{ session('delete_message') }}
+                                </div>
+                                @elseif(count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    @foreach($errors->all() as $error)
+                                        <strong>Error Upon Submission...</strong> {{ $error }}
+                                    @endforeach
+                                </div>
+                            @endif
+                            <form method="POST"  enctype='multipart/form-data' action="{{url('admin/products')}}" class="form-horizontal form-row-seperated" action="#">
+                            {{csrf_field()}}
+                                <div class="portlet light">
+>>>>>>> template
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <i class="fa fa-shopping-cart"></i>Add Product </div>
                                         <div class="actions btn-set">
+<<<<<<< HEAD
                                             <button type="button" name="back" class="btn btn-secondary-outline">
                                                 <i class="fa fa-angle-left"></i> Back</button>
                                             <button class="btn btn-secondary-outline">
@@ -92,6 +188,16 @@
                                             <button class="btn btn-success">
                                                 <i class="fa fa-check-circle"></i> Save & Continue Edit</button>
                                             <div class="btn-group">
+=======
+                                            <!--<button type="button" name="back" class="btn btn-secondary-outline">
+                                                <i class="fa fa-angle-left"></i> Back</button>-->
+                                            <!--<button class="btn btn-secondary-outline">
+                                                <i class="fa fa-reply"></i> Reset</button>-->
+                                            
+                                            <!--<button class="btn btn-success">
+                                                <i class="fa fa-check-circle"></i> Save & Continue Edit</button>-->
+                                            <!--<div class="btn-group">
+>>>>>>> template
                                                 <a class="btn btn-success dropdown-toggle" href="javascript:;" data-toggle="dropdown">
                                                     <i class="fa fa-share"></i> More
                                                     <i class="fa fa-angle-down"></i>
@@ -108,11 +214,19 @@
                                                         <a href="javascript:;"> Print </a>
                                                     </li>
                                                 </div>
+<<<<<<< HEAD
                                             </div>
                                         </div>
                                     </div>
                                     <div class="portlet-body">
                                         <div class="tabbable-bordered">
+=======
+                                            </div>-->
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body">
+                                        <!--<div class="tabbable-bordered">
+>>>>>>> template
                                             <ul class="nav nav-tabs">
                                                 <li class="active">
                                                     <a href="#tab_general" data-toggle="tab"> General </a>
@@ -538,13 +652,292 @@
                                                     </div>
                                                 </div>
                                             </div>
+<<<<<<< HEAD
                                         </div>
+=======
+                                        </div>-->
+                                        <div class="form-body">
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Name:
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-5">
+                                                                <input type="text" class="form-control" name="name" placeholder=""> </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Description:
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-5">
+                                                                <textarea class="form-control" name="description"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Category:
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-5">
+                                                                <select name="category_id" id="category_id" class="form-control" required="required">
+                                                                <option value="">Select type</option>
+                                                                @foreach($categories as $category)
+                                                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                @endforeach
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Unit:
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-2">
+                                                                <input type="text" class="form-control" name="unit" placeholder="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Unit Type:
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-2">
+                                                                <select name="unit_type_id" id="unit_type_id" class="form-control" required="required">
+                                                                    <option value="">Select type</option>
+                                                                    @foreach($unit_type as $unit_types)
+                                                                         <option value="{{$unit_types->id}}">{{$unit_types->name}}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <!--<div class="form-group">
+                                                            <label class="col-md-2 control-label">Short Description:
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-10">
+                                                                <textarea class="form-control" name="product[short_description]"></textarea>
+                                                                <span class="help-block"> shown in product listing </span>
+                                                            </div>
+                                                        </div>-->
+                                                        <!--<div class="form-group">
+                                                            <label class="col-md-2 control-label">Categories:
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-10">
+                                                                <div class="form-control height-auto">
+                                                                    <div class="scroller" style="height:275px;" data-always-visible="1">
+                                                                        <ul class="list-unstyled">
+                                                                            <li>
+                                                                                <label>
+                                                                                    <input type="checkbox" name="product[categories][]" value="1">Mens</label>
+                                                                                <ul class="list-unstyled">
+                                                                                    <li>
+                                                                                        <label>
+                                                                                            <input type="checkbox" name="product[categories][]" value="1">Footwear</label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <label>
+                                                                                            <input type="checkbox" name="product[categories][]" value="1">Clothing</label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <label>
+                                                                                            <input type="checkbox" name="product[categories][]" value="1">Accessories</label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <label>
+                                                                                            <input type="checkbox" name="product[categories][]" value="1">Fashion Outlet</label>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li>
+                                                                            <li>
+                                                                                <label>
+                                                                                    <input type="checkbox" name="product[categories][]" value="1">Football Shirts</label>
+                                                                                <ul class="list-unstyled">
+                                                                                    <li>
+                                                                                        <label>
+                                                                                            <input type="checkbox" name="product[categories][]" value="1">Premier League</label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <label>
+                                                                                            <input type="checkbox" name="product[categories][]" value="1">Football League</label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <label>
+                                                                                            <input type="checkbox" name="product[categories][]" value="1">Serie A</label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <label>
+                                                                                            <input type="checkbox" name="product[categories][]" value="1">Bundesliga</label>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li>
+                                                                            <li>
+                                                                                <label>
+                                                                                    <input type="checkbox" name="product[categories][]" value="1">Brands</label>
+                                                                                <ul class="list-unstyled">
+                                                                                    <li>
+                                                                                        <label>
+                                                                                            <input type="checkbox" name="product[categories][]" value="1">Adidas</label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <label>
+                                                                                            <input type="checkbox" name="product[categories][]" value="1">Nike</label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <label>
+                                                                                            <input type="checkbox" name="product[categories][]" value="1">Airwalk</label>
+                                                                                    </li>
+                                                                                    <li>
+                                                                                        <label>
+                                                                                            <input type="checkbox" name="product[categories][]" value="1">Kangol</label>
+                                                                                    </li>
+                                                                                </ul>
+                                                                            </li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                                <span class="help-block"> select one or more categories </span>
+                                                            </div>
+                                                        </div>-->
+                                                        <!--<div class="form-group">
+                                                            <label class="col-md-2 control-label">Available Date:
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-10">
+                                                                <div class="input-group input-large date-picker input-daterange" data-date="10/11/2012" data-date-format="mm/dd/yyyy">
+                                                                    <input type="text" class="form-control" name="product[available_from]">
+                                                                    <span class="input-group-addon"> to </span>
+                                                                    <input type="text" class="form-control" name="product[available_to]"> </div>
+                                                                <span class="help-block"> availability daterange. </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">SKU:
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-10">
+                                                                <input type="text" class="form-control" name="product[sku]" placeholder=""> </div>
+                                                        </div>-->
+                                                        <div class="form-group">
+                                                            <label class="col-md-2 control-label">Price:
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-2">
+                                                                <input type="text" class="form-control" name="price" placeholder=""> </div>    
+                                                        </div>
+                                                        <!--<div class="form-group">
+                                                            <label class="col-md-2 control-label">Tax Class:
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-10">
+                                                                <select class="table-group-action-input form-control input-medium" name="product[tax_class]">
+                                                                    <option value="">Select...</option>
+                                                                    <option value="1">None</option>
+                                                                    <option value="0">Taxable Goods</option>
+                                                                    <option value="0">Shipping</option>
+                                                                    <option value="0">USA</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>-->
+                                                        <!--<div class="form-group">
+                                                            <label class="col-md-2 control-label">Status:
+                                                                <span class="required"> * </span>
+                                                            </label>
+                                                            <div class="col-md-10">
+                                                                <select class="table-group-action-input form-control input-medium" name="product[status]">
+                                                                    <option value="">Select...</option>
+                                                                    <option value="1">Published</option>
+                                                                    <option value="0">Not Published</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>-->
+
+                                                        <div class="prod_im\g">
+                                                            <div id="tab_images_uploader_container" class="margin-bottom-10">
+                                                               
+                                                                <input type="file" name="product_image"  id="tab_images_uploader_pickfiles" href="javascript:;" class="btn btn-success">
+                                                                </input>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                        <button class="btn btn-success"><i class="fa fa-check"></i> Add</button>
+                                                        </div>
+                                                    </div>
+>>>>>>> template
                                     </div>
                                 </div>
                             </form>
                         </div>
+<<<<<<< HEAD
                     </div>
                     <!-- END PAGE BASE CONTENT -->
+=======
+
+                        <div class="col-md-12">
+                            <div class="portlet light">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            Product List
+                                        </div>
+                                        <div class="pull-right">
+                                            <!--<i class="fa fa-arrow-down"></i>-->
+                                        </div>
+                                    </div>
+                                    <div class="table-container">
+                                        <table class="table table-striped table-bordered table-hover" id="datatable_history">
+                                            <thead>
+                                                <tr role="row" class="heading">
+                                                    <th width="5%"> ID </th>
+                                                    <th width="20%"> Product Name </th>
+                                                    <th width="15%"> Price (&#8358;) </th>
+                                                    <th width="15%"> Image </th>
+                                                    <th width="15%"> Date Created </th>
+                                                    <th width="25%"> Action </th>
+                                                </tr>     
+                                            </thead>
+                                            <tbody>
+                                                <?php
+                                                    $num = 1;
+                                                ?>
+                                                @foreach($products as $product)
+                                                    <tr role="row" class="filter">
+                                                        <td>
+                                                            {{$num++}}
+                                                        </td>
+                                                        <td>
+                                                            {{$product->name}}
+                                                        </td>
+                                                        <td>
+                                                            {{$product->price}}
+                                                        </td>
+                                                        <td>
+                                                            <div class="img-responsive img-circle" style="background: #eee;">
+                                                                <img class="img img-responsive" src="{{ asset("storage/$product->product_image") }}"  >
+                                                            </div>
+                                                        </td>
+                                                        <td>
+                                                            {{$product->created_at->diffForHumans()}}
+                                                        </td>
+                                                        <td>
+                                                             <div class="margin-bottom-5">
+                                                                <a href="{{url('admin/products',$product->id)}}" class="btn btn-sm btn-default margin-bottom" id="edit_product">
+                                                                    <i class="fa fa-pencil"></i> Edit</a>
+
+                                                                <a id="a_del" href="{{url('admin/products/destroy',$product->id)}}" class="btn btn-sm btn-danger margin-bottom">
+                                                                    <i class="fa fa-trash"></i> Delete</a>
+
+                                                                <button class="btn btn-sm btn-success margin-bottom">
+                                                                    <i class="fa fa-floppy-o"></i> Save</button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                        </div>
+                    <!-- END PAGE BASE CONTENT -->
+                    </div>
+>>>>>>> template
                 </div>
                 <!-- END CONTENT BODY -->
             </div>
@@ -1112,5 +1505,8 @@
             <!-- END QUICK SIDEBAR -->
         </div>
         <!-- END CONTAINER -->
+<<<<<<< HEAD
 
+=======
+>>>>>>> template
 @endsection

@@ -1,7 +1,13 @@
 @extends('layouts.dashboard')
     @section('title')
+<<<<<<< HEAD
         Sarelo | Orders
     @endsection
+=======
+        Dashboard | Orders
+    @endsection
+
+>>>>>>> template
     @section('content')
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
@@ -10,6 +16,7 @@
                 <!-- BEGIN SIDEBAR -->
                 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                 <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+<<<<<<< HEAD
                   <div class="page-sidebar navbar-collapse collapse">
                                    <!-- BEGIN SIDEBAR MENU -->
                                    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
@@ -63,6 +70,52 @@
                </div>
                
                 
+=======
+                <div class="page-sidebar navbar-collapse collapse">
+                        <ul class="page-sidebar-menu">
+                            <li class="nav-item  ">
+                                <a href="{{url('/admin/index')}}" class="nav-link ">
+                                    <i class="icon-home"></i>
+                                    <span class="title">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{url('/admin/users')}}" class="nav-link ">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Users</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                            <li class="nav-item  active open">
+                                <a href="{{url('/admin/orders')}}" class="nav-link ">
+                                    <i class="icon-basket"></i>
+                                    <span class="title">Orders</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                            <!--<li class="nav-item  ">
+                                <a href="order_view.html" class="nav-link ">
+                                    <i class="icon-tag"></i>
+                                    <span class="title">Order View</span>
+                                </a>
+                            </li>-->
+                            <!--<li class="nav-item  ">
+                                <a href="product.html" class="nav-link ">
+                                    <i class="icon-graph"></i>
+                                    <span class="title">Products</span>
+                                </a>
+                            </li>-->
+                            <li class="nav-item  ">
+                                <a href="{{url('/admin/products')}}" class="nav-link ">
+                                    <i class="icon-graph"></i>
+                                    <span class="title">Products</span>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                    <!-- END SIDEBAR MENU -->
+                </div>
+>>>>>>> template
                 <!-- END SIDEBAR -->
             </div>
             <!-- END SIDEBAR -->
@@ -117,7 +170,11 @@
                                     <div class="table-container">
                                         <div class="table-actions-wrapper">
                                             <span> </span>
+<<<<<<< HEAD
                                             <select class="table-group-action-input form-control input-inline input-small input-sm">
+=======
+                                            <!--<select class="table-group-action-input form-control input-inline input-small input-sm">
+>>>>>>> template
                                                 <option value="">Select...</option>
                                                 <option value="Cancel">Cancel</option>
                                                 <option value="Cancel">Hold</option>
@@ -125,6 +182,7 @@
                                                 <option value="Close">Close</option>
                                             </select>
                                             <button class="btn btn-sm btn-default table-group-action-submit">
+<<<<<<< HEAD
                                                 <i class="fa fa-check"></i> Submit</button>
                                         </div>
                                         <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_orders">
@@ -142,6 +200,24 @@
                                                     <th width="10%"> Actions </th>
                                                 </tr>
                                                 <tr role="row" class="filter">
+=======
+                                                <i class="fa fa-check"></i> Submit</button>-->
+                                        </div>
+                                        {{ $orders->links() }}
+                                        <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_orders">
+                                            <thead>
+                                                <tr role="row" class="heading">
+                                                    <th width="10%"> Order&nbsp;# </th>
+                                                    <th width="15%"> Order Date</th>
+                                                    <th width="10%"> Price </th>
+                                                    <th width="15%"> Payment Method</th>
+                                                    <th width="15%"> Customer ID</th>
+                                                    <th width="15%"> Update Status </th>
+                                                    <th width="15%"> Current Status </th>
+                                                    <th width="5%"> Details </th>
+                                                </tr>
+                                                <!--<tr role="row" class="filter">
+>>>>>>> template
                                                     <td> </td>
                                                     <td>
                                                         <input type="text" class="form-control form-filter input-sm" name="order_id"> </td>
@@ -192,11 +268,55 @@
                                                         <button class="btn btn-sm btn-default filter-cancel">
                                                             <i class="fa fa-times"></i> Reset</button>
                                                     </td>
+<<<<<<< HEAD
                                                 </tr>
                                             </thead>
                                             <tbody> </tbody>
                                         </table>
                                     </div>
+=======
+                                                </tr>-->
+                                            </thead>
+                                            <tbody>
+                                                <?php $num = 1; ?>
+                                                <form method="POST" action="/update_orders">
+                                                    @foreach($orders as $order)
+
+                                                            <tr>
+
+                                                                <td>
+                                                                   {{$num++}} 
+                                                                </td>
+                                                                <td> {{$order->created_at->diffForHumans()}} </td>
+                                                                <td> {{$order->price}} </td>
+                                                                <td> {{$order->payment_method}} </td>
+                                                                <td> {{"0000".$order->user_id}} </td>
+                                                                <td>
+                                                                    <select name="order_status" class="form-control form-filter input-sm">
+                                                                        <option value="">Select...</option>
+                                                                        <option value="pending">Pending Delivery</option>
+                                                                        <option value="delivered">Delivered</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    
+                                                                        <span class="label label-sm lgreen label-success"> {{$order->status}} </span>
+                                                                    
+                                                                </td>
+                                                            </form>
+                                                                <td>
+                                                                    <a href="{{url('admin/order_views',$order->id)}}"><button class="btn btn-sm btn-success margin-bottom">
+                                                                            <i class="fa fa-eye"></i> View</button></a>
+                                                                </td>
+
+                                                            </tr>
+                                                    @endforeach
+                                                
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    {{ $orders->links() }}
+>>>>>>> template
                                 </div>
                             </div>
                             <!-- End: life time stats -->
@@ -770,6 +890,7 @@
             <!-- END QUICK SIDEBAR -->
         </div>
         <!-- END CONTAINER -->
+<<<<<<< HEAD
         <!-- BEGIN FOOTER -->
         <div class="page-footer">
             
@@ -811,3 +932,6 @@
     </body>
 
 </html>
+=======
+@endsection
+>>>>>>> template

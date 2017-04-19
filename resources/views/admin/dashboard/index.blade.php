@@ -1,15 +1,22 @@
 @extends('layouts.dashboard')
     @section('title')
+<<<<<<< HEAD
         Sarelo | Dashboard
     @endsection
     @section('content')
         <!-- END HEADER & CONTENT DIVIDER -->
+=======
+        Dashboard | Dashoard
+    @endsection
+    @section('content')
+>>>>>>> template
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
                 <!-- BEGIN SIDEBAR -->
                
+<<<<<<< HEAD
                 {{-- @include('layouts.dashboard_sidebar') --}}
                    <div class="page-sidebar navbar-collapse collapse">
                                     <!-- BEGIN SIDEBAR MENU -->
@@ -65,6 +72,14 @@
                
             <!-- END SIDEBAR -->
                 </div> <!-- END WRAPPER -->
+=======
+                @include('layouts.dashboard_sidebar')
+                
+                <!-- END SIDEBAR -->
+            </div>
+            <!-- END SIDEBAR -->
+
+>>>>>>> template
             <!-- BEGIN CONTENT -->
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
@@ -85,7 +100,11 @@
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-green icon-bulb"></i>
                                     <div class="widget-thumb-body">
+<<<<<<< HEAD
                                         <span class="widget-thumb-subtitle">NRA</span>
+=======
+                                        <span class="widget-thumb-subtitle">NGN</span>
+>>>>>>> template
                                         <span class="widget-thumb-body-stat" data-counter="counterup" data-value="7,644">0</span>
                                     </div>
                                 </div>
@@ -99,7 +118,11 @@
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-red icon-layers"></i>
                                     <div class="widget-thumb-body">
+<<<<<<< HEAD
                                         <span class="widget-thumb-subtitle">NRA</span>
+=======
+                                        <span class="widget-thumb-subtitle">NGN</span>
+>>>>>>> template
                                         <span class="widget-thumb-body-stat" data-counter="counterup" data-value="1,293">0</span>
                                     </div>
                                 </div>
@@ -113,7 +136,11 @@
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-purple icon-screen-desktop"></i>
                                     <div class="widget-thumb-body">
+<<<<<<< HEAD
                                         <span class="widget-thumb-subtitle">NRA</span>
+=======
+                                        <span class="widget-thumb-subtitle">NGN</span>
+>>>>>>> template
                                         <span class="widget-thumb-body-stat" data-counter="counterup" data-value="815">0</span>
                                     </div>
                                 </div>
@@ -127,7 +154,11 @@
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-blue icon-bar-chart"></i>
                                     <div class="widget-thumb-body">
+<<<<<<< HEAD
                                         <span class="widget-thumb-subtitle">NRA</span>
+=======
+                                        <span class="widget-thumb-subtitle">NGN</span>
+>>>>>>> template
                                         <span class="widget-thumb-body-stat" data-counter="counterup" data-value="5,071">0</span>
                                     </div>
                                 </div>
@@ -136,7 +167,11 @@
                         </div>
                     </div>
                     <div class="row">
+<<<<<<< HEAD
                          <div class="col-md-6 col-sm-6">
+=======
+                         <!--<div class="col-md-6 col-sm-6">
+>>>>>>> template
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
                                     <div class="caption">
@@ -429,8 +464,13 @@
                                     </div>
                                 </div>
                             </div>
+<<<<<<< HEAD
                         </div>
                         <div class="col-md-6 col-sm-6">
+=======
+                        </div>-->
+                        <!--<div class="col-md-6 col-sm-6">
+>>>>>>> template
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
                                     <div class="caption font-green">
@@ -462,12 +502,21 @@
                                     <div id="dashboard_amchart_4" class="CSSAnimationChart"></div>
                                 </div>
                             </div>
+<<<<<<< HEAD
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
                             <!-- BEGIN PORTLET-->
                             <div class="portlet light bordered">
+=======
+                        </div>-->
+                    </div>
+                    <div class="row">
+                        <!--<div class="col-md-6 col-sm-6">-->
+                            <!-- BEGIN PORTLET-->
+                            <!--<div class="portlet light bordered">
+>>>>>>> template
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-bar-chart font-green"></i>
@@ -483,9 +532,15 @@
                                         <div id="site_statistics" class="chart"> </div>
                                     </div>
                                 </div>
+<<<<<<< HEAD
                             </div>
                             <!-- END PORTLET-->
                         </div>
+=======
+                            </div>-->
+                            <!-- END PORTLET-->
+                        <!--</div>-->
+>>>>>>> template
                         <div class="col-md-6 col-sm-6">
                             <!-- BEGIN PORTLET-->
                             <div class="portlet light bordered">

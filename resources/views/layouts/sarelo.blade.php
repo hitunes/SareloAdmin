@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     </head>
     <body>
-    
+
         <div class="wrapper clearfix">
             <header class="m-b-30">
                 <!-- ===Nav bar starts here == -->
@@ -33,7 +33,7 @@
                 <div class="progressContainer dis-flex">
                     <div class="wizard">
                         <div class="wizard-inner">
-                            
+
                             <ul class="nav nav-tabs">
 
                                 <li role="presentation" >
@@ -84,19 +84,18 @@
             @yield('content')
         </div>
 
-        
+
         <!-- jQuery -->
         <script src="/assets/js/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
-        <script src="/assets/js/bootstrap/bootstrap.min.js"></script>
+        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="/assets/js/parsley.min.js"></script>
         <script src="/assets/js/main.js"></script>
         <script>
-      
+
              $(document).ready(function(){
-                app.validator();
-                app.chooser();
+                // app.validator();
              });
          </script>
 

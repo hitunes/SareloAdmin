@@ -1,31 +1,47 @@
-function payWithPaystack(customer_email, ref, amount){
+function payWithPaystack(order_id){
+    $.ajaxSetup({
+    headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $.post('/transaction', {'order_id': order_id}).then(function(response){
+        
+        meta = {
+            'transaction_id': response.id,
+            'applicant_id': order_id
+        }
+        handlePayment(response.user.email, response.amount, response.reference, meta);
+    })
+  }
+  function handlePayment(email, amount, ref, meta){
+    
     var handler = PaystackPop.setup({
-      key: 'pk_test_0f42c2c591c37e67dcbe562532cb3e3b6e1fdf9b',
-      email: customer_email,
-      amount: amount * 100,
+      key: 'pk_test_f0dfa9ed3fd01bbbf59ede20a02695115871bb48',
+      email: email,
+      amount: (amount * 100).toFixed(2),
       ref: ref,
       metadata: {
-         custom_fields: [
-            {
-                display_name: "Mobile Number",
-                variable_name: "mobile_number",
-                value: "+2348012345678"
-            }
-         ]
       },
       callback: function(response){
-          alert('success. transaction ref is ' + response.reference);
+        //   if(response.response)
+            updateOnSuccess(meta);
       },
       onClose: function(){
-          alert('window closed');
+        //   alert('window closed');
       }
     });
     handler.openIframe();
   }
-
-function makeBooking(){
-    $.get('/api/book').then(function(response) {
-
-        payWithPaystack(response['customer_email'], response['ref'], response['amount']);
-    })
-}
+  function updateOnSuccess(data){
+        $.ajaxSetup({
+                    headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                });
+        var data = {
+            'status': 'success',
+        }
+        $.post('/transaction/'+meta.transaction_id+'/edit', data).then(function(response){
+            window.location = '/my-account';
+        });
+  }

@@ -27,5 +27,8 @@ class UnitType extends Model
      */
     protected $fillable = ['name', 'description'];
 
-    
+    public function product()
+    {
+        return $this->hasMany('App\Models\product');
+    }
 }

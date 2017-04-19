@@ -3,11 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
+use App\Http\UploadedFile;
 
+use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\UnitType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Session;
+
 
 class ProductsController extends Controller
 {
@@ -33,8 +39,11 @@ class ProductsController extends Controller
         } else {
             $products = Product::paginate($perPage);
         }
+        $categories = Category::all(); 
+        $unit_type = UnitType::all();
+        // dd($unit_type);
 
-        return view('admin.products.index', compact('products'));
+        return view('admin.dashboard.product_edit', ['products' => $products, 'unit_type' => $unit_type, 'categories' => $categories]);
     }
 
     /**
@@ -54,17 +63,34 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function add_product(Request $request)
     {
-        
-        $requestData = $request->all();
-        
-        Product::create($requestData);
+        $this->validate($request, [
+            'name' => 'required', 
+            'description' => 'required',
+            'price' => 'required',
+            'unit' => 'required',
+            'unit_type_id' => 'required',
+            'category_id' => 'required',
+            'product_image' => 'required'
 
-        Session::flash('flash_message', 'Product added!');
-
-        return redirect('admin/products');
-    }
+        ]);
+        //inserting data
+        $filepath = $request->file('product_image')->store('product_images');
+        $product = new Product([
+            'name' => $request->input('name'), //colecting value from user from the text box to column names on the right handside
+            'description' => $request->input('description'),
+            'price' => $request->input('price'),
+            'unit' => $request->input('unit'),
+            'unit_type_id' => $request->input('unit_type_id'),
+            'category_id' => $request->input('category_id'),
+            'product_image' => $filepath
+        ]);
+            if ($request->file('product_image')->isValid()) {
+                $product->save();
+                return redirect('admin/products')->with('success', 'Product Uploaded Successfully!.');
+            }
+        }
 
     /**
      * Display the specified resource.
@@ -89,9 +115,12 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::findOrFail($id);
-
-        return view('admin.products.edit', compact('product'));
+        $products = Product::all();
+        $found_product = Product::findOrFail($id);
+        $categories = Category::all(); 
+        $unit_type = UnitType::all();
+        // dd($products);exit;
+        return view('admin.dashboard.update_product', compact('found_product', 'categories', 'unit_type', 'products'));
     }
 
     /**
@@ -109,10 +138,7 @@ class ProductsController extends Controller
         
         $product = Product::findOrFail($id);
         $product->update($requestData);
-
-        Session::flash('flash_message', 'Product updated!');
-
-        return redirect('admin/products');
+        return redirect('admin.dashboard.product_edit', ['products' => $products, 'unit_type' => $unit_type, 'categories' => $categories])->with('success', 'Product Successfully Updated!');
     }
 
     /**
@@ -124,10 +150,8 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
+        Product::findOrFail($id);
         Product::destroy($id);
-
-        Session::flash('flash_message', 'Product deleted!');
-
-        return redirect('admin/products');
+        return redirect('admin/products')->with('delete_message', '  Product Successfully Deleted!');
     }
 }

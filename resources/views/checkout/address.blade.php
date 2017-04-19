@@ -149,7 +149,7 @@
                                                 </div>
                                             </div>
                                         </fieldset>
-                                        <button type="submit" class="btn btn-md f-18 pull-right c-white" id="submit">Continue</button>
+                                        <button type="submit" class="btn btn-md bg-brand-green pull-right f-18" id="submit">Continue</button>
                                     </form>
                                 </div>
                            </div>

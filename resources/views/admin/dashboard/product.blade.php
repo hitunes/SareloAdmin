@@ -1,5 +1,6 @@
 @extends('layouts.dashboard')
     @section('title')
+<<<<<<< HEAD
         Sarelo | Products
     @endsection
     @section('content')
@@ -18,11 +19,17 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 
+=======
+        Dashboard | product
+    @endsection
+    @section('content')
+>>>>>>> template
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
                 <!-- BEGIN SIDEBAR -->
+<<<<<<< HEAD
                    <div class="page-sidebar navbar-collapse collapse">
                                     <!-- BEGIN SIDEBAR MENU -->
                                     <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
@@ -76,6 +83,52 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
                 
                
+=======
+                
+                <div class="page-sidebar navbar-collapse collapse">    
+                    <ul class="page-sidebar-menu">
+                        <li class="nav-item  ">
+                            <a href="{{url('/admin/index')}}" class="nav-link ">
+                                <i class="icon-home"></i>
+                                <span class="title">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                                <a href="{{url('/admin/users')}}" class="nav-link ">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Users</span>
+                                    <span class="selected"></span>
+                                </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="{{url('/admin/orders')}}" class="nav-link ">
+                                <i class="icon-basket"></i>
+                                <span class="title">Orders</span>
+                            </a>
+                        </li>
+                        <!--<li class="nav-item  ">
+                            <a href="order_view.html" class="nav-link ">
+                                <i class="icon-tag"></i>
+                                <span class="title">Order View</span>
+                            </a>
+                        </li>-->
+                        <!--<li class="nav-item  active open">
+                            <a href="product.html" class="nav-link ">
+                                <i class="icon-graph"></i>
+                                <span class="title">Products</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>-->
+                        <li class="nav-item  ">
+                            <a href="{{url('/admin/product')}}" class="nav-link ">
+                                <i class="icon-graph"></i>
+                                <span class="title">Add Product</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- END SIDEBAR -->
+>>>>>>> template
             </div>
             <!-- END SIDEBAR -->
             <!-- BEGIN CONTENT -->
@@ -796,5 +849,8 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- END QUICK SIDEBAR -->
         </div>
         <!-- END CONTAINER -->
+<<<<<<< HEAD
 
+=======
+>>>>>>> template
 @endsection

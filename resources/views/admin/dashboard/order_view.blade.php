@@ -1,5 +1,6 @@
 @extends('layouts.dashboard')
     @section('title')
+<<<<<<< HEAD
         Sarelo | Order Views
     @endsection
     @section('content')
@@ -18,10 +19,17 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 
+=======
+        Dashboard | View Order
+    @endsection
+
+    @section('content')
+>>>>>>> template
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
+<<<<<<< HEAD
                    <div class="page-sidebar navbar-collapse collapse">
                                     <!-- BEGIN SIDEBAR MENU -->
                                     <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
@@ -75,6 +83,51 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
                 
                 
+=======
+                <div class="page-sidebar navbar-collapse collapse">    
+                    <ul class="page-sidebar-menu">
+                        <li class="nav-item  ">
+                            <a href="{{url('admin/index')}}" class="nav-link ">
+                                <i class="icon-home"></i>
+                                <span class="title">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                                <a href="{{url('admin/users')}}" class="nav-link ">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Users</span>
+                                    <span class="selected"></span>
+                                </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="{{url('admin/orders')}}" class="nav-link ">
+                                <i class="icon-basket"></i>
+                                <span class="title">Orders</span>
+                            </a>
+                        </li>
+                        <!--<li class="nav-item  active open">
+                            <a href="order_view.html" class="nav-link ">
+                                <i class="icon-tag"></i>
+                                <span class="title">Order View</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>-->
+                        <!--<li class="nav-item  ">
+                            <a href="product.html" class="nav-link ">
+                                <i class="icon-graph"></i>
+                                <span class="title">Products</span>
+                            </a>
+                        </li>-->
+                        <li class="nav-item  ">
+                            <a href="{{url('admin/products')}}" class="nav-link ">
+                                <i class="icon-graph"></i>
+                                <span class="title">Products</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- END SIDEBAR MENU -->
+                </div>
+>>>>>>> template
                 <!-- END SIDEBAR -->
             </div>
             <!-- END SIDEBAR -->
@@ -96,7 +149,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-settings font-dark"></i>
+<<<<<<< HEAD
                                         <span class="caption-subject font-dark sbold uppercase"> Order #12313232
+=======
+                                        <span class="caption-subject font-dark sbold uppercase"> Order {{"#000000".$order->user_id}}
+>>>>>>> template
                                             <span class="hidden-xs">| Dec 27, 2013 7:16:25 </span>
                                         </span>
                                     </div>
@@ -132,7 +189,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <li class="active">
                                                 <a href="#tab_1" data-toggle="tab"> Details </a>
                                             </li>
+<<<<<<< HEAD
                                             <li>
+=======
+                                            <!--<li>
+>>>>>>> template
                                                 <a href="#tab_2" data-toggle="tab"> Invoices
                                                     <span class="badge badge-success">4</span>
                                                 </a>
@@ -144,10 +205,17 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <a href="#tab_4" data-toggle="tab"> Shipments
                                                     <span class="badge badge-danger"> 2 </span>
                                                 </a>
+<<<<<<< HEAD
                                             </li>
                                             <li>
                                                 <a href="#tab_5" data-toggle="tab"> History </a>
                                             </li>
+=======
+                                            </li>-->
+                                            <!--<li>
+                                                <a href="#tab_5" data-toggle="tab"> History </a>
+                                            </li>-->
+>>>>>>> template
                                         </ul>
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="tab_1">
@@ -157,6 +225,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             <div class="portlet-title">
                                                                 <div class="caption">
                                                                     <i class="fa fa-cogs"></i>Order Details </div>
+<<<<<<< HEAD
                                                                 <div class="actions">
                                                                     <a href="javascript:;" class="btn btn-default btn-sm">
                                                                         <i class="fa fa-pencil"></i> Edit </a>
@@ -167,25 +236,53 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                     <div class="col-md-5 name"> Order #: </div>
                                                                     <div class="col-md-7 value"> 12313232
                                                                         <span class="label label-info label-sm"> Email confirmation was sent </span>
+=======
+                                                                <!--<div class="actions">
+                                                                    <a href="javascript:;" class="btn btn-default btn-sm">
+                                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                                </div>-->
+                                                            </div>
+                                                            <div class="portlet-body">
+                                                                <div class="row static-info">
+                                                                    <div class="col-md-5 name"> Order No: </div>
+                                                                    <div class="col-md-7 value"> {{"000000".$order->user_id}}
+                                                                        <!--<span class="label label-info label-sm"> Email confirmation was sent </span>-->
+>>>>>>> template
                                                                     </div>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Order Date & Time: </div>
+<<<<<<< HEAD
                                                                     <div class="col-md-7 value"> Dec 27, 2013 7:16:25 PM </div>
+=======
+                                                                    <div class="col-md-7 value"> {{$order->created_at->diffForHumans()}} </div>
+>>>>>>> template
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Order Status: </div>
                                                                     <div class="col-md-7 value">
+<<<<<<< HEAD
                                                                         <span class="label label-success"> Closed </span>
+=======
+                                                                        <span class="label label-success"> {{$order->status}} </span>
+>>>>>>> template
                                                                     </div>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Grand Total: </div>
+<<<<<<< HEAD
                                                                     <div class="col-md-7 value"> &#8358; 175.25 </div>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Payment Information: </div>
                                                                     <div class="col-md-7 value"> Credit Card </div>
+=======
+                                                                    <div class="col-md-7 value"> &#8358; {{$order->total}} </div>
+                                                                </div>
+                                                                <div class="row static-info">
+                                                                    <div class="col-md-5 name"> Payment Information: </div>
+                                                                    <div class="col-md-7 value"> {{$order->payment_method}} </div>
+>>>>>>> template
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -195,6 +292,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             <div class="portlet-title">
                                                                 <div class="caption">
                                                                     <i class="fa fa-cogs"></i>Customer Information </div>
+<<<<<<< HEAD
                                                                 <div class="actions">
                                                                     <a href="javascript:;" class="btn btn-default btn-sm">
                                                                         <i class="fa fa-pencil"></i> Edit </a>
@@ -216,13 +314,41 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Phone Number: </div>
                                                                     <div class="col-md-7 value"> 12234389 </div>
+=======
+                                                                <!--<div class="actions">
+                                                                    <a href="javascript:;" class="btn btn-default btn-sm">
+                                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                                </div>-->
+                                                            </div>
+                                                            <div class="portlet-body">
+                                                                <div class="row static-info">
+
+                                                                    <div class="col-md-5 name"> Customer Name: </div>
+                                                                    <div class="col-md-7 value"> {{$order->user->first_name}} </div>
+                                                                </div>
+                                                                <div class="row static-info">
+                                                                    <div class="col-md-5 name"> Email: </div>
+                                                                    <div class="col-md-7 value"> {{$order->user->email}} </div>
+                                                                </div>
+                                                                <div class="row static-info">
+                                                                    <div class="col-md-5 name"> Area: </div>
+                                                                    <div class="col-md-7 value"> {{$order->user_address->city}} </div>
+                                                                </div>
+                                                                <div class="row static-info">
+                                                                    <div class="col-md-5 name"> Phone Number: </div>
+                                                                    <div class="col-md-7 value"> {{$order->user->phone}} </div>
+>>>>>>> template
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
+<<<<<<< HEAD
                                                     <div class="col-md-6 col-sm-12">
+=======
+                                                    <!--<div class="col-md-6 col-sm-12">
+>>>>>>> template
                                                         <div class="portlet green-meadow box">
                                                             <div class="portlet-title">
                                                                 <div class="caption">
@@ -269,7 +395,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                 </div>
                                                             </div>
                                                         </div>
+<<<<<<< HEAD
                                                     </div>
+=======
+                                                    </div>-->
+>>>>>>> template
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12 col-sm-12">
@@ -277,15 +407,23 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             <div class="portlet-title">
                                                                 <div class="caption">
                                                                     <i class="fa fa-cogs"></i>Shopping Cart </div>
+<<<<<<< HEAD
                                                                 <div class="actions">
                                                                     <a href="javascript:;" class="btn btn-default btn-sm">
                                                                         <i class="fa fa-pencil"></i> Edit </a>
                                                                 </div>
+=======
+                                                                <!--<div class="actions">
+                                                                    <a href="javascript:;" class="btn btn-default btn-sm">
+                                                                        <i class="fa fa-pencil"></i> Edit </a>
+                                                                </div>-->
+>>>>>>> template
                                                             </div>
                                                             <div class="portlet-body">
                                                                 <div class="table-responsive">
                                                                     <table class="table table-hover table-bordered table-striped">
                                                                         <thead>
+<<<<<<< HEAD
                                                                             <tr>
                                                                                 <th> Product </th>
                                                                                 <th> Item Status </th>
@@ -355,6 +493,33 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                                 <td> 0.00 </td>
                                                                                 <td>&#8358; 691.00 </td>
                                                                             </tr>
+=======
+
+                                                                                <tr>
+                                                                                    <th> Product Name</th>
+                                                                                    <th> Quantity </th>
+                                                                                    <th> Price (per each item) </th>
+                                                                                    <th> Total </th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                @foreach($order->order_products as $item)
+                                                                                
+
+                                                                                  
+                                                                                    <tr>
+                                                                                        <td>
+                                                                                            <a target="_blank" href="/admin/products/{{$item->product->id}}">  
+                                                                                            {{$item->product->name}}
+                                                                                            </a>
+                                                                                        </td>
+                                                                                        <td> {{$item->qty}} </td>
+                                                                                        <td>&#8358;  {{$item->price}}</td>
+                                                                                        <td>&#8358; {{$item->sub_total}} </td>
+                                                                                    </tr>
+                                                                                  
+                                                                                @endforeach
+>>>>>>> template
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
@@ -367,6 +532,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <div class="col-md-6">
                                                         <div class="well">
                                                             <div class="row static-info align-reverse">
+<<<<<<< HEAD
                                                                 <div class="col-md-8 name"> Sub Total: </div>
                                                                 <div class="col-md-3 value"> &#8358; 1,124.50 </div>
                                                             </div>
@@ -389,12 +555,36 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             <div class="row static-info align-reverse">
                                                                 <div class="col-md-8 name"> Total Due: </div>
                                                                 <div class="col-md-3 value"> &#8358; 1,124.50 </div>
+=======
+                                                                <div class="col-md-8 name"> Your Basket: </div>
+                                                                <div class="col-md-3 value"> &#8358; 1,124.50 </div>
+                                                            </div>
+                                                            <div class="row static-info align-reverse">
+                                                                <div class="col-md-8 name"> Sales Tax: </div>
+                                                                <div class="col-md-3 value"> &#8358; 42.10 </div>
+                                                            </div>
+                                                            <div class="row static-info align-reverse">
+                                                                <div class="col-md-8 name"> Service Charge: </div>
+                                                                <div class="col-md-3 value"> &#8358; 260.00 </div>
+                                                            </div>
+                                                            <div class="row static-info align-reverse">
+                                                                <div class="col-md-8 name"> Delivery Charge: </div>
+                                                                <div class="col-md-3 value"> &#8358; 40.50 </div>
+                                                            </div>
+                                                            <div class="row static-info align-reverse">
+                                                                <div class="col-md-8 name"> Total Due: </div>
+                                                                <div class="col-md-3 value"> &#8358; 1,467.10 </div>
+>>>>>>> template
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+<<<<<<< HEAD
                                             <div class="tab-pane" id="tab_2">
+=======
+                                            <!--<div class="tab-pane" id="tab_2">
+>>>>>>> template
                                                 <div class="table-container">
                                                     <div class="table-actions-wrapper">
                                                         <span> </span>
@@ -536,8 +726,13 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         <tbody> </tbody>
                                                     </table>
                                                 </div>
+<<<<<<< HEAD
                                             </div>
                                             <div class="tab-pane" id="tab_5">
+=======
+                                            </div>-->
+                                            <!--<div class="tab-pane" id="tab_5">
+>>>>>>> template
                                                 <div class="table-container">
                                                     <table class="table table-striped table-bordered table-hover" id="datatable_history">
                                                         <thead>
@@ -589,7 +784,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         <tbody> </tbody>
                                                     </table>
                                                 </div>
+<<<<<<< HEAD
                                             </div>
+=======
+                                            </div>-->
+>>>>>>> template
                                         </div>
                                     </div>
                                 </div>

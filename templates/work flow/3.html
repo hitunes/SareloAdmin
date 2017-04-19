@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
         <!-- Main CSS here -->
         <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+
+         <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     </head>
     <body>
@@ -102,13 +104,13 @@
                                                 <tbody>
                                                     <tr>
                                                         <td class="p-t-14 no-bd">Delivers to</td>
-                                                        <td class="p-t-14 no-bd">294 Herbert Macaulay str.</td>
-                                                        <td class="no-bd text-right"><button class="btn bg-transparent no-bd">Change</button></td>
+                                                        <td class="p-t-14 no-bd"><span class="location">294 Herbert Macaulay str.</span></td>
+                                                        <td class="no-bd text-right"><button class="btn bg-transparent no-bd change">Change</button></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="p-t-14">Delivery Slot</td>
-                                                        <td class="p-t-14">Fri, Mar 24, 7pm - 8pm</td>
-                                                        <td class="text-right"><button class="btn bg-transparent no-bd">Change</button></td>
+                                                        <td class="p-t-14"><span class="location">Fri, Mar 24, 7pm - 8pm</span></td>
+                                                        <td class="text-right"><button class="btn bg-transparent no-bd change">Change</button></td>
                                                     </tr>
                                                    
                                                 </tbody>
@@ -141,9 +143,9 @@
                                                         </td>
                                                         <td class="width-33_3p no-bd">
                                                             <div class="counter">
-                                                                <div class="minus"></div>
-                                                                <div class="count"></div>
-                                                                <div class="plus"></div>
+                                                                <div class="minus">-</div>
+                                                                <div class="count">2</div>
+                                                                <div class="plus">+</div>
                                                             </div>
                                                         </td>
                                                         <td class="p-t-14 width-33_3p text-right no-bd">
@@ -167,9 +169,9 @@
                                                         </td>
                                                         <td class="width-33_3p">
                                                             <div class="counter">
-                                                                <div class="minus"></div>
-                                                                <div class="count"></div>
-                                                                <div class="plus"></div>
+                                                                <div class="minus">-</div>
+                                                                <div class="count">5</div>
+                                                                <div class="plus">+</div>
                                                             </div>
                                                         </td>
                                                         <td class="p-t-14 width-33_3p text-right">
@@ -193,9 +195,9 @@
                                                         </td>
                                                         <td class="width-33_3p">
                                                             <div class="counter">
-                                                                <div class="minus"></div>
-                                                                <div class="count"></div>
-                                                                <div class="plus"></div>
+                                                                <div class="minus">-</div>
+                                                                <div class="count">4</div>
+                                                                <div class="plus">+</div>
                                                             </div>
                                                         </td>
                                                         <td class="p-t-14 width-33_3p text-right">
@@ -219,9 +221,9 @@
                                                         </td>
                                                         <td class="width-33_3p">
                                                             <div class="counter">
-                                                                <div class="minus"></div>
-                                                                <div class="count"></div>
-                                                                <div class="plus"></div>
+                                                                <div class="minus">-</div>
+                                                                <div class="count">2</div>
+                                                                <div class="plus">+</div>
                                                             </div>
                                                         </td>
                                                         <td class="p-t-14 width-33_3p text-right">
@@ -340,8 +342,9 @@
         <!-- Bootstrap JavaScript -->
         <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../assets/js/main.js"></script>
          <script>
-             
+             app.inlineEditor();
          </script>
     </body>
 </html>
