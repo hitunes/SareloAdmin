@@ -496,7 +496,7 @@ const app = {
            $('#loader').hide();
         },
         error: function (response) {
-        
+           $('#loader').hide();
         }
       });
 
