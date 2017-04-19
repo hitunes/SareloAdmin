@@ -16,6 +16,8 @@
     </head>
     <body>
 
+        
+
         <!--sidebar menu on the right hand -->
         <aside class="sidebar left_sidebar visible-xs" id="left_sidebar">
             <ul class="nav navbar-nav navbar-right">            
@@ -101,14 +103,11 @@
 
         <!--sidebar menu on the right hand -->
         <aside class="sidebar right_sidebar" id="right_sidebar">
-            <!--<div class="header">
-                <h3>MY FOOD BASKET 
-                    <span class="pull-right items_container">
-                    <span id="items">0</span>
-                    <span class="t-u-c">items</span>
-                    </span>
-                </h3>
-            </div>-->
+            <!-- loader -->
+            <div class="loader" id="loader">
+                <img src="assets/img/loaders/aj.gif">
+            </div>
+    
             <div class="full_bag">
                 <div class="body" id="basket">
                     <ul class="p-l-0 list-style-none" id="basketList">
@@ -198,7 +197,9 @@
                     railColor: '#222',
                     railOpacity: 0.3,
                     wheelStep: 10
-                });     
+                });
+
+                
              });
          </script>
     </body>
