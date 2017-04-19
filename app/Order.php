@@ -21,6 +21,6 @@ class Order extends Model
 
     public function products()
     {
-    	return $this->belongsToMany('App\Models\Product', 'order_products');
+    	return $this->belongsToMany('App\Models\Product', 'order_products'); //second parameter specifies the pivot table name that links ptoducts with orders
     }
 }
