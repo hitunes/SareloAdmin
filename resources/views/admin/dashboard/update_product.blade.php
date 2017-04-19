@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
     @section('title')
-        Dashboard | Edit Product
+        Dashboard | Add Product
     @endsection
 
     @section('content')
@@ -22,7 +22,7 @@
                     
                         <ul class="page-sidebar-menu ">
                             <li class="nav-item  ">
-                                <a href="{{url('admin/index')}}" class="nav-link ">
+                                <a href="{{url('admin')}}" class="nav-link ">
                                     <i class="icon-home"></i>
                                     <span class="title">Dashboard</span>
                                 </a>
@@ -96,7 +96,7 @@
                                     {{ session('delete_message') }}
                                 </div>
                             @endif
-                            <form method="POST" action="{{url('admin/products/')}}" enctype="multipart/form-data" class="form-horizontal form-row-seperated" action="#">
+                            <form method="POST" action="" enctype="multipart/form-data" class="form-horizontal form-row-seperated" action="#">
                             {{csrf_field()}}
                                 <div class="portlet light">
                                     <div class="portlet-title">
@@ -821,7 +821,7 @@
                                                                 <a href="{{url('admin/products',$product->id)}}" class="btn btn-sm btn-default margin-bottom" id="edit_product">
                                                                     <i class="fa fa-pencil"></i> Edit</a>
 
-                                                                <a id="btn_del" href="{{url('admin/products/destroy',$product->id)}}" class="btn btn-sm btn-danger margin-bottom">
+                                                                <a id="a_del" href="{{url('admin/products/destroy',$product->id)}}" class="btn btn-sm btn-danger margin-bottom">
                                                                     <i class="fa fa-trash"></i> Delete</a>
 
                                                                 <button class="btn btn-sm btn-success margin-bottom">
