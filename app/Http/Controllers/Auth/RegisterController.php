@@ -77,7 +77,8 @@ class RegisterController extends Controller
         $user->role()->associate($role);
 
         $user->save();
-
+        
         return $user;
+         
     }
 }
