@@ -24,6 +24,15 @@ Route::group(['prefix' => 'admin'], function() {
 });
 
 Route::get('/', 'IndexController@index');
+Route::get('/admin/index', 'AdminController@index');
+Route::get('/admin/users', 'AdminController@users');
+Route::get('/admin/orders', 'AdminController@orders');
+Route::get('/admin/order_view', 'AdminController@order_view');
+Route::get('/admin/products', 'AdminController@products');
+Route::get('/admin/product_edit', 'AdminController@product_edit');
+
+
+
 
 // Auth::routes();
 
@@ -52,6 +61,7 @@ Route::resource('admin/slots', 'Admin\\SlotsController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
 
 Route::resource('admin/charges', 'Admin\\ChargesController');
 

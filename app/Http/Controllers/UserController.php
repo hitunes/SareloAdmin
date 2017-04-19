@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+<<<<<<< HEAD
+    //
+=======
     /**
      * Display a listing of the resource.
      *
@@ -81,4 +84,5 @@ class UserController extends Controller
     {
         //
     }
+>>>>>>> template
 }
