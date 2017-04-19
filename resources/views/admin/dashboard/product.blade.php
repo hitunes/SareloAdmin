@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
     @section('title')
-<<<<<<< HEAD
+
         Sarelo | Products
     @endsection
     @section('content')
@@ -19,17 +19,13 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 
-=======
-        Dashboard | product
-    @endsection
-    @section('content')
->>>>>>> template
+
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
                 <!-- BEGIN SIDEBAR -->
-<<<<<<< HEAD
+
                    <div class="page-sidebar navbar-collapse collapse">
                                     <!-- BEGIN SIDEBAR MENU -->
                                     <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
@@ -83,7 +79,6 @@ License: You must have a valid license purchased only from themeforest(the above
                 </div>
                 
                
-=======
                 
                 <div class="page-sidebar navbar-collapse collapse">    
                     <ul class="page-sidebar-menu">
@@ -128,7 +123,6 @@ License: You must have a valid license purchased only from themeforest(the above
                     </ul>
                 </div>
                 <!-- END SIDEBAR -->
->>>>>>> template
             </div>
             <!-- END SIDEBAR -->
             <!-- BEGIN CONTENT -->
@@ -849,8 +843,4 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- END QUICK SIDEBAR -->
         </div>
         <!-- END CONTAINER -->
-<<<<<<< HEAD
-
-=======
->>>>>>> template
 @endsection

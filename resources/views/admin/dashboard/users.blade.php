@@ -1,13 +1,8 @@
 @extends('layouts.dashboard')
     @section('title')
-<<<<<<< HEAD
         Sarelo | Users
     @endsection
-=======
-        Dashboard | Users
-    @endsection
 
->>>>>>> template
     @section('content')
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
@@ -17,7 +12,6 @@
                 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                 <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
                 <div class="page-sidebar navbar-collapse collapse">
-<<<<<<< HEAD
                                     <!-- BEGIN SIDEBAR MENU -->
                                     <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
                                     <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
@@ -69,7 +63,6 @@
                                     <!-- END SIDEBAR MENU -->
                 </div>
                
-=======
                         <ul class="page-sidebar-menu">
                             <li class="nav-item  ">
                                 <a href="{{url('/admin/index')}}" class="nav-link ">
@@ -112,7 +105,6 @@
                         </ul>
                     <!-- END SIDEBAR MENU -->
                 </div>
->>>>>>> template
                 <!-- END SIDEBAR -->
             </div>
             <!-- END SIDEBAR -->
@@ -164,7 +156,6 @@
                                                     <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /> </th>
                                                 <th> Username </th>
                                                 <th> Email </th>
-<<<<<<< HEAD
                                                 <th> Expense </th>
                                                 <th> Date credit </th>
                                                 <th> Status </th>
@@ -496,7 +487,6 @@
                                                     <span class="label label-sm label-success"> Approved </span>
                                                 </td>
                                             </tr>
-=======
                                                 <th> Expense (NGN) </th>
                                                 <th> Date credit </th>
                                                 <th> Phone Number </th>
@@ -520,7 +510,6 @@
                                                 </tr>
                                             @endforeach
                                             
->>>>>>> template
                                         </tbody>
                                     </table>
                                 </div>
@@ -537,8 +526,4 @@
             
         </div>
         <!-- END CONTAINER -->
-<<<<<<< HEAD
- @endsection
-=======
-@endsection
->>>>>>> template
+    @endsection

@@ -1,6 +1,5 @@
 @extends('layouts.dashboard')
     @section('title')
-<<<<<<< HEAD
         Sarelo | Order Views
     @endsection
     @section('content')
@@ -18,18 +17,10 @@ License: You must have a valid license purchased only from themeforest(the above
 <!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
-
-=======
-        Dashboard | View Order
-    @endsection
-
-    @section('content')
->>>>>>> template
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
-<<<<<<< HEAD
                    <div class="page-sidebar navbar-collapse collapse">
                                     <!-- BEGIN SIDEBAR MENU -->
                                     <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->

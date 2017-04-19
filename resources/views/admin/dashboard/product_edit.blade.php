@@ -1,16 +1,10 @@
 @extends('layouts.dashboard')
     @section('title')
-<<<<<<< HEAD
+
         Sarelo | Product Edit
     @endsection
     @section('content')
-=======
-        Dashboard | Edit Product
-    @endsection
 
-    @section('content')
-        <!-- BEGIN CONTAINER -->
->>>>>>> template
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
@@ -18,7 +12,7 @@
                 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                 <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
                 <div class="page-sidebar navbar-collapse collapse">
-<<<<<<< HEAD
+
                                     <!-- BEGIN SIDEBAR MENU -->
                                     <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
                                     <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
@@ -71,7 +65,6 @@
                 </div>
                
             
-=======
                     <!-- BEGIN SIDEBAR MENU -->
                     <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
                     <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
@@ -123,7 +116,6 @@
                     <!-- END SIDEBAR MENU -->
                 </div>
                 <!-- END SIDEBAR -->
->>>>>>> template
             </div>
             <!-- END SIDEBAR -->
             <!-- BEGIN CONTENT -->
@@ -137,12 +129,10 @@
                     
                     <!-- END PAGE BREADCRUMB -->
                     <!-- BEGIN PAGE BASE CONTENT -->
-<<<<<<< HEAD
                     <div class="row">
                         <div class="col-md-12">
                             <form class="form-horizontal form-row-seperated" action="#">
                                 <div class="portlet">
-=======
 
                     {{-- EDIT EACH PRODUCT BEGINS --}}
                     <span>
@@ -173,12 +163,10 @@
                             <form method="POST"  enctype='multipart/form-data' action="{{url('admin/products')}}" class="form-horizontal form-row-seperated" action="#">
                             {{csrf_field()}}
                                 <div class="portlet light">
->>>>>>> template
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <i class="fa fa-shopping-cart"></i>Add Product </div>
                                         <div class="actions btn-set">
-<<<<<<< HEAD
                                             <button type="button" name="back" class="btn btn-secondary-outline">
                                                 <i class="fa fa-angle-left"></i> Back</button>
                                             <button class="btn btn-secondary-outline">
@@ -652,9 +640,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-<<<<<<< HEAD
-                                        </div>
-=======
                                         </div>-->
                                         <div class="form-body">
                                                         <div class="form-group">
@@ -860,15 +845,15 @@
                                                         <button class="btn btn-success"><i class="fa fa-check"></i> Add</button>
                                                         </div>
                                                     </div>
->>>>>>> template
+
                                     </div>
                                 </div>
                             </form>
                         </div>
-<<<<<<< HEAD
+
                     </div>
                     <!-- END PAGE BASE CONTENT -->
-=======
+
 
                         <div class="col-md-12">
                             <div class="portlet light">
@@ -937,7 +922,7 @@
                         </div>
                     <!-- END PAGE BASE CONTENT -->
                     </div>
->>>>>>> template
+
                 </div>
                 <!-- END CONTENT BODY -->
             </div>
@@ -1505,8 +1490,4 @@
             <!-- END QUICK SIDEBAR -->
         </div>
         <!-- END CONTAINER -->
-<<<<<<< HEAD
-
-=======
->>>>>>> template
 @endsection

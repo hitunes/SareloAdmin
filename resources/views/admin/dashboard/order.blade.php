@@ -3,11 +3,6 @@
 <<<<<<< HEAD
         Sarelo | Orders
     @endsection
-=======
-        Dashboard | Orders
-    @endsection
-
->>>>>>> template
     @section('content')
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
@@ -16,7 +11,6 @@
                 <!-- BEGIN SIDEBAR -->
                 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                 <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-<<<<<<< HEAD
                   <div class="page-sidebar navbar-collapse collapse">
                                    <!-- BEGIN SIDEBAR MENU -->
                                    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
@@ -70,7 +64,6 @@
                </div>
                
                 
-=======
                 <div class="page-sidebar navbar-collapse collapse">
                         <ul class="page-sidebar-menu">
                             <li class="nav-item  ">
@@ -115,7 +108,6 @@
                         </ul>
                     <!-- END SIDEBAR MENU -->
                 </div>
->>>>>>> template
                 <!-- END SIDEBAR -->
             </div>
             <!-- END SIDEBAR -->
@@ -170,19 +162,14 @@
                                     <div class="table-container">
                                         <div class="table-actions-wrapper">
                                             <span> </span>
-<<<<<<< HEAD
                                             <select class="table-group-action-input form-control input-inline input-small input-sm">
-=======
                                             <!--<select class="table-group-action-input form-control input-inline input-small input-sm">
->>>>>>> template
-                                                <option value="">Select...</option>
                                                 <option value="Cancel">Cancel</option>
                                                 <option value="Cancel">Hold</option>
                                                 <option value="Cancel">On Hold</option>
                                                 <option value="Close">Close</option>
                                             </select>
                                             <button class="btn btn-sm btn-default table-group-action-submit">
-<<<<<<< HEAD
                                                 <i class="fa fa-check"></i> Submit</button>
                                         </div>
                                         <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_orders">
@@ -316,7 +303,6 @@
                                         </table>
                                     </div>
                                     {{ $orders->links() }}
->>>>>>> template
                                 </div>
                             </div>
                             <!-- End: life time stats -->
@@ -890,7 +876,6 @@
             <!-- END QUICK SIDEBAR -->
         </div>
         <!-- END CONTAINER -->
-<<<<<<< HEAD
         <!-- BEGIN FOOTER -->
         <div class="page-footer">
             
@@ -932,6 +917,4 @@
     </body>
 
 </html>
-=======
 @endsection
->>>>>>> template

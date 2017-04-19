@@ -96,11 +96,8 @@
                                     {{ session('delete_message') }}
                                 </div>
                             @endif
-<<<<<<< HEAD
                             <form method="POST" action="{{url('admin/products/')}}" class="form-horizontal form-row-seperated" action="#">
-=======
                             <form method="POST" action="{{url('admin/products/')}}" enctype="multipart/form-data" class="form-horizontal form-row-seperated" action="#">
->>>>>>> template
                             {{csrf_field()}}
                                 <div class="portlet light">
                                     <div class="portlet-title">
@@ -599,10 +596,7 @@
                                                             <div class="col-md-2">
                                                                 <input type="text" value="{{$found_product->unit}}"" class="form-control" name="unit" placeholder="">
                                                             </div>
-<<<<<<< HEAD
-=======
 
->>>>>>> template
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Unit Type:
@@ -732,10 +726,7 @@
                                                             <div class="col-md-2">
                                                                 <input type="text" class="form-control" value="{{$found_product->price}}" name="price" placeholder=""> </div>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> template
                                                         </div>
                                                         <!--<div class="form-group">
                                                             <label class="col-md-2 control-label">Tax Class:
@@ -765,7 +756,6 @@
                                                         </div>-->
 
                                                         <div class="prod_im\g">
-<<<<<<< HEAD
                                                         <div id="tab_images_uploader_container" class="margin-bottom-10">
                                                             <a id="tab_images_uploader_pickfiles" href="javascript:;" class="btn btn-success">
                                                                 <i class="fa fa-plus"></i> Product Image </a>
@@ -774,7 +764,7 @@
                                                         </div>
                                                         <div class="row">
                                                             <div id="tab_images_uploader_filelist" class="col-md-6 col-sm-12"> </div>
-=======
+
                                                             <img src="/dashboard/assets/layouts/layout4/img/sarelo2.svg" alt="" >
                                                             <div id="tab_images_uploader_container" class="margin-bottom-10">
                                                                
@@ -782,7 +772,6 @@
                                                                 </input>
                                                                 
                                                             </div>
->>>>>>> template
                                                         </div>
                                                         <button class="btn btn-success"><i class="fa fa-check"></i>Update</button>
                                                         </div>
