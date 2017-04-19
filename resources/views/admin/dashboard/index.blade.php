@@ -1,73 +1,20 @@
 @extends('layouts.dashboard')
     @section('title')
-        Sarelo | Dashboard
+        Dashboard | Dashoard
     @endsection
-
     @section('content')
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
                 <!-- BEGIN SIDEBAR -->
-                {{-- @include('layouts.dashboard_sidebar') --}}
-                   <div class="page-sidebar navbar-collapse collapse">
-                                    <!-- BEGIN SIDEBAR MENU -->
-                                    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
-                                    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
-                                    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
-                                    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-                                    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
-                                    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                                    
-                                     <ul class="page-sidebar-menu">
-                                         <li class="nav-item  active open">
-                                             <a href="index.html" class="nav-link ">
-                                                 <i class="icon-home"></i>
-                                                 <span class="title">Dashboard</span>
-                                                 <span class="selected"></span>
-                                             </a>
-                                         </li>
-                                         <li class="nav-item">
-                                                 <a href="users.html" class="nav-link ">
-                                                     <i class="icon-user"></i>
-                                                     <span class="title">Users</span>
-                                                     <span class="selected"></span>
-                                                 </a>
-                                         </li>
-                                         <li class="nav-item  ">
-                                             <a href="order.html" class="nav-link ">
-                                                 <i class="icon-basket"></i>
-                                                 <span class="title">Orders</span>
-                                             </a>
-                                         </li>
-                                         <li class="nav-item  ">
-                                             <a href="order_view.html" class="nav-link ">
-                                                 <i class="icon-tag"></i>
-                                                 <span class="title">Order View</span>
-                                             </a>
-                                         </li>
-                                         <li class="nav-item  ">
-                                             <a href="product.html" class="nav-link ">
-                                                 <i class="icon-graph"></i>
-                                                 <span class="title">Products</span>
-                                             </a>
-                                         </li>
-                                         <li class="nav-item  ">
-                                             <a href="product_edit.html" class="nav-link ">
-                                                 <i class="icon-graph"></i>
-                                                 <span class="title">Product Edit</span>
-                                             </a>
-                                         </li>
-                                     </ul>
-                                    <!-- END SIDEBAR MENU -->
-                    </div>
                
-            <!-- END SIDEBAR -->
-                </div> <!-- END WRAPPER -->
                 @include('layouts.dashboard_sidebar')
                 
                 <!-- END SIDEBAR -->
             </div>
+            <!-- END SIDEBAR -->
+
             <!-- BEGIN CONTENT -->
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
@@ -88,8 +35,6 @@
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-green icon-bulb"></i>
                                     <div class="widget-thumb-body">
-                                        <span class="widget-thumb-subtitle">NRA</span>
-
                                         <span class="widget-thumb-subtitle">NGN</span>
                                         <span class="widget-thumb-body-stat" data-counter="counterup" data-value="7,644">0</span>
                                     </div>
@@ -104,11 +49,7 @@
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-red icon-layers"></i>
                                     <div class="widget-thumb-body">
-
-                                        <span class="widget-thumb-subtitle">NRA</span>
-
                                         <span class="widget-thumb-subtitle">NGN</span>
-
                                         <span class="widget-thumb-body-stat" data-counter="counterup" data-value="1,293">0</span>
                                     </div>
                                 </div>
@@ -122,10 +63,7 @@
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-purple icon-screen-desktop"></i>
                                     <div class="widget-thumb-body">
-
-                                        <span class="widget-thumb-subtitle">NRA</span>
                                         <span class="widget-thumb-subtitle">NGN</span>
-
                                         <span class="widget-thumb-body-stat" data-counter="counterup" data-value="815">0</span>
                                     </div>
                                 </div>
@@ -139,7 +77,6 @@
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-blue icon-bar-chart"></i>
                                     <div class="widget-thumb-body">
-                                        <span class="widget-thumb-subtitle">NRA</span>
                                         <span class="widget-thumb-subtitle">NGN</span>
                                         <span class="widget-thumb-body-stat" data-counter="counterup" data-value="5,071">0</span>
                                     </div>
@@ -149,9 +86,7 @@
                         </div>
                     </div>
                     <div class="row">
-                         <div class="col-md-6 col-sm-6">
                          <!--<div class="col-md-6 col-sm-6">
-
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
                                     <div class="caption">
@@ -444,12 +379,8 @@
                                     </div>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-
                         </div>-->
-                        <div class="col-md-6 col-sm-6">
+                        <!--<div class="col-md-6 col-sm-6">
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
                                     <div class="caption font-green">
@@ -481,13 +412,7 @@
                                     <div id="dashboard_amchart_4" class="CSSAnimationChart"></div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 col-sm-6">
-                            
-                            <div class="portlet light bordered">
-                        </div>
+                        </div>-->
                     </div>
                     <div class="row">
                         <!--<div class="col-md-6 col-sm-6">-->
@@ -508,9 +433,6 @@
                                         <div id="site_statistics" class="chart"> </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- END PORTLET-->
-                        </div>
                             </div>-->
                             <!-- END PORTLET-->
                         <!--</div>-->

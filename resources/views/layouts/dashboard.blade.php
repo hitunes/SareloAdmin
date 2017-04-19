@@ -10,30 +10,6 @@
         <meta content="" name="author" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-<<<<<<< HEAD
-        <link href="dashboard/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-        <link href="dashboard/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
-        <link href="dashboard/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="dashboard/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
-        <link href="dashboard/assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
-        <!-- END GLOBAL MANDATORY STYLES -->
-        <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <link href="dashboard/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
-        <link href="dashboard/assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
-        <link href="dashboard/assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
-        <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL STYLES -->
-        <link href="dashboard/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
-        <link href="dashboard/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME GLOBAL STYLES -->
-        <!-- BEGIN THEME LAYOUT STYLES -->
-        <link href="dashboard/assets/layouts/layout4/css/layout.css" rel="stylesheet" type="text/css" />
-        <link href="dashboard/assets/layouts/layout4/css/themes/light.min.css" rel="stylesheet" type="text/css" id="style_color" />
-        <link href="dashboard/assets/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
-        <!-- END THEME LAYOUT STYLES -->
-        <link rel="shortcut icon" href="favicon.ico" /> </head>
-    <!-- END HEAD -->
-=======
         <link href="/dashboard/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="/dashboard/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
         <link href="/dashboard/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -64,7 +40,6 @@
             display: none;
         }
     </style>
->>>>>>> template
     <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo">
         <!-- BEGIN HEADER -->
         <div class="page-header navbar navbar-fixed-top">
@@ -73,11 +48,7 @@
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
                     <a href="index.html">
-<<<<<<< HEAD
-                        <img src="dashboard/assets/layouts/layout4/img/sarelo2.svg" alt="logo" class="logo-default" />
-=======
                         <img src="/dashboard/assets/layouts/layout4/img/sarelo2.svg" alt="logo" class="logo-default" />
->>>>>>> template
                     </a>
                 </div>
                 <!-- END LOGO -->
@@ -131,111 +102,23 @@
                             <li class="dropdown dropdown-extended dropdown-notification dropdown-dark" id="header_notification_bar">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                     <i class="icon-bell"></i>
-<<<<<<< HEAD
-                                    <span class="badge badge-success"> 7 </span>
-=======
                                     <span class="badge badge-success"> 0 </span>
->>>>>>> template
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li class="external">
                                         <h3>
-<<<<<<< HEAD
-                                            <span class="bold">12 pending</span> notifications</h3>
-=======
                                             <span class="bold">No new</span> notifications</h3>
->>>>>>> template
                                         <a href="page_user_profile_1.html">view all</a>
                                     </li>
                                     <li>
                                         <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
                                             <li>
                                                 <a href="javascript:;">
-<<<<<<< HEAD
-                                                    <span class="time">just now</span>
-                                                    <span class="details">
-                                                        <span class="label label-sm label-icon label-success">
-                                                            <i class="fa fa-plus"></i>
-                                                        </span> New user registered. </span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <span class="time">3 mins</span>
-                                                    <span class="details">
-                                                        <span class="label label-sm label-icon label-danger">
-                                                            <i class="fa fa-bolt"></i>
-                                                        </span> Server #12 overloaded. </span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <span class="time">10 mins</span>
-                                                    <span class="details">
-                                                        <span class="label label-sm label-icon label-warning">
-                                                            <i class="fa fa-bell-o"></i>
-                                                        </span> Server #2 not responding. </span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <span class="time">14 hrs</span>
-                                                    <span class="details">
-                                                        <span class="label label-sm label-icon label-info">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </span> Application error. </span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <span class="time">2 days</span>
-                                                    <span class="details">
-                                                        <span class="label label-sm label-icon label-danger">
-                                                            <i class="fa fa-bolt"></i>
-                                                        </span> Database overloaded 68%. </span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <span class="time">3 days</span>
-                                                    <span class="details">
-                                                        <span class="label label-sm label-icon label-danger">
-                                                            <i class="fa fa-bolt"></i>
-                                                        </span> A user IP blocked. </span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <span class="time">4 days</span>
-                                                    <span class="details">
-                                                        <span class="label label-sm label-icon label-warning">
-                                                            <i class="fa fa-bell-o"></i>
-                                                        </span> Storage Server #4 not responding dfdfdfd. </span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <span class="time">5 days</span>
-                                                    <span class="details">
-                                                        <span class="label label-sm label-icon label-info">
-                                                            <i class="fa fa-bullhorn"></i>
-                                                        </span> System Error. </span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <span class="time">9 days</span>
-                                                    <span class="details">
-                                                        <span class="label label-sm label-icon label-danger">
-                                                            <i class="fa fa-bolt"></i>
-                                                        </span> Storage server failed. </span>
-=======
                                                     <span class="time"></span>
                                                     <span class="details">
                                                         <span class="label label-sm label-icon label-warning">
                                                             <i class="fa fa-bell-o"></i>
                                                         </span> No notification</span>
->>>>>>> template
                                                 </a>
                                             </li>
                                         </ul>
@@ -257,15 +140,9 @@
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <li class="dropdown dropdown-user dropdown-dark">
                                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-<<<<<<< HEAD
-                                    <span class="username username-hide-on-mobile"> Nick </span>
-                                    <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
-                                    <img alt="" class="img-circle" src="dashboard/assets/layouts/layout4/img/avatar9.jpg" /> </a>
-=======
                                     <span class="username username-hide-on-mobile"> Admin </span></a>
                                     <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
                                     <!--<img alt="" class="img-circle" src="assets/layouts/layout4/img/avatar9.jpg" /> </a>-->
->>>>>>> template
                                 <ul class="dropdown-menu dropdown-menu-default">
                                     <li class="divider"> </li>
                                     
@@ -288,17 +165,6 @@
             <!-- END HEADER INNER -->
         </div>
         <!-- END HEADER -->
-<<<<<<< HEAD
-        <div class="clearfix"> </div>
-        <!-- END HEADER & CONTENT DIVIDER -->
-        <!-- BEGIN CONTAINER -->
-
-                @yield('content')
-
-
-        <!-- FOOTER BEGINS -->
-              <div class="page-footer">
-=======
         <!-- BEGIN HEADER & CONTENT DIVIDER -->
         <div class="clearfix"> </div>
         <!-- END HEADER & CONTENT DIVIDER -->
@@ -306,7 +172,6 @@
             @yield('content')
 
                 <div class="page-footer">
->>>>>>> template
             
             <div class="scroll-to-top">
                 <i class="icon-arrow-up"></i>
@@ -318,73 +183,6 @@
 <script src="dashboard/assets/global/plugins/excanvas.min.js"></script> 
 <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
-<<<<<<< HEAD
-        <script src="dashboard/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
-        <!-- END CORE PLUGINS -->
-        <script src="dashboard/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
-        <!-- END CORE PLUGINS -->
-        <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <script src="dashboard/assets/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/morris/morris.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/counterup/jquery.waypoints.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/amcharts/amcharts/amcharts.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/amcharts/amcharts/serial.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/amcharts/amcharts/pie.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/amcharts/amcharts/radar.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/amcharts/amcharts/themes/light.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/amcharts/amcharts/themes/patterns.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/amcharts/amcharts/themes/chalk.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/amcharts/ammap/ammap.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/amcharts/ammap/maps/js/worldLow.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/amcharts/amstockcharts/amstock.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
-
-<script src="dashboard/assets/global/scripts/datatable.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
-        <script src="dashboard/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
-
-        
-
-        <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL SCRIPTS -->
-        <script src="dashboard/assets/global/scripts/app.min.js" type="text/javascript"></script>
-        <!-- END THEME GLOBAL SCRIPTS -->
-        <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="dashboard/assets/pages/scripts/dashboard.min.js" type="text/javascript"></script>
-        <!-- END PAGE LEVEL SCRIPTS -->
-        <!-- BEGIN THEME LAYOUT SCRIPTS -->
-        <script src="dashboard/assets/layouts/layout4/scripts/layout.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/layouts/layout4/scripts/demo.min.js" type="text/javascript"></script>
-        <script src="dashboard/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
-=======
         <script src="/dashboard/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
@@ -468,7 +266,6 @@
               //   $(window).scrollTop(0);
               // });
         </script>
->>>>>>> template
         <!-- END THEME LAYOUT SCRIPTS -->
     </body>
 

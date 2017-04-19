@@ -1,8 +1,8 @@
 @extends('layouts.dashboard')
     @section('title')
-<<<<<<< HEAD
-        Sarelo | Orders
+        Dashboard | Orders
     @endsection
+
     @section('content')
         <!-- BEGIN CONTAINER -->
         <div class="page-container">
@@ -11,59 +11,6 @@
                 <!-- BEGIN SIDEBAR -->
                 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                 <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                  <div class="page-sidebar navbar-collapse collapse">
-                                   <!-- BEGIN SIDEBAR MENU -->
-                                   <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
-                                   <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
-                                   <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
-                                   <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-                                   <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
-                                   <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                                   
-                                       <ul class="page-sidebar-menu ">
-                                           <li class="nav-item  ">
-                                               <a href="{{url('/admin/index')}}" class="nav-link ">
-                                                   <i class="icon-home"></i>
-                                                   <span class="title">Dashboard</span>
-                                               </a>
-                                           </li>
-                                           <li class="nav-item">
-                                               <a href="{{url('/admin/users')}}" class="nav-link ">
-                                                   <i class="icon-user"></i>
-                                                   <span class="title">Users</span>
-                                                   <span class="selected"></span>
-                                               </a>
-                                           </li>
-                                           <li class="nav-item  ">
-                                               <a href="{{url('/admin/orders')}}" class="nav-link ">
-                                                   <i class="icon-basket"></i>
-                                                   <span class="title">Orders</span>
-                                               </a>
-                                           </li>
-                                           <li class="nav-item  ">
-                                               <a href="{{url('/admin/order_view')}}" class="nav-link ">
-                                                   <i class="icon-tag"></i>
-                                                   <span class="title">Order View</span>
-                                               </a>
-                                           </li>
-                                           <li class="nav-item  ">
-                                               <a href="{{url('/admin/products')}}" class="nav-link ">
-                                                   <i class="icon-graph"></i>
-                                                   <span class="title">Products</span>
-                                               </a>
-                                           </li>
-                                           <li class="nav-item  active open">
-                                               <a href="{{url('/admin/product_edit')}}" class="nav-link ">
-                                                   <i class="icon-graph"></i>
-                                                   <span class="title">Product Edit</span>
-                                                   <span class="selected"></span>
-                                               </a>
-                                           </li>
-                                       </ul>
-                                   <!-- END SIDEBAR MENU -->
-               </div>
-               
-                
                 <div class="page-sidebar navbar-collapse collapse">
                         <ul class="page-sidebar-menu">
                             <li class="nav-item  ">
@@ -162,32 +109,14 @@
                                     <div class="table-container">
                                         <div class="table-actions-wrapper">
                                             <span> </span>
-                                            <select class="table-group-action-input form-control input-inline input-small input-sm">
                                             <!--<select class="table-group-action-input form-control input-inline input-small input-sm">
+                                                <option value="">Select...</option>
                                                 <option value="Cancel">Cancel</option>
                                                 <option value="Cancel">Hold</option>
                                                 <option value="Cancel">On Hold</option>
                                                 <option value="Close">Close</option>
                                             </select>
                                             <button class="btn btn-sm btn-default table-group-action-submit">
-                                                <i class="fa fa-check"></i> Submit</button>
-                                        </div>
-                                        <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_orders">
-                                            <thead>
-                                                <tr role="row" class="heading">
-                                                    <th width="2%">
-                                                        <input type="checkbox" class="group-checkable"> </th>
-                                                    <th width="5%"> Order&nbsp;# </th>
-                                                    <th width="15%"> Purchased&nbsp;On </th>
-                                                    <th width="15%"> Customer </th>
-                                                    <th width="10%"> Ship&nbsp;To </th>
-                                                    <th width="10%"> Base&nbsp;Price </th>
-                                                    <th width="10%"> Purchased&nbsp;Price </th>
-                                                    <th width="10%"> Status </th>
-                                                    <th width="10%"> Actions </th>
-                                                </tr>
-                                                <tr role="row" class="filter">
-=======
                                                 <i class="fa fa-check"></i> Submit</button>-->
                                         </div>
                                         {{ $orders->links() }}
@@ -204,7 +133,6 @@
                                                     <th width="5%"> Details </th>
                                                 </tr>
                                                 <!--<tr role="row" class="filter">
->>>>>>> template
                                                     <td> </td>
                                                     <td>
                                                         <input type="text" class="form-control form-filter input-sm" name="order_id"> </td>
@@ -255,13 +183,6 @@
                                                         <button class="btn btn-sm btn-default filter-cancel">
                                                             <i class="fa fa-times"></i> Reset</button>
                                                     </td>
-<<<<<<< HEAD
-                                                </tr>
-                                            </thead>
-                                            <tbody> </tbody>
-                                        </table>
-                                    </div>
-=======
                                                 </tr>-->
                                             </thead>
                                             <tbody>
@@ -876,45 +797,4 @@
             <!-- END QUICK SIDEBAR -->
         </div>
         <!-- END CONTAINER -->
-        <!-- BEGIN FOOTER -->
-        <div class="page-footer">
-            
-            <div class="scroll-to-top">
-                <i class="icon-arrow-up"></i>
-            </div>
-        </div>
-        <!-- END FOOTER -->
-        <!--[if lt IE 9]>
-<script src="assets/global/plugins/respond.min.js"></script>
-<script src="assets/global/plugins/excanvas.min.js"></script> 
-<![endif]-->
-        <!-- BEGIN CORE PLUGINS -->
-        <script src="assets/global/plugins/jquery.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
-        <!-- END CORE PLUGINS -->
-        <!-- BEGIN PAGE LEVEL PLUGINS -->
-        <script src="assets/global/scripts/datatable.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
-        <script src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
-        <!-- END PAGE LEVEL PLUGINS -->
-        <!-- BEGIN THEME GLOBAL SCRIPTS -->
-        <script src="assets/global/scripts/app.min.js" type="text/javascript"></script>
-        <!-- END THEME GLOBAL SCRIPTS -->
-        <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="assets/pages/scripts/ecommerce-orders.min.js" type="text/javascript"></script>
-        <!-- END PAGE LEVEL SCRIPTS -->
-        <!-- BEGIN THEME LAYOUT SCRIPTS -->
-        <script src="assets/layouts/layout4/scripts/layout.min.js" type="text/javascript"></script>
-        <script src="assets/layouts/layout4/scripts/demo.min.js" type="text/javascript"></script>
-        <script src="assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
-        <!-- END THEME LAYOUT SCRIPTS -->
-    </body>
-
-</html>
 @endsection
