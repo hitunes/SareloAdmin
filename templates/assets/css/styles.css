@@ -172,7 +172,7 @@ ul.suggestions li{
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
- 
+  cursor: pointer;
 }
 
 ul.suggestions li:first-child{
@@ -181,6 +181,10 @@ ul.suggestions li:first-child{
 
 ul.suggestions li div.clearfix{
   width: 100%;
+}
+
+ul.suggestions li:visited{
+  opacity: 0.4;
 }
 
 div.clearfix .products{
@@ -681,7 +685,7 @@ div.clearfix small,
 .bg-transparent{background-color: transparent; background: transparent; border: 2px solid rgba(61, 178, 6, 1); color: rgba(61, 178, 6, 1)}
 .bg-transparent-white{background-color: transparent; background: transparent; border: 2px solid #fff; color: #fff}
 .bg-transparent-black{background-color: transparent; background: transparent; color: rgba(0, 0, 0, 1)}
-
+.bg-none{ background: none !important;}
 /****  Opacity  ****/
 .opacity-0 {opacity:0;}
 .opacity-20 {opacity:.2;}
@@ -717,7 +721,8 @@ div.clearfix small,
   .width-10p,.width-20p,.width-30p,
   .width-40p,.width-50p,.width-60p,
   .width-65p,.width-70p,.width-75p,
-  .width-80p,.width-90p,.width-100p{
+  .width-80p,.width-90p,.width-94p,
+  .width-100p{
     width: 100% !important;
   }
 }
@@ -981,4 +986,8 @@ label.required:after {content: '*';color: #FF5757;margin-left: 2px;}
   color: #E9003B !important;
   list-style-type: none;
   padding-left: 0px;
+}
+
+select:focus, select:hover{
+  outline: 0 !important;
 }

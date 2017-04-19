@@ -16,8 +16,7 @@ class SocialAccountService
                                 ->whereProviderUserId($providerUser->getId())
                                 ->first();
         if ($account) {
-            return $account->user;
-
+                return $account->user;
             } 
             else {
 
@@ -29,9 +28,12 @@ class SocialAccountService
                 $user = User::whereEmail($providerUser->getEmail())->first();
             
                 if (!$user) {
+                    $name = explode(" ", $providerUser->getName());
+
                     $user = User::create([
                         'email' => $providerUser->getEmail(),
-                        'name' => $providerUser->getName(),
+                        'first_name' => $name[0],
+                        'last_name' => isset($name[1])? $name[1] : "",
                     ]);
                 }
                 $account->user()->associate($user);

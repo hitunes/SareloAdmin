@@ -78,210 +78,211 @@ const app = {
   },
   fecther: function(){
 
-  var obj = {
-    products: [
-      {
-        id: 1,
-        product: "Yam",
-        price: 2150,
-        unit: "per 10kg",
-        img: "http://www.foodsubs.com/Photos/yamaimo.jpg"
-      },
-      {
-        id: 2,
-        product: "Rice",
-        price: 2450,
-        unit: "per 10kg",
-        img: "https://thumbs.dreamstime.com/z/unpolished-rice-whole-grain-burlap-bag-25395443.jpg"
-      },
-      {
-        id: 3,
-        product: "Egusi",
-        price: 250,
-        unit: "per Tin",
-        img: "http://africanchop.com/smallchop/wp-content/uploads/2014/08/egusi1.jpg"
-      },
-      {
-          id: 4,
-          product: "Suya",
+    var obj = {
+      products: [
+        {
+          id: 1,
+          product: "Yam",
+          price: 2150,
+          unit: "per 10kg",
+          img: "http://www.foodsubs.com/Photos/yamaimo.jpg"
+        },
+        {
+          id: 2,
+          product: "Rice",
+          price: 2450,
+          unit: "per 10kg",
+          img: "https://thumbs.dreamstime.com/z/unpolished-rice-whole-grain-burlap-bag-25395443.jpg"
+        },
+        {
+          id: 3,
+          product: "Egusi",
           price: 250,
-          unit: "per wrap",
-          img: "http://www.travelstart.com.ng/blog/wp-content/uploads/2014/03/Suya-1024x803.jpg"
+          unit: "per Tin",
+          img: "http://africanchop.com/smallchop/wp-content/uploads/2014/08/egusi1.jpg"
         },
         {
-          id: 5,
-          product: "Semovita",
+            id: 4,
+            product: "Suya",
+            price: 250,
+            unit: "per wrap",
+            img: "http://www.travelstart.com.ng/blog/wp-content/uploads/2014/03/Suya-1024x803.jpg"
+          },
+          {
+            id: 5,
+            product: "Semovita",
+            price: 2500,
+            unit: "per bag",
+            img: "http://www.katointernational.com/wp-content/uploads/2015/01/semovita.png"
+          },
+          {
+            id: 6,
+            product: "Cornflakes",
+            price: 1500,
+            unit: "per Sachet",
+            img: "http://www.sunpring.com/wp-content/uploads/2015/03/corn-flakes-manufacturing.jpg"
+          },
+        {
+          id: 7,
+          product: "Elubo",
           price: 2500,
-          unit: "per bag",
-          img: "http://www.katointernational.com/wp-content/uploads/2015/01/semovita.png"
+          unit: "per Bag",
+          img: "http://zippum.com/image/cache/data/swallow/sw10-500x500.jpg"
         },
         {
-          id: 6,
-          product: "Cornflakes",
-          price: 1500,
-          unit: "per Sachet",
-          img: "http://www.sunpring.com/wp-content/uploads/2015/03/corn-flakes-manufacturing.jpg"
+          id: 8,
+          product: "Garri",
+          price: 2500,
+          unit: "per Bag",
+          img: "http://madamsabi.com/image/cache/data/prodsupload/white%20garri-500x500.jpg"
         },
-      {
-        id: 7,
-        product: "Elubo",
-        price: 2500,
-        unit: "per Bag",
-        img: "http://zippum.com/image/cache/data/swallow/sw10-500x500.jpg"
-      },
-      {
-        id: 8,
-        product: "Garri",
-        price: 2500,
-        unit: "per Bag",
-        img: "http://madamsabi.com/image/cache/data/prodsupload/white%20garri-500x500.jpg"
-      },
-      {
-        id: 9,
-        product: "Pando Yam",
-        price: 2500,
-        unit: "per Bag",
-        img: "http://www.healthysupplies.co.uk/pics/400x400/pounded-yam.jpg"
-      },
-      {
-        id: 10,
-        product: "Eggs",
-        price: 2500,
-        unit: "per Create",
-        img: "https://cdn.pixabay.com/photo/2016/12/04/23/36/eggs-1882837_960_720.jpg"
-      },
-      {
-        id: 11,
-        product: "Bananas",
-        price: 2500,
-        unit: "per Bunch",
-        img: "http://pngimg.com/uploads/banana/banana_PNG817.png"
-      },
-      {
-        id: 12,
-        product: "chicken",
-        price: 2500,
-        unit: "per kg",
-        img: "http://dialnsearch.com/image/Whole%20Chicken167615.jpg"
-      },
-      {
-        id: 13,
-        product: "Rodo",
-        price: 2500,
-        unit: "per basket",
-        img: "http://www.9jafoods.co/wp-content/uploads/2016/11/rodo-rspwxyz59_rodo_big_basket-400x350.jpg"
-      },
-      {
-        id: 14,
-        product: "Tomato",
-        price: 2500,
-        unit: "per basket",
-        img: "http://www.naushieexports.com/img/tomato4_big.jpg"
-      },
-      {
-        id: 15,
-        product: "Potatoes",
-        price: 2150,
-        unit: "per 10kg",
-        img: "http://wisconsinpotatoes.com/admin/wp-content/uploads/2014/09/yellow_potatoes.jpg"
-      },
-      {
-        id: 16,
-        product: "Efo Tete",
-        price: 2150,
-        unit: "per Bunch",
-        img: "http://justfreshfood.com.ng/resources/image/18/7a/9.jpg"
-      },
-      {
-        id: 17,
-        product: "Wheat flour",
-        price: 2150,
-        unit: "per Kg",
-        img: "http://i.ndtvimg.com/i/2015-06/wheat-flour-625_625x350_61434435605.jpg"
-      },
-      {
-        id: 18,
-        product: "Sugar",
-        price: 2150,
-        unit: "per kg",
-        img: "http://www.mcnicholsplc.com/wp-content/uploads/family-granulated-sugar.png"
-      },
-      {
-        id: 19,
-        product: "Soap",
-        price: 2150,
-        unit: "per Park",
-        img: "http://ecx.images-amazon.com/images/I/61CpVvyqSzL._SL1000_.jpg"
-      },
-      {
-        id: 20,
-        product: "Fish",
-        price: 700,
-        unit: "per Kg",
-        img: "http://www.nairaland.com/attachments/3217770_mackerelbig_jpeg0de3d657ba3bc05478f7590c7ab76e55"
-      }
-    ],
-    serviceChargePercent: 10,
-    delivery: 1000
-  };
+        {
+          id: 9,
+          product: "Pando Yam",
+          price: 2500,
+          unit: "per Bag",
+          img: "http://www.healthysupplies.co.uk/pics/400x400/pounded-yam.jpg"
+        },
+        {
+          id: 10,
+          product: "Eggs",
+          price: 2500,
+          unit: "per Create",
+          img: "https://cdn.pixabay.com/photo/2016/12/04/23/36/eggs-1882837_960_720.jpg"
+        },
+        {
+          id: 11,
+          product: "Bananas",
+          price: 2500,
+          unit: "per Bunch",
+          img: "http://pngimg.com/uploads/banana/banana_PNG817.png"
+        },
+        {
+          id: 12,
+          product: "chicken",
+          price: 2500,
+          unit: "per kg",
+          img: "http://dialnsearch.com/image/Whole%20Chicken167615.jpg"
+        },
+        {
+          id: 13,
+          product: "Rodo",
+          price: 2500,
+          unit: "per basket",
+          img: "http://www.9jafoods.co/wp-content/uploads/2016/11/rodo-rspwxyz59_rodo_big_basket-400x350.jpg"
+        },
+        {
+          id: 14,
+          product: "Tomato",
+          price: 2500,
+          unit: "per basket",
+          img: "http://www.naushieexports.com/img/tomato4_big.jpg"
+        },
+        {
+          id: 15,
+          product: "Potatoes",
+          price: 2150,
+          unit: "per 10kg",
+          img: "http://wisconsinpotatoes.com/admin/wp-content/uploads/2014/09/yellow_potatoes.jpg"
+        },
+        {
+          id: 16,
+          product: "Efo Tete",
+          price: 2150,
+          unit: "per Bunch",
+          img: "http://justfreshfood.com.ng/resources/image/18/7a/9.jpg"
+        },
+        {
+          id: 17,
+          product: "Wheat flour",
+          price: 2150,
+          unit: "per Kg",
+          img: "http://i.ndtvimg.com/i/2015-06/wheat-flour-625_625x350_61434435605.jpg"
+        },
+        {
+          id: 18,
+          product: "Sugar",
+          price: 2150,
+          unit: "per kg",
+          img: "http://www.mcnicholsplc.com/wp-content/uploads/family-granulated-sugar.png"
+        },
+        {
+          id: 19,
+          product: "Soap",
+          price: 2150,
+          unit: "per Park",
+          img: "http://ecx.images-amazon.com/images/I/61CpVvyqSzL._SL1000_.jpg"
+        },
+        {
+          id: 20,
+          product: "Fish",
+          price: 700,
+          unit: "per Kg",
+          img: "http://www.nairaland.com/attachments/3217770_mackerelbig_jpeg0de3d657ba3bc05478f7590c7ab76e55"
+        }
+      ],
+      serviceChargePercent: 10,
+      delivery: 1000
+    };
 
-  var dataLog = obj.products;
+    var dataLog = obj.products;
+    //focus on the input
+    $("input.search").focus();
+    //filter list
+    $("#querySelector").on("keyup", function(e){
+        e.preventDefault();
+        $.getJSON('#')
 
-  $("#querySelector").on("keyup", function(e){
-      e.preventDefault();
-      $.getJSON('#')
+        .done(function(response) {
 
-      .done(function(response) {
-
-          var search = $("#querySelector").val();
-          var regex = new RegExp(search, 'i');
-          var output;
-          $.each(response.products, function(key, val){
-            console.log(response.products);
-            //console.log(key, val);
-            if((val.unit.search(regex) != -1) || (val.name.search(regex) != -1)){
-              output += "<li>";
-              output += `<div class="clearfix pos-rel">
-                    <span class="pull-left products pos-abs">${val.product}</span>
-                    <span class="pull-right price">&#8358; ${val.product}</span><br>
-                    <small class="pull-right">${val.product}</small>
-                </div>`;
-              output += "</li>";
-            }
-          });
-          $(".suggestions").html(output);
-      }).fail(function() {
-          var searchField = $("#querySelector").val();
-
-          var myExp = new RegExp(searchField, 'i');
-
-          var output = '<ul class="suggestions">';
-          $.each(dataLog, function(key, val){
-
-            if((val.unit.search(myExp) != -1) || (val.product.search(myExp) != -1)) {
-
-                output += `<li id="${val.id}" data-product = "${val.product}" data-price = "${val.price}" data-unit = "${val.unit}" data-img = "${val.img}">`;
+            var search = $("#querySelector").val();
+            var regex = new RegExp(search, 'i');
+            var output;
+            $.each(response.products, function(key, val){
+              console.log(response.products);
+              //console.log(key, val);
+              if((val.unit.search(regex) != -1) || (val.name.search(regex) != -1)){
+                output += "<li>";
                 output += `<div class="clearfix pos-rel">
-                              <span class="pull-left products pos-abs">${val.product}</span>
-                              <span class="pull-right price">&#8358; ${val.price}</span><br>
-                              <small class="pull-right">${val.unit}</small>
-                          </div>`;
+                      <span class="pull-left products pos-abs">${val.product}</span>
+                      <span class="pull-right price">&#8358; ${val.product}</span><br>
+                      <small class="pull-right">${val.product}</small>
+                  </div>`;
                 output += "</li>";
+              }
+            });
+            $(".suggestions").html(output);
+        }).fail(function() {
+            var searchField = $("#querySelector").val();
+
+            var myExp = new RegExp(searchField, 'i');
+
+            var output = '<ul class="suggestions">';
+            $.each(dataLog, function(key, val){
+
+              if((val.unit.search(myExp) != -1) || (val.product.search(myExp) != -1)) {
+
+                  output += `<li id="${val.id}" data-product = "${val.product}" data-price = "${val.price}" data-unit = "${val.unit}" data-img = "${val.img}">`;
+                  output += `<div class="clearfix pos-rel">
+                                <span class="pull-left products pos-abs">${val.product}</span>
+                                <span class="pull-right price">&#8358; ${val.price}</span><br>
+                                <small class="pull-right">${val.unit}</small>
+                            </div>`;
+                  output += "</li>";
+              }
+
+            });
+            output += '</ul>';
+            if(searchField.length === 0){
+              output = "";
             }
-
-          });
-          output += '</ul>';
-          if(searchField.length === 0){
-            output = "";
-          }
-          $(".update").html(output);
-      }).always(function(){
-        console.log("oh!");
-        $('.loading').hide();
+            $(".update").html(output);
+        }).always(function(){
+          console.log("oh!");
+          $('.loading').hide();
+        });
       });
-    });
-},
-
+  },
   cartCtrl: function(){
     var cart = [];
     console.log(cart);
@@ -421,6 +422,7 @@ const app = {
       cartArray.length === 0 ? a() : b();
 
       var output = "";
+      var output2 = "";
       for(var i in cartArray){
         output += `
            <li class="pos-rel animated" data-product="${cartArray[i].name}" id="pr_${cartArray[i].name}">
@@ -451,12 +453,42 @@ const app = {
                       <h4 class="m-b-0 m-t-5 align-right">&#8358; ${cartArray[i].price}</h4>
                   </div>
               </div>
-              <span class="fa fa-remove pos-abs" data-product="${cartArray[i].name}"></span>
+              <span class="fa fa-remove pos-abs removeItem" data-product="${cartArray[i].name}"></span>
            </li>
         `;
+
+         output2 += `
+          <tr class="p-t-14 width-33_3p">
+              <td class="">
+                  <div class="clearfix">
+                      <div class="f-left p-r-15">
+                          <img src="${cartArray[i].img}" class="width-40 h-40 bd-50p">
+                      </div>
+                      <div class="f-left">
+                          <div>${cartArray[i].name}</div>
+                          <div class="f-12 opacity-50">${cartArray[i].unit}</div>
+                      </div>
+                  </div>
+              </td>
+              <td class="width-33_3p">
+                  <div class="counter text-center p-t-0">
+                      <div class="minus" data-product="${cartArray[i].name}">-</div>
+                      <div class="count">${cartArray[i].count}</div>
+                      <div class="plus" data-product="${cartArray[i].name}">+</div>
+                  </div>
+              </td>
+              <td class="p-t-14 width-33_3p text-right">
+                  <div class="w-600 p-r-12">
+                      ₦ <span class="cash">${cartArray[i].price}</span>
+                  </div>
+                  <button class="btn bg-transparent-black opacity-50 f-12 removeItem" data-product="${cartArray[i].name}">REMOVE</button>
+              </td>
+          </tr>`;
       }
 
+
       $("#basketList").html(output);
+      $("#cartTable").html(output2);
       $(".items").html(countCart());
       $("#totalP").html(totalCart());
       $("#serviceCharge").html(serviceChargeCtrl(10));
@@ -470,9 +502,9 @@ const app = {
 
        //open cart if width is big enough...
         if($(window).width() >= 768){
-          $("html").addClass("open"); 
+          $("html").addClass("open");
         }
-       
+
        //name, price, and count
         var name = $(this).attr("data-product");
         var price = $(this).attr("data-price");
@@ -486,7 +518,7 @@ const app = {
     });
 
     //remove items from cart
-    $(document).on('click', 'li .fa-remove', function(){
+    $(document).on('click', '.removeItem', function(){
       var name = $(this).attr('data-product');
       removeItemFromCartAll(name);
       displayCart();
@@ -519,7 +551,7 @@ const app = {
     $("table").find("input[type='radio']").on("change", function(){
         $("table").find(".bg-gray-light").removeClass("bg-gray-light");
         $(this).parents("tr").addClass("bg-gray-light");
-       
+
     });
   },
   validator: function(){
@@ -549,10 +581,10 @@ const app = {
       }
     } );
    /* if( form.parsley().isValid()){
-      $("#submit").prop('disabled', false); 
+      $("#submit").prop('disabled', false);
     }
     else{
-      $("#submit").prop('disabled', 'disabled'); 
+      $("#submit").prop('disabled', 'disabled');
     }*/
   },
   contentEditor: function(){
@@ -560,7 +592,7 @@ const app = {
     var editor = $('#editor');
 
     editBtn.on('click', function(e) {
-        
+
         if (!editor[0].isContentEditable) {
            // console.log(editor);
             editor[0].contentEditable = true;
@@ -572,7 +604,7 @@ const app = {
             // Change Button Text and Color
             editBtn.text('Edit');
             editBtn.css('backgroundColor', '#F96');
-        
+
         }
     });
   },
@@ -582,16 +614,41 @@ const app = {
     console.log(editor);*/
 
     editBtn.on('click', function(e) {
-        console.log($(this).parent());
-       var editor = $(this).parent()[0].previousElementSibling.firstElementChild
+       //console.log($(this).parent());
+       var editor = $(this).parent()[0].previousElementSibling.firstElementChild;
 
-       if (!editor.isContentEditable) {
-            editor.contentEditable = true;
-            editor.focus();
-            
-        } else {
-            editor.contentEditable = false;
-        }
+       if(editor.disabled){
+         editor.disabled = false;
+         $(this).text('Save');
+       }
+       else{
+         editor.disabled = true;
+         $(this).text('Change');
+       }
     });
+  },
+  preventFormSubmit: function(){
+    $(window).keydown(function(event){
+      if(event.keyCode == 13) {
+        event.preventDefault();
+        return false;
+      }
+    });
+  },
+  toggleSidebars: function(){
+    $(".cart_toggle").on("click", function(){
+        $("html").removeClass("open_left");
+        $("html").toggleClass("open");
+    });
+
+    $(".menu_toggle").on("click", function(){
+        $("html").removeClass("open");
+        $("html").toggleClass("open_left");
+    });
+  },
+  numberWithCommas: function (x) {
+    var parts = x.toString().split(".");
+    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return parts.join(".");
   }
 }

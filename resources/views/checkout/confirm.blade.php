@@ -11,6 +11,10 @@
         <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.min.css">
         <!-- Main CSS here -->
         <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+
+         <!--Responsive CSS added here -->
+        <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+        
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     </head>
     <body>
@@ -95,6 +99,8 @@
                                     </h4>
                                 </div>
                                 <div class="content clearfix p-b-0">
+                                    <form action="/checkout" method="post">
+                                    {{csrf_field()}}
                                     <!--starts here -->
                                     <div class="card">
                                         <div class="table-responsive">
@@ -102,13 +108,29 @@
                                                 <tbody>
                                                     <tr>
                                                         <td class="p-t-14 no-bd">Delivers to</td>
-                                                        <td class="p-t-14 no-bd">{{$options['address']}}</td>
-                                                        <td class="no-bd text-right"><button class="btn bg-transparent no-bd">Change</button></td>
+                                                        <td class="p-t-14 no-bd">
+                                                            <select name="user_address_id" class="no-bd bg-none location" disabled>
+                                                                @foreach($addresses as $address)
+                                                                    <option value="{{$address->id}}" @if($address->id == Session::get('order_details.user_address_id')) selected @endif>
+                                                                        {{$address->address}}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                        </td>
+                                                        <td class="no-bd text-right"><button class="btn bg-transparent no-bd change">Change</button></td>
                                                     </tr>
                                                     <tr>
                                                         <td class="p-t-14">Delivery Slot</td>
-                                                        <td class="p-t-14">{{date("l, M d",strtotime($options['delivery_date']))}}, {{ $options['slot']['time_range'] }}</td>
-                                                        <td class="text-right"><button class="btn bg-transparent no-bd">Change</button></td>
+                                                        <td class="p-t-14">
+                                                            <select name="slot_id" class="no-bd bg-none location" disabled>
+                                                                @foreach($slots as $slot)
+                                                                    <option value="{{$slot->id}}" @if($slot->id == Session::get('order_details.slot_id')) selected @endif>
+                                                                        {{date('l, M d')}}, {{$slot->time_range}}
+                                                                    </option>
+                                                                @endforeach
+                                                            </select>
+                                                        </td>
+                                                        <td class="text-right"><button class="btn bg-transparent no-bd change">Change</button></td>
                                                     </tr>
                                                    
                                                 </tbody>
@@ -126,36 +148,8 @@
                                     <div class="card">
                                         <div class="table-responsive">
                                             <table class="table table-hover border-bottom m-0">
-                                                <tbody>
-                                                    @foreach($order as $item)
-                                                    <tr class="no-bd p-t-14 width-33_3p">
-                                                        <td class="no-bd">
-                                                            <div class="clearfix">
-                                                                <div class="f-left p-r-15">
-                                                                    <img src="/assets/img/cucumber.jpg" class="width-40 h-40 bd-50p">
-                                                                </div>
-                                                                <div class="f-left">
-                                                                    <div>{{$item->name}}</div>
-                                                                    <div class="f-12 opacity-50">{{$item->options->unit}}</div>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="width-33_3p no-bd">
-                                                            <div class="counter">
-                                                                <div class="minus"></div>
-                                                                <div class="count"></div>
-                                                                <div class="plus"></div>
-                                                            </div>
-                                                        </td>
-                                                        <td class="p-t-14 width-33_3p text-right no-bd">
-                                                            <div class="w-600 p-r-12">
-                                                                &#8358; <span class="cash">{{$item->price * $item->qty}}</span>
-                                                            </div>
-                                                            <a href="/cart/{{$item->rowId}}/remove" class="btn bg-transparent-black opacity-50 f-12">REMOVE</a>
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                    
+                                                <tbody id="cartTable">
+                                            
                                                 </tbody>
                                             </table>
                                         </div>
@@ -171,18 +165,83 @@
                                                     <p>Place your order and enjoy the rest of your day.</p>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <a href="/checkout" class="btn btn-md bg-brand-green f-18 f-right">Place order</a>
+                                                    {{-- <a href="/checkout" class="btn btn-md bg-brand-green f-18 f-right">Place order</a> --}}
+                                                    <button class="btn btn-md bg-brand-green f-18 f-right">Place order</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                </form>
+                                
                            </div>
                             <p class="text-center">*Terms and conditions apply on free delivery. <a href="#" class="c-brand-purple">Learn more</a></p>
                            
                        </div>
                        <div class="col-md-4">
-                           @include('checkout.billing-summary')
+                           <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Cart Summary</h4>
+                                </div>
+                                <div class="content">
+                                    <p class="category">The total cost is inclusive of tax, delivery and service charge.</p>
+                                    <ul class="p-l-0 list-style-none">
+                                        <li>
+                                            <hr>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Your Basket</span>
+                                                <span class="pull-right"> 
+                                                    &#8358;
+                                                    <span class="cash" id="totalP"></span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                       
+                                        <li>
+                                            <p class="menus">
+                                                <span>Service charge</span>
+                                                <span class="pull-right"> 
+                                                    &#8358;
+                                                    <span class="cash" id="serviceCharge"></span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Delivery Charge</span>
+                                                <span class="pull-right"> 
+                                                    &#8358;
+                                                    <span class="cash" id="deliveryFee"></span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Delivery Slot</span>
+                                                <span class="pull-right"> 
+                                                    <span class="cash">
+                                                        {{$options['slot']['time_range']}}, {{date('l d M', strtotime($options['delivery_date']))}}
+                                                    </span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <hr>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Total Due</span>
+                                                <span class="pull-right c-brand-green f-20"> 
+                                                    &#8358;
+                                                    <span class="cash" id="grandTP"></span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                           </div>
                        </div>
                    </div> 
                 </div>
@@ -193,10 +252,12 @@
         <!-- jQuery -->
         <script src="/assets/js/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
-        <script src="/assets/js/bootstrap/bootstrap.min.js"></script>
+        <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="/assets/js/main.js"></script>
          <script>
-             
+             app.cartCtrl();
+             app.inlineEditor();
          </script>
     </body>
 </html>
