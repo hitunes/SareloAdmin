@@ -496,11 +496,11 @@ const app = {
            $('#loader').hide();
         },
         error: function (response) {
-           $('#loader').hide();
+           //$('#loader').hide();
         }
       });
 
-      //$('#loader').hide();
+    
       $("#basketList").html(output);
       $("#cartTable").html(output2);
       $(".items").html(countCart());

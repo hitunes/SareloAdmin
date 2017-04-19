@@ -1010,7 +1010,6 @@ label.required:after {content: '*';color: #FF5757;margin-left: 2px;}
   padding-left: 0px;
 }
 
-<<<<<<< HEAD
 select:focus, select:hover{
   outline: 0 !important;
 }
@@ -1025,7 +1024,8 @@ select {
 /*for IE10*/
 select::-ms-expand {
     display: none;
-=======
+}
+
 .navbar-nav>li.acc_basket_btn {
     padding: 15px 25px 5px;
     height: auto;
@@ -1088,10 +1088,11 @@ select::-ms-expand {
   }
 }
 
-<<<<<<< HEAD
+
 #loader{
   display: none;
-=======
+}
+
 .table td, .table th {
   font-size: 14px;
 }
@@ -1148,6 +1149,4 @@ select::-ms-expand {
 .page-container:before, .page-container:after {
   content: " ";
   display: table;
->>>>>>> 0d06092d0795334bb2e71aa76c4d4cea78f37867
->>>>>>> dev
 }
