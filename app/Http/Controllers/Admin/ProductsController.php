@@ -88,7 +88,7 @@ class ProductsController extends Controller
         ]);
             if ($request->file('product_image')->isValid()) {
                 $product->save();
-                return redirect('admin/products')->with('success', 'Product Uploaded Successfully!.');
+                return redirect('admin/products')->with('success', 'Product Added Successfully!.');
             }
         }
 
@@ -137,9 +137,11 @@ class ProductsController extends Controller
         $requestData = $request->all();
         // dd($requestData); exit;
         
-        $product = Product::findOrFail($id);
+        $unit_type = UnitType::all();
+        $categories = Category::all(); 
+        $product = Product::findOrFail($id);        
         $product->update($requestData);
-        return redirect('admin.dashboard.product_edit', ['products' => $products, 'unit_type' => $unit_type, 'categories' => $categories])->with('success', 'Product Successfully Updated!');
+        return redirect('admin/products')->with(['products' => $product, 'unit_type' => $unit_type, 'categories' => $categories])->with('success', 'Product Updated Successfully!.');
     }
 
     /**
@@ -153,6 +155,6 @@ class ProductsController extends Controller
     {
         Product::findOrFail($id);
         Product::destroy($id);
-        return redirect('admin/products')->with('delete_message', '  Product Successfully Deleted!');
+        return redirect('admin/products')->with('delete_message', '  Product has been Deleted!');
     }
 }

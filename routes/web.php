@@ -12,7 +12,6 @@
 */
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('/index', 'Admin\IndexController@index');
     Route::get('/users', 'Admin\UserController@index');
 	Route::get('/products', 'Admin\ProductsController@index');
 	Route::post('/products', 'Admin\ProductsController@add_product');
@@ -23,8 +22,7 @@ Route::group(['prefix' => 'admin'], function() {
 
 });
 
-Route::get('/', 'IndexController@index');
-Route::get('/admin/index', 'AdminController@index');
+Route::get('/admin', 'AdminController@index');
 // Route::get('/admin/users', 'UserController@users');
 Route::get('/admin/orders', 'AdminController@orders');
 Route::get('/admin/order_view', 'AdminController@order_view');

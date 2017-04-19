@@ -28,7 +28,7 @@
                     <!-- END PAGE BREADCRUMB -->
                     <!-- BEGIN PAGE BASE CONTENT -->
                     <div class="row widget-row">
-                        <div class="col-md-3">
+                       {{--  <div class="col-md-3">
                             <!-- BEGIN WIDGET THUMB -->
                             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
                                 <h4 class="widget-thumb-heading">Current Balance</h4>
@@ -41,8 +41,8 @@
                                 </div>
                             </div>
                             <!-- END WIDGET THUMB -->
-                        </div>
-                        <div class="col-md-3">
+                        </div> --}}
+                        <div class="col-md-4">
                             <!-- BEGIN WIDGET THUMB -->
                             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
                                 <h4 class="widget-thumb-heading">Weekly Sales</h4>
@@ -56,7 +56,7 @@
                             </div>
                             <!-- END WIDGET THUMB -->
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <!-- BEGIN WIDGET THUMB -->
                             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
                                 <h4 class="widget-thumb-heading">Biggest Purchase</h4>
@@ -70,7 +70,7 @@
                             </div>
                             <!-- END WIDGET THUMB -->
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <!-- BEGIN WIDGET THUMB -->
                             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
                                 <h4 class="widget-thumb-heading">Average Monthly</h4>
