@@ -135,6 +135,7 @@ class ProductsController extends Controller
     {
         
         $requestData = $request->all();
+        // dd($requestData); exit;
         
         $product = Product::findOrFail($id);
         $product->update($requestData);
