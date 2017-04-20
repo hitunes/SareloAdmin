@@ -77,15 +77,7 @@ class RegisterController extends Controller
         $user->role()->associate($role);
 
         $user->save();
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> template
-=======
-        
->>>>>>> 481e827dbc7ddfe4dc1eeed4e2b781d30de449e8
         return $user;
          
     }
