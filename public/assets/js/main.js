@@ -425,7 +425,7 @@ const app = {
 
     //display items in cart
     function displayCart(){
-
+      $("#loader").show();
       $.getJSON('/cart').done(function(response){
           
           var output = "";
@@ -527,8 +527,14 @@ const app = {
           // $("#deliveryFee").html(deliveryCtrl(1000));
           // $("#grandTP").html(totalCart() + serviceChargeCtrl(10) + deliveryCtrl(1000));
           $("#grandTP").html((total_cost + service_charge + delivery_fee).toLocaleString('en-NG')); 
+          $('#loader').hide();
       })
-  
+      .fail(function() {
+          setTimeout(function() {
+            $('#loader').hide();
+              
+              }, 5000);
+          });
     }
 
     function saveCartItem(item){
@@ -708,7 +714,48 @@ selectDeliveryDate: function () {
     var parts = x.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
-  }
+  },
+   toggleCollapse: function(){
+		const mores = Array.from(document.querySelectorAll(".mores"));
+    
+	  const tables = Array.from(document.querySelectorAll(".tables"));
+  
+		//textcontent varaible;
+		let texts;
+		//css display properties block and none...
+		let c, d;
+
+		//boolean to control toggle function....
+		let booled = true;
+
+		//first function to show more
+		function showMore(){
+			c = "none"; d = "block";
+			texts = "Show Full Receipt";
+			booled = false;
+		}
+		//second function that show less
+		function showLess(){
+			 c = "block"; d = "none";
+			 texts = "Hide Full Receipt";
+			 booled = true;
+		}
+		//interestHandler handles toggling between first and second function
+		function moreHandler(){
+				console.log(this.textContent);
+				
+				booled ? showMore() : showLess();
+				//change button textcontent..
+				this.textContent = texts;
+				//hide less part or show it instead...
+				tables[mores.indexOf(this)].querySelector('tbody').style.display = c;
+				
+		}
+
+		mores.forEach(function(more){
+			 more.addEventListener('click', moreHandler);
+		});
+	}
 }
 function roundToTwo(num) {    
     return +(Math.round(num + "e+2")  + "e-2");

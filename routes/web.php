@@ -86,10 +86,16 @@ Route::post('/checkout', 'ConfirmCheckoutController@checkout')->middleware('chec
 Route::get('/checkout/payment/{order_unique_reference}', 'PaymentController@index');
 
 
+Route::get('/thankyou/{order_unique_reference}', 'PaymentController@complete');
+
+
 Route::get('/new-address', 'AddressController@create');
 Route::post('/new-address', 'AddressController@store');
 
 Route::get('/my-account', 'HomeController@index');
+Route::get('/my-orders', 'HomeController@index');
+Route::get('/my-addresses', 'HomeController@addresses');
+Route::get('/account/new-addresses', 'HomeController@saveAddress');
 
 
 

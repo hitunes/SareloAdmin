@@ -5,10 +5,12 @@ function payWithPaystack(order_id){
         }
     });
     $.post('/transaction', {'order_id': order_id}).then(function(response){
-        
+        console.log(response);
+
         meta = {
             'transaction_id': response.id,
-            'applicant_id': order_id
+            'applicant_id': order_id,
+            'order_unique_reference': response.reference
         }
         handlePayment(response.user.email, response.amount, response.reference, meta);
     })
@@ -33,6 +35,7 @@ function payWithPaystack(order_id){
     handler.openIframe();
   }
   function updateOnSuccess(data){
+     
         $.ajaxSetup({
                     headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -42,6 +45,7 @@ function payWithPaystack(order_id){
             'status': 'success',
         }
         $.post('/transaction/'+meta.transaction_id+'/edit', data).then(function(response){
-            window.location = '/my-account';
+           
+            window.location = '/thankyou/' + meta.order_unique_reference;
         });
   }
