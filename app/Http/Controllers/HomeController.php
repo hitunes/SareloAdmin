@@ -55,7 +55,7 @@ class HomeController extends Controller
 
             $address = new UserAddress($request->all());
 
-            \Auth::user()->user_address()->save($address);
+            \Auth::user()->user_addresses()->save($address);
 
             \Session::put('alert_message', 'Address Added');
         }
