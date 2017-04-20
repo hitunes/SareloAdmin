@@ -233,7 +233,8 @@
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
          <script>
              $(document).ready(function(){
-                 app.toggleCollapse();   
+                 app.toggleCollapse();
+   
              });
          </script>
     </body>

@@ -150,9 +150,7 @@
                                                         <label for="instruction" class="w-500">
                                                             Instruction for Delivery <span class="opacity-50">(optional)</span>
                                                         </label>
-                                                        <textarea class="form-control" name="instruction" id="instruction" placeholder="(e.g you have vicious dogs)">
-                                                        {{old('instruction')}}
-                                                        </textarea>
+                                                        <textarea class="form-control" name="instruction" id="instruction" placeholder="(e.g you have vicious dogs)">{{old('instruction')}}</textarea>
                                                     </div>
                                                 </div>
                                             </div>

@@ -304,6 +304,8 @@
          <script>
              $(document).ready(function(){
                  app.toggleCollapse();   
+                 app.cartCtrl();
+
              });
          </script>
     </body>
