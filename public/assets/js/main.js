@@ -541,7 +541,7 @@ const app = {
 
       postData = item
         $.post('/cart/add', postData).done( function (data) {
-          // displayCart();
+          displayCart();
         })
     }
 
@@ -573,7 +573,7 @@ const app = {
         var img = $(this).attr("data-img");
         var product_id = $(this).attr("data-product-id");
         addItemToCart(name, price, 1, unit, img, product_id);
-        displayCart();
+        // displayCart();
         aniCounter();
         e.stopImmediatePropagation();
     });
