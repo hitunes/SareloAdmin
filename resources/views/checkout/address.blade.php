@@ -216,6 +216,9 @@
                                                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                                         <label for="password" class="w-500">
                                                             Password
+                                                            <sup class="important f-9">
+                                                                <i class="fa fa-asterisk"></i>
+                                                            </sup class="important f-9">
                                                         </label>
                                                        <input type="password" class="form-control" name="password" id="password" >
                                                        @if ($errors->has('password'))

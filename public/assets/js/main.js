@@ -252,24 +252,24 @@ const app = {
       }).fail(function() {
           var searchField = $("#querySelector").val();
           
-          var myExp = new RegExp(searchField, 'i');
+          // var myExp = new RegExp(searchField, 'i');
       
-          var output = '<ul class="suggestions">';
-          $.each(dataLog, function(key, val){
+          // var output = '<ul class="suggestions">';
+          // $.each(dataLog, function(key, val){
             
-            if((val.unit.search(myExp) != -1) || (val.product.search(myExp) != -1)) {
+          //   if((val.unit.search(myExp) != -1) || (val.product.search(myExp) != -1)) {
 
-                output += `<li id="${val.id}" data-product-id="${val.id}" data-product = "${val.product}" data-price = "${val.price}" data-unit = "${val.unit}" data-img = "${val.img}">`;
-                output += `<div class="clearfix pos-rel">
-                              <span class="pull-left products pos-abs">${val.product}</span>
-                              <span class="pull-right price">&#8358; ${val.price}</span><br>
-                              <small class="pull-right">${val.unit}</small>
-                          </div>`;
-                output += "</li>";
-            }
+          //       output += `<li id="${val.id}" data-product-id="${val.id}" data-product = "${val.product}" data-price = "${val.price}" data-unit = "${val.unit}" data-img = "${val.img}">`;
+          //       output += `<div class="clearfix pos-rel">
+          //                     <span class="pull-left products pos-abs">${val.product}</span>
+          //                     <span class="pull-right price">&#8358; ${val.price}</span><br>
+          //                     <small class="pull-right">${val.unit}</small>
+          //                 </div>`;
+          //       output += "</li>";
+          //   }
             
-          });
-          output += '</ul>';
+          // });
+          // output += '</ul>';
           if(searchField.length === 0){
             output = "";
           }
@@ -519,13 +519,10 @@ const app = {
         
           
           $("#basketList").html(output);
-          $(".items").html(totalCount/*countCart()*/);
+          $(".items").html(totalCount);
           $("#totalP").html(total_cost.toLocaleString());
           $("#cartTable").html(output2);
 
-          // $("#serviceCharge").html(serviceChargeCtrl(10));
-          // $("#deliveryFee").html(deliveryCtrl(1000));
-          // $("#grandTP").html(totalCart() + serviceChargeCtrl(10) + deliveryCtrl(1000));
           $("#grandTP").html((total_cost + service_charge + delivery_fee).toLocaleString('en-NG')); 
           $('#loader').hide();
       })
@@ -536,6 +533,8 @@ const app = {
               }, 5000);
           });
     }
+    
+  
 
     function saveCartItem(item){
 
