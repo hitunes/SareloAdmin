@@ -12,7 +12,7 @@
                 <div class="page-sidebar navbar-collapse collapse">    
                     <ul class="page-sidebar-menu">
                         <li class="nav-item  ">
-                            <a href="{{url('/admin')}}" class="nav-link ">
+                            <a href="{{url('/admin/dashboard')}}" class="nav-link ">
                                 <i class="icon-home"></i>
                                 <span class="title">Dashboard</span>
                             </a>
@@ -28,6 +28,12 @@
                             <a href="{{url('/admin/orders')}}" class="nav-link ">
                                 <i class="icon-basket"></i>
                                 <span class="title">Orders</span>
+                            </a>
+                        </li>
+                         <li class="nav-item  ">
+                            <a href="{{url('/admin/slots')}}" class="nav-link ">
+                                <i class="icon-basket"></i>
+                                <span class="title">Slots</span>
                             </a>
                         </li>
                         <!--<li class="nav-item  ">

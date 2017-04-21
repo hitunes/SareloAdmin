@@ -63,6 +63,11 @@ return [
             'bucket' => env('AWS_BUCKET'),
         ],
 
+        'custom' => [
+            'driver' => 'local',
+            'root' => 'C:\xampp\htdocs\sarelo_product_images',
+        ],
+        
     ],
 
 ];

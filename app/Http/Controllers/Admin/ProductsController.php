@@ -63,8 +63,9 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function add_product(Request $request)
+     public function add_product(Request $request)
     {
+
         $this->validate($request, [
             'name' => 'required', 
             'description' => 'required',
@@ -73,10 +74,11 @@ class ProductsController extends Controller
             'unit_type_id' => 'required',
             'category_id' => 'required',
             'product_image' => 'required'
-
         ]);
-        //inserting data
-        $filepath = $request->file('product_image')->store('product_images');
+        // Storage::put(filePath, $contents);
+        $filename = $request->file('product_image')->getClientOriginalName();
+        $store  = Storage::disk('custom')->put($filename, $request->file('product_image'));
+        $filepath = $request->file('product_image')->store('public');
         $product = new Product([
             'name' => $request->input('name'), //colecting value from user from the text box to column names on the right handside
             'description' => $request->input('description'),
@@ -84,13 +86,13 @@ class ProductsController extends Controller
             'unit' => $request->input('unit'),
             'unit_type_id' => $request->input('unit_type_id'),
             'category_id' => $request->input('category_id'),
-            'product_image' => $filepath
+            'products_image' => $store
         ]);
-            if ($request->file('product_image')->isValid()) {
-                $product->save();
-                return redirect('admin/products')->with('success', 'Product Added Successfully!.');
-            }
-        }
+        // dd($product);exit;
+            $product->save();
+        return redirect('admin/products')->with('success', 'Product Added Successfully!.');
+    }
+
 
     /**
      * Display the specified resource.

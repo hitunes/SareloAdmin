@@ -51,6 +51,12 @@
                                     <span class="title">Products</span>
                                 </a>
                             </li>
+                            <li class="nav-item  ">
+                                <a href="{{url('/admin/slots')}}" class="nav-link ">
+                                    <i class="icon-graph"></i>
+                                    <span class="title">Slots</span>
+                                </a>
+                            </li>
                             
                         </ul>
                     <!-- END SIDEBAR MENU -->
@@ -196,9 +202,9 @@
                                                                    {{$num++}} 
                                                                 </td>
                                                                 <td> {{$order->created_at->diffForHumans()}} </td>
-                                                                <td> {{$order->price}} </td>
+                                                                <td> {{$order->total}} </td>
                                                                 <td> {{$order->payment_method}} </td>
-                                                                <td> {{"0000".$order->user_id}} </td>
+                                                                <td> {{$order->user_id}} </td>
                                                                 <td>
                                                                     <select name="order_status" class="form-control form-filter input-sm">
                                                                         <option value="">Select...</option>
@@ -213,7 +219,7 @@
                                                                 </td>
                                                             </form>
                                                                 <td>
-                                                                    <a href="{{url('admin/order_views',$order->id)}}"><button class="btn btn-sm btn-success margin-bottom">
+                                                                    <a href="{{url('admin/orders',$order->id)}}"><button class="btn btn-sm btn-success margin-bottom">
                                                                             <i class="fa fa-eye"></i> View</button></a>
                                                                 </td>
 

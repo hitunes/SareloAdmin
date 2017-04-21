@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
     @section('title')
-        Dashboard | Add Product
+        Dashboard | Edit Product
     @endsection
 
     @section('content')
@@ -22,7 +22,7 @@
                     
                         <ul class="page-sidebar-menu ">
                             <li class="nav-item  ">
-                                <a href="{{url('admin')}}" class="nav-link ">
+                                <a href="{{url('admin/dashboard')}}" class="nav-link ">
                                     <i class="icon-home"></i>
                                     <span class="title">Dashboard</span>
                                 </a>

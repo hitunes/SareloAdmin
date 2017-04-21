@@ -11,49 +11,54 @@
 |
 */
 
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('/users', 'Admin\UserController@index');
-	Route::get('/products', 'Admin\ProductsController@index');
-	Route::post('/products', 'Admin\ProductsController@add_product');
-	Route::get('/products/{id}', 'Admin\ProductsController@edit');
-	Route::post('/products/{id}', 'Admin\ProductsController@update');
-	Route::get('/products/destroy/{id}', 'Admin\ProductsController@destroy');
-    Route::get('/order_views/{id}', 'Admin\OrdersController@show');
-
+Route::group(['middleware' => 'admin'], function() {
+    Route::group(['prefix' => 'admin'], function() {
+            Route::get('/logout', 'AdminController@logout');
+            Route::get('/dashboard', 'AdminController@index');
+            Route::get('/users', 'Admin\UserController@index');
+            Route::get('/products', 'Admin\ProductsController@index');
+            Route::post('/products', 'Admin\ProductsController@add_product');
+            Route::get('/products/{id}', 'Admin\ProductsController@edit');
+            Route::post('/products/{id}', 'Admin\ProductsController@update');
+            Route::get('/products/destroy/{id}', 'Admin\ProductsController@destroy');
+            Route::get('/orders/{id}', 'Admin\OrdersController@show');
+    });
 });
-
-Route::get('/admin', 'AdminController@index');
-// Route::get('/admin/users', 'UserController@users');
-Route::get('/admin/orders', 'AdminController@orders');
-Route::get('/admin/order_view', 'AdminController@order_view');
-Route::get('/admin/product_edit', 'AdminController@product_edit');
-
-
-
-
-// Auth::routes();
-
-Route::get('/signin', 'Auth\\LoginController@showLoginForm');
-Route::post('/signin', 'Auth\\LoginController@login');
-
-
-Route::get('signup', 'Auth\\RegisterController@showRegistrationForm');
-Route::post('signup', 'Auth\\RegisterController@register');
-
-Route::get('/test', [
-    'uses' => 'HomeController@test',
-    'as' => 'test',
-    'middleware' => 'role',
-    'roles' => ['User']
-]);
+    
+    Route::match(['get', 'post'], '/admin', 'AdminController@signin');
+    Route::get('/admin/orders', 'AdminController@orders');
+    Route::get('/admin/order_view', 'AdminController@order_view');
+    Route::get('/admin/product_edit', 'AdminController@product_edit');
+    Route::get('/signin', 'Auth\\LoginController@showLoginForm');
+    Route::post('/signin', 'Auth\\LoginController@login');
+    Route::get('signup', 'Auth\\RegisterController@showRegistrationForm');
+    Route::post('signup', 'Auth\\RegisterController@register');
+    Route::get('/test', [
+        'uses' => 'HomeController@test',
+        'as' => 'test',
+        'middleware' => 'role',
+        'roles' => ['User']
+    ]);
 
 
 // Route::get('/cart', 'CartsController@addCartItem');
 // Route::resource('products', 'ProductsController');
 Route::resource('admin/categories', 'Admin\\CategoriesController');
-Route::resource('admin/unit-types', 'Admin\\UnitTypesController');
+// Route::resource('admin/unit-types', 'Admin\\UnitTypesController');
 Route::resource('admin/orders', 'Admin\\OrdersController');
-Route::resource('admin/slots', 'Admin\\SlotsController');
+Route::match(['get', 'post'], '/admin/unit-types', 'Admin\\UnitTypesController@index');
+Route::match(['get', 'post'], '/admin/unit-types/create', 'Admin\\UnitTypesController@store');
+Route::get('admin/unit-types/delete/{id}', 'Admin\\UnitTypesController@destroy');
+Route::get('admin/unit-types/edit/{id}', 'Admin\\UnitTypesController@edit');
+Route::post('admin/unit-types/update/{id}', 'Admin\\UnitTypesController@update');
+
+Route::match(['get', 'post'], '/admin/slots', 'Admin\\SlotsController@index');
+Route::match(['get', 'post'], '/admin/slots/create', 'Admin\\SlotsController@store');
+Route::post('admin/slots/update/{id}', 'Admin\\SlotsController@update');
+Route::get('admin/slots/delete/{id}', 'Admin\\SlotsController@destroy');
+Route::get('admin/slots', 'Admin\\SlotsController@index');
+Route::get('admin/slots/edit/{id}', 'Admin\\SlotsController@edit');
+
 
 Auth::routes();
 
