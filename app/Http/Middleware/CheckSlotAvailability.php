@@ -9,6 +9,8 @@ use App\Models\Slot;
 
 use \Session;
 
+use Cart;
+
 class CheckSlotAvailability
 {
     /**
@@ -23,6 +25,7 @@ class CheckSlotAvailability
         $date = Session::get('order_details.delivery_date');
 
         $slot_id = Session::get('order_details.slot_id');
+// Cart::content()Cart::content()
 
         if($slot_id && $date){
           

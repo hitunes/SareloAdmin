@@ -108,3 +108,6 @@ Route::get('/checkout/bank/{order_unique_reference}', 'TransactionController@ban
 Route::get('/undefined', function(){
     echo json_encode(['status' => 'success']);
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

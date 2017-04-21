@@ -4,13 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Order;
-
-use App\Models\UserAddress;
-
-use Illuminate\Database\Eloquent\ModelNotFoundException;
-
-
 class HomeController extends Controller
 {
     /**
@@ -67,7 +60,7 @@ class HomeController extends Controller
     }
 
 
-    public function cancelOrdeer($order_id)
+    public function cancelOrder($order_id)
     {
         try{
             $order = Order::findOrFail($order_id);
@@ -81,5 +74,6 @@ class HomeController extends Controller
             $order->save();
         }
 
-        return redirct()->back()->with('status', 'Order #'.$order->order_unique_reference." cancelled');
+        return redirct()->back()->with('status', 'Order #'.$order->order_unique_reference." cancelled");
+    }
 }
