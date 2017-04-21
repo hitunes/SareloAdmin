@@ -8,6 +8,8 @@ use App\Models\Order;
 
 use App\Models\UserAddress;
 
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 
 class HomeController extends Controller
 {
@@ -63,4 +65,21 @@ class HomeController extends Controller
         return view('account.new-address');
         
     }
+
+
+    public function cancelOrdeer($order_id)
+    {
+        try{
+            $order = Order::findOrFail($order_id);
+        }
+        catch(ModelNotFoundException $e){
+            return redirct()->back()->with('status', 'Order not found');
+        }
+        
+        if($order->status != "completed"){
+            $order->status = "cancelled";
+            $order->save();
+        }
+
+        return redirct()->back()->with('status', 'Order #'.$order->order_unique_reference." cancelled');
 }

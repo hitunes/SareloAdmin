@@ -270,6 +270,7 @@ const app = {
             
           // });
           // output += '</ul>';
+     
           if(searchField.length === 0){
             output = "";
           }
@@ -539,7 +540,7 @@ const app = {
     function saveCartItem(item){
 
       postData = item
-        $.post('/cart/add', postData, function (data) {
+        $.post('/cart/add', postData).done( function (data) {
           // displayCart();
         })
     }
@@ -549,6 +550,8 @@ const app = {
 
       $.getJSON('/cart/update/' + cart_id + '/' + action).done(function () {
          displayCart();
+      }).fail(function(error) {
+          console.log(error);
       })
     }
 
