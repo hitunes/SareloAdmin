@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Order;
+
+use App\Models\UserAddress;
+
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 class HomeController extends Controller
 {
     /**
