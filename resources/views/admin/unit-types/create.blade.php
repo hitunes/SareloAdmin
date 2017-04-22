@@ -23,7 +23,7 @@
                             <li class="nav-item">
                                 <a href="{{url('/admin/unit-types')}}" class="nav-link ">
                                     <i class="icon-basket"></i>
-                                    <span class="title">Slot</span>
+                                    <span class="title">Unit Types</span>
                                     <span class="selected"></span>
                                 </a>
                             </li>

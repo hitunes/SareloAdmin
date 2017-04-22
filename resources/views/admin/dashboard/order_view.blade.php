@@ -35,6 +35,12 @@
                                 <span class="title">Slots</span>
                             </a>
                         </li>
+                        <li class="nav-item  ">
+                            <a href="{{url('/admin/unit-types')}}" class="nav-link ">
+                                <i class="icon-graph"></i>
+                                <span class="title">Unit Types</span>
+                            </a>
+                        </li>
                         <!--<li class="nav-item  active open">
                             <a href="order_view.html" class="nav-link ">
                                 <i class="icon-tag"></i>

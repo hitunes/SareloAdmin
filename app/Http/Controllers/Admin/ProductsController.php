@@ -76,6 +76,7 @@ class ProductsController extends Controller
             'product_image' => 'required'
         ]);
         // Storage::put(filePath, $contents);
+
         $filename = $request->file('product_image')->getClientOriginalName();
         $store  = Storage::disk('custom')->put($filename, $request->file('product_image'));
         $filepath = $request->file('product_image')->store('public');
@@ -86,7 +87,7 @@ class ProductsController extends Controller
             'unit' => $request->input('unit'),
             'unit_type_id' => $request->input('unit_type_id'),
             'category_id' => $request->input('category_id'),
-            'products_image' => $store
+            'products_image' => $filename
         ]);
         // dd($product);exit;
             $product->save();
