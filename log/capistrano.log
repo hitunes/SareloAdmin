@@ -20638,3 +20638,1295 @@ league/fractal suggests installing zendframework/zend-paginator (Zend Framework 
   INFO [f412e3c0] Running /usr/bin/env echo "Branch master (at fd84e2fccefc592bb63f434263208cc81f84a03b) deployed as release 20170424133427 by usmanirale" >> /var/www/html/sarelo/revisions.log as root@104.131.168.249
  DEBUG [f412e3c0] Command: cd /var/www/html/sarelo/releases && /usr/bin/env echo "Branch master (at fd84e2fccefc592bb63f434263208cc81f84a03b) deployed as release 20170424133427 by usmanirale" >> /var/www/html/sarelo/revisions.log
   INFO [f412e3c0] Finished in 0.553 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-24 14:52:54 +0100 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [dec5ba1c] Running /usr/bin/env mkdir -p /tmp as root@104.131.168.249
+ DEBUG [dec5ba1c] Command: /usr/bin/env mkdir -p /tmp
+  INFO [dec5ba1c] Finished in 3.751 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-sarelo-staging-usmanirale.sh 0.0%
+  INFO Uploading /tmp/git-ssh-sarelo-staging-usmanirale.sh 100.0%
+  INFO [3f9632cf] Running /usr/bin/env chmod 700 /tmp/git-ssh-sarelo-staging-usmanirale.sh as root@104.131.168.249
+ DEBUG [3f9632cf] Command: /usr/bin/env chmod 700 /tmp/git-ssh-sarelo-staging-usmanirale.sh
+  INFO [3f9632cf] Finished in 0.597 seconds with exit status 0 (successful).
+  INFO [d00b9cb4] Running /usr/bin/env git ls-remote --heads git@gitlab.com:switchElites/sarelo.git as root@104.131.168.249
+ DEBUG [d00b9cb4] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sarelo-staging-usmanirale.sh" ; /usr/bin/env git ls-remote --heads git@gitlab.com:switchElites/sarelo.git )
+ DEBUG [d00b9cb4] 	fbe402a10c474bc7c9b0886cd71e5850d73e8d65
+ DEBUG [d00b9cb4] 		refs/heads/admin
+cf534e37ba884cefe85b6c87763b25e8338885be	refs/heads/admin2
+a148c6c8e9ac1f113cc3853f81d1e0ed2a9fe933	refs/heads/dev
+9e7a4de1dab1067a3f5e9e64a1be3966022d8821	refs/heads/master
+6a67b2beaccdadef56f8087b393e2983519a6472	refs/heads/template
+  INFO [d00b9cb4] Finished in 2.693 seconds with exit status 0 (successful).
+  INFO [2b3fbee6] Running /usr/bin/env mkdir -p /var/www/html/sarelo/shared /var/www/html/sarelo/releases as root@104.131.168.249
+ DEBUG [2b3fbee6] Command: /usr/bin/env mkdir -p /var/www/html/sarelo/shared /var/www/html/sarelo/releases
+  INFO [2b3fbee6] Finished in 0.602 seconds with exit status 0 (successful).
+ DEBUG [2b15de2c] Running [ -f /var/www/html/sarelo/current/REVISION ] as root@104.131.168.249
+ DEBUG [2b15de2c] Command: [ -f /var/www/html/sarelo/current/REVISION ]
+ DEBUG [2b15de2c] Finished in 0.709 seconds with exit status 0 (successful).
+ DEBUG [128d71f4] Running /usr/bin/env cat /var/www/html/sarelo/current/REVISION 2>/dev/null as root@104.131.168.249
+ DEBUG [128d71f4] Command: /usr/bin/env cat /var/www/html/sarelo/current/REVISION 2>/dev/null
+ DEBUG [128d71f4] 	fd84e2fccefc592bb63f434263208cc81f84a03b
+ DEBUG [128d71f4] 	
+ DEBUG [128d71f4] Finished in 0.612 seconds with exit status 0 (successful).
+ DEBUG [b9435070] Running [ -f /var/www/html/sarelo/repo/HEAD ] as root@104.131.168.249
+ DEBUG [b9435070] Command: [ -f /var/www/html/sarelo/repo/HEAD ]
+ DEBUG [b9435070] Finished in 0.595 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/html/sarelo/repo
+ DEBUG [3ebf3558] Running if test ! -d /var/www/html/sarelo/repo; then echo "Directory does not exist '/var/www/html/sarelo/repo'" 1>&2; false; fi as root@104.131.168.249
+ DEBUG [3ebf3558] Command: if test ! -d /var/www/html/sarelo/repo; then echo "Directory does not exist '/var/www/html/sarelo/repo'" 1>&2; false; fi
+ DEBUG [3ebf3558] Finished in 0.626 seconds with exit status 0 (successful).
+  INFO [3dd48d16] Running /usr/bin/env git remote update --prune as root@104.131.168.249
+ DEBUG [3dd48d16] Command: cd /var/www/html/sarelo/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sarelo-staging-usmanirale.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [3dd48d16] 	Fetching origin
+ DEBUG [3dd48d16] 	
+ DEBUG [3dd48d16] 	remote: Counting objects: 18, done.[K
+ DEBUG [3dd48d16] 	
+ DEBUG [3dd48d16] 	remote: Compressing objects:   5% (1/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects:  11% (2/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects:  17% (3/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects:  23% (4/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects:  29% (5/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects:  35% (6/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects:  41% (7/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects:  47% (8/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects:  52% (9/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects:  58% (10/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects:  64% (11/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects:  70% (12/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects:  76% (13/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects:  82% (14/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects:  88% (15/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects:  94% (16/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects: 100% (17/17)   [K
+ DEBUG [3dd48d16] 	remote: Compressing objects: 100% (17/17), done.[K
+ DEBUG [3dd48d16] 	
+ DEBUG [3dd48d16] 	Unpacking objects:   5% (1/18)   
+ DEBUG [3dd48d16] 	Unpacking objects:  11% (2/18)   
+ DEBUG [3dd48d16] 	Unpacking objects:  16% (3/18)   
+ DEBUG [3dd48d16] 	Unpacking objects:  22% (4/18)   
+ DEBUG [3dd48d16] 	remote: Total 18 (delta 8), reused 0 (delta 0)[K
+ DEBUG [3dd48d16] 	
+ DEBUG [3dd48d16] 	Unpacking objects:  27% (5/18)   
+ DEBUG [3dd48d16] 	Unpacking objects:  33% (6/18)   
+ DEBUG [3dd48d16] 	Unpacking objects:  38% (7/18)   
+ DEBUG [3dd48d16] 	Unpacking objects:  44% (8/18)   
+ DEBUG [3dd48d16] 	Unpacking objects:  50% (9/18)   
+ DEBUG [3dd48d16] 	Unpacking objects:  55% (10/18)   
+ DEBUG [3dd48d16] 	Unpacking objects:  61% (11/18)   
+ DEBUG [3dd48d16] 	Unpacking objects:  66% (12/18)   
+ DEBUG [3dd48d16] 	Unpacking objects:  72% (13/18)   
+ DEBUG [3dd48d16] 	Unpacking objects:  77% (14/18)   
+ DEBUG [3dd48d16] 	Unpacking objects:  83% (15/18)   
+ DEBUG [3dd48d16] 	Unpacking objects:  88% (16/18)   
+ DEBUG [3dd48d16] 	Unpacking objects:  94% (17/18)   
+ DEBUG [3dd48d16] 	Unpacking objects: 100% (18/18)   
+ DEBUG [3dd48d16] 	Unpacking objects: 100% (18/18), done.
+ DEBUG [3dd48d16] 	
+ DEBUG [3dd48d16] 	From gitlab.com:switchElites/sarelo
+ DEBUG [3dd48d16] 	
+ DEBUG [3dd48d16] 	   fd84e2f..9e7a4de  master     -> master
+ DEBUG [3dd48d16] 	
+  INFO [3dd48d16] Finished in 2.821 seconds with exit status 0 (successful).
+ DEBUG [119e2822] Running if test ! -d /var/www/html/sarelo/repo; then echo "Directory does not exist '/var/www/html/sarelo/repo'" 1>&2; false; fi as root@104.131.168.249
+ DEBUG [119e2822] Command: if test ! -d /var/www/html/sarelo/repo; then echo "Directory does not exist '/var/www/html/sarelo/repo'" 1>&2; false; fi
+ DEBUG [119e2822] Finished in 0.762 seconds with exit status 0 (successful).
+  INFO [1083a678] Running /usr/bin/env mkdir -p /var/www/html/sarelo/releases/20170424135308 as root@104.131.168.249
+ DEBUG [1083a678] Command: cd /var/www/html/sarelo/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sarelo-staging-usmanirale.sh" ; /usr/bin/env mkdir -p /var/www/html/sarelo/releases/20170424135308 )
+  INFO [1083a678] Finished in 0.608 seconds with exit status 0 (successful).
+  INFO [6fabff49] Running /usr/bin/env git archive master | tar -x -f - -C /var/www/html/sarelo/releases/20170424135308 as root@104.131.168.249
+ DEBUG [6fabff49] Command: cd /var/www/html/sarelo/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sarelo-staging-usmanirale.sh" ; /usr/bin/env git archive master | tar -x -f - -C /var/www/html/sarelo/releases/20170424135308 )
+  INFO [6fabff49] Finished in 10.289 seconds with exit status 0 (successful).
+ DEBUG [cff8ba5a] Running if test ! -d /var/www/html/sarelo/repo; then echo "Directory does not exist '/var/www/html/sarelo/repo'" 1>&2; false; fi as root@104.131.168.249
+ DEBUG [cff8ba5a] Command: if test ! -d /var/www/html/sarelo/repo; then echo "Directory does not exist '/var/www/html/sarelo/repo'" 1>&2; false; fi
+ DEBUG [cff8ba5a] Finished in 0.718 seconds with exit status 0 (successful).
+ DEBUG [ac2d4b6b] Running /usr/bin/env git rev-list --max-count=1 master as root@104.131.168.249
+ DEBUG [ac2d4b6b] Command: cd /var/www/html/sarelo/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sarelo-staging-usmanirale.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [ac2d4b6b] 	9e7a4de1dab1067a3f5e9e64a1be3966022d8821
+ DEBUG [ac2d4b6b] 	
+ DEBUG [ac2d4b6b] Finished in 0.703 seconds with exit status 0 (successful).
+ DEBUG [52871117] Running if test ! -d /var/www/html/sarelo/releases/20170424135308; then echo "Directory does not exist '/var/www/html/sarelo/releases/20170424135308'" 1>&2; false; fi as root@104.131.168.249
+ DEBUG [52871117] Command: if test ! -d /var/www/html/sarelo/releases/20170424135308; then echo "Directory does not exist '/var/www/html/sarelo/releases/20170424135308'" 1>&2; false; fi
+ DEBUG [52871117] Finished in 0.683 seconds with exit status 0 (successful).
+  INFO [ee2dcc73] Running /usr/bin/env echo "9e7a4de1dab1067a3f5e9e64a1be3966022d8821" >> REVISION as root@104.131.168.249
+ DEBUG [ee2dcc73] Command: cd /var/www/html/sarelo/releases/20170424135308 && /usr/bin/env echo "9e7a4de1dab1067a3f5e9e64a1be3966022d8821" >> REVISION
+  INFO [ee2dcc73] Finished in 0.720 seconds with exit status 0 (successful).
+ DEBUG [5268812d] Running if test ! -d /var/www/html/sarelo/releases/20170424135308; then echo "Directory does not exist '/var/www/html/sarelo/releases/20170424135308'" 1>&2; false; fi as root@104.131.168.249
+ DEBUG [5268812d] Command: if test ! -d /var/www/html/sarelo/releases/20170424135308; then echo "Directory does not exist '/var/www/html/sarelo/releases/20170424135308'" 1>&2; false; fi
+ DEBUG [5268812d] Finished in 0.611 seconds with exit status 0 (successful).
+  INFO [63007dbd] Running cp /var/www/html/sarelo/releases/20170424135308/.env.example /var/www/html/sarelo/releases/20170424135308/.env as root@104.131.168.249
+ DEBUG [63007dbd] Command: cp /var/www/html/sarelo/releases/20170424135308/.env.example /var/www/html/sarelo/releases/20170424135308/.env
+  INFO [63007dbd] Finished in 0.613 seconds with exit status 0 (successful).
+  INFO [fa73e537] Running /usr/bin/env composer install as root@104.131.168.249
+ DEBUG [fa73e537] Command: cd /var/www/html/sarelo/releases/20170424135308 && /usr/bin/env composer install
+ DEBUG [fa73e537] 	[30;43mDo not run Composer as root/super user! See https://getcomposer.org/root for details[39;49m
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	[32mLoading composer repositories with package information[39m
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	[32mInstalling dependencies (including require-dev) from lock file[39m
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	[32mPackage operations: 82 installs, 0 updates, 0 removals[39m
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mdoctrine/lexer[39m ([33mv1.0.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mdoctrine/annotations[39m ([33mv1.4.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mdoctrine/cache[39m ([33mv1.6.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mdoctrine/collections[39m ([33mv1.4.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mdoctrine/inflector[39m ([33mv1.1.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mdoctrine/common[39m ([33mv2.7.2[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mdoctrine/dbal[39m ([33mv2.5.12[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32merusev/parsedown[39m ([33m1.6.2[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mvlucas/phpdotenv[39m ([33mv2.4.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msymfony/css-selector[39m ([33mv3.2.7[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mtijsverkoyen/css-to-inline-styles[39m ([33m2.2.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msymfony/polyfill-mbstring[39m ([33mv1.3.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msymfony/var-dumper[39m ([33mv3.2.7[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msymfony/routing[39m ([33mv3.2.7[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msymfony/process[39m ([33mv3.2.7[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msymfony/http-foundation[39m ([33mv3.2.7[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msymfony/event-dispatcher[39m ([33mv3.2.7[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mpsr/log[39m ([33m1.0.2[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msymfony/debug[39m ([33mv3.2.7[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msymfony/http-kernel[39m ([33mv3.2.7[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msymfony/finder[39m ([33mv3.2.7[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msymfony/console[39m ([33mv3.2.7[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mswiftmailer/swiftmailer[39m ([33mv5.4.6[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mparagonie/random_compat[39m ([33mv2.0.10[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mramsey/uuid[39m ([33m3.6.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msymfony/translation[39m ([33mv3.2.7[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mnesbot/carbon[39m ([33m1.22.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mmtdowling/cron-expression[39m ([33mv1.2.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mmonolog/monolog[39m ([33m1.22.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mleague/flysystem[39m ([33m1.0.37[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mlaravel/framework[39m ([33mv5.4.18[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mgloudemans/shoppingcart[39m ([33m2.3.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mguzzlehttp/promises[39m ([33mv1.3.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mpsr/http-message[39m ([33m1.0.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mguzzlehttp/psr7[39m ([33m1.4.2[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mintervention/image[39m ([33m2.3.11[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mjakub-onderka/php-console-color[39m ([33m0.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mguzzlehttp/guzzle[39m ([33m6.2.3[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mleague/oauth1-client[39m ([33m1.7.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mlaravel/socialite[39m ([33mv3.0.4[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mnikic/php-parser[39m ([33mv3.0.5[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mjakub-onderka/php-console-highlighter[39m ([33mv0.3.2[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mdnoegel/php-xdg-base-dir[39m ([33m0.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mpsy/psysh[39m ([33mv0.8.3[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mlaravel/tinker[39m ([33mv1.0.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mlaravelcollective/html[39m ([33mv5.4.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mleague/csv[39m ([33m8.2.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mleague/fractal[39m ([33m0.15.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mphpoffice/phpexcel[39m ([33m1.8.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msymfony/polyfill-util[39m ([33mv1.3.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msymfony/polyfill-php56[39m ([33mv1.3.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mjeremeamia/superclosure[39m ([33m2.3.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mmaatwebsite/excel[39m ([33m2.1.17[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mappzcoder/crud-generator[39m ([33mv2.0.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mfzaninotto/faker[39m ([33mv1.6.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mhamcrest/hamcrest-php[39m ([33mv1.2.2[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mmockery/mockery[39m ([33m0.9.9[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mwebmozart/assert[39m ([33m1.2.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mphpdocumentor/reflection-common[39m ([33m1.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mphpdocumentor/type-resolver[39m ([33m0.2.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mphpdocumentor/reflection-docblock[39m ([33m3.1.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mphpunit/php-token-stream[39m ([33m1.4.11[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msymfony/yaml[39m ([33mv3.2.7[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msebastian/version[39m ([33m2.0.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msebastian/resource-operations[39m ([33m1.0.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msebastian/recursion-context[39m ([33m2.0.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msebastian/object-enumerator[39m ([33m2.0.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msebastian/global-state[39m ([33m1.1.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msebastian/exporter[39m ([33m2.0.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msebastian/environment[39m ([33m2.0.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msebastian/diff[39m ([33m1.4.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msebastian/comparator[39m ([33m1.2.4[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mphpunit/php-text-template[39m ([33m1.2.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mdoctrine/instantiator[39m ([33m1.0.5[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mphpunit/phpunit-mock-objects[39m ([33m3.4.3[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mphpunit/php-timer[39m ([33m1.0.9[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mphpunit/php-file-iterator[39m ([33m1.4.2[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32msebastian/code-unit-reverse-lookup[39m ([33m1.0.1[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mphpunit/php-code-coverage[39m ([33m4.0.8[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mphpspec/prophecy[39m ([33mv1.7.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mmyclabs/deep-copy[39m ([33m1.6.0[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	  - Installing [32mphpunit/phpunit[39m ([33m5.7.19[39m)
+ DEBUG [fa73e537] 	 Loading from cache
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	symfony/var-dumper suggests installing ext-symfony_debug ()
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	symfony/routing suggests installing symfony/config (For using the all-in-one router or any loader)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	symfony/routing suggests installing symfony/dependency-injection (For loading routes from a service)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	symfony/routing suggests installing symfony/expression-language (For using expression matching)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	symfony/event-dispatcher suggests installing symfony/dependency-injection ()
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	symfony/http-kernel suggests installing symfony/browser-kit ()
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	symfony/http-kernel suggests installing symfony/class-loader ()
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	symfony/http-kernel suggests installing symfony/config ()
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	symfony/http-kernel suggests installing symfony/dependency-injection ()
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	symfony/console suggests installing symfony/filesystem ()
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	paragonie/random_compat suggests installing ext-libsodium (Provides a modern crypto API that can be used to generate random bytes.)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	ramsey/uuid suggests installing ext-libsodium (Provides the PECL libsodium extension for use with the SodiumRandomGenerator)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	ramsey/uuid suggests installing ext-uuid (Provides the PECL UUID extension for use with the PeclUuidTimeGenerator and PeclUuidRandomGenerator)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	ramsey/uuid suggests installing ircmaxell/random-lib (Provides RandomLib for use with the RandomLibAdapter)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	ramsey/uuid suggests installing moontoast/math (Provides support for converting UUID to 128-bit integer (in string form).)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	ramsey/uuid suggests installing ramsey/uuid-console (A console application for generating UUIDs with ramsey/uuid)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	ramsey/uuid suggests installing ramsey/uuid-doctrine (Allows the use of Ramsey\Uuid\Uuid as Doctrine field type.)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	symfony/translation suggests installing symfony/config ()
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	monolog/monolog suggests installing aws/aws-sdk-php (Allow sending log messages to AWS services like DynamoDB)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	monolog/monolog suggests installing doctrine/couchdb (Allow sending log messages to a CouchDB server)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	monolog/monolog suggests installing ext-amqp (Allow sending log messages to an AMQP server (1.0+ required))
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	monolog/monolog suggests installing ext-mongo (Allow sending log messages to a MongoDB server)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	monolog/monolog suggests installing graylog2/gelf-php (Allow sending log messages to a GrayLog2 server)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	monolog/monolog suggests installing mongodb/mongodb (Allow sending log messages to a MongoDB server via PHP Driver)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	monolog/monolog suggests installing php-amqplib/php-amqplib (Allow sending log messages to an AMQP server using php-amqplib)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	monolog/monolog suggests installing php-console/php-console (Allow sending log messages to Google Chrome)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	monolog/monolog suggests installing rollbar/rollbar (Allow sending log messages to Rollbar)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	monolog/monolog suggests installing ruflin/elastica (Allow sending log messages to an Elastic Search server)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	monolog/monolog suggests installing sentry/sentry (Allow sending log messages to a Sentry server)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	league/flysystem suggests installing league/flysystem-aws-s3-v2 (Allows you to use S3 storage with AWS SDK v2)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	league/flysystem suggests installing league/flysystem-aws-s3-v3 (Allows you to use S3 storage with AWS SDK v3)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	league/flysystem suggests installing league/flysystem-azure (Allows you to use Windows Azure Blob storage)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	league/flysystem suggests installing league/flysystem-cached-adapter (Flysystem adapter decorator for metadata caching)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	league/flysystem suggests installing league/flysystem-copy (Allows you to use Copy.com storage)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	league/flysystem suggests installing league/flysystem-dropbox (Allows you to use Dropbox storage)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	league/flysystem suggests installing league/flysystem-eventable-filesystem (Allows you to use EventableFilesystem)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	league/flysystem suggests installing league/flysystem-rackspace (Allows you to use Rackspace Cloud Files)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	league/flysystem suggests installing league/flysystem-sftp (Allows you to use SFTP server storage via phpseclib)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	league/flysystem suggests installing league/flysystem-webdav (Allows you to use WebDAV storage)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	league/flysystem suggests installing league/flysystem-ziparchive (Allows you to use ZipArchive adapter)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	laravel/framework suggests installing aws/aws-sdk-php (Required to use the SQS queue driver and SES mail driver (~3.0).)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	laravel/framework suggests installing league/flysystem-aws-s3-v3 (Required to use the Flysystem S3 driver (~1.0).)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	laravel/framework suggests installing league/flysystem-rackspace (Required to use the Flysystem Rackspace driver (~1.0).)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	laravel/framework suggests installing nexmo/client (Required to use the Nexmo transport (~1.0).)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	laravel/framework suggests installing pda/pheanstalk (Required to use the beanstalk queue driver (~3.0).)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	laravel/framework suggests installing predis/predis (Required to use the redis cache and queue drivers (~1.0).)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	laravel/framework suggests installing pusher/pusher-php-server (Required to use the Pusher broadcast driver (~2.0).)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	laravel/framework suggests installing symfony/dom-crawler (Required to use most of the crawler integration testing tools (~3.2).)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	laravel/framework suggests installing symfony/psr-http-message-bridge (Required to psr7 bridging features (0.2.*).)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	gloudemans/shoppingcart suggests installing gloudemans/notify (Simple flash notifications for Laravel)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	intervention/image suggests installing ext-gd (to use GD library based image processing.)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	intervention/image suggests installing ext-imagick (to use Imagick based image processing.)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	intervention/image suggests installing intervention/imagecache (Caching extension for the Intervention Image library)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	psy/psysh suggests installing ext-pdo-sqlite (The doc command requires SQLite to work.)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	psy/psysh suggests installing hoa/console (A pure PHP readline implementation. You'll want this if your PHP install doesn't already support readline or libedit.)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	league/fractal suggests installing pagerfanta/pagerfanta (Pagerfanta Paginator)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	league/fractal suggests installing zendframework/zend-paginator (Zend Framework Paginator)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	sebastian/global-state suggests installing ext-uopz (*)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	phpunit/phpunit-mock-objects suggests installing ext-soap (*)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	phpunit/php-code-coverage suggests installing ext-xdebug (^2.5.1)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	phpunit/phpunit suggests installing ext-xdebug (*)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	phpunit/phpunit suggests installing phpunit/php-invoker (~1.1)
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	[32mGenerating autoload files[39m
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	> Illuminate\Foundation\ComposerScripts::postInstall
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	> php artisan optimize
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	Generating optimized class loader
+ DEBUG [fa73e537] 	
+ DEBUG [fa73e537] 	The compiled services file has been removed.
+ DEBUG [fa73e537] 	
+  INFO [fa73e537] Finished in 12.772 seconds with exit status 0 (successful).
+  INFO [6523a2e2] Running /usr/bin/env composer dump-autoload -o as root@104.131.168.249
+ DEBUG [6523a2e2] Command: cd /var/www/html/sarelo/releases/20170424135308 && /usr/bin/env composer dump-autoload -o
+ DEBUG [6523a2e2] 	[30;43mDo not run Composer as root/super user! See https://getcomposer.org/root for details[39;49m
+ DEBUG [6523a2e2] 	
+ DEBUG [6523a2e2] 	[32mGenerating optimized autoload files[39m
+ DEBUG [6523a2e2] 	
+  INFO [6523a2e2] Finished in 2.061 seconds with exit status 0 (successful).
+  INFO [1d541e10] Running php /var/www/html/sarelo/releases/20170424135308/artisan key:generate as root@104.131.168.249
+ DEBUG [1d541e10] Command: php /var/www/html/sarelo/releases/20170424135308/artisan key:generate
+ DEBUG [1d541e10] 	[32mApplication key [base64:liTTJ6CKMPnGo6AzPev8wG81H7CL+QLYu3nd8DNicjU=] set successfully.[39m
+ DEBUG [1d541e10] 	
+  INFO [1d541e10] Finished in 1.403 seconds with exit status 0 (successful).
+  INFO [82ad4432] Running chmod -R 777 /var/www/html/sarelo/releases/20170424135308/storage as root@104.131.168.249
+ DEBUG [82ad4432] Command: chmod -R 777 /var/www/html/sarelo/releases/20170424135308/storage
+  INFO [82ad4432] Finished in 0.658 seconds with exit status 0 (successful).
+  INFO [2f327b3a] Running chmod -R 777 /var/www/html/sarelo/releases/20170424135308/bootstrap/cache as root@104.131.168.249
+ DEBUG [2f327b3a] Command: chmod -R 777 /var/www/html/sarelo/releases/20170424135308/bootstrap/cache
+  INFO [2f327b3a] Finished in 0.614 seconds with exit status 0 (successful).
+  INFO [7135cd48] Running chmod -R 777 /var/www/html/sarelo/releases/20170424135308/vendor as root@104.131.168.249
+ DEBUG [7135cd48] Command: chmod -R 777 /var/www/html/sarelo/releases/20170424135308/vendor
+  INFO [7135cd48] Finished in 0.707 seconds with exit status 0 (successful).
+  INFO [9346becf] Running chmod -R 777 /var/www/html/sarelo/releases/20170424135308/public as root@104.131.168.249
+ DEBUG [9346becf] Command: chmod -R 777 /var/www/html/sarelo/releases/20170424135308/public
+  INFO [9346becf] Finished in 0.770 seconds with exit status 0 (successful).
+  INFO [ec605337] Running php /var/www/html/sarelo/releases/20170424135308/artisan migrate as root@104.131.168.249
+ DEBUG [ec605337] Command: php /var/www/html/sarelo/releases/20170424135308/artisan migrate
+ DEBUG [ec605337] 	[32mNothing to migrate.[39m
+ DEBUG [ec605337] 	
+  INFO [ec605337] Finished in 0.880 seconds with exit status 0 (successful).
+  INFO [cc639324] Running /usr/bin/env ln -s /var/www/html/sarelo/releases/20170424135308 /var/www/html/sarelo/releases/current as root@104.131.168.249
+ DEBUG [cc639324] Command: /usr/bin/env ln -s /var/www/html/sarelo/releases/20170424135308 /var/www/html/sarelo/releases/current
+  INFO [cc639324] Finished in 0.597 seconds with exit status 0 (successful).
+  INFO [1103d317] Running /usr/bin/env mv /var/www/html/sarelo/releases/current /var/www/html/sarelo as root@104.131.168.249
+ DEBUG [1103d317] Command: /usr/bin/env mv /var/www/html/sarelo/releases/current /var/www/html/sarelo
+  INFO [1103d317] Finished in 0.708 seconds with exit status 0 (successful).
+ DEBUG [e4f3ccb2] Running /usr/bin/env ls -xtr /var/www/html/sarelo/releases as root@104.131.168.249
+ DEBUG [e4f3ccb2] Command: /usr/bin/env ls -xtr /var/www/html/sarelo/releases
+ DEBUG [e4f3ccb2] 	20170421211046
+ DEBUG [e4f3ccb2] 		
+ DEBUG [e4f3ccb2] 	20170421212409
+ DEBUG [e4f3ccb2] 		
+ DEBUG [e4f3ccb2] 	20170424132741
+ DEBUG [e4f3ccb2] 		
+ DEBUG [e4f3ccb2] 	20170424132846
+ DEBUG [e4f3ccb2] 		
+ DEBUG [e4f3ccb2] 	20170424133427
+ DEBUG [e4f3ccb2] 	
+ DEBUG [e4f3ccb2] 	20170424135308
+ DEBUG [e4f3ccb2] 	
+ DEBUG [e4f3ccb2] Finished in 0.862 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 104.131.168.249
+  INFO [420b6396] Running /usr/bin/env rm -rf /var/www/html/sarelo/releases/20170421211046 as root@104.131.168.249
+ DEBUG [420b6396] Command: /usr/bin/env rm -rf /var/www/html/sarelo/releases/20170421211046
+  INFO [420b6396] Finished in 2.159 seconds with exit status 0 (successful).
+ DEBUG [425a389b] Running if test ! -d /var/www/html/sarelo/releases; then echo "Directory does not exist '/var/www/html/sarelo/releases'" 1>&2; false; fi as root@104.131.168.249
+ DEBUG [425a389b] Command: if test ! -d /var/www/html/sarelo/releases; then echo "Directory does not exist '/var/www/html/sarelo/releases'" 1>&2; false; fi
+ DEBUG [425a389b] Finished in 0.677 seconds with exit status 0 (successful).
+  INFO [d6032a35] Running /usr/bin/env echo "Branch master (at 9e7a4de1dab1067a3f5e9e64a1be3966022d8821) deployed as release 20170424135308 by usmanirale" >> /var/www/html/sarelo/revisions.log as root@104.131.168.249
+ DEBUG [d6032a35] Command: cd /var/www/html/sarelo/releases && /usr/bin/env echo "Branch master (at 9e7a4de1dab1067a3f5e9e64a1be3966022d8821) deployed as release 20170424135308 by usmanirale" >> /var/www/html/sarelo/revisions.log
+  INFO [d6032a35] Finished in 0.636 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2017-04-24 14:57:41 +0100 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [e0671c5a] Running /usr/bin/env mkdir -p /tmp as root@104.131.168.249
+ DEBUG [e0671c5a] Command: /usr/bin/env mkdir -p /tmp
+  INFO [e0671c5a] Finished in 4.135 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-sarelo-staging-usmanirale.sh 0.0%
+  INFO Uploading /tmp/git-ssh-sarelo-staging-usmanirale.sh 100.0%
+  INFO [afa6d90c] Running /usr/bin/env chmod 700 /tmp/git-ssh-sarelo-staging-usmanirale.sh as root@104.131.168.249
+ DEBUG [afa6d90c] Command: /usr/bin/env chmod 700 /tmp/git-ssh-sarelo-staging-usmanirale.sh
+  INFO [afa6d90c] Finished in 0.817 seconds with exit status 0 (successful).
+  INFO [b43e36d4] Running /usr/bin/env git ls-remote --heads git@gitlab.com:switchElites/sarelo.git as root@104.131.168.249
+ DEBUG [b43e36d4] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sarelo-staging-usmanirale.sh" ; /usr/bin/env git ls-remote --heads git@gitlab.com:switchElites/sarelo.git )
+ DEBUG [b43e36d4] 	fbe402a10c474bc7c9b0886cd71e5850d73e8d65
+ DEBUG [b43e36d4] 		
+ DEBUG [b43e36d4] 	refs/heads/admin
+cf534e37ba884cefe85b6c87763b25e8338885be	refs/heads/admin2
+a148c6c8e9ac1f113cc3853f81d1e0ed2a9fe933	refs/heads/dev
+9e7a4de1dab1067a3f5e9e64a1be3966022d8821	refs/heads/master
+6a67b2beaccdadef56f8087b393e2983519a6472	refs/heads/template
+  INFO [b43e36d4] Finished in 2.589 seconds with exit status 0 (successful).
+  INFO [226c62ff] Running /usr/bin/env mkdir -p /var/www/html/sarelo/shared /var/www/html/sarelo/releases as root@104.131.168.249
+ DEBUG [226c62ff] Command: /usr/bin/env mkdir -p /var/www/html/sarelo/shared /var/www/html/sarelo/releases
+  INFO [226c62ff] Finished in 0.623 seconds with exit status 0 (successful).
+ DEBUG [08138745] Running [ -f /var/www/html/sarelo/current/REVISION ] as root@104.131.168.249
+ DEBUG [08138745] Command: [ -f /var/www/html/sarelo/current/REVISION ]
+ DEBUG [08138745] Finished in 0.675 seconds with exit status 1 (failed).
+ DEBUG [9257bba9] Running [ -f /var/www/html/sarelo/repo/HEAD ] as root@104.131.168.249
+ DEBUG [9257bba9] Command: [ -f /var/www/html/sarelo/repo/HEAD ]
+ DEBUG [9257bba9] Finished in 0.758 seconds with exit status 1 (failed).
+ DEBUG [2a443c1c] Running if test ! -d /var/www/html/sarelo; then echo "Directory does not exist '/var/www/html/sarelo'" 1>&2; false; fi as root@104.131.168.249
+ DEBUG [2a443c1c] Command: if test ! -d /var/www/html/sarelo; then echo "Directory does not exist '/var/www/html/sarelo'" 1>&2; false; fi
+ DEBUG [2a443c1c] Finished in 0.675 seconds with exit status 0 (successful).
+  INFO [679298b8] Running /usr/bin/env git clone --mirror git@gitlab.com:switchElites/sarelo.git /var/www/html/sarelo/repo as root@104.131.168.249
+ DEBUG [679298b8] Command: cd /var/www/html/sarelo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sarelo-staging-usmanirale.sh" ; /usr/bin/env git clone --mirror git@gitlab.com:switchElites/sarelo.git /var/www/html/sarelo/repo )
+ DEBUG [679298b8] 	Cloning into bare repository '/var/www/html/sarelo/repo'...
+ DEBUG [679298b8] 	
+ DEBUG [679298b8] 	remote: Counting objects: 7361, done.[K
+ DEBUG [679298b8] 	
+ DEBUG [679298b8] 	remote: Compressing objects:   0% (1/165)   [K
+ DEBUG [679298b8] 	remote: Compressing objects:   1% (2/165)   [Kremote: Compressing objects:   2% (4/165)   [Kremote: Compressing objects:   3% (5/165)   [Kremote: Compressing objects:   4% (7/165)   [Kremote: Compressing objects:   5% (9/165)   [Kremote: Compressing objects:   6% (10/165)   [Kremote: Compressing objects:   7% (12/165)   [Kremote: Compressing objects:   8% (14/165)   [Kremote: Compressing objects:   9% (15/165)   [Kremote: Compressing objects:  10% (17/165)   [Kremote: Compressing objects:  11% (19/165)   [K
+ DEBUG [679298b8] 	remote: Compressing objects:  12% (20/165)   [Kremote: Compressing objects:  13% (22/165)   [Kremote: Compressing objects:  14% (24/165)   [Kremote: Compressing objects:  15% (25/165)   [Kremote: Compressing objects:  16% (27/165)   [K
+ DEBUG [679298b8] 	remote: Compressing objects:  17% (29/165)   [K
+ DEBUG [679298b8] 	remote: Compressing objects:  18% (30/165)   [K
+ DEBUG [679298b8] 	remote: Compressing objects:  19% (32/165)   [Kremote: Compressing objects:  20% (33/165)   [Kremote: Compressing objects:  21% (35/165)   [Kremote: Compressing objects:  22% (37/165)   [K
+ DEBUG [679298b8] 	remote: Compressing objects:  23% (38/165)   [Kremote: Compressing objects:  24% (40/165)   [K
+ DEBUG [679298b8] 	remote: Compressing objects:  25% (42/165)   [Kremote: Compressing objects:  26% (43/165)   [Kremote: Compressing objects:  27% (45/165)   [K
+ DEBUG [679298b8] 	remote: Compressing objects:  28% (47/165)   [K
+ DEBUG [679298b8] 	remote: Compressing objects:  29% (48/165)   [Kremote: Compressing objects:  30% (50/165)   [Kremote: Compressing objects:  31% (52/165)   [Kremote: Compressing objects:  32% (53/165)   [Kremote: Compressing objects:  33% (55/165)   [Kremote: Compressing objects:  34% (57/165)   [Kremote: Compressing objects:  35% (58/165)   [Kremote: Compressing objects:  36% (60/165)   [Kremote: Compressing objects:  37% (62/165)   [Kremote: Compressing objects:  38% (63/165)   [Kremote: Compressing objects:  39% (65/165)   [Kremote: Compressing objects:  40% (66/165)   [Kremote: Compressing objects:  41% (68/165)   [Kremote: Compressing objects:  42% (70/165)   [Kremote: Compressing objects:  43% (71/165)   [Kremote: Compressing objects:  44% (73/165)   [Kremote: Compressing objects:  45% (75/165)   [Kremote: Compressing objects:  46% (76/165)   [Kremote: Compressing objects:  47% (78/165)   [Kremote: Compressing objects:  48% (80/165)   [Kremote: Compressing objects:  49% (81/165)   [Kremote: Compressing objects:  50% (83/165)   [Kremote: Compressing objects:  51% (85/165)   [Kremote: Compressing objects:  52% (86/165)   [Kremote: Compressing objects:  53% (88/165)   [Kremote: Compressing objects:  54% (90/165)   [Kremote: Compressing objects:  55% (91/165)   [Kremote: Compressing objects:  56% (93/165)   [Kremote: Compressing objects:  57% (95/165)   [Kremote: Compressing objects:  58% (96/165)   [Kremote: Compressing objects:  59% (98/165)   [Kremote: Compressing objects:  60% (99/165)   [Kremote: Compressing objects:  61% (101/165)   [Kremote: Compressing objects:  62% (103/165)   [Kremote: Compressing objects:  63% (104/165)   [K
+ DEBUG [679298b8] 	remote: Compressing objects:  64% (106/165)   [Kremote: Compressing objects:  65% (108/165)   [Kremote: Compressing objects:  66% (109/165)   [Kremote: Compressing objects:  67% (111/165)   [Kremote: Compressing objects:  68% (113/165)   [Kremote: Compressing objects:  69% (114/165)   [Kremote: Compressing objects:  70% (116/165)   [Kremote: Compressing objects:  71% (118/165)   [Kremote: Compressing objects:  72% (119/165)   [Kremote: Compressing objects:  73% (121/165)   [Kremote: Compressing objects:  74% (123/165)   [Kremote: Compressing objects:  75% (124/165)   [K
+ DEBUG [679298b8] 	remote: Compressing objects:  76% (126/165)   [Kremote: Compressing objects:  77% (128/165)   [Kremote: Compressing objects:  78% (129/165)   [Kremote: Compressing objects:  79% (131/165)   [Kremote: Compressing objects:  80% (132/165)   [Kremote: Compressing objects:  81% (134/165)   [Kremote: Compressing objects:  82% (136/165)   [Kremote: Compressing objects:  83% (137/165)   [Kremote: Compressing objects:  84% (139/165)   [Kremote: Compressing objects:  85% (141/165)   [Kremote: Compressing objects:  86% (142/165)   [K
+ DEBUG [679298b8] 	remote: Compressing objects:  87% (144/165)   [K
+ DEBUG [679298b8] 	remote: Compressing objects:  88% (146/165)   [Kremote: Compressing objects:  89% (147/165)   [K
+ DEBUG [679298b8] 	remote: Compressing objects:  90% (149/165)   [Kremote: Compressing objects:  91% (151/165)   [Kremote: Compressing objects:  92% (152/165)   [Kremote: Compressing objects:  93% (154/165)   [Kremote: Compressing objects:  94% (156/165)   [Kremote: Compressing objects:  95% (157/165)   [Kremote: Compressing objects:  96% (159/165)   [Kremote: Compressing objects:  97% (161/165)   [Kremote: Compressing objects:  98% (162/165)   [Kremote: Compressing objects:  99% (164/165)   [Kremote: Compressing objects: 100% (165/165)   [Kremote: Compressing objects: 100% (165/165), done.[K
+ DEBUG [679298b8] 	Receiving objects:   0% (1/7361)   
+ DEBUG [679298b8] 	Receiving objects:   1% (74/7361)   
+ DEBUG [679298b8] 	Receiving objects:   2% (148/7361)   
+ DEBUG [679298b8] 	Receiving objects:   3% (221/7361)   
+ DEBUG [679298b8] 	Receiving objects:   4% (295/7361)   
+ DEBUG [679298b8] 	Receiving objects:   5% (369/7361)   
+ DEBUG [679298b8] 	Receiving objects:   5% (408/7361), 12.36 MiB | 12.34 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:   5% (416/7361), 35.69 MiB | 17.83 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:   6% (442/7361), 35.69 MiB | 17.83 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:   7% (516/7361), 35.69 MiB | 17.83 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:   8% (589/7361), 43.07 MiB | 17.22 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:   9% (663/7361), 43.07 MiB | 17.22 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  10% (737/7361), 43.07 MiB | 17.22 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  11% (810/7361), 43.07 MiB | 17.22 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  12% (884/7361), 43.07 MiB | 17.22 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  13% (957/7361), 43.07 MiB | 17.22 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  14% (1031/7361), 43.07 MiB | 17.22 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  15% (1105/7361), 43.07 MiB | 17.22 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  16% (1178/7361), 43.07 MiB | 17.22 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  16% (1246/7361), 43.07 MiB | 17.22 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  17% (1252/7361), 47.05 MiB | 15.68 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  18% (1325/7361), 47.05 MiB | 15.68 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  19% (1399/7361), 47.05 MiB | 15.68 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  20% (1473/7361), 47.05 MiB | 15.68 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  21% (1546/7361), 47.05 MiB | 15.68 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  22% (1620/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  23% (1694/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  24% (1767/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  25% (1841/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  26% (1914/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  27% (1988/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  28% (2062/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  29% (2135/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  30% (2209/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  31% (2282/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  32% (2356/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  33% (2430/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  34% (2503/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  35% (2577/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  36% (2650/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  37% (2724/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  38% (2798/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  39% (2871/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  40% (2945/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  41% (3019/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  42% (3092/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  43% (3166/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  44% (3239/7361), 55.05 MiB | 15.72 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  44% (3280/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  45% (3313/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  46% (3387/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  47% (3460/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  48% (3534/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  49% (3607/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  50% (3681/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  51% (3755/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  52% (3828/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  53% (3902/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  54% (3975/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  55% (4049/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  56% (4123/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  57% (4196/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  58% (4270/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  59% (4343/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  60% (4417/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  61% (4491/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  62% (4564/7361), 64.51 MiB | 16.12 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  63% (4638/7361), 75.72 MiB | 16.82 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  64% (4712/7361), 75.72 MiB | 16.82 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  65% (4785/7361), 75.72 MiB | 16.82 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  66% (4859/7361), 75.72 MiB | 16.82 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  67% (4932/7361), 75.72 MiB | 16.82 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  68% (5006/7361), 75.72 MiB | 16.82 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  69% (5080/7361), 75.72 MiB | 16.82 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  70% (5153/7361), 75.72 MiB | 16.82 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  70% (5163/7361), 75.72 MiB | 16.82 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  71% (5227/7361), 90.67 MiB | 19.07 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  72% (5300/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  73% (5374/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  74% (5448/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  75% (5521/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  76% (5595/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  77% (5668/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  78% (5742/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  79% (5816/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  80% (5889/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  81% (5963/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  82% (6037/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  83% (6110/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  84% (6184/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  85% (6257/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  86% (6331/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  87% (6405/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  88% (6478/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  89% (6552/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  90% (6625/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  91% (6699/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  92% (6773/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  93% (6846/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  94% (6920/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  95% (6993/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  96% (7067/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  97% (7141/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	remote: Total 7361 (delta 168), reused 155 (delta 93)[K
+ DEBUG [679298b8] 	
+ DEBUG [679298b8] 	Receiving objects:  98% (7214/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects:  99% (7288/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects: 100% (7361/7361), 105.31 MiB | 20.66 MiB/s   
+ DEBUG [679298b8] 	Receiving objects: 100% (7361/7361), 112.71 MiB | 21.68 MiB/s, done.
+ DEBUG [679298b8] 	
+ DEBUG [679298b8] 	Resolving deltas:   0% (0/2087)   
+ DEBUG [679298b8] 	Resolving deltas:   6% (141/2087)   
+ DEBUG [679298b8] 	Resolving deltas:   8% (179/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  10% (209/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  11% (241/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  12% (258/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  13% (274/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  14% (293/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  15% (318/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  16% (338/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  17% (357/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  18% (380/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  19% (398/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  20% (437/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  22% (471/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  23% (481/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  25% (524/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  26% (563/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  27% (566/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  28% (589/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  32% (678/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  33% (689/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  34% (713/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  35% (731/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  36% (757/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  37% (773/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  38% (794/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  39% (821/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  40% (838/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  41% (871/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  42% (877/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  43% (902/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  44% (922/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  45% (942/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  46% (963/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  47% (982/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  48% (1002/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  49% (1024/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  50% (1046/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  51% (1077/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  52% (1086/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  56% (1173/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  57% (1202/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  58% (1211/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  59% (1232/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  60% (1256/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  61% (1275/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  62% (1312/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  63% (1315/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  70% (1468/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  71% (1486/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  72% (1506/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  73% (1524/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  74% (1554/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  75% (1577/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  76% (1593/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  77% (1621/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  79% (1651/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  81% (1698/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  82% (1721/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  83% (1741/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  84% (1761/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  85% (1780/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  86% (1795/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  87% (1816/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  88% (1846/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  89% (1859/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  90% (1881/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  91% (1900/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  92% (1921/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  93% (1954/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  94% (1965/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  95% (1983/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  96% (2004/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  97% (2025/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  98% (2057/2087)   
+ DEBUG [679298b8] 	Resolving deltas:  99% (2071/2087)   
+ DEBUG [679298b8] 	Resolving deltas: 100% (2087/2087)   
+ DEBUG [679298b8] 	Resolving deltas: 100% (2087/2087), done.
+ DEBUG [679298b8] 	
+ DEBUG [679298b8] 	Checking connectivity... 
+ DEBUG [679298b8] 	done.
+ DEBUG [679298b8] 	
+  INFO [679298b8] Finished in 9.318 seconds with exit status 0 (successful).
+ DEBUG [3ac1b739] Running if test ! -d /var/www/html/sarelo/repo; then echo "Directory does not exist '/var/www/html/sarelo/repo'" 1>&2; false; fi as root@104.131.168.249
+ DEBUG [3ac1b739] Command: if test ! -d /var/www/html/sarelo/repo; then echo "Directory does not exist '/var/www/html/sarelo/repo'" 1>&2; false; fi
+ DEBUG [3ac1b739] Finished in 1.260 seconds with exit status 0 (successful).
+  INFO [250d90d8] Running /usr/bin/env git remote update --prune as root@104.131.168.249
+ DEBUG [250d90d8] Command: cd /var/www/html/sarelo/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sarelo-staging-usmanirale.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [250d90d8] 	Fetching origin
+ DEBUG [250d90d8] 	
+  INFO [250d90d8] Finished in 2.936 seconds with exit status 0 (successful).
+ DEBUG [b4343082] Running if test ! -d /var/www/html/sarelo/repo; then echo "Directory does not exist '/var/www/html/sarelo/repo'" 1>&2; false; fi as root@104.131.168.249
+ DEBUG [b4343082] Command: if test ! -d /var/www/html/sarelo/repo; then echo "Directory does not exist '/var/www/html/sarelo/repo'" 1>&2; false; fi
+ DEBUG [b4343082] Finished in 0.818 seconds with exit status 0 (successful).
+  INFO [31b254c9] Running /usr/bin/env mkdir -p /var/www/html/sarelo/releases/20170424135754 as root@104.131.168.249
+ DEBUG [31b254c9] Command: cd /var/www/html/sarelo/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sarelo-staging-usmanirale.sh" ; /usr/bin/env mkdir -p /var/www/html/sarelo/releases/20170424135754 )
+  INFO [31b254c9] Finished in 0.685 seconds with exit status 0 (successful).
+  INFO [eb92d130] Running /usr/bin/env git archive master | tar -x -f - -C /var/www/html/sarelo/releases/20170424135754 as root@104.131.168.249
+ DEBUG [eb92d130] Command: cd /var/www/html/sarelo/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sarelo-staging-usmanirale.sh" ; /usr/bin/env git archive master | tar -x -f - -C /var/www/html/sarelo/releases/20170424135754 )
+  INFO [eb92d130] Finished in 6.994 seconds with exit status 0 (successful).
+ DEBUG [cb3348d4] Running if test ! -d /var/www/html/sarelo/repo; then echo "Directory does not exist '/var/www/html/sarelo/repo'" 1>&2; false; fi as root@104.131.168.249
+ DEBUG [cb3348d4] Command: if test ! -d /var/www/html/sarelo/repo; then echo "Directory does not exist '/var/www/html/sarelo/repo'" 1>&2; false; fi
+ DEBUG [cb3348d4] Finished in 0.820 seconds with exit status 0 (successful).
+ DEBUG [dab7f35d] Running /usr/bin/env git rev-list --max-count=1 master as root@104.131.168.249
+ DEBUG [dab7f35d] Command: cd /var/www/html/sarelo/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-sarelo-staging-usmanirale.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [dab7f35d] 	9e7a4de1dab1067a3f5e9e64a1be3966022d8821
+ DEBUG [dab7f35d] 	
+ DEBUG [dab7f35d] Finished in 0.714 seconds with exit status 0 (successful).
+ DEBUG [7a70ad26] Running if test ! -d /var/www/html/sarelo/releases/20170424135754; then echo "Directory does not exist '/var/www/html/sarelo/releases/20170424135754'" 1>&2; false; fi as root@104.131.168.249
+ DEBUG [7a70ad26] Command: if test ! -d /var/www/html/sarelo/releases/20170424135754; then echo "Directory does not exist '/var/www/html/sarelo/releases/20170424135754'" 1>&2; false; fi
+ DEBUG [7a70ad26] Finished in 0.716 seconds with exit status 0 (successful).
+  INFO [833392d0] Running /usr/bin/env echo "9e7a4de1dab1067a3f5e9e64a1be3966022d8821" >> REVISION as root@104.131.168.249
+ DEBUG [833392d0] Command: cd /var/www/html/sarelo/releases/20170424135754 && /usr/bin/env echo "9e7a4de1dab1067a3f5e9e64a1be3966022d8821" >> REVISION
+  INFO [833392d0] Finished in 0.818 seconds with exit status 0 (successful).
+ DEBUG [1c7ed4c6] Running if test ! -d /var/www/html/sarelo/releases/20170424135754; then echo "Directory does not exist '/var/www/html/sarelo/releases/20170424135754'" 1>&2; false; fi as root@104.131.168.249
+ DEBUG [1c7ed4c6] Command: if test ! -d /var/www/html/sarelo/releases/20170424135754; then echo "Directory does not exist '/var/www/html/sarelo/releases/20170424135754'" 1>&2; false; fi
+ DEBUG [1c7ed4c6] Finished in 0.640 seconds with exit status 0 (successful).
+  INFO [edb3ab09] Running cp /var/www/html/sarelo/releases/20170424135754/.env.example /var/www/html/sarelo/releases/20170424135754/.env as root@104.131.168.249
+ DEBUG [edb3ab09] Command: cp /var/www/html/sarelo/releases/20170424135754/.env.example /var/www/html/sarelo/releases/20170424135754/.env
+  INFO [edb3ab09] Finished in 0.795 seconds with exit status 0 (successful).
+  INFO [4e973bc7] Running /usr/bin/env composer install as root@104.131.168.249
+ DEBUG [4e973bc7] Command: cd /var/www/html/sarelo/releases/20170424135754 && /usr/bin/env composer install
+ DEBUG [4e973bc7] 	[30;43mDo not run Composer as root/super user! See https://getcomposer.org/root for details[39;49m
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	[32mLoading composer repositories with package information[39m
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	[32mInstalling dependencies (including require-dev) from lock file[39m
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	[32mPackage operations: 82 installs, 0 updates, 0 removals[39m
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mdoctrine/lexer[39m ([33mv1.0.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mdoctrine/annotations[39m ([33mv1.4.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mdoctrine/cache[39m ([33mv1.6.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mdoctrine/collections[39m ([33mv1.4.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mdoctrine/inflector[39m ([33mv1.1.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mdoctrine/common[39m ([33mv2.7.2[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mdoctrine/dbal[39m ([33mv2.5.12[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32merusev/parsedown[39m ([33m1.6.2[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mvlucas/phpdotenv[39m ([33mv2.4.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msymfony/css-selector[39m ([33mv3.2.7[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mtijsverkoyen/css-to-inline-styles[39m ([33m2.2.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msymfony/polyfill-mbstring[39m ([33mv1.3.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msymfony/var-dumper[39m ([33mv3.2.7[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msymfony/routing[39m ([33mv3.2.7[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msymfony/process[39m ([33mv3.2.7[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msymfony/http-foundation[39m ([33mv3.2.7[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msymfony/event-dispatcher[39m ([33mv3.2.7[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mpsr/log[39m ([33m1.0.2[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msymfony/debug[39m ([33mv3.2.7[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msymfony/http-kernel[39m ([33mv3.2.7[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msymfony/finder[39m ([33mv3.2.7[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msymfony/console[39m ([33mv3.2.7[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mswiftmailer/swiftmailer[39m ([33mv5.4.6[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mparagonie/random_compat[39m ([33mv2.0.10[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mramsey/uuid[39m ([33m3.6.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msymfony/translation[39m ([33mv3.2.7[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mnesbot/carbon[39m ([33m1.22.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mmtdowling/cron-expression[39m ([33mv1.2.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mmonolog/monolog[39m ([33m1.22.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mleague/flysystem[39m ([33m1.0.37[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mlaravel/framework[39m ([33mv5.4.18[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mgloudemans/shoppingcart[39m ([33m2.3.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mguzzlehttp/promises[39m ([33mv1.3.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mpsr/http-message[39m ([33m1.0.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mguzzlehttp/psr7[39m ([33m1.4.2[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mintervention/image[39m ([33m2.3.11[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mjakub-onderka/php-console-color[39m ([33m0.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mguzzlehttp/guzzle[39m ([33m6.2.3[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mleague/oauth1-client[39m ([33m1.7.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mlaravel/socialite[39m ([33mv3.0.4[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mnikic/php-parser[39m ([33mv3.0.5[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mjakub-onderka/php-console-highlighter[39m ([33mv0.3.2[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mdnoegel/php-xdg-base-dir[39m ([33m0.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mpsy/psysh[39m ([33mv0.8.3[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mlaravel/tinker[39m ([33mv1.0.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mlaravelcollective/html[39m ([33mv5.4.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mleague/csv[39m ([33m8.2.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mleague/fractal[39m ([33m0.15.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mphpoffice/phpexcel[39m ([33m1.8.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msymfony/polyfill-util[39m ([33mv1.3.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msymfony/polyfill-php56[39m ([33mv1.3.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mjeremeamia/superclosure[39m ([33m2.3.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mmaatwebsite/excel[39m ([33m2.1.17[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mappzcoder/crud-generator[39m ([33mv2.0.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mfzaninotto/faker[39m ([33mv1.6.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mhamcrest/hamcrest-php[39m ([33mv1.2.2[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mmockery/mockery[39m ([33m0.9.9[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mwebmozart/assert[39m ([33m1.2.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mphpdocumentor/reflection-common[39m ([33m1.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mphpdocumentor/type-resolver[39m ([33m0.2.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mphpdocumentor/reflection-docblock[39m ([33m3.1.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mphpunit/php-token-stream[39m ([33m1.4.11[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msymfony/yaml[39m ([33mv3.2.7[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msebastian/version[39m ([33m2.0.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msebastian/resource-operations[39m ([33m1.0.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msebastian/recursion-context[39m ([33m2.0.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msebastian/object-enumerator[39m ([33m2.0.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msebastian/global-state[39m ([33m1.1.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msebastian/exporter[39m ([33m2.0.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msebastian/environment[39m ([33m2.0.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msebastian/diff[39m ([33m1.4.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msebastian/comparator[39m ([33m1.2.4[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mphpunit/php-text-template[39m ([33m1.2.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mdoctrine/instantiator[39m ([33m1.0.5[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mphpunit/phpunit-mock-objects[39m ([33m3.4.3[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mphpunit/php-timer[39m ([33m1.0.9[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mphpunit/php-file-iterator[39m ([33m1.4.2[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32msebastian/code-unit-reverse-lookup[39m ([33m1.0.1[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mphpunit/php-code-coverage[39m ([33m4.0.8[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mphpspec/prophecy[39m ([33mv1.7.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mmyclabs/deep-copy[39m ([33m1.6.0[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	  - Installing [32mphpunit/phpunit[39m ([33m5.7.19[39m)
+ DEBUG [4e973bc7] 	 Loading from cache
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	symfony/var-dumper suggests installing ext-symfony_debug ()
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	symfony/routing suggests installing symfony/config (For using the all-in-one router or any loader)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	symfony/routing suggests installing symfony/dependency-injection (For loading routes from a service)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	symfony/routing suggests installing symfony/expression-language (For using expression matching)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	symfony/event-dispatcher suggests installing symfony/dependency-injection ()
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	symfony/http-kernel suggests installing symfony/browser-kit ()
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	symfony/http-kernel suggests installing symfony/class-loader ()
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	symfony/http-kernel suggests installing symfony/config ()
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	symfony/http-kernel suggests installing symfony/dependency-injection ()
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	symfony/console suggests installing symfony/filesystem ()
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	paragonie/random_compat suggests installing ext-libsodium (Provides a modern crypto API that can be used to generate random bytes.)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	ramsey/uuid suggests installing ext-libsodium (Provides the PECL libsodium extension for use with the SodiumRandomGenerator)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	ramsey/uuid suggests installing ext-uuid (Provides the PECL UUID extension for use with the PeclUuidTimeGenerator and PeclUuidRandomGenerator)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	ramsey/uuid suggests installing ircmaxell/random-lib (Provides RandomLib for use with the RandomLibAdapter)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	ramsey/uuid suggests installing moontoast/math (Provides support for converting UUID to 128-bit integer (in string form).)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	ramsey/uuid suggests installing ramsey/uuid-console (A console application for generating UUIDs with ramsey/uuid)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	ramsey/uuid suggests installing ramsey/uuid-doctrine (Allows the use of Ramsey\Uuid\Uuid as Doctrine field type.)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	symfony/translation suggests installing symfony/config ()
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	monolog/monolog suggests installing aws/aws-sdk-php (Allow sending log messages to AWS services like DynamoDB)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	monolog/monolog suggests installing doctrine/couchdb (Allow sending log messages to a CouchDB server)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	monolog/monolog suggests installing ext-amqp (Allow sending log messages to an AMQP server (1.0+ required))
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	monolog/monolog suggests installing ext-mongo (Allow sending log messages to a MongoDB server)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	monolog/monolog suggests installing graylog2/gelf-php (Allow sending log messages to a GrayLog2 server)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	monolog/monolog suggests installing mongodb/mongodb (Allow sending log messages to a MongoDB server via PHP Driver)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	monolog/monolog suggests installing php-amqplib/php-amqplib (Allow sending log messages to an AMQP server using php-amqplib)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	monolog/monolog suggests installing php-console/php-console (Allow sending log messages to Google Chrome)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	monolog/monolog suggests installing rollbar/rollbar (Allow sending log messages to Rollbar)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	monolog/monolog suggests installing ruflin/elastica (Allow sending log messages to an Elastic Search server)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	monolog/monolog suggests installing sentry/sentry (Allow sending log messages to a Sentry server)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	league/flysystem suggests installing league/flysystem-aws-s3-v2 (Allows you to use S3 storage with AWS SDK v2)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	league/flysystem suggests installing league/flysystem-aws-s3-v3 (Allows you to use S3 storage with AWS SDK v3)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	league/flysystem suggests installing league/flysystem-azure (Allows you to use Windows Azure Blob storage)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	league/flysystem suggests installing league/flysystem-cached-adapter (Flysystem adapter decorator for metadata caching)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	league/flysystem suggests installing league/flysystem-copy (Allows you to use Copy.com storage)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	league/flysystem suggests installing league/flysystem-dropbox (Allows you to use Dropbox storage)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	league/flysystem suggests installing league/flysystem-eventable-filesystem (Allows you to use EventableFilesystem)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	league/flysystem suggests installing league/flysystem-rackspace (Allows you to use Rackspace Cloud Files)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	league/flysystem suggests installing league/flysystem-sftp (Allows you to use SFTP server storage via phpseclib)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	league/flysystem suggests installing league/flysystem-webdav (Allows you to use WebDAV storage)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	league/flysystem suggests installing league/flysystem-ziparchive (Allows you to use ZipArchive adapter)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	laravel/framework suggests installing aws/aws-sdk-php (Required to use the SQS queue driver and SES mail driver (~3.0).)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	laravel/framework suggests installing league/flysystem-aws-s3-v3 (Required to use the Flysystem S3 driver (~1.0).)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	laravel/framework suggests installing league/flysystem-rackspace (Required to use the Flysystem Rackspace driver (~1.0).)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	laravel/framework suggests installing nexmo/client (Required to use the Nexmo transport (~1.0).)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	laravel/framework suggests installing pda/pheanstalk (Required to use the beanstalk queue driver (~3.0).)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	laravel/framework suggests installing predis/predis (Required to use the redis cache and queue drivers (~1.0).)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	laravel/framework suggests installing pusher/pusher-php-server (Required to use the Pusher broadcast driver (~2.0).)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	laravel/framework suggests installing symfony/dom-crawler (Required to use most of the crawler integration testing tools (~3.2).)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	laravel/framework suggests installing symfony/psr-http-message-bridge (Required to psr7 bridging features (0.2.*).)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	gloudemans/shoppingcart suggests installing gloudemans/notify (Simple flash notifications for Laravel)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	intervention/image suggests installing ext-gd (to use GD library based image processing.)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	intervention/image suggests installing ext-imagick (to use Imagick based image processing.)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	intervention/image suggests installing intervention/imagecache (Caching extension for the Intervention Image library)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	psy/psysh suggests installing ext-pdo-sqlite (The doc command requires SQLite to work.)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	psy/psysh suggests installing hoa/console (A pure PHP readline implementation. You'll want this if your PHP install doesn't already support readline or libedit.)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	league/fractal suggests installing pagerfanta/pagerfanta (Pagerfanta Paginator)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	league/fractal suggests installing zendframework/zend-paginator (Zend Framework Paginator)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	sebastian/global-state suggests installing ext-uopz (*)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	phpunit/phpunit-mock-objects suggests installing ext-soap (*)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	phpunit/php-code-coverage suggests installing ext-xdebug (^2.5.1)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	phpunit/phpunit suggests installing ext-xdebug (*)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	phpunit/phpunit suggests installing phpunit/php-invoker (~1.1)
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	[32mGenerating autoload files[39m
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	> Illuminate\Foundation\ComposerScripts::postInstall
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	> php artisan optimize
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	Generating optimized class loader
+ DEBUG [4e973bc7] 	
+ DEBUG [4e973bc7] 	The compiled services file has been removed.
+ DEBUG [4e973bc7] 	
+  INFO [4e973bc7] Finished in 7.781 seconds with exit status 0 (successful).
+  INFO [cda8029d] Running /usr/bin/env composer dump-autoload -o as root@104.131.168.249
+ DEBUG [cda8029d] Command: cd /var/www/html/sarelo/releases/20170424135754 && /usr/bin/env composer dump-autoload -o
+ DEBUG [cda8029d] 	[30;43mDo not run Composer as root/super user! See https://getcomposer.org/root for details[39;49m
+ DEBUG [cda8029d] 	
+ DEBUG [cda8029d] 	[32mGenerating optimized autoload files[39m
+ DEBUG [cda8029d] 	
+  INFO [cda8029d] Finished in 2.147 seconds with exit status 0 (successful).
+  INFO [7f1d947c] Running php /var/www/html/sarelo/releases/20170424135754/artisan key:generate as root@104.131.168.249
+ DEBUG [7f1d947c] Command: php /var/www/html/sarelo/releases/20170424135754/artisan key:generate
+ DEBUG [7f1d947c] 	[32mApplication key [base64:359AjurLR1n/2GGm+ocywP2rJn98daLFy6Dx55/FRfc=] set successfully.[39m
+ DEBUG [7f1d947c] 	
+  INFO [7f1d947c] Finished in 0.995 seconds with exit status 0 (successful).
+  INFO [66ececee] Running chmod -R 777 /var/www/html/sarelo/releases/20170424135754/storage as root@104.131.168.249
+ DEBUG [66ececee] Command: chmod -R 777 /var/www/html/sarelo/releases/20170424135754/storage
+  INFO [66ececee] Finished in 1.211 seconds with exit status 0 (successful).
+  INFO [125fc824] Running chmod -R 777 /var/www/html/sarelo/releases/20170424135754/bootstrap/cache as root@104.131.168.249
+ DEBUG [125fc824] Command: chmod -R 777 /var/www/html/sarelo/releases/20170424135754/bootstrap/cache
+  INFO [125fc824] Finished in 0.664 seconds with exit status 0 (successful).
+  INFO [be71bdd6] Running chmod -R 777 /var/www/html/sarelo/releases/20170424135754/vendor as root@104.131.168.249
+ DEBUG [be71bdd6] Command: chmod -R 777 /var/www/html/sarelo/releases/20170424135754/vendor
+  INFO [be71bdd6] Finished in 0.711 seconds with exit status 0 (successful).
+  INFO [8e781aed] Running chmod -R 777 /var/www/html/sarelo/releases/20170424135754/public as root@104.131.168.249
+ DEBUG [8e781aed] Command: chmod -R 777 /var/www/html/sarelo/releases/20170424135754/public
+  INFO [8e781aed] Finished in 0.756 seconds with exit status 0 (successful).
+  INFO [df33dbb9] Running php /var/www/html/sarelo/releases/20170424135754/artisan migrate as root@104.131.168.249
+ DEBUG [df33dbb9] Command: php /var/www/html/sarelo/releases/20170424135754/artisan migrate
+ DEBUG [df33dbb9] 	[32mNothing to migrate.[39m
+ DEBUG [df33dbb9] 	
+  INFO [df33dbb9] Finished in 0.935 seconds with exit status 0 (successful).
+  INFO [ecca976d] Running /usr/bin/env ln -s /var/www/html/sarelo/releases/20170424135754 /var/www/html/sarelo/releases/current as root@104.131.168.249
+ DEBUG [ecca976d] Command: /usr/bin/env ln -s /var/www/html/sarelo/releases/20170424135754 /var/www/html/sarelo/releases/current
+  INFO [ecca976d] Finished in 0.630 seconds with exit status 0 (successful).
+  INFO [e82f6055] Running /usr/bin/env mv /var/www/html/sarelo/releases/current /var/www/html/sarelo as root@104.131.168.249
+ DEBUG [e82f6055] Command: /usr/bin/env mv /var/www/html/sarelo/releases/current /var/www/html/sarelo
+  INFO [e82f6055] Finished in 0.739 seconds with exit status 0 (successful).
+ DEBUG [f56d327d] Running /usr/bin/env ls -xtr /var/www/html/sarelo/releases as root@104.131.168.249
+ DEBUG [f56d327d] Command: /usr/bin/env ls -xtr /var/www/html/sarelo/releases
+ DEBUG [f56d327d] 	20170424135754
+ DEBUG [f56d327d] 	
+ DEBUG [f56d327d] Finished in 0.818 seconds with exit status 0 (successful).
+ DEBUG [dc946865] Running if test ! -d /var/www/html/sarelo/releases; then echo "Directory does not exist '/var/www/html/sarelo/releases'" 1>&2; false; fi as root@104.131.168.249
+ DEBUG [dc946865] Command: if test ! -d /var/www/html/sarelo/releases; then echo "Directory does not exist '/var/www/html/sarelo/releases'" 1>&2; false; fi
+ DEBUG [dc946865] Finished in 0.818 seconds with exit status 0 (successful).
+  INFO [8ccdcbc2] Running /usr/bin/env echo "Branch master (at 9e7a4de1dab1067a3f5e9e64a1be3966022d8821) deployed as release 20170424135754 by usmanirale" >> /var/www/html/sarelo/revisions.log as root@104.131.168.249
+ DEBUG [8ccdcbc2] Command: cd /var/www/html/sarelo/releases && /usr/bin/env echo "Branch master (at 9e7a4de1dab1067a3f5e9e64a1be3966022d8821) deployed as release 20170424135754 by usmanirale" >> /var/www/html/sarelo/revisions.log
+  INFO [8ccdcbc2] Finished in 0.676 seconds with exit status 0 (successful).

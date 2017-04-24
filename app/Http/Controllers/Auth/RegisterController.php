@@ -64,14 +64,14 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $role = Role::where('name', 'User')->first();
-    
+
         $name = explode(" ", $data['name']);
 
         $user =  User::create([
             'first_name' => $name[0],
             'last_name' => isset($name[1])? $name[1]: " ",
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => bcrypt($data['password'])
         ]);
 
         $user->role()->associate($role);
@@ -79,6 +79,6 @@ class RegisterController extends Controller
         $user->save();
 
         return $user;
-         
+
     }
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-   
+
     <head>
         <meta charset="utf-8" />
         <title>@yield('title')</title>
@@ -47,7 +47,7 @@
             <div class="page-header-inner ">
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
-                    <a href="index.html">
+                    <a href="/">
                         <img src="/dashboard/assets/layouts/layout4/img/sarelo2.svg" alt="logo" class="logo-default" />
                     </a>
                 </div>
@@ -59,7 +59,7 @@
                 <!-- DOC: Remove "hide" class to enable the page header actions -->
                 <div class="page-actions">
                     <div class="btn-group">
-                        
+
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href="javascript:;">
@@ -92,10 +92,10 @@
                 <!-- END PAGE ACTIONS -->
                 <!-- BEGIN PAGE TOP -->
                 <div class="page-top">
-                    
+
                     <!-- BEGIN TOP NAVIGATION MENU -->
                     <div class="top-menu">
-                    
+
                     </div>
                     <!-- END TOP NAVIGATION MENU -->
                 </div>
@@ -111,7 +111,7 @@
             @yield('content')
 
                 <div class="page-footer">
-            
+
             <div class="scroll-to-top">
                 <i class="icon-arrow-up"></i>
             </div>
@@ -119,7 +119,7 @@
         <!-- END FOOTER -->
         <!--[if lt IE 9]>
 <script src="dashboard/assets/global/plugins/respond.min.js"></script>
-<script src="dashboard/assets/global/plugins/excanvas.min.js"></script> 
+<script src="dashboard/assets/global/plugins/excanvas.min.js"></script>
 <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
         <script src="/dashboard/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
@@ -185,7 +185,7 @@
         <script src="/dashboard/assets/layouts/layout4/scripts/layout.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/layouts/layout4/scripts/demo.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
-        
+
         <!-- END THEME LAYOUT SCRIPTS -->
     </body>
 

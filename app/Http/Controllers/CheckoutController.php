@@ -20,10 +20,10 @@ use App\Models\OrderProduct;
 use App\Models\OrderSlot;
 use App\Models\UserAddress;
 use App\User;
+use App\Models\Role;
 use App\Models\Transaction;
 
 use Session;
-
 
 class CheckoutController extends Controller
 {
@@ -33,10 +33,10 @@ class CheckoutController extends Controller
     }
 
     public function billingAddress(Request $request)
-    {  
+    {
         if(Auth::user())
             return redirect('/checkout/choose-address');
-            
+
         if($request->isMethod('post')){
 
             $this->validate($request,[
@@ -49,7 +49,7 @@ class CheckoutController extends Controller
                 'email' => 'required|unique:users'
             ]);
 
-            
+
             $new_user = User::create([
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
@@ -57,11 +57,19 @@ class CheckoutController extends Controller
                 'phone' => $request->phone,
                 'password' => bcrypt($request->password),
             ]);
-            
+
+            $role = Role::where('name', 'User')->first();
+
+            $new_user->role()->associate($role);
+
+            $new_user->save();
+
             $new_address = new UserAddress([
                                 'address' => $request->address,
                                 'city' => $request->city
                             ]);
+
+
 
             $new_user->user_addresses()->save($new_address);
 
@@ -69,14 +77,14 @@ class CheckoutController extends Controller
                 Session::put('order_details.delivery_instruction', $request->instruction);
 
             if (Auth::attempt(['email'=> $request->email, 'password' => $request->password])) {
-           
+
                 return redirect()->intended('/checkout/choose-address');
             }
-                 
+
 
             return redirect()->intended('/checkout/choose-address');
         }
-       
+
         $basket = Helpers::getCartSummary();
 
         return view('checkout.address', compact('basket'));
@@ -103,21 +111,21 @@ class CheckoutController extends Controller
             }
 
             Session::put('order_details.user_address_id', $request->address);
-            
+
             if($request->receiver_no)
                 Session::put('order_details.receiver_phone', $request->receiver_no);
-            
+
             return redirect('/checkout/choose-delivery-slot');
         }
-        
+
         return view('checkout.choose-address', compact('basket', 'addresses'));
     }
 
 
     public function payment(Request $request)
-    {        
+    {
         $total = 0;
-         
+
          $items = Cart::content();
 
          foreach ($items as $item) {
@@ -132,7 +140,7 @@ class CheckoutController extends Controller
 
             if($charge['percentage'] <= 0)
                 $charges_subtotal += $charge['fixed_amount'];
-            else  
+            else
                 $charges_subtotal += $total * ($charge['percentage']/100);
          }
 
@@ -142,7 +150,7 @@ class CheckoutController extends Controller
     public function makeOrder(Request $request)
     {
          $total = 0;
-         
+
          $items = Cart::content();
 
          foreach ($items as $item) {
@@ -156,7 +164,7 @@ class CheckoutController extends Controller
          foreach ($charges as $charge) {
             if($charge['percentage'] <= 0)
                 $charges_subtotal += $charge['fixed_amount'];
-            else  
+            else
                 $charges_subtotal += $total * ($charge['percentage']/100);
          }
 
