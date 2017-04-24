@@ -42,15 +42,32 @@
                             </div>
                             <!-- END WIDGET THUMB -->
                         </div> --}}
+                         @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @elseif(session('delete_message'))
+                                <div class="alert alert-danger">
+                                    {{ session('delete_message') }}
+                                </div>
+                                @elseif(count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    @foreach($errors->all() as $error)
+                                        <strong>Error Upon Submission...</strong> {{ $error }}
+                                    @endforeach
+                                </div>
+                            @endif
                         <div class="col-md-4">
+
                             <!-- BEGIN WIDGET THUMB -->
                             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
-                                <h4 class="widget-thumb-heading">Weekly Sales</h4>
+                                <h4 class="widget-thumb-heading">Total Expense</h4>
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-red icon-layers"></i>
                                     <div class="widget-thumb-body">
                                         <span class="widget-thumb-subtitle">NGN</span>
-                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="1,293">0</span>
+                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$ordersResult}}">0</span>
                                     </div>
                                 </div>
                             </div>
@@ -59,26 +76,25 @@
                         <div class="col-md-4">
                             <!-- BEGIN WIDGET THUMB -->
                             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
-                                <h4 class="widget-thumb-heading">Biggest Purchase</h4>
+                                <h4 class="widget-thumb-heading">All Users</h4>
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-purple icon-screen-desktop"></i>
                                     <div class="widget-thumb-body">
                                         <span class="widget-thumb-subtitle">NGN</span>
-                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="815">0</span>
+                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$users}}">0</span>
                                     </div>
                                 </div>
                             </div>
-                            <!-- END WIDGET THUMB -->
                         </div>
                         <div class="col-md-4">
                             <!-- BEGIN WIDGET THUMB -->
                             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
-                                <h4 class="widget-thumb-heading">Average Monthly</h4>
+                                <h4 class="widget-thumb-heading">Total Products</h4>
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-blue icon-bar-chart"></i>
                                     <div class="widget-thumb-body">
                                         <span class="widget-thumb-subtitle">NGN</span>
-                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="5,071">0</span>
+                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$products}}">0</span>
                                     </div>
                                 </div>
                             </div>
@@ -436,7 +452,7 @@
                             </div>-->
                             <!-- END PORTLET-->
                         <!--</div>-->
-                        <div class="col-md-6 col-sm-6">
+                       {{--  <div class="col-md-6 col-sm-6">
                             <!-- BEGIN PORTLET-->
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
@@ -502,7 +518,7 @@
                                 </div>
                             </div>
                             <!-- END PORTLET-->
-                        </div>
+                        </div> --}}
                     </div>
                     
                    

@@ -1,14 +1,10 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
-use App\UnitType;
+use App\Models\UnitType;
 use Illuminate\Http\Request;
 use Session;
-
 class UnitTypesController extends Controller
 {
     /**
@@ -30,7 +26,7 @@ class UnitTypesController extends Controller
             $unittypes = UnitType::paginate($perPage);
         }
 
-        return view('admin.unit-types.index', compact('unittypes'));
+        return view('admin.dashboard.unit_type', compact('unittypes'));
     }
 
     /**
@@ -52,14 +48,26 @@ class UnitTypesController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $requestData = $request->all();
-        
-        UnitType::create($requestData);
+        $method = $request->isMethod('post');
+        switch ($method) {
+            case true:
+                $requestData = $request->all();
+                
+                UnitType::create($requestData);
 
-        Session::flash('flash_message', 'UnitType added!');
+                Session::flash('flash_message', 'UnitType added!');
 
-        return redirect('admin/unit-types');
+                return redirect('admin/unit-types');
+                break;
+            case false:
+                    return view('admin/unit-types/create');
+                break;
+                    return view('admin/unit-types/create');
+            default:
+                    return view('admin/unit-types/create');
+                break;
+        }
+        
     }
 
     /**

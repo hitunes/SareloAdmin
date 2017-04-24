@@ -24,7 +24,6 @@ class OrdersController extends Controller
         if (!empty($keyword)) {
             $orders = Order::where('user_id', 'LIKE', "%$keyword%")
 				->orWhere('total', 'LIKE', "%$keyword%")
-				
                 ->paginate($perPage);
         } else {
             $orders = Order::paginate($perPage);

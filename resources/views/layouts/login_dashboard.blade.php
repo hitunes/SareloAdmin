@@ -95,54 +95,7 @@
                     
                     <!-- BEGIN TOP NAVIGATION MENU -->
                     <div class="top-menu">
-                        <ul class="nav navbar-nav pull-right">
-                            <li class="separator hide"> </li>
-                            <!-- BEGIN NOTIFICATION DROPDOWN -->
-                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                            <li class="dropdown dropdown-extended dropdown-notification dropdown-dark" id="header_notification_bar">
-                               
-                            </li>
-                            <!-- END NOTIFICATION DROPDOWN -->
-                            <li class="separator hide"> </li>
-                            <!-- BEGIN INBOX DROPDOWN -->
-                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                           
-                            <!-- END INBOX DROPDOWN -->
-                            <li class="separator hide"> </li>
-                            <!-- BEGIN TODO DROPDOWN -->
-                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                            
-                            <!-- END TODO DROPDOWN -->
-                            <!-- BEGIN USER LOGIN DROPDOWN -->
-                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                            <li class="dropdown dropdown-user dropdown-dark">
-                                
-                                   
-
-                                <a href="{{url('admin/logout')}}" >
-                                 @if(Auth::check())
-                                    <span style="color: #222; cursor: default;" class="username username-hide-on-mobile"><b> {{$user}} </b>| </span>
-                                 @endif
-                                 
-                                    <span class="username username-hide-on-mobile"> Logout
-                                    </span>
-                                </a>
-                                    <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
-                                    <!--<img alt="" class="img-circle" src="assets/layouts/layout4/img/avatar9.jpg" /> </a>-->
-                                <ul class="dropdown-menu dropdown-menu-default">
-                                    <li class="divider"> </li>
-                                    
-                                    <li>
-                                        <a href="{{url('admin/logout')}}">
-                                            <i class="icon-key"></i> Log Out </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- END USER LOGIN DROPDOWN -->
-                            <!-- BEGIN QUICK SIDEBAR TOGGLER -->
-                           
-                            <!-- END QUICK SIDEBAR TOGGLER -->
-                        </ul>
+                    
                     </div>
                     <!-- END TOP NAVIGATION MENU -->
                 </div>
@@ -232,26 +185,7 @@
         <script src="/dashboard/assets/layouts/layout4/scripts/layout.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/layouts/layout4/scripts/demo.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            function ConfirmDelete()
-              {
-              var x = confirm("Are you sure you want to delete?");
-              if (x)
-                return true;
-              else
-                return false;
-              }
-
-              $("a#a_del").click(function(){
-               return ConfirmDelete();
-              });
-
-              // $("a#edit_product").click(function(){
-              //   $("#edit_each_product").show();
-              //   $("#add_product").hide();
-              //   $(window).scrollTop(0);
-              // });
-        </script>
+        
         <!-- END THEME LAYOUT SCRIPTS -->
     </body>
 

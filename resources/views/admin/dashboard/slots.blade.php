@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
     @section('title')
-        Dashboard | Update Slot
+        Dashboard | Slots
     @endsection
 
     @section('content')
@@ -13,14 +13,13 @@
                 <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
                 <div class="page-sidebar navbar-collapse collapse">
                         <ul class="page-sidebar-menu">
-                        
                             <li class="nav-item  ">
                                 <a href="{{url('/admin/dashboard')}}" class="nav-link ">
                                     <i class="icon-home"></i>
                                     <span class="title">Dashboard</span>
                                 </a>
                             </li>
-                            <li class="nav-item ">
+                            <li class="nav-item active open">
                                 <a href="{{url('/admin/slots')}}" class="nav-link ">
                                     <i class="icon-basket"></i>
                                     <span class="title">Slot</span>
@@ -46,8 +45,8 @@
                                     <span class="title">Products</span>
                                 </a>
                             </li>-->
-                            <li class="nav-item active open">
-                                <a href="{{url('/admin/slots')}}" class="nav-link ">
+                            <li class="nav-item  ">
+                                <a href="{{url('/admin/slots/')}}" class="nav-link ">
                                     <i class="icon-pencil"></i>
                                     <span class="title">Edit Slot</span>
                                 </a>
@@ -78,7 +77,7 @@
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-settings font-green"></i>
-                                        <span class="caption-subject font-green sbold uppercase"> Edit Slot {{$slot->id}} </span>
+                                        <span class="caption-subject font-green sbold uppercase"> Slots </span>
                                     </div>
                                     <div class="actions">
                                         
@@ -110,60 +109,108 @@
                                     <div class="table-container">
                                         <div class="table-actions-wrapper">
                                             <span> </span>
-                                          
+                                            <!--<select class="table-group-action-input form-control input-inline input-small input-sm">
+                                                <option value="">Select...</option>
+                                                <option value="Cancel">Cancel</option>
+                                                <option value="Cancel">Hold</option>
+                                                <option value="Cancel">On Hold</option>
+                                                <option value="Close">Close</option>
+                                            </select>
+                                            <button class="btn btn-sm btn-default table-group-action-submit">
+                                                <i class="fa fa-check"></i> Submit</button>-->
                                         </div>
-                                        
-                                        <a href="{{ url('/admin/slots/create') }}" title="Back">
-                                            <button class="btn btn-danger btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button>
-                                        </a>
-                                        <br />
-                                        <br />
-                                        <div class="row">
-                                            <form method="POST" action="{{url('admin/slots/update',$slot->id)}}">
-                                                {{csrf_field()}}
-                                                @if ($errors->any())
-                                                    <ul class="alert alert-danger">
-                                                        @foreach ($errors->all() as $error)
-                                                            <li>{{ $error }}</li>
-                                                        @endforeach
-                                                    </ul>
-                                                @endif
-                                                <div class="col-lg-6">
-                                                     {!! Form::model($slot, [
-                                                            
-                                                            'class' => 'form-horizontal',
-                                                            'files' => true
-                                                        ]) !!}
-
-                                                        <div class="form-group {{ $errors->has('time_range') ? 'has-error' : ''}}">
-                                                            {!! Form::label('time_range', 'Time Range', ['class' => 'col-md-4 control-label']) !!}
-                                                            <div class="col-md-6">
-                                                                {!! Form::text('time_range', null, ['class' => 'form-control']) !!}
-                                                                {!! $errors->first('time_range', '<p class="help-block">:message</p>') !!}
-                                                            </div> <br> <br>
-                                                        </div><div class="form-group {{ $errors->has('slot_available') ? 'has-error' : ''}}">
-                                                            {!! Form::label('slot_available', 'Slot Available', ['class' => 'col-md-4 control-label']) !!}
-                                                            <div class="col-md-6">
-                                                                {!! Form::number('slot_available', null, ['class' => 'form-control']) !!}
-                                                                {!! $errors->first('slot_available', '<p class="help-block">:message</p>') !!}
-                                                            </div> <br> <br>
+                                            {{ $slots->links() }}  <br> <br>
+                                            <a href="{{ url('/admin/slots/create') }}" class="btn btn-success btn-sm" title="Add New Slot">
+                                                <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                                            </a>    
+                                        <br><br>
+                                        <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_orders">
+                                            <thead>
+                                                <tr role="row" class="heading">
+                                                    <th width="10%"> S/N&nbsp;</th>
+                                                    <th width="15%"> Time Range</th>
+                                                    <th width="10%"> Slot Available </th>
+                                                    <th width="15%"> Actions</th>
+                                                </tr>
+                                                <!--<tr role="row" class="filter">
+                                                    <td> </td>
+                                                    <td>
+                                                        <input type="text" class="form-control form-filter input-sm" name="order_id"> </td>
+                                                    <td>
+                                                        <div class="input-group date date-picker margin-bottom-5" data-date-format="dd/mm/yyyy">
+                                                            <input type="text" class="form-control form-filter input-sm" readonly name="order_date_from" placeholder="From">
+                                                            <span class="input-group-btn">
+                                                                <button class="btn btn-sm default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
                                                         </div>
-
-                                                        <div class="form-group">
-                                                           <center>
-                                                               <div class="col-md-offset-4 col-md-4">
-                                                                {!! Form::submit(isset($submitButtonText) ? $submitButtonText : 'Update', ['class' => 'btn btn-primary']) !!}
-                                                                </div>
-                                                           </center>
+                                                        <div class="input-group date date-picker" data-date-format="dd/mm/yyyy">
+                                                            <input type="text" class="form-control form-filter input-sm" readonly name="order_date_to" placeholder="To">
+                                                            <span class="input-group-btn">
+                                                                <button class="btn btn-sm default" type="button">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </button>
+                                                            </span>
                                                         </div>
-
-
-                                                        {!! Form::close() !!}
-                                                </div>                                                
-                                            </form>
-                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="form-control form-filter input-sm" name="order_customer_name"> </td>
+                                                    <td>
+                                                        <input type="text" class="form-control form-filter input-sm" name="order_ship_to"> </td>
+                                                    <td>
+                                                        <div class="margin-bottom-5">
+                                                            <input type="text" class="form-control form-filter input-sm" name="order_base_price_from" placeholder="From" /> </div>
+                                                        <input type="text" class="form-control form-filter input-sm" name="order_base_price_to" placeholder="To" /> </td>
+                                                    <td>
+                                                        <div class="margin-bottom-5">
+                                                            <input type="text" class="form-control form-filter input-sm margin-bottom-5 clearfix" name="order_purchase_price_from" placeholder="From" /> </div>
+                                                        <input type="text" class="form-control form-filter input-sm" name="order_purchase_price_to" placeholder="To" /> </td>
+                                                    <td>
+                                                        <select name="order_status" class="form-control form-filter input-sm">
+                                                            <option value="">Select...</option>
+                                                            <option value="pending">Pending</option>
+                                                            <option value="closed">Closed</option>
+                                                            <option value="hold">On Hold</option>
+                                                            <option value="fraud">Fraud</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <div class="margin-bottom-5">
+                                                            <button class="btn btn-sm btn-success filter-submit margin-bottom">
+                                                                <i class="fa fa-search"></i> Search</button>
+                                                        </div>
+                                                        <button class="btn btn-sm btn-default filter-cancel">
+                                                            <i class="fa fa-times"></i> Reset</button>
+                                                    </td>
+                                                </tr>-->
+                                            </thead>
+                                            <tbody>
+                                                <?php $num = 1; ?>
+                                                <form method="POST" action="{{url('admin/slots/delete/,$slot->id')}}">
+                                                    @foreach($slots as $item)
+                                                        <tr>
+                                                            <td>{{ $item->id }}</td>
+                                                            <td>{{ $item->time_range }}</td>
+                                                            <td>{{ $item->slot_available }}</td>
+                                                            <td>
+                                                                
+                                                                <a class="btn btn-primary btn-xs" href="{{ url('/admin/slots/edit/' . $item->id) }}" title="Edit Slot">Edit Slot</a>
+                                                                {!! Form::open([
+                                                                    'style' => 'display:inline'
+                                                                ]) !!}
+                                                                <a class="btn btn-danger btn-xs" id="a_del" href="{{ url('/admin/slots/delete/' . $item->id) }}" title="Delete Slot">Delete Slot</a>
+                                                                {!! Form::close() !!}
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+                                                </form>
+                                                
+                                            </tbody>
+                                        </table>
                                     </div>
-                                    {{-- {{ $orders->links() }} --}}
+                                    <div class="pagination-wrapper"> {!! $slots->appends(['search' => Request::get('search')])->render() !!} </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- End: life time stats -->
@@ -317,6 +364,107 @@
                                         </div>
                                     </li>
                                 </ul>
+                            </div>
+                            <div class="page-quick-sidebar-item">
+                                <div class="page-quick-sidebar-chat-user">
+                                    <div class="page-quick-sidebar-nav">
+                                        <a href="javascript:;" class="page-quick-sidebar-back-to-list">
+                                            <i class="icon-arrow-left"></i>Back</a>
+                                    </div>
+                                    <div class="page-quick-sidebar-chat-user-messages">
+                                        <div class="post out">
+                                            <img class="avatar" alt="" src="assets/layouts/layout/img/avatar3.jpg" />
+                                            <div class="message">
+                                                <span class="arrow"></span>
+                                                <a href="javascript:;" class="name">Bob Nilson</a>
+                                                <span class="datetime">20:15</span>
+                                                <span class="body"> When could you send me the report ? </span>
+                                            </div>
+                                        </div>
+                                        <div class="post in">
+                                            <img class="avatar" alt="" src="assets/layouts/layout/img/avatar2.jpg" />
+                                            <div class="message">
+                                                <span class="arrow"></span>
+                                                <a href="javascript:;" class="name">Ella Wong</a>
+                                                <span class="datetime">20:15</span>
+                                                <span class="body"> Its almost done. I will be sending it shortly </span>
+                                            </div>
+                                        </div>
+                                        <div class="post out">
+                                            <img class="avatar" alt="" src="assets/layouts/layout/img/avatar3.jpg" />
+                                            <div class="message">
+                                                <span class="arrow"></span>
+                                                <a href="javascript:;" class="name">Bob Nilson</a>
+                                                <span class="datetime">20:15</span>
+                                                <span class="body"> Alright. Thanks! :) </span>
+                                            </div>
+                                        </div>
+                                        <div class="post in">
+                                            <img class="avatar" alt="" src="assets/layouts/layout/img/avatar2.jpg" />
+                                            <div class="message">
+                                                <span class="arrow"></span>
+                                                <a href="javascript:;" class="name">Ella Wong</a>
+                                                <span class="datetime">20:16</span>
+                                                <span class="body"> You are most welcome. Sorry for the delay. </span>
+                                            </div>
+                                        </div>
+                                        <div class="post out">
+                                            <img class="avatar" alt="" src="assets/layouts/layout/img/avatar3.jpg" />
+                                            <div class="message">
+                                                <span class="arrow"></span>
+                                                <a href="javascript:;" class="name">Bob Nilson</a>
+                                                <span class="datetime">20:17</span>
+                                                <span class="body"> No probs. Just take your time :) </span>
+                                            </div>
+                                        </div>
+                                        <div class="post in">
+                                            <img class="avatar" alt="" src="assets/layouts/layout/img/avatar2.jpg" />
+                                            <div class="message">
+                                                <span class="arrow"></span>
+                                                <a href="javascript:;" class="name">Ella Wong</a>
+                                                <span class="datetime">20:40</span>
+                                                <span class="body"> Alright. I just emailed it to you. </span>
+                                            </div>
+                                        </div>
+                                        <div class="post out">
+                                            <img class="avatar" alt="" src="assets/layouts/layout/img/avatar3.jpg" />
+                                            <div class="message">
+                                                <span class="arrow"></span>
+                                                <a href="javascript:;" class="name">Bob Nilson</a>
+                                                <span class="datetime">20:17</span>
+                                                <span class="body"> Great! Thanks. Will check it right away. </span>
+                                            </div>
+                                        </div>
+                                        <div class="post in">
+                                            <img class="avatar" alt="" src="assets/layouts/layout/img/avatar2.jpg" />
+                                            <div class="message">
+                                                <span class="arrow"></span>
+                                                <a href="javascript:;" class="name">Ella Wong</a>
+                                                <span class="datetime">20:40</span>
+                                                <span class="body"> Please let me know if you have any comment. </span>
+                                            </div>
+                                        </div>
+                                        <div class="post out">
+                                            <img class="avatar" alt="" src="assets/layouts/layout/img/avatar3.jpg" />
+                                            <div class="message">
+                                                <span class="arrow"></span>
+                                                <a href="javascript:;" class="name">Bob Nilson</a>
+                                                <span class="datetime">20:17</span>
+                                                <span class="body"> Sure. I will check and buzz you if anything needs to be corrected. </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="page-quick-sidebar-chat-user-form">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Type a message here...">
+                                            <div class="input-group-btn">
+                                                <button type="button" class="btn green">
+                                                    <i class="icon-paper-clip"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="tab-pane page-quick-sidebar-alerts" id="quick_sidebar_tab_2">
@@ -635,6 +783,5 @@
             </div>
             <!-- END QUICK SIDEBAR -->
         </div>
+        <!-- END CONTAINER -->
 @endsection
-
-

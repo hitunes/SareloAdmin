@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
     @section('title')
-        Dashboard | Add Product
+        Dashboard | Edit Product
     @endsection
 
     @section('content')
@@ -22,7 +22,7 @@
                     
                         <ul class="page-sidebar-menu ">
                             <li class="nav-item  ">
-                                <a href="{{url('admin')}}" class="nav-link ">
+                                <a href="{{url('admin/dashboard')}}" class="nav-link ">
                                     <i class="icon-home"></i>
                                     <span class="title">Dashboard</span>
                                 </a>
@@ -57,6 +57,18 @@
                                     <i class="icon-graph"></i>
                                     <span class="title">Products</span>
                                     <span class="selected"></span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="{{url('/admin/slots')}}" class="nav-link ">
+                                    <i class="icon-graph"></i>
+                                    <span class="title">Slots</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="{{url('/admin/unit-types')}}" class="nav-link ">
+                                    <i class="icon-graph"></i>
+                                    <span class="title">Unit Types</span>
                                 </a>
                             </li>
                         </ul>
@@ -818,14 +830,13 @@
                                                         </td>
                                                         <td>
                                                              <div class="margin-bottom-5">
-                                                                <a href="{{url('admin/products',$product->id)}}" class="btn btn-sm btn-default margin-bottom" id="edit_product">
+                                                                <center>
+                                                                    <a href="{{url('admin/products',$product->id)}}" class="btn btn-sm btn-default margin-bottom" id="edit_product">
                                                                     <i class="fa fa-pencil"></i> Edit</a>
 
                                                                 <a id="a_del" href="{{url('admin/products/destroy',$product->id)}}" class="btn btn-sm btn-danger margin-bottom">
                                                                     <i class="fa fa-trash"></i> Delete</a>
-
-                                                                <button class="btn btn-sm btn-success margin-bottom">
-                                                                    <i class="fa fa-floppy-o"></i> Save</button>
+                                                                </center>
                                                             </div>
                                                         </td>
                                                     </tr>
