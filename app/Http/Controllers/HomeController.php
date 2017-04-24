@@ -40,7 +40,7 @@ class HomeController extends Controller
 
     public function addresses()
     {
-        $addresses = \Auth::user()->user_address;
+        $addresses = \Auth::user()->user_addresses;
 
         return view('account.addresses', compact('addresses'));
     }
