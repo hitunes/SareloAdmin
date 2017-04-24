@@ -39,6 +39,16 @@ class Order extends Model
         return $this->hasMany('App\Models\OrderProduct');
     }
 
+    public function order_products()
+    {
+        return $this->hasMany('App\Models\OrderProduct');
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany('App\Models\Product', 'order_products');
+    }
+
     public function transactions()
     {
         return $this->hasMany('App\Models\Transaction');
@@ -47,6 +57,25 @@ class Order extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function user_address()
+    {
+    	return $this->belongsTo('App\Models\UserAddress');
+    }
+
+
+
+    public function scopeGetOrderDetails($query, $user_id, $status)
+    {
+        return $query->with(['user_address','orderSlot', 'order_products' => function($q){
+                    $q->with(['product' => function($q) {
+                            $q->with('unit_type');
+                        }
+                    ]);
+                }])
+                ->where('user_id', $user_id)
+                ->where('status', $status);
     }
     
 }

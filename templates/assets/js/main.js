@@ -419,8 +419,6 @@ const app = {
     function displayCart(){
       var cartArray = listCart();
 
-      cartArray.length === 0 ? a() : b();
-
       var output = "";
       var output2 = "";
       for(var i in cartArray){
@@ -486,19 +484,40 @@ const app = {
           </tr>`;
       }
 
+      //show loader....
+      $("#loader").show();
 
-      $("#basketList").html(output);
-      $("#cartTable").html(output2);
-      $(".items").html(countCart());
-      $("#totalP").html(totalCart());
-      $("#serviceCharge").html(serviceChargeCtrl(10));
-      $("#deliveryFee").html(deliveryCtrl(1000));
-      $("#grandTP").html(totalCart() + serviceChargeCtrl(10) + deliveryCtrl(1000));
+      $.ajax({
+        type: "POST",
+        //pass url into here....
+        url: "#",
+        data: cart,
+        dataType: 'json',
+        success: function(data){
+           $('#loader').hide();
+            cartArray.length === 0 ? a() : b();
+            aniCounter();
+            $("#basketList").html(output);
+            $("#cartTable").html(output2);
+            $(".items").html(countCart());
+            $("#totalP").html(totalCart());
+            $("#serviceCharge").html(serviceChargeCtrl(10));
+            $("#deliveryFee").html(deliveryCtrl(1000));
+            $("#grandTP").html(totalCart() + serviceChargeCtrl(10) + deliveryCtrl(1000));
+        },
+        error: function (response) {
+
+           //$('#loader').hide();
+           setTimeout(function() {
+            $('#loader').hide();
+
+           }, 5000);
+        }
+      });
     }
 
     $(document).on('click', '.suggestions li', function(e){
         e.preventDefault();
-       //add open to html
 
        //open cart if width is big enough...
         if($(window).width() >= 768){
@@ -513,7 +532,6 @@ const app = {
         var product_id = $(this).attr("data-product-id");
         addItemToCart(name, price, 1, unit, img, product_id);
         displayCart();
-        aniCounter();
         e.stopImmediatePropagation();
     });
 
@@ -650,5 +668,46 @@ const app = {
     var parts = x.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
-  }
+  },
+  toggleCollapse: function(){
+		const mores = Array.from(document.querySelectorAll(".mores"));
+
+	  const tables = Array.from(document.querySelectorAll(".tables"));
+
+		//textcontent varaible;
+		let texts;
+		//css display properties block and none...
+		let c, d;
+
+		//boolean to control toggle function....
+		let booled = true;
+
+		//first function to show more
+		function showMore(){
+			c = "none"; d = "block";
+			texts = "Show Full Receipt";
+			booled = false;
+		}
+		//second function that show less
+		function showLess(){
+			 c = "block"; d = "none";
+			 texts = "Hide Full Receipt";
+			 booled = true;
+		}
+		//interestHandler handles toggling between first and second function
+		function moreHandler(){
+				console.log(this.textContent);
+
+				booled ? showMore() : showLess();
+				//change button textcontent..
+				this.textContent = texts;
+				//hide less part or show it instead...
+				tables[mores.indexOf(this)].querySelector('tbody').style.display = c;
+
+		}
+
+		mores.forEach(function(more){
+			 more.addEventListener('click', moreHandler);
+		});
+	}
 }

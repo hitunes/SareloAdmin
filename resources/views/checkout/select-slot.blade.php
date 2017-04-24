@@ -21,7 +21,7 @@
                 <nav class="navbar navbar-default">
                     <div class="container-fluid dis-flex">
                         <div class="navbar-header">
-                            <a class="navbar-brand navbar-link" href="index.html">
+                            <a class="navbar-brand navbar-link" href="/">
                                 <img src="/assets/img/logo/sarelo3.svg">
                             </a>
                         </div>

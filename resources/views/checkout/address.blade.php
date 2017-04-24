@@ -150,9 +150,7 @@
                                                         <label for="instruction" class="w-500">
                                                             Instruction for Delivery <span class="opacity-50">(optional)</span>
                                                         </label>
-                                                        <textarea class="form-control" name="instruction" id="instruction" placeholder="(e.g you have vicious dogs)">
-                                                        {{old('instruction')}}
-                                                        </textarea>
+                                                        <textarea class="form-control" name="instruction" id="instruction" placeholder="(e.g you have vicious dogs)">{{old('instruction')}}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -218,6 +216,9 @@
                                                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                                         <label for="password" class="w-500">
                                                             Password
+                                                            <sup class="important f-9">
+                                                                <i class="fa fa-asterisk"></i>
+                                                            </sup class="important f-9">
                                                         </label>
                                                        <input type="password" class="form-control" name="password" id="password" >
                                                        @if ($errors->has('password'))

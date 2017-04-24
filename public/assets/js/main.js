@@ -252,24 +252,25 @@ const app = {
       }).fail(function() {
           var searchField = $("#querySelector").val();
           
-          var myExp = new RegExp(searchField, 'i');
+          // var myExp = new RegExp(searchField, 'i');
       
-          var output = '<ul class="suggestions">';
-          $.each(dataLog, function(key, val){
+          // var output = '<ul class="suggestions">';
+          // $.each(dataLog, function(key, val){
             
-            if((val.unit.search(myExp) != -1) || (val.product.search(myExp) != -1)) {
+          //   if((val.unit.search(myExp) != -1) || (val.product.search(myExp) != -1)) {
 
-                output += `<li id="${val.id}" data-product-id="${val.id}" data-product = "${val.product}" data-price = "${val.price}" data-unit = "${val.unit}" data-img = "${val.img}">`;
-                output += `<div class="clearfix pos-rel">
-                              <span class="pull-left products pos-abs">${val.product}</span>
-                              <span class="pull-right price">&#8358; ${val.price}</span><br>
-                              <small class="pull-right">${val.unit}</small>
-                          </div>`;
-                output += "</li>";
-            }
+          //       output += `<li id="${val.id}" data-product-id="${val.id}" data-product = "${val.product}" data-price = "${val.price}" data-unit = "${val.unit}" data-img = "${val.img}">`;
+          //       output += `<div class="clearfix pos-rel">
+          //                     <span class="pull-left products pos-abs">${val.product}</span>
+          //                     <span class="pull-right price">&#8358; ${val.price}</span><br>
+          //                     <small class="pull-right">${val.unit}</small>
+          //                 </div>`;
+          //       output += "</li>";
+          //   }
             
-          });
-          output += '</ul>';
+          // });
+          // output += '</ul>';
+     
           if(searchField.length === 0){
             output = "";
           }
@@ -425,7 +426,7 @@ const app = {
 
     //display items in cart
     function displayCart(){
-
+      $("#loader").show();
       $.getJSON('/cart').done(function(response){
           
           var output = "";
@@ -519,23 +520,28 @@ const app = {
         
           
           $("#basketList").html(output);
-          $(".items").html(totalCount/*countCart()*/);
+          $(".items").html(totalCount);
           $("#totalP").html(total_cost.toLocaleString());
           $("#cartTable").html(output2);
 
-          // $("#serviceCharge").html(serviceChargeCtrl(10));
-          // $("#deliveryFee").html(deliveryCtrl(1000));
-          // $("#grandTP").html(totalCart() + serviceChargeCtrl(10) + deliveryCtrl(1000));
           $("#grandTP").html((total_cost + service_charge + delivery_fee).toLocaleString('en-NG')); 
+          $('#loader').hide();
       })
-  
+      .fail(function() {
+          setTimeout(function() {
+            $('#loader').hide();
+              
+              }, 5000);
+          });
     }
+    
+  
 
     function saveCartItem(item){
 
       postData = item
-        $.post('/cart/add', postData, function (data) {
-          // displayCart();
+        $.post('/cart/add', postData).done( function (data) {
+          displayCart();
         })
     }
 
@@ -544,6 +550,8 @@ const app = {
 
       $.getJSON('/cart/update/' + cart_id + '/' + action).done(function () {
          displayCart();
+      }).fail(function(error) {
+          console.log(error);
       })
     }
 
@@ -565,7 +573,7 @@ const app = {
         var img = $(this).attr("data-img");
         var product_id = $(this).attr("data-product-id");
         addItemToCart(name, price, 1, unit, img, product_id);
-        displayCart();
+        // displayCart();
         aniCounter();
         e.stopImmediatePropagation();
     });
@@ -708,7 +716,48 @@ selectDeliveryDate: function () {
     var parts = x.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     return parts.join(".");
-  }
+  },
+   toggleCollapse: function(){
+		const mores = Array.from(document.querySelectorAll(".mores"));
+    
+	  const tables = Array.from(document.querySelectorAll(".tables"));
+  
+		//textcontent varaible;
+		let texts;
+		//css display properties block and none...
+		let c, d;
+
+		//boolean to control toggle function....
+		let booled = true;
+
+		//first function to show more
+		function showMore(){
+			c = "none"; d = "block";
+			texts = "Show Full Receipt";
+			booled = false;
+		}
+		//second function that show less
+		function showLess(){
+			 c = "block"; d = "none";
+			 texts = "Hide Full Receipt";
+			 booled = true;
+		}
+		//interestHandler handles toggling between first and second function
+		function moreHandler(){
+				console.log(this.textContent);
+				
+				booled ? showMore() : showLess();
+				//change button textcontent..
+				this.textContent = texts;
+				//hide less part or show it instead...
+				tables[mores.indexOf(this)].querySelector('tbody').style.display = c;
+				
+		}
+
+		mores.forEach(function(more){
+			 more.addEventListener('click', moreHandler);
+		});
+	}
 }
 function roundToTwo(num) {    
     return +(Math.round(num + "e+2")  + "e-2");

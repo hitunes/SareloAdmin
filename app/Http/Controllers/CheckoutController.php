@@ -49,6 +49,7 @@ class CheckoutController extends Controller
                 'email' => 'required|unique:users'
             ]);
 
+            
             $new_user = User::create([
                 'first_name' => $request->first_name,
                 'last_name' => $request->last_name,
@@ -95,6 +96,11 @@ class CheckoutController extends Controller
                 'address' => 'integer|required',
                 'receiver_no' => 'required|digits:11',
             ]);
+
+            if(!\Auth::user()->phone){
+                \Auth::user()->phone = $request->receiver_no;
+                \Auth::user()->save();
+            }
 
             Session::put('order_details.user_address_id', $request->address);
             
