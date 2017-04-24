@@ -63,7 +63,7 @@
                                     <span class="title">Unit Types</span>
                                 </a>
                             </li>
-                            
+
                         </ul>
                     <!-- END SIDEBAR MENU -->
                 </div>
@@ -75,15 +75,15 @@
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
                     <!-- BEGIN PAGE HEAD-->
-                    
+
                     <!-- END PAGE HEAD-->
                     <!-- BEGIN PAGE BREADCRUMB -->
-                   
+
                     <!-- END PAGE BREADCRUMB -->
                     <!-- BEGIN PAGE BASE CONTENT -->
                     <div class="row">
                         <div class="col-md-12">
-                            
+
                             <!-- Begin: life time stats -->
                             <div class="portlet light portlet-fit portlet-datatable bordered">
                                 <div class="portlet-title">
@@ -92,7 +92,7 @@
                                         <span class="caption-subject font-green sbold uppercase"> Order Listing </span>
                                     </div>
                                     <div class="actions">
-                                        
+
                                         <div class="btn-group">
                                             <a class="btn red btn-outline btn-circle" href="javascript:;" data-toggle="dropdown">
                                                 <i class="fa fa-share"></i>
@@ -139,7 +139,7 @@
                                                     <th width="15%"> Order Date</th>
                                                     <th width="10%"> Price </th>
                                                     <th width="15%"> Payment Method</th>
-                                                   
+
                                                     <th width="15%"> Update Status </th>
                                                     <th width="15%"> Current Status </th>
                                                     <th width="5%"> Details </th>
@@ -205,12 +205,16 @@
                                                             <tr>
 
                                                                 <td>
-                                                                   {{$num++}} 
+                                                                   {{$num++}}
                                                                 </td>
-                                                                <td> {{$order->created_at->diffForHumans()}} </td>
+                                                                <td>
+                                                                    @if(isset($order->created_at))
+                                                                    {{$order->created_at->diffForHumans()}}
+                                                                    @endif
+                                                                </td>
                                                                 <td> {{$order->total}} </td>
                                                                 <td> {{$order->payment_method}} </td>
-                                                            
+
                                                                 <td>
                                                                     <select name="order_status" class="form-control form-filter input-sm">
                                                                         <option value="">Select...</option>
@@ -219,9 +223,9 @@
                                                                     </select>
                                                                 </td>
                                                                 <td>
-                                                                    
+
                                                                         <span class="label label-sm lgreen label-success"> {{$order->status}} </span>
-                                                                    
+
                                                                 </td>
                                                             </form>
                                                                 <td>
@@ -231,7 +235,7 @@
 
                                                             </tr>
                                                     @endforeach
-                                                
+
                                             </tbody>
                                         </table>
                                     </div>

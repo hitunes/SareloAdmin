@@ -19,7 +19,7 @@
                     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                     <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
                     <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                    
+
                         <ul class="page-sidebar-menu ">
                             <li class="nav-item  ">
                                 <a href="{{url('admin/dashboard')}}" class="nav-link ">
@@ -82,18 +82,18 @@
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
                     <!-- BEGIN PAGE HEAD-->
-                    
+
                     <!-- END PAGE HEAD-->
                     <!-- BEGIN PAGE BREADCRUMB -->
-                    
+
                     <!-- END PAGE BREADCRUMB -->
                     <!-- BEGIN PAGE BASE CONTENT -->
 
                     {{-- EDIT EACH PRODUCT BEGINS --}}
                     <span>
-                        
-                    
-                    
+
+
+
                     {{-- EDIT EACH PRODUCT ENDS --}}
 
 
@@ -119,7 +119,7 @@
                                                 <i class="fa fa-angle-left"></i> Back</button>-->
                                             <!--<button class="btn btn-secondary-outline">
                                                 <i class="fa fa-reply"></i> Reset</button>-->
-                                            
+
                                             <!--<button class="btn btn-success">
                                                 <i class="fa fa-check-circle"></i> Save & Continue Edit</button>-->
                                             <!--<div class="btn-group">
@@ -586,7 +586,7 @@
                                                                 <textarea class="form-control" value="" name="description">{{$found_product->description}}</textarea>
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Category:
                                                                 <span class="required"> * </span>
@@ -769,10 +769,10 @@
                                                         <div class="prod_im\g">
                                                             <img src="/dashboard/assets/layouts/layout4/img/sarelo2.svg" alt="" >
                                                             <div id="tab_images_uploader_container" class="margin-bottom-10">
-                                                               
+
                                                                 <input type="file" name="product_image"  id="tab_images_uploader_pickfiles" href="javascript:;" class="btn btn-success">
                                                                 </input>
-                                                                
+
                                                             </div>
                                                         </div>
                                                         <button class="btn btn-success"><i class="fa fa-check"></i>Update</button>
@@ -804,7 +804,7 @@
                                                     <th width="15%"> Image </th>
                                                     <th width="15%"> Date Created </th>
                                                     <th width="25%"> Action </th>
-                                                </tr>     
+                                                </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
@@ -826,7 +826,9 @@
                                                             </div>
                                                         </td>
                                                         <td>
+                                                            @if(isset($product->created_at))
                                                             {{$product->created_at->diffForHumans()}}
+                                                            @endif
                                                         </td>
                                                         <td>
                                                              <div class="margin-bottom-5">
