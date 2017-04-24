@@ -120,9 +120,9 @@
                                    
 
                                 <a href="{{url('admin/logout')}}" >
-                                 @if(Auth::check())
-                                    <span style="color: #222; cursor: default;" class="username username-hide-on-mobile"><b> {{$user}} </b>| </span>
-                                 @endif
+                                
+                                    <span style="color: #222; cursor: default;" class="username username-hide-on-mobile"><b> Admin </b>| </span>
+                                 
                                  
                                     <span class="username username-hide-on-mobile"> Logout
                                     </span>
