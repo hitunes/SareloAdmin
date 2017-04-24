@@ -830,14 +830,13 @@
                                                         </td>
                                                         <td>
                                                              <div class="margin-bottom-5">
-                                                                <a href="{{url('admin/products',$product->id)}}" class="btn btn-sm btn-default margin-bottom" id="edit_product">
+                                                                <center>
+                                                                    <a href="{{url('admin/products',$product->id)}}" class="btn btn-sm btn-default margin-bottom" id="edit_product">
                                                                     <i class="fa fa-pencil"></i> Edit</a>
 
                                                                 <a id="a_del" href="{{url('admin/products/destroy',$product->id)}}" class="btn btn-sm btn-danger margin-bottom">
                                                                     <i class="fa fa-trash"></i> Delete</a>
-
-                                                                <button class="btn btn-sm btn-success margin-bottom">
-                                                                    <i class="fa fa-floppy-o"></i> Save</button>
+                                                                </center>
                                                             </div>
                                                         </td>
                                                     </tr>

@@ -116,7 +116,14 @@
                             <!-- BEGIN USER LOGIN DROPDOWN -->
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <li class="dropdown dropdown-user dropdown-dark">
+                                
+                                   
+
                                 <a href="{{url('admin/logout')}}" >
+                                 @if(Auth::check())
+                                    <span style="color: #222; cursor: default;" class="username username-hide-on-mobile"><b> {{$user}} </b>| </span>
+                                 @endif
+                                 
                                     <span class="username username-hide-on-mobile"> Logout
                                     </span>
                                 </a>

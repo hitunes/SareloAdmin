@@ -33,7 +33,7 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Role');
     }
 
-    public function user_address()
+    public function user_addresses()
     {
         return $this->hasMany('App\Models\UserAddress');
     }

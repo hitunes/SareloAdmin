@@ -139,7 +139,7 @@
                                                     <th width="15%"> Order Date</th>
                                                     <th width="10%"> Price </th>
                                                     <th width="15%"> Payment Method</th>
-                                                    <th width="15%"> Customer ID</th>
+                                                   
                                                     <th width="15%"> Update Status </th>
                                                     <th width="15%"> Current Status </th>
                                                     <th width="5%"> Details </th>
@@ -210,7 +210,7 @@
                                                                 <td> {{$order->created_at->diffForHumans()}} </td>
                                                                 <td> {{$order->total}} </td>
                                                                 <td> {{$order->payment_method}} </td>
-                                                                <td> {{$order->user_id}} </td>
+                                                            
                                                                 <td>
                                                                     <select name="order_status" class="form-control form-filter input-sm">
                                                                         <option value="">Select...</option>

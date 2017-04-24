@@ -76,8 +76,9 @@ class ProductsController extends Controller
             'product_image' => 'required'
         ]);
         // Storage::put(filePath, $contents);
-
         $filename = $request->file('product_image')->getClientOriginalName();
+        // $ext = substr($filename, strrpos($filename, "."));
+        // $replace_ext = str_replace($ext,"image",$ext);
         $store  = Storage::disk('custom')->put($filename, $request->file('product_image'));
         $filepath = $request->file('product_image')->store('public');
         $product = new Product([
@@ -87,7 +88,7 @@ class ProductsController extends Controller
             'unit' => $request->input('unit'),
             'unit_type_id' => $request->input('unit_type_id'),
             'category_id' => $request->input('category_id'),
-            'products_image' => $filename
+            'products_image' => $store
         ]);
         // dd($product);exit;
             $product->save();
