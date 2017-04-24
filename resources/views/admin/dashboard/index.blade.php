@@ -8,9 +8,9 @@
             <!-- BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
                 <!-- BEGIN SIDEBAR -->
-               
+
                 @include('layouts.dashboard_sidebar')
-                
+
                 <!-- END SIDEBAR -->
             </div>
             <!-- END SIDEBAR -->
@@ -21,10 +21,10 @@
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
                     <!-- BEGIN PAGE HEAD-->
-                    
+
                     <!-- END PAGE HEAD-->
                     <!-- BEGIN PAGE BREADCRUMB -->
-                    
+
                     <!-- END PAGE BREADCRUMB -->
                     <!-- BEGIN PAGE BASE CONTENT -->
                     <div class="row widget-row">
@@ -62,7 +62,7 @@
 
                             <!-- BEGIN WIDGET THUMB -->
                             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
-                                <h4 class="widget-thumb-heading">Total Expense</h4>
+                                <h4 class="widget-thumb-heading">Total Revenue</h4>
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-red icon-layers"></i>
                                     <div class="widget-thumb-body">
@@ -80,7 +80,7 @@
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-purple icon-screen-desktop"></i>
                                     <div class="widget-thumb-body">
-                                        <span class="widget-thumb-subtitle">NGN</span>
+                                        <span class="widget-thumb-subtitle"></span>
                                         <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$users}}">0</span>
                                     </div>
                                 </div>
@@ -93,7 +93,7 @@
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-blue icon-bar-chart"></i>
                                     <div class="widget-thumb-body">
-                                        <span class="widget-thumb-subtitle">NGN</span>
+                                        <span class="widget-thumb-subtitle"></span>
                                         <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$products}}">0</span>
                                     </div>
                                 </div>
@@ -405,7 +405,7 @@
                                     </div>
                                     <div class="actions">
                                         <div class="btn-group">
-                                            
+
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
                                                     <a href="javascript:;"> Option 1</a>
@@ -440,7 +440,7 @@
                                         <span class="caption-subject font-green bold uppercase">Site Visits</span>
                                         <span class="caption-helper">weekly stats...</span>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="portlet-body">
                                     <div id="site_statistics_loading">
@@ -463,7 +463,7 @@
                                     </div>
                                     <div class="actions">
                                         <div class="btn-group">
-                                            
+
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
                                                     <a href="javascript:;"> Q1 2014
@@ -520,8 +520,8 @@
                             <!-- END PORTLET-->
                         </div> --}}
                     </div>
-                    
-                   
+
+
                     <!-- END PAGE BASE CONTENT -->
                 </div>
                 <!-- END CONTENT BODY -->
