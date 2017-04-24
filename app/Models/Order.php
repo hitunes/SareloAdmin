@@ -13,8 +13,6 @@ class Order extends Model
      */
     protected $table = 'orders';
 
-    protected $fillable = ['user_id', 'status', 'total', 'reciever_phone', 'payment_status', 'delivery_instruction'];
-
     /**
     * The database primary key value.
     *
@@ -77,5 +75,5 @@ class Order extends Model
                 ->where('user_id', $user_id)
                 ->where('status', $status);
     }
-    
+
 }

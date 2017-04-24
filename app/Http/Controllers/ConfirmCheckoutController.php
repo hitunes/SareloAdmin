@@ -40,10 +40,10 @@ class ConfirmCheckoutController extends Controller
 
         $slot = Slot::find(Session::get('order_details.slot_id'));
         $slots = Slot::getAvailableSlot(Session::get('order_details.delivery_date'));
-        
+
         $address = UserAddress::find(Session::get('order_details.user_address_id'));
         $addresses = UserAddress::where('user_id', Auth::user()->id)->get();
-        
+
         $options = array_merge($address->toArray(), Session::get('order_details'));
 
         $options['slot'] = $slot->toArray();
@@ -91,7 +91,7 @@ class ConfirmCheckoutController extends Controller
             }
 
             $order->orderProducts()->saveMany($order_product);
-    
+
         }
 
         return redirect('/checkout/payment/'.$order->order_unique_reference);

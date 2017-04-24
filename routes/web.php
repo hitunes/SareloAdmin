@@ -41,7 +41,7 @@ Route::group(['middleware' => 'admin'], function() {
 
     });
 });
-    
+
     Route::match(['get', 'post'], '/admin', 'AdminController@signin');
     Route::get('/signin', 'Auth\\LoginController@showLoginForm');
     Route::post('/signin', 'Auth\\LoginController@login');
@@ -63,7 +63,7 @@ Route::resource('admin/categories', 'Admin\\CategoriesController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+// Route::get('/home', 'HomeController@index');
 
 
 Route::resource('admin/charges', 'Admin\\ChargesController');
@@ -114,5 +114,5 @@ Route::get('/undefined', function(){
 });
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
 Route::get('/order/{id}/cancel', 'HomeController@cancelOrder');
+Route::get('/', 'IndexController@index');
