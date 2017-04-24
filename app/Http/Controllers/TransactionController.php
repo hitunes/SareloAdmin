@@ -56,7 +56,7 @@ class TransactionController extends Controller
     {
         Order::where('order_unique_reference', $order_unique_reference)->update(['payment_method' => 'bank']);
         
-        return redirect('/my-account');
+        return redirect('/thankyou/'.$order_unique_reference);
     }
 
 }
