@@ -245,6 +245,9 @@
               $("a#a_del").click(function(){
                return ConfirmDelete();
               });
+              $("button#a_del").click(function(){
+               return ConfirmDelete();
+              });
 
               // $("a#edit_product").click(function(){
               //   $("#edit_each_product").show();

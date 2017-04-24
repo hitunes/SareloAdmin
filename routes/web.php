@@ -24,6 +24,7 @@ Route::group(['middleware' => 'admin'], function() {
             Route::get('/orders/{id}', 'Admin\OrdersController@show');
             Route::get('/orders', 'AdminController@orders');
             Route::get('/order_view', 'AdminController@order_view');
+            Route::get('/orders/delete/{id}', 'Admin\\OrdersController@destroy');
             Route::get('/product_edit', 'AdminController@product_edit');
             Route::match(['get', 'post'], '/slots', 'Admin\\SlotsController@index');
             Route::match(['get', 'post'], '/slots/create', 'Admin\\SlotsController@store');

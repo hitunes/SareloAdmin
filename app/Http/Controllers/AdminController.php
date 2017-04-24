@@ -12,14 +12,23 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $completedOrders = DB::table('orders')->where('status', 'Completed')->sum('total');
+        $completedOrders = DB::table('orders')->where('status', 'Delivered')->sum('total');
         $ordersResult = number_format($completedOrders);
         $users = User::join('roles', 'users.role_id', 'roles.id')
                     ->where('roles.name', 'User')->count();
         $products = Product::count();
-    	return view('admin.dashboard.index', compact('ordersResult', 'users', 'products'));
+        $keyword = $request->get('search');
+        $perPage = 10;
+        if (!empty($keyword)) {
+            $orders = Order::where('user_id', 'LIKE', "%$keyword%")
+                ->orWhere('total', 'LIKE', "%$keyword%")
+                ->paginate($perPage);
+        } else {
+            $orders = Order::paginate($perPage);
+        }
+    	return view('admin.dashboard.index', compact('ordersResult', 'users', 'products', 'orders'));
     }
      public function users()
     {
@@ -76,5 +85,11 @@ class AdminController extends Controller
     {
         Auth::logout();
         return redirect('/admin');
+    }
+    public function destror($id)
+    {
+       Order::findOrFail($id);
+        Order::destroy($id);
+        return redirect('admin/orders')->with('delete_message', 'Order successfully deleted!'); 
     }
 }

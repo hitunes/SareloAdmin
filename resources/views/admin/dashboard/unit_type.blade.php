@@ -13,44 +13,44 @@
                 <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
                 <div class="page-sidebar navbar-collapse collapse">
                         <ul class="page-sidebar-menu">
-                            <li class="nav-item  ">
-                                <a href="{{url('/admin/dashboard')}}" class="nav-link ">
-                                    <i class="icon-home"></i>
-                                    <span class="title">Dashboard</span>
-                                </a>
-                            </li>
-                            <li class="nav-item active open">
-                                <a href="{{url('/admin/unit-type')}}" class="nav-link ">
-                                    <i class="icon-basket"></i>
-                                    <span class="title">Unit Type</span>
+                             <li class="nav-item">
+                            <a href="{{url('/admin/dashboard')}}" class="nav-link ">
+                                <i class="icon-home"></i>
+                                <span class="title">Dashboard</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="{{url('/admin/orders')}}" class="nav-link ">
+                                <i class="icon-basket"></i>
+                                <span class="title">Orders</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="{{url('/admin/products')}}" class="nav-link ">
+                                <i class="icon-graph"></i>
+                                <span class="title">Products</span>
+                            </a>
+                        </li>
+                        <li class="nav-item active open">
+                            <a href="{{url('/admin/unit-types')}}" class="nav-link ">
+                                <i class="icon-graph"></i>
+                                <span class="title">Unit Types</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="{{url('/admin/slots')}}" class="nav-link ">
+                                <i class="icon-graph"></i>
+                                <span class="title">Slots</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                                <a href="{{url('/admin/users')}}" class="nav-link ">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Users</span>
                                     <span class="selected"></span>
                                 </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{url('/admin/unit-types/create')}}" class="nav-link ">
-                                    <i class="icon-plus"></i>
-                                    <span class="title">Add Unit Type</span>
-                                    <span class="selected"></span>
-                                </a>
-                            </li>
-                            <!--<li class="nav-item  ">
-                                <a href="order_view.html" class="nav-link ">
-                                    <i class="icon-tag"></i>
-                                    <span class="title">Order View</span>
-                                </a>
-                            </li>-->
-                            <!--<li class="nav-item  ">
-                                <a href="product.html" class="nav-link ">
-                                    <i class="icon-graph"></i>
-                                    <span class="title">Products</span>
-                                </a>
-                            </li>-->
-                            <li class="nav-item  ">
-                                <a href="{{url('/admin/unit-types/edit')}}" class="nav-link ">
-                                    <i class="icon-pencil"></i>
-                                    <span class="title">Edit Unit Type</span>
-                                </a>
-                            </li>
+                        </li>
                             
                         </ul>
                     <!-- END SIDEBAR MENU -->
@@ -78,31 +78,6 @@
                                     <div class="caption">
                                         <i class="icon-settings font-green"></i>
                                         <span class="caption-subject font-green sbold uppercase"> Unit Types </span>
-                                    </div>
-                                    <div class="actions">
-                                        
-                                        <div class="btn-group">
-                                            <a class="btn red btn-outline btn-circle" href="javascript:;" data-toggle="dropdown">
-                                                <i class="fa fa-share"></i>
-                                                <span class="hidden-xs"> Tools </span>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;"> Export to Excel </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;"> Export to CSV </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;"> Export to XML </a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="javascript:;"> Print Invoices </a>
-                                                </li>
-                                            </ul>
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
