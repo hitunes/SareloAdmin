@@ -15,8 +15,9 @@ class AdminController extends Controller
     public function index()
     {
         $completedOrders = DB::table('orders')->where('status', 'Completed')->sum('total');
-       $ordersResult = number_format($completedOrders);
-        $users = User::where('role_id',1)->count();
+        $ordersResult = number_format($completedOrders);
+        $users = User::join('roles', 'users.role_id', 'roles.id')
+                    ->where('roles.name', 'User')->count();
         $products = Product::count();
     	return view('admin.dashboard.index', compact('ordersResult', 'users', 'products'));
     }
@@ -59,14 +60,14 @@ class AdminController extends Controller
                             //basically, attempt function under class Auth or Auth facade method collects all parameters i.e all input fields tovalidate in an associative array inform of key and valuefrm above, the key is the field or column declared fillable in the user model
                             return redirect('admin/dashboard')->with('success','Welcome Amin');
                         }else{
-                            return redirect('/admin')->with('delete_message', 'Wrong Email or Password');            
-                        }    
+                            return redirect('/admin')->with('delete_message', 'Wrong Email or Password');
+                        }
                 break;
                 case false:
-                    return view('/admin.dashboard.login');    
+                    return view('/admin.dashboard.login');
                 break;
                 default:
-                    return view('/admin.dashboard.login');    
+                    return view('/admin.dashboard.login');
                 break;
             }
     }
