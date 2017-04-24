@@ -53,7 +53,7 @@
                             </button>
 
                             <a class="navbar-brand navbar-link hidden-xs" href="/">
-                                <img src="../assets/img/logo/sarelo3.svg">
+                                <img src="/assets/img/logo/sarelo3.svg">
                             </a>
                             <button class="navbar-toggle cart_toggle pos-rel bd-4">
                                 <i class="fa fa-shopping-basket"></i>
@@ -97,11 +97,14 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-8 col-sm-12">
-                                {{-- <div class="alert alert-success alert-dismissable text-center bg-brand-green-op c-dark bd-6 ">
+
+                            @if(\Session::has('status_message'))
+                                <div class="alert alert-success alert-dismissable text-center bg-brand-green-op c-dark bd-6 ">
                                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                    <h4 class="p-10 m-0">Refer Your Friends and get 50% off your next order!</h4>
-                                </div> --}}
-                                <div class="page-sidebar-wrapper">
+                                    <h4 class="p-10 m-0">{{\Session::get('status_message')}}</h4>
+                                </div>
+                            @endif
+                            <div class="page-sidebar-wrapper">
                                     <!-- BEGIN SIDEBAR -->
                                     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                                     <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
@@ -130,13 +133,15 @@
                                                                 <tbody>
                                                                     <tr>
                                                                         <td class="p-t-14 no-bd opacity-50">Order #{{$order->order_unique_reference}}</td>
-                                                                        
+
                                                                         <td class="no-bd text-right @if($order->payment_status =="success") c-brand-green @else c-brand-red @endif" > @if($order->payment_status =="success") Paid @else Not Paid @endif</td>
-                                    
+
                                                                     </tr>
                                                                     <tr>
                                                                         <td class="p-t-14 no-bd">{{$order->user_address->address}}</td>
-                                                                        <td class="text-right no-bd"><button class="btn bg-transparent no-bd c-blue m-r-0 p-r-0">Cancel Order</button></td>
+                                                                        @if($order->status != 'cancelled')<td class="text-right no-bd">
+                                                                        <a href="/order/{{$order->id}}/cancel" class="btn bg-transparent no-bd c-blue m-r-0 p-r-0">Cancel Order</a></td>
+                                                                        @endif
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -172,7 +177,7 @@
                                                                             </div>
                                                                         </td>
                                                                     </tr>
-                                                                @endforeach 
+                                                                @endforeach
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -197,7 +202,7 @@
                                                 <div>
                                                     <hr class="bd-top-gray">
                                                 </div>
-                                              
+
 
                                                  @foreach($completed_orders as $order)
                                                 <div class="card">
@@ -207,9 +212,9 @@
                                                                 <tbody>
                                                                     <tr>
                                                                         <td class="p-t-14 no-bd opacity-50">Order #{{$order->order_unique_reference}}</td>
-                                                                        
+
                                                                         <td class="no-bd text-right @if($order->payment_status =="success") c-brand-green @else c-brand-red @endif" > @if($order->payment_status =="success") Paid @else Not Paid @endif</td>
-                                    
+
                                                                     </tr>
                                                                     <tr>
                                                                         <td class="p-t-14 no-bd">{{$order->user_address->address}}</td>
@@ -249,7 +254,7 @@
                                                                             </div>
                                                                         </td>
                                                                     </tr>
-                                                                @endforeach 
+                                                                @endforeach
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -287,7 +292,7 @@
 
         <!--sidebar menu on the right hand -->
         <aside class="sidebar right_sidebar" id="right_sidebar">
-        
+
         </aside>
 
         <!--overlay to call -->
@@ -303,7 +308,7 @@
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
          <script>
              $(document).ready(function(){
-                 app.toggleCollapse();   
+                 app.toggleCollapse();
                  app.cartCtrl();
 
              });

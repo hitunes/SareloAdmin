@@ -33,7 +33,7 @@ class HomeController extends Controller
         $completed_orders = Order::GetOrderDetails(\Auth::user()->id, 'completed')->get();
 
         $pending_orders = Order::GetOrderDetails(\Auth::user()->id, 'pending')->get();
-        
+
         return view('account.index', compact('completed_orders', 'pending_orders'));
     }
 
@@ -62,7 +62,7 @@ class HomeController extends Controller
         }
 
         return view('account.new-address');
-        
+
     }
 
 
@@ -74,12 +74,12 @@ class HomeController extends Controller
         catch(ModelNotFoundException $e){
             return redirct()->back()->with('status', 'Order not found');
         }
-        
+
         if($order->status != "completed"){
             $order->status = "cancelled";
             $order->save();
         }
 
-        return redirct()->back()->with('status', 'Order #'.$order->order_unique_reference." cancelled");
+        return redirect()->back()->with('status_message', 'Order #'.$order->order_unique_reference." cancelled");
     }
 }

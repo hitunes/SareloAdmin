@@ -111,3 +111,4 @@ Route::get('/undefined', function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/order/{id}/cancel', 'HomeController@cancelOrder');
