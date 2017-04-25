@@ -2,15 +2,9 @@
     @section('title')
         Dashboard | Orders
     @endsection
-
     @section('content')
-        <!-- BEGIN CONTAINER -->
         <div class="page-container">
-            <!-- BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
-                <!-- BEGIN SIDEBAR -->
-                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-                <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
                 <div class="page-sidebar navbar-collapse collapse">
                         <ul class="page-sidebar-menu">
                             <li class="nav-item  ">
@@ -33,18 +27,6 @@
                                     <span class="selected"></span>
                                 </a>
                             </li>
-                            <!--<li class="nav-item  ">
-                                <a href="order_view.html" class="nav-link ">
-                                    <i class="icon-tag"></i>
-                                    <span class="title">Order View</span>
-                                </a>
-                            </li>-->
-                            <!--<li class="nav-item  ">
-                                <a href="product.html" class="nav-link ">
-                                    <i class="icon-graph"></i>
-                                    <span class="title">Products</span>
-                                </a>
-                            </li>-->
                             <li class="nav-item  ">
                                 <a href="{{url('/admin/products')}}" class="nav-link ">
                                     <i class="icon-graph"></i>
@@ -65,22 +47,10 @@
                             </li>
 
                         </ul>
-                    <!-- END SIDEBAR MENU -->
                 </div>
-                <!-- END SIDEBAR -->
             </div>
-            <!-- END SIDEBAR -->
-            <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
-                <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
-                    <!-- BEGIN PAGE HEAD-->
-
-                    <!-- END PAGE HEAD-->
-                    <!-- BEGIN PAGE BREADCRUMB -->
-
-                    <!-- END PAGE BREADCRUMB -->
-                    <!-- BEGIN PAGE BASE CONTENT -->
                     <div class="row">
                         @if (session('success'))
                                 <div class="alert alert-success">
@@ -179,21 +149,12 @@
                                     {{ $orders->links() }}
                                 </div>
                             </div>
-                            <!-- End: life time stats -->
                         </div>
                     </div>
-                    <!-- END PAGE BASE CONTENT -->
                 </div>
-                <!-- END CONTENT BODY -->
             </div>
-            <!-- END CONTENT -->
-            <!-- BEGIN QUICK SIDEBAR -->
-            
-            <!-- END QUICK SIDEBAR -->
         </div>
-        <!-- END CONTAINER -->
         <script type="text/javascript">
-            $("#del").click(function(){
                 function ConfirmDelete()
               {
               var x = confirm("Are you sure you want to delete?");
@@ -206,6 +167,6 @@
               $("a#a_del").click(function(){
                return ConfirmDelete();
               });
-            })
+           
         </script>
 @endsection

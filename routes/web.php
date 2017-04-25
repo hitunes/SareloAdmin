@@ -13,6 +13,7 @@
 
 Route::group(['middleware' => 'admin'], function() {
     Route::group(['prefix' => 'admin'], function() {
+            Route::match(['get', 'post'], '/create', 'AdminController@signup');
             Route::get('/logout', 'AdminController@logout');
             Route::get('/dashboard', 'AdminController@index');
             Route::get('/users', 'Admin\UserController@index');
@@ -38,8 +39,6 @@ Route::group(['middleware' => 'admin'], function() {
             Route::get('/unit-types/delete/{id}', 'Admin\\UnitTypesController@destroy');
             Route::get('/unit-types/edit/{id}', 'Admin\\UnitTypesController@edit');
             Route::post('/unit-types/update/{id}', 'Admin\\UnitTypesController@update');
-
-
     });
 });
 

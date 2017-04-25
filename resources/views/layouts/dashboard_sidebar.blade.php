@@ -25,7 +25,7 @@
                                 <span class="title">Unit Types</span>
                             </a>
                         </li>
-                        <li class="nav-item  ">
+                        <li class="nav-item">
                             <a href="{{url('/admin/slots')}}" class="nav-link ">
                                 <i class="icon-graph"></i>
                                 <span class="title">Slots</span>
@@ -35,6 +35,13 @@
                                 <a href="{{url('/admin/users')}}" class="nav-link ">
                                     <i class="icon-user"></i>
                                     <span class="title">Users</span>
+                                    <span class="selected"></span>
+                                </a>
+                        </li>
+                        <li class="nav-item">
+                                <a href="{{url('/admin/create')}}" class="nav-link ">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Create Admin</span>
                                     <span class="selected"></span>
                                 </a>
                         </li>
