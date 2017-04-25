@@ -419,8 +419,6 @@ const app = {
     function displayCart(){
       var cartArray = listCart();
 
-     
-
       var output = "";
       var output2 = "";
       for(var i in cartArray){
@@ -488,24 +486,24 @@ const app = {
 
       //show loader....
       $("#loader").show();
-      
+
       $.ajax({
         type: "POST",
         //pass url into here....
         url: "#",
         data: cart,
-        dataType: 'json',                        
-        success: function(data){                
+        dataType: 'json',
+        success: function(data){
            $('#loader').hide();
             cartArray.length === 0 ? a() : b();
             aniCounter();
         },
         error: function (response) {
-           
+
            //$('#loader').hide();
            setTimeout(function() {
             $('#loader').hide();
-           
+
            }, 5000);
         }
       });
@@ -522,7 +520,7 @@ const app = {
 
     $(document).on('click', '.suggestions li', function(e){
         e.preventDefault();
-       
+
        //open cart if width is big enough...
         if($(window).width() >= 768){
           $("html").addClass("open");
@@ -693,9 +691,9 @@ const app = {
   },
   toggleCollapse: function(){
 		const mores = Array.from(document.querySelectorAll(".mores"));
-    
+
 	  const tables = Array.from(document.querySelectorAll(".tables"));
-  
+
 		//textcontent varaible;
 		let texts;
 		//css display properties block and none...
@@ -719,13 +717,13 @@ const app = {
 		//interestHandler handles toggling between first and second function
 		function moreHandler(){
 				console.log(this.textContent);
-				
+
 				booled ? showMore() : showLess();
 				//change button textcontent..
 				this.textContent = texts;
 				//hide less part or show it instead...
 				tables[mores.indexOf(this)].querySelector('tbody').style.display = c;
-				
+
 		}
 
 		mores.forEach(function(more){

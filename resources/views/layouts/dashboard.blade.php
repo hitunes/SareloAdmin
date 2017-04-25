@@ -100,30 +100,7 @@
                             <!-- BEGIN NOTIFICATION DROPDOWN -->
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <li class="dropdown dropdown-extended dropdown-notification dropdown-dark" id="header_notification_bar">
-                                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <i class="icon-bell"></i>
-                                    <span class="badge badge-success"> 0 </span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="external">
-                                        <h3>
-                                            <span class="bold">No new</span> notifications</h3>
-                                        <a href="page_user_profile_1.html">view all</a>
-                                    </li>
-                                    <li>
-                                        <ul class="dropdown-menu-list scroller" style="height: 250px;" data-handle-color="#637283">
-                                            <li>
-                                                <a href="javascript:;">
-                                                    <span class="time"></span>
-                                                    <span class="details">
-                                                        <span class="label label-sm label-icon label-warning">
-                                                            <i class="fa fa-bell-o"></i>
-                                                        </span> No notification</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                               
                             </li>
                             <!-- END NOTIFICATION DROPDOWN -->
                             <li class="separator hide"> </li>
@@ -139,15 +116,24 @@
                             <!-- BEGIN USER LOGIN DROPDOWN -->
                             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <li class="dropdown dropdown-user dropdown-dark">
-                                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                                    <span class="username username-hide-on-mobile"> Admin </span></a>
+                                
+                                   
+
+                                <a href="{{url('admin/logout')}}" >
+                                
+                                    <span style="color: #222; cursor: default;" class="username username-hide-on-mobile"><b> Admin </b>| </span>
+                                 
+                                 
+                                    <span class="username username-hide-on-mobile"> Logout
+                                    </span>
+                                </a>
                                     <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
                                     <!--<img alt="" class="img-circle" src="assets/layouts/layout4/img/avatar9.jpg" /> </a>-->
                                 <ul class="dropdown-menu dropdown-menu-default">
                                     <li class="divider"> </li>
                                     
                                     <li>
-                                        <a href="page_user_login_1.html">
+                                        <a href="{{url('admin/logout')}}">
                                             <i class="icon-key"></i> Log Out </a>
                                     </li>
                                 </ul>

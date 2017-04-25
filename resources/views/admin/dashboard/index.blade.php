@@ -8,9 +8,9 @@
             <!-- BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
                 <!-- BEGIN SIDEBAR -->
-               
+
                 @include('layouts.dashboard_sidebar')
-                
+
                 <!-- END SIDEBAR -->
             </div>
             <!-- END SIDEBAR -->
@@ -21,10 +21,10 @@
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
                     <!-- BEGIN PAGE HEAD-->
-                    
+
                     <!-- END PAGE HEAD-->
                     <!-- BEGIN PAGE BREADCRUMB -->
-                    
+
                     <!-- END PAGE BREADCRUMB -->
                     <!-- BEGIN PAGE BASE CONTENT -->
                     <div class="row widget-row">
@@ -42,15 +42,32 @@
                             </div>
                             <!-- END WIDGET THUMB -->
                         </div> --}}
+                         @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @elseif(session('delete_message'))
+                                <div class="alert alert-danger">
+                                    {{ session('delete_message') }}
+                                </div>
+                                @elseif(count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    @foreach($errors->all() as $error)
+                                        <strong>Error Upon Submission...</strong> {{ $error }}
+                                    @endforeach
+                                </div>
+                            @endif
                         <div class="col-md-4">
+
                             <!-- BEGIN WIDGET THUMB -->
                             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
-                                <h4 class="widget-thumb-heading">Weekly Sales</h4>
+                                <h4 class="widget-thumb-heading">Total Revenue</h4>
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-red icon-layers"></i>
                                     <div class="widget-thumb-body">
                                         <span class="widget-thumb-subtitle">NGN</span>
-                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="1,293">0</span>
+                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$ordersResult}}">0</span>
                                     </div>
                                 </div>
                             </div>
@@ -59,26 +76,25 @@
                         <div class="col-md-4">
                             <!-- BEGIN WIDGET THUMB -->
                             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
-                                <h4 class="widget-thumb-heading">Biggest Purchase</h4>
+                                <h4 class="widget-thumb-heading">All Users</h4>
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-purple icon-screen-desktop"></i>
                                     <div class="widget-thumb-body">
-                                        <span class="widget-thumb-subtitle">NGN</span>
-                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="815">0</span>
+                                        <span class="widget-thumb-subtitle"></span>
+                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$users}}">0</span>
                                     </div>
                                 </div>
                             </div>
-                            <!-- END WIDGET THUMB -->
                         </div>
                         <div class="col-md-4">
                             <!-- BEGIN WIDGET THUMB -->
                             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
-                                <h4 class="widget-thumb-heading">Average Monthly</h4>
+                                <h4 class="widget-thumb-heading">Total Products</h4>
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-blue icon-bar-chart"></i>
                                     <div class="widget-thumb-body">
-                                        <span class="widget-thumb-subtitle">NGN</span>
-                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="5,071">0</span>
+                                        <span class="widget-thumb-subtitle"></span>
+                                        <span class="widget-thumb-body-stat" data-counter="counterup" data-value="{{$products}}">0</span>
                                     </div>
                                 </div>
                             </div>
@@ -389,7 +405,7 @@
                                     </div>
                                     <div class="actions">
                                         <div class="btn-group">
-                                            
+
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
                                                     <a href="javascript:;"> Option 1</a>
@@ -424,7 +440,7 @@
                                         <span class="caption-subject font-green bold uppercase">Site Visits</span>
                                         <span class="caption-helper">weekly stats...</span>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="portlet-body">
                                     <div id="site_statistics_loading">
@@ -436,7 +452,7 @@
                             </div>-->
                             <!-- END PORTLET-->
                         <!--</div>-->
-                        <div class="col-md-6 col-sm-6">
+                       {{--  <div class="col-md-6 col-sm-6">
                             <!-- BEGIN PORTLET-->
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
@@ -447,7 +463,7 @@
                                     </div>
                                     <div class="actions">
                                         <div class="btn-group">
-                                            
+
                                             <ul class="dropdown-menu pull-right">
                                                 <li>
                                                     <a href="javascript:;"> Q1 2014
@@ -502,10 +518,10 @@
                                 </div>
                             </div>
                             <!-- END PORTLET-->
-                        </div>
+                        </div> --}}
                     </div>
-                    
-                   
+
+
                     <!-- END PAGE BASE CONTENT -->
                 </div>
                 <!-- END CONTENT BODY -->

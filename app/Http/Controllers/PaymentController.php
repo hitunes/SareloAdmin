@@ -35,4 +35,16 @@ class PaymentController extends Controller
         return view('payment.index', compact('order', 'charge_arr'));
     }
 
+
+    public function complete($order_unique_reference)
+    {
+        $order = Order::with(['order_products', 'orderSlot' => function($q){
+                        $q->with('slot');
+                        }])
+                    ->where('order_unique_reference', $order_unique_reference)
+                    ->first();
+    
+        return view('payment.complete', compact('order'));
+    }
+
 }

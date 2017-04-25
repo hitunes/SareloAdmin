@@ -19,7 +19,7 @@ class SlotsController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 25;
+        $perPage = 5;
 
         if (!empty($keyword)) {
             $slots = Slot::where('time_range', 'LIKE', "%$keyword%")
@@ -30,7 +30,7 @@ class SlotsController extends Controller
             $slots = Slot::paginate($perPage);
         }
 
-        return view('admin.slots.index', compact('slots'));
+        return view('admin.dashboard.slots', compact('slots'));
     }
 
     /**
@@ -52,14 +52,21 @@ class SlotsController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $requestData = $request->all();
-        
-        Slot::create($requestData);
-
-        Session::flash('flash_message', 'Slot added!');
-
-        return redirect('admin/slots');
+        $method = $request->isMethod('post');
+        switch ($method) {
+            case true:
+                    $requestData = $request->all();
+                    Slot::create($requestData);
+                    Session::flash('flash_message', 'Slot added!');
+                    return redirect('admin/slots');
+                break;
+            case false:
+                    return view('admin/slots/create');
+                break;
+            default:
+                    return view('admin/slots/create');
+                break;
+        } 
     }
 
     /**
@@ -86,7 +93,6 @@ class SlotsController extends Controller
     public function edit($id)
     {
         $slot = Slot::findOrFail($id);
-
         return view('admin.slots.edit', compact('slot'));
     }
 
@@ -108,7 +114,7 @@ class SlotsController extends Controller
 
         Session::flash('flash_message', 'Slot updated!');
 
-        return redirect('admin/slots');
+        return redirect('admin/slots')->with('success', 'Slot Successfully Updated');
     }
 
     /**
@@ -121,9 +127,7 @@ class SlotsController extends Controller
     public function destroy($id)
     {
         Slot::destroy($id);
-
         Session::flash('flash_message', 'Slot deleted!');
-
-        return redirect('admin/slots');
+        return redirect('admin/slots')->with('error_message', 'Slot Successfully Updated');
     }
 }

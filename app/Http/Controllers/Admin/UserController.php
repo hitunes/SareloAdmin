@@ -13,7 +13,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::latest()->paginate(5);
+        $users = User::join('roles', 'users.role_id', 'roles.id')
+                        ->where('roles.name', 'User')
+                        ->paginate(5);
         return view('admin.dashboard.users', compact('users'));
     }
 
@@ -46,7 +48,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**

@@ -208,7 +208,7 @@
                                                 <span>Total Due</span>
                                                 <span class="pull-right c-brand-green f-20"> 
                                                     &#8358;
-                                                    <span class="cash">{{number_format($order->total)}}</span>
+                                                    <span class="cash">{{number_format($order->total, 2)}}</span>
                                                 </span>
                                             </p>
                                         </li>

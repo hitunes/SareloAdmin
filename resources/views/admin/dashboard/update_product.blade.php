@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
     @section('title')
-        Dashboard | Add Product
+        Dashboard | Edit Product
     @endsection
 
     @section('content')
@@ -19,10 +19,10 @@
                     <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                     <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
                     <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-                    
+
                         <ul class="page-sidebar-menu ">
                             <li class="nav-item  ">
-                                <a href="{{url('admin')}}" class="nav-link ">
+                                <a href="{{url('admin/dashboard')}}" class="nav-link ">
                                     <i class="icon-home"></i>
                                     <span class="title">Dashboard</span>
                                 </a>
@@ -59,6 +59,18 @@
                                     <span class="selected"></span>
                                 </a>
                             </li>
+                            <li class="nav-item  ">
+                                <a href="{{url('/admin/slots')}}" class="nav-link ">
+                                    <i class="icon-graph"></i>
+                                    <span class="title">Slots</span>
+                                </a>
+                            </li>
+                            <li class="nav-item  ">
+                                <a href="{{url('/admin/unit-types')}}" class="nav-link ">
+                                    <i class="icon-graph"></i>
+                                    <span class="title">Unit Types</span>
+                                </a>
+                            </li>
                         </ul>
                     <!-- END SIDEBAR MENU -->
                 </div>
@@ -70,18 +82,18 @@
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
                     <!-- BEGIN PAGE HEAD-->
-                    
+
                     <!-- END PAGE HEAD-->
                     <!-- BEGIN PAGE BREADCRUMB -->
-                    
+
                     <!-- END PAGE BREADCRUMB -->
                     <!-- BEGIN PAGE BASE CONTENT -->
 
                     {{-- EDIT EACH PRODUCT BEGINS --}}
                     <span>
-                        
-                    
-                    
+
+
+
                     {{-- EDIT EACH PRODUCT ENDS --}}
 
 
@@ -107,7 +119,7 @@
                                                 <i class="fa fa-angle-left"></i> Back</button>-->
                                             <!--<button class="btn btn-secondary-outline">
                                                 <i class="fa fa-reply"></i> Reset</button>-->
-                                            
+
                                             <!--<button class="btn btn-success">
                                                 <i class="fa fa-check-circle"></i> Save & Continue Edit</button>-->
                                             <!--<div class="btn-group">
@@ -574,7 +586,7 @@
                                                                 <textarea class="form-control" value="" name="description">{{$found_product->description}}</textarea>
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Category:
                                                                 <span class="required"> * </span>
@@ -757,10 +769,10 @@
                                                         <div class="prod_im\g">
                                                             <img src="/dashboard/assets/layouts/layout4/img/sarelo2.svg" alt="" >
                                                             <div id="tab_images_uploader_container" class="margin-bottom-10">
-                                                               
+
                                                                 <input type="file" name="product_image"  id="tab_images_uploader_pickfiles" href="javascript:;" class="btn btn-success">
                                                                 </input>
-                                                                
+
                                                             </div>
                                                         </div>
                                                         <button class="btn btn-success"><i class="fa fa-check"></i>Update</button>
@@ -792,7 +804,7 @@
                                                     <th width="15%"> Image </th>
                                                     <th width="15%"> Date Created </th>
                                                     <th width="25%"> Action </th>
-                                                </tr>     
+                                                </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
@@ -814,18 +826,19 @@
                                                             </div>
                                                         </td>
                                                         <td>
+                                                            @if(isset($product->created_at))
                                                             {{$product->created_at->diffForHumans()}}
+                                                            @endif
                                                         </td>
                                                         <td>
                                                              <div class="margin-bottom-5">
-                                                                <a href="{{url('admin/products',$product->id)}}" class="btn btn-sm btn-default margin-bottom" id="edit_product">
+                                                                <center>
+                                                                    <a href="{{url('admin/products',$product->id)}}" class="btn btn-sm btn-default margin-bottom" id="edit_product">
                                                                     <i class="fa fa-pencil"></i> Edit</a>
 
                                                                 <a id="a_del" href="{{url('admin/products/destroy',$product->id)}}" class="btn btn-sm btn-danger margin-bottom">
                                                                     <i class="fa fa-trash"></i> Delete</a>
-
-                                                                <button class="btn btn-sm btn-success margin-bottom">
-                                                                    <i class="fa fa-floppy-o"></i> Save</button>
+                                                                </center>
                                                             </div>
                                                         </td>
                                                     </tr>

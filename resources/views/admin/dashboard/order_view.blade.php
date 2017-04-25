@@ -8,10 +8,10 @@
         <div class="page-container">
             <!-- BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
-                <div class="page-sidebar navbar-collapse collapse">    
+                <div class="page-sidebar navbar-collapse collapse">
                     <ul class="page-sidebar-menu">
                         <li class="nav-item  ">
-                            <a href="{{url('admin')}}" class="nav-link ">
+                            <a href="{{url('admin/dashboard')}}" class="nav-link ">
                                 <i class="icon-home"></i>
                                 <span class="title">Dashboard</span>
                             </a>
@@ -27,6 +27,18 @@
                             <a href="{{url('admin/orders')}}" class="nav-link ">
                                 <i class="icon-basket"></i>
                                 <span class="title">Orders</span>
+                            </a>
+                        </li>
+                         <li class="nav-item  ">
+                            <a href="{{url('/admin/slots')}}" class="nav-link ">
+                                <i class="icon-basket"></i>
+                                <span class="title">Slots</span>
+                            </a>
+                        </li>
+                        <li class="nav-item  ">
+                            <a href="{{url('/admin/unit-types')}}" class="nav-link ">
+                                <i class="icon-graph"></i>
+                                <span class="title">Unit Types</span>
                             </a>
                         </li>
                         <!--<li class="nav-item  active open">
@@ -59,10 +71,10 @@
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
                     <!-- BEGIN PAGE HEAD-->
-                    
+
                     <!-- END PAGE HEAD-->
                     <!-- BEGIN PAGE BREADCRUMB -->
-                    
+
                     <!-- END PAGE BREADCRUMB -->
                     <!-- BEGIN PAGE BASE CONTENT -->
                     <div class="row">
@@ -72,12 +84,12 @@
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-settings font-dark"></i>
-                                        <span class="caption-subject font-dark sbold uppercase"> Order {{"#000000".$order->user_id}}
+                                        <span class="caption-subject font-dark sbold uppercase"> Order {{$order->user_id}}
                                             <span class="hidden-xs">| Dec 27, 2013 7:16:25 </span>
                                         </span>
                                     </div>
                                     <div class="actions">
-                                       
+
                                         <div class="btn-group">
                                             <a class="btn red btn-outline btn-circle" href="javascript:;" data-toggle="dropdown">
                                                 <i class="fa fa-share"></i>
@@ -141,13 +153,16 @@
                                                             <div class="portlet-body">
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Order No: </div>
-                                                                    <div class="col-md-7 value"> {{"000000".$order->user_id}}
+                                                                    <div class="col-md-7 value"> {{$order->user_id}}
                                                                         <!--<span class="label label-info label-sm"> Email confirmation was sent </span>-->
                                                                     </div>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Order Date & Time: </div>
-                                                                    <div class="col-md-7 value"> {{$order->created_at->diffForHumans()}} </div>
+                                                                    <div class="col-md-7 value">
+                                                                    @if(isset($order->created_at))
+                                                                    {{$order->created_at->diffForHumans()}} @endif
+                                                                    </div>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Order Status: </div>
@@ -273,12 +288,12 @@
                                                                             </thead>
                                                                             <tbody>
                                                                                 @foreach($order->order_products as $item)
-                                                                                
 
-                                                                                  
+
+
                                                                                     <tr>
                                                                                         <td>
-                                                                                            <a target="_blank" href="/admin/products/{{$item->product->id}}">  
+                                                                                            <a target="_blank" href="/admin/products/{{$item->product->id}}">
                                                                                             {{$item->product->name}}
                                                                                             </a>
                                                                                         </td>
@@ -286,7 +301,7 @@
                                                                                         <td>&#8358;  {{$item->price}}</td>
                                                                                         <td>&#8358; {{$item->sub_total}} </td>
                                                                                     </tr>
-                                                                                  
+
                                                                                 @endforeach
                                                                         </tbody>
                                                                     </table>

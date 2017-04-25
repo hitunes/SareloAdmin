@@ -72,7 +72,9 @@
                                             <hr>
                                         </div>
                                    
-                                     <button type="submit" class="btn btn-md f-18 pull-right c-white">Add</button>
+                                     {{-- <button type="submit" class="btn btn-md f-18 pull-right c-white">Add</button> --}}
+                                    <button type="submit" class="btn btn-md bg-brand-green pull-right f-18" id="submit">Add</button>
+
                                         
                                     </form>
                                 </div>
