@@ -48,6 +48,13 @@
                                     <span class="selected"></span>
                                 </a>
                         </li>
+                        <li class="nav-item">
+                                <a href="{{url('/admin/create')}}" class="nav-link ">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Manage Admin</span>
+                                    <span class="selected"></span>
+                                </a>
+                        </li>
                     </ul>
                     <!-- END SIDEBAR MENU -->
                 </div>

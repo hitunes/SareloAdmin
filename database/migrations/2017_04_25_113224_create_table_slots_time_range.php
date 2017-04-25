@@ -15,6 +15,7 @@ class CreateTableSlotsTimeRange extends Migration
     {
         Schema::create('slots_time_range', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('time_range');
             $table->timestamps();
         });
     }

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Slot;
 use Illuminate\Http\Request;
 use Session;
+use App\Slot_time;
 
 class SlotsController extends Controller
 {
@@ -19,8 +20,7 @@ class SlotsController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 5;
-
+        $perPage = 10;
         if (!empty($keyword)) {
             $slots = Slot::where('time_range', 'LIKE', "%$keyword%")
 				->orWhere('slot_available', 'LIKE', "%$keyword%")

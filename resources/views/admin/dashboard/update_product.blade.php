@@ -12,14 +12,7 @@
                 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                 <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
                 <div class="page-sidebar navbar-collapse collapse">
-                    <!-- BEGIN SIDEBAR MENU -->
-                    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
-                    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
-                    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
-                    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
-                    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
-                    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-
+                   
                         <ul class="page-sidebar-menu ">
                              <li class="nav-item  ">
                             <a href="{{url('/admin/dashboard')}}" class="nav-link ">
@@ -59,6 +52,13 @@
                                     <span class="selected"></span>
                                 </a>
                         </li>
+                        <li class="nav-item">
+                                <a href="{{url('/admin/create')}}" class="nav-link ">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Manage Admin</span>
+                                    <span class="selected"></span>
+                                </a>
+                        </li>
                         </ul>
                     <!-- END SIDEBAR MENU -->
                 </div>
@@ -86,7 +86,7 @@
 
 
                     <div class="row">
-                        <div class="col-md-12" id="add_product">
+                        <div class="col-md-8" id="add_product">
                             @if (session('success'))
                                 <div class="alert alert-success">
                                     {{ session('success') }}
@@ -168,12 +168,14 @@
 
 
                                                         </div>
-                                                      
+                                                          <?php
+                                                            $product_image = str_replace('public/', '', $found_product->products_image);
+                                                            // dd($product_image); exit;
+                                                         ?>
+                                                       
 
                                                         <div class="prod_im\g">
-                                                            <img src="/dashboard/assets/layouts/layout4/img/sarelo2.svg" alt="" >
                                                             <div id="tab_images_uploader_container" class="margin-bottom-10">
-
                                                                 <input type="file" name="product_image"  id="tab_images_uploader_pickfiles" href="javascript:;" class="btn btn-success">
                                                                 </input>
 
@@ -185,7 +187,25 @@
                                     </div>
                                 </div>
                             </form>
+                                <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+
+                                    <div class="thumbnail">
+                                        <img data-src="#">
+                                        <div class="caption">
+                                            <span class=""><b>Product Image: </b></span><br>
+                                            <hr>
+                                            <p>
+                                                <center> 
+                                                     <img class="" style="width: 200px; height: 250px;" src="  {{ asset("storage/$product_image") }}"   alt="{{$found_product->name}} image display here" />
+                                                </center>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        
+                    </div>
 
                        
             <!-- END CONTENT -->

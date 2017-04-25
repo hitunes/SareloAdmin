@@ -41,7 +41,7 @@
                         <li class="nav-item">
                                 <a href="{{url('/admin/create')}}" class="nav-link ">
                                     <i class="icon-user"></i>
-                                    <span class="title">Create Admin</span>
+                                    <span class="title">Manage Admin</span>
                                     <span class="selected"></span>
                                 </a>
                         </li>

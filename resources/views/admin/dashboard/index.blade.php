@@ -3,30 +3,12 @@
         Dashboard | Dashoard
     @endsection
     @section('content')
-        <!-- BEGIN CONTAINER -->
         <div class="page-container">
-            <!-- BEGIN SIDEBAR -->
             <div class="page-sidebar-wrapper">
-                <!-- BEGIN SIDEBAR -->
-               
                 @include('layouts.dashboard_sidebar')
-                
-                <!-- END SIDEBAR -->
             </div>
-            <!-- END SIDEBAR -->
-
-            <!-- BEGIN CONTENT -->
-            <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
-                <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
-                    <!-- BEGIN PAGE HEAD-->
-                    
-                    <!-- END PAGE HEAD-->
-                    <!-- BEGIN PAGE BREADCRUMB -->
-                    
-                    <!-- END PAGE BREADCRUMB -->
-                    <!-- BEGIN PAGE BASE CONTENT -->
                     <div class="row widget-row">
                          @if (session('success'))
                                 <div class="alert alert-success">
@@ -140,6 +122,11 @@
 
                                                                     <select name="order_status" class="form-control form-filter input-sm">
                                                                         <option value="">Select...</option>
+                                                                        <option value="">Confirmed</option>
+                                                                        <option value="">Processing</option>
+                                                                        <option value="">Gone to Market</option>
+                                                                        <option value="">Delivered</option>
+
                                                                        {{--  @foreach($order->total as $present_status)
                                                                             <option value="{{$present_status}}">{{$present_status}}</option>
                                                                         @endforeach --}}
@@ -165,22 +152,9 @@
                                     {{ $orders->links() }}
                                 </div>
                             </div>
-                            <!-- End: life time stats -->
                         </div>
                     </div>
-                    <!-- END PAGE BASE CONTENT -->
                 </div>
-                <!-- END CONTENT BODY -->
             </div>
-
-
-            <!-- END CONTENT -->
-            <!-- END CONTENT -->
-
-            <!-- BEGIN QUICK SIDEBAR -->
-            
-            <!-- END QUICK SIDEBAR -->
-
         </div>
-        <!-- END CONTAINER -->
 @endsection

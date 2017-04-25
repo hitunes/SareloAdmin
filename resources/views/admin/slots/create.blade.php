@@ -72,8 +72,12 @@
                                                     <div class="form-group {{ $errors->has('time_range') ? 'has-error' : ''}}">
                                                         {!! Form::label('time_range', 'Time Range', ['class' => 'col-md-4 control-label']) !!}
                                                         <div class="col-md-6">
-                                                            {!! Form::text('time_range', null, ['class' => 'form-control']) !!}
-                                                            {!! $errors->first('time_range', '<p class="help-block">:message</p>') !!}
+                                                            <select name="time_range" class="form-group form-control">
+                                                                <option value="">Select One</option>
+                                                                <option value="10-12pm">10-12pm</option>
+                                                                <option value="12-2pm">12-2pm</option>
+                                                                <option value="2-4pm">2-4pm</option>
+                                                            </select>
                                                         </div> <br> <br>
                                                     </div><div class="form-group {{ $errors->has('slot_available') ? 'has-error' : ''}}">
                                                         {!! Form::label('slot_available', 'Slot Available', ['class' => 'col-md-4 control-label']) !!}
