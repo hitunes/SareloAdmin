@@ -6,6 +6,8 @@ use Closure;
 use Auth;
 use App\User;
 
+use App\Models\Role;
+
 class Admin
 {
     /**
@@ -17,9 +19,11 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user() && Auth::user()->role_id === 4) {
+        $role = Role::where('name', 'Super Admin')->first();
+
+        if (Auth::user() && Auth::user()->role_id === $role->id) {
             return $next($request);
         }
-        return redirect('/admin');
+        return redirect('/my-account');
     }
 }
