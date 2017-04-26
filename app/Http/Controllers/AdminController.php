@@ -9,17 +9,28 @@ use App\User;
 use App\Order;
 use App\Models\Product;
 use Illuminate\Support\Facades\DB;
+use App\Models\Role;
+
 
 class AdminController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $completedOrders = DB::table('orders')->where('status', 'Completed')->sum('total');
+        $completedOrders = DB::table('orders')->where('status', 'Delivered')->sum('total');
         $ordersResult = number_format($completedOrders);
         $users = User::join('roles', 'users.role_id', 'roles.id')
                     ->where('roles.name', 'User')->count();
         $products = Product::count();
-    	return view('admin.dashboard.index', compact('ordersResult', 'users', 'products'));
+        $keyword = $request->get('search');
+        $perPage = 10;
+        if (!empty($keyword)) {
+            $orders = Order::where('user_id', 'LIKE', "%$keyword%")
+                ->orWhere('total', 'LIKE', "%$keyword%")
+                ->paginate($perPage);
+        } else {
+            $orders = Order::paginate($perPage);
+        }
+    	return view('admin.dashboard.index', compact('ordersResult', 'users', 'products', 'orders'));
     }
      public function users()
     {
@@ -43,6 +54,8 @@ class AdminController extends Controller
     {
     	return view('admin.dashboard.product_edit');
     }
+    
+
     public function signin(Request $request)
     {
          $method = $request->isMethod('post');
@@ -54,20 +67,57 @@ class AdminController extends Controller
                             'password' => 'required|min:4'
                         ]);
                         $authenticate_user = Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')]);
-                        // dd($authenticate_user);exit;
                         if ($authenticate_user) {
-                            //i.e if email n password match using d auth class
-                            //basically, attempt function under class Auth or Auth facade method collects all parameters i.e all input fields tovalidate in an associative array inform of key and valuefrm above, the key is the field or column declared fillable in the user model
-                            return redirect('admin/dashboard')->with('success','Welcome Amin');
+                            return redirect('admin/dashboard')->with('success','Welcome Admin');
                         }else{
                             return redirect('/admin')->with('delete_message', 'Wrong Email or Password');
                         }
                 break;
                 case false:
+                    if (Auth::check()) {
+                        return redirect('admin/dashboard');
+                    }
                     return view('/admin.dashboard.login');
                 break;
                 default:
+                    if (Auth::check()) {
+                        return redirect('admin/dashboard');
+                    }
                     return view('/admin.dashboard.login');
+                break;
+            }
+    }
+
+    public function signup(Request $request)
+    {
+         $method = $request->isMethod('post');
+            switch ($method) {
+                case true:
+                        $this->validate($request, [
+                            'email' => 'required|unique:users',
+                            'password' => 'required|min:4',
+                            'confirm_password' => 'required|min:4'
+                        ]);
+                        $password = $request->input('password');
+                        $confirm_password = $request->input('confirm_password');
+                        if ($password === $confirm_password) {
+                            $role = Role::where('name', 'Admin')->first();
+                            $user = new User([
+                              'email' => $request->input('email'),
+                              'password' => Hash::make($password),
+                              ]);
+                            $user->role()->associate($role);
+                            $user->save();
+                            return redirect('admin/dashboard')->with('success','Admin created successfully!');
+                        }else{
+                            return redirect('/admin/create')->with('delete_message', 'Password does not match!');
+                        }
+                break;
+                case false:
+                    return view('/admin.create');
+                break;
+                default:
+                    return view('/admin.create');
                 break;
             }
     }
@@ -76,5 +126,11 @@ class AdminController extends Controller
     {
         Auth::logout();
         return redirect('/admin');
+    }
+    public function destror($id)
+    {
+       Order::findOrFail($id);
+        Order::destroy($id);
+        return redirect('admin/orders')->with('delete_message', 'Order successfully deleted!'); 
     }
 }

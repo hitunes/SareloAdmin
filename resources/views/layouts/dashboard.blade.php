@@ -121,7 +121,7 @@
 
                                 <a href="{{url('admin/logout')}}" >
                                 
-                                    <span style="color: #222; cursor: default;" class="username username-hide-on-mobile"><b> Admin </b>| </span>
+                                    <span style="color: #222; cursor: default;" class="username username-hide-on-mobile"><b> {{$email}} </b>| </span>
                                  
                                  
                                     <span class="username username-hide-on-mobile"> Logout
@@ -245,12 +245,9 @@
               $("a#a_del").click(function(){
                return ConfirmDelete();
               });
-
-              // $("a#edit_product").click(function(){
-              //   $("#edit_each_product").show();
-              //   $("#add_product").hide();
-              //   $(window).scrollTop(0);
-              // });
+              $("button#a_del").click(function(){
+               return ConfirmDelete();
+              });
         </script>
         <!-- END THEME LAYOUT SCRIPTS -->
     </body>
