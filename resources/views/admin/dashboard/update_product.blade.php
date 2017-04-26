@@ -12,7 +12,7 @@
                 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
                 <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
                 <div class="page-sidebar navbar-collapse collapse">
-                   
+
                         <ul class="page-sidebar-menu ">
                              <li class="nav-item  ">
                             <a href="{{url('/admin/dashboard')}}" class="nav-link ">
@@ -102,10 +102,10 @@
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <i class="fa fa-shopping-cart"></i>Edit Product </div>
-                                        
+
                                     </div>
                                     <div class="portlet-body">
-                                     
+
                                         <div class="form-body">
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Name:
@@ -123,7 +123,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="form-group">
+                                                        {{-- <div class="form-group">
                                                             <label class="col-md-2 control-label">Category:
                                                                 <span class="required"> * </span>
                                                             </label>
@@ -135,7 +135,7 @@
                                                                 @endforeach
                                                                 </select>
                                                             </div>
-                                                        </div>
+                                                        </div> --}}
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Unit:
                                                                 <span class="required"> * </span>
@@ -158,7 +158,7 @@
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                        
+
                                                         <div class="form-group">
                                                             <label class="col-md-2 control-label">Price:
                                                                 <span class="required"> * </span>
@@ -172,7 +172,7 @@
                                                             $product_image = str_replace('public/', '', $found_product->products_image);
                                                             // dd($product_image); exit;
                                                          ?>
-                                                       
+
 
                                                         <div class="prod_im\g">
                                                             <div id="tab_images_uploader_container" class="margin-bottom-10">
@@ -195,7 +195,7 @@
                                             <span class=""><b>Product Image: </b></span><br>
                                             <hr>
                                             <p>
-                                                <center> 
+                                                <center>
                                                      <img class="" style="width: 200px; height: 250px;" src="  {{ asset("storage/$product_image") }}"   alt="{{$found_product->name}} image display here" />
                                                 </center>
                                             </p>
@@ -204,10 +204,10 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
 
-                       
+
             <!-- END CONTENT -->
             <!-- BEGIN QUICK SIDEBAR -->
             <!-- END QUICK SIDEBAR -->
