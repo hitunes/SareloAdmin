@@ -45,7 +45,7 @@
                                     <span class="selected"></span>
                                 </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item     glyphicon glyphicon-th">
                                 <a href="{{url('/admin/create')}}" class="nav-link ">
                                     <i class="icon-user"></i>
                                     <span class="title">Manage Admin</span>
