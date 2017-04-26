@@ -125,4 +125,7 @@
     width: 150px;
     margin: 124px auto;
   }
+  .form-group {
+    margin-bottom: 20px;
+  }
 }

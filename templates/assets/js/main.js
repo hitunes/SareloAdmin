@@ -497,13 +497,6 @@ const app = {
            $('#loader').hide();
             cartArray.length === 0 ? a() : b();
             aniCounter();
-            $("#basketList").html(output);
-            $("#cartTable").html(output2);
-            $(".items").html(countCart());
-            $("#totalP").html(totalCart());
-            $("#serviceCharge").html(serviceChargeCtrl(10));
-            $("#deliveryFee").html(deliveryCtrl(1000));
-            $("#grandTP").html(totalCart() + serviceChargeCtrl(10) + deliveryCtrl(1000));
         },
         error: function (response) {
 
@@ -514,6 +507,15 @@ const app = {
            }, 5000);
         }
       });
+
+    
+      $("#basketList").html(output);
+      $("#cartTable").html(output2);
+      $(".items").html(countCart());
+      $("#totalP").html(totalCart());
+      $("#serviceCharge").html(serviceChargeCtrl(10));
+      $("#deliveryFee").html(deliveryCtrl(1000));
+      $("#grandTP").html(totalCart() + serviceChargeCtrl(10) + deliveryCtrl(1000));
     }
 
     $(document).on('click', '.suggestions li', function(e){
@@ -606,10 +608,28 @@ const app = {
     }*/
   },
   contentEditor: function(){
-    var editBtn = $('#editBtn');
-    var editor = $('#editor');
+    var editBtns = $('.editBtn');
+   // console.log(editBtn);
 
-    editBtn.on('click', function(e) {
+    editBtns.on('click', function(){
+      //console.log($(this).parent()[0].previousElementSibling.lastElementChild);
+      var editor = $(this).parent()[0].previousElementSibling.lastElementChild;
+
+      if (!editor.isContentEditable) {
+           // console.log(editor);
+            editor.contentEditable = true;
+            editor.focus();
+            $(this).text('Save');
+        } else {
+            editor.contentEditable = false;
+            // Change Button Text and Color
+            $(this).text('Edit');
+        }
+    });
+    
+    //var editor = $('.editor');
+
+    /*editBtn.on('click', function(e) {
 
         if (!editor[0].isContentEditable) {
            // console.log(editor);
@@ -624,7 +644,7 @@ const app = {
             editBtn.css('backgroundColor', '#F96');
 
         }
-    });
+    });*/
   },
   inlineEditor: function(){
     var editBtn = $('.change');
