@@ -10,6 +10,8 @@ use App\Models\Charge;
 
 use App\Models\Order;
 
+use \Cart;
+
 
 class PaymentController extends Controller
 {
@@ -19,7 +21,7 @@ class PaymentController extends Controller
     public function index($order_unique_reference)
     {
         $charges = Charge::all();
-    
+
         $order = Order::with(['orderProducts', 'orderSlot' => function ($q) {
                                 return $q->with('slot');
                             }])->where('order_unique_reference', $order_unique_reference)->first();
@@ -28,7 +30,7 @@ class PaymentController extends Controller
 
             if($charge['percentage'] <= 0)
                 $charge_arr['service_charge'] = $charge['fixed_amount'];
-            else  
+            else
                 $charge_arr['ten_percent'] = $order->sub_total * ($charge['percentage']/100);
          }
 
@@ -43,7 +45,9 @@ class PaymentController extends Controller
                         }])
                     ->where('order_unique_reference', $order_unique_reference)
                     ->first();
-    
+        //clear cart
+        Cart::destroy();
+
         return view('payment.complete', compact('order'));
     }
 
