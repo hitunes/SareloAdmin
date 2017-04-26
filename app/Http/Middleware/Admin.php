@@ -17,8 +17,6 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        // $role_name = User::join('roles', 'users.role_id', 'roles.id')
-        //             ->where('roles.name', 'User')->get();
         if (Auth::user() && Auth::user()->role_id === 4) {
             return $next($request);
         }
