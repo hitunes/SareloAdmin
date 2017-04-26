@@ -612,7 +612,6 @@ div.clearfix small,
 .p-t-50 {padding-top:50px !important;}
 .p-t-60 {padding-top:60px !important;}
 .p-t-80 {padding-top:80px !important;}
-.p-t-80 {padding-top:100px !important;}
 .p-t-100 {padding-top:100px !important;}
 .p-t-140 {padding-top:140px !important;}
 /****  Padding Bottom  ****/
@@ -973,6 +972,10 @@ label.required:after {content: '*';color: #FF5757;margin-left: 2px;}
   background-image:url(../img/tomatoes-min.jpeg);
   background-size:cover;
   background-position:center center;
+}
+
+.login-bg input{
+  height: 40px;
 }
 
 .addresses{

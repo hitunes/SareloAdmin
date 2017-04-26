@@ -609,16 +609,18 @@ const app = {
   },
   contentEditor: function(){
     var editBtns = $('.editBtn');
-   // console.log(editBtn);
+    console.log(editBtns);
 
-    editBtns.on('click', function(){
+    editBtns.on('click', function(e){
+      e.preventDefault();
+      console.log(e.target.nodeName);
       //console.log($(this).parent()[0].previousElementSibling.lastElementChild);
       var editor = $(this).parent()[0].previousElementSibling.lastElementChild;
 
       if (!editor.isContentEditable) {
            // console.log(editor);
             editor.contentEditable = true;
-            editor.focus();
+           // editor.focus();
             $(this).text('Save');
         } else {
             editor.contentEditable = false;
