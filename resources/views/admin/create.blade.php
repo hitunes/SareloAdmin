@@ -29,7 +29,7 @@
                         <li class="nav-item  ">
                             <a href="#" class="nav-link ">
                                 <i class="icon-graph"></i>
-                                <span class="title">Remove Admin</span>
+                                <span class="title">Change Password</span>
                             </a>
                         </li>
                        
@@ -70,18 +70,18 @@
                                                                @endif
                                    						<div class="form-group">
                                    							<label for="">Email:</label>
-                                   							<input type="text" name="email" class="form-control" id="" placeholder="Input field"> <br>
+                                   							<input type="text" name="email" class="form-control" id="" placeholder="Email address here"> <br>
                                    								@if ($errors->has('email')) <p class="help-block" style="color: red">{{ $errors->first('email') }}</p> @endif
                                    						</div>
                                    						<div class="form-group">
                                    							<label for="">Password:</label>
-                                   							<input type="password" name="password" class="form-control" id="" placeholder="Input field"> <br>
+                                   							<input type="password" name="password" class="form-control" id="" placeholder="Password here"> <br>
                                    								@if ($errors->has('password')) <p class="help-block" style="color: red">{{ $errors->first('password') }}</p> @endif
 
                                    						</div>
                                    						<div class="form-group">
                                    							<label for="">Confirm Password:</label>
-                                   							<input type="password" name="confirm_password" class="form-control" id="" placeholder="Input field"> <br>
+                                   							<input type="password" name="confirm_password" class="form-control" id="" placeholder="Confirm password"> <br>
                                    								@if ($errors->has('confirm_password')) <p class="help-block" style="color: red">{{ $errors->first('confirm_password') }}</p> @endif
                                    						</div>
                                    						<center>

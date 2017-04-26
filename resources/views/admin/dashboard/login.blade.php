@@ -24,12 +24,12 @@
 
 						<div class="form-group">
 							<label for="">Email:</label>
-							<input type="text" name="email" class="form-control" id="" placeholder="Input field"> <br>
+							<input type="text" name="email" class="form-control" id="" placeholder="Email address here"> <br>
 								@if ($errors->has('email')) <p class="help-block" style="color: red">{{ $errors->first('email') }}</p> @endif
 						</div>
 						<div class="form-group">
 							<label for="">Password:</label>
-							<input type="password" name="password" class="form-control" id="" placeholder="Input field"> <br>
+							<input type="password" name="password" class="form-control" id="" placeholder="Password here"> <br>
 								@if ($errors->has('password')) <p class="help-block" style="color: red">{{ $errors->first('password') }}</p> @endif
 
 						</div>
