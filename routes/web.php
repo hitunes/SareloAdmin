@@ -11,6 +11,18 @@
 |
 */
 
+// role middleware begins here
+    // $roles = ['Super Admin', 'Shopper', 'Inventory Manager', 'User']
+    // Route::group(['prefix' => 'admin'], function() {
+    //         Route::get('/products', 
+    //             ['uses' => 'Admin\ProductsController@index',
+    //                 'middleware' => 'role',
+    //                 'roles' => $roles
+    //             ]);
+    // });
+// role middleware ends here
+
+
 Route::group(['middleware' => 'admin'], function() {
     Route::group(['prefix' => 'admin'], function() {
             Route::match(['get', 'post'], '/create', 'AdminController@signup');

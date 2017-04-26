@@ -58,24 +58,11 @@
                     <div class="top-menu">
                         <ul class="nav navbar-nav pull-right">
                             <li class="separator hide"> </li>
-                            <!-- BEGIN NOTIFICATION DROPDOWN -->
-                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                            <li class="dropdown dropdown-extended dropdown-notification dropdown-dark" id="header_notification_bar">
                                
                             </li>
                             <!-- END NOTIFICATION DROPDOWN -->
                             <li class="separator hide"> </li>
-                            <!-- BEGIN INBOX DROPDOWN -->
-                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                           
-                            <!-- END INBOX DROPDOWN -->
                             <li class="separator hide"> </li>
-                            <!-- BEGIN TODO DROPDOWN -->
-                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                            
-                            <!-- END TODO DROPDOWN -->
-                            <!-- BEGIN USER LOGIN DROPDOWN -->
-                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <li class="dropdown dropdown-user dropdown-dark">
                                 
                                    
@@ -88,8 +75,6 @@
                                     <span class="username username-hide-on-mobile"> Logout
                                     </span>
                                 </a>
-                                    <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
-                                    <!--<img alt="" class="img-circle" src="assets/layouts/layout4/img/avatar9.jpg" /> </a>-->
                                 <ul class="dropdown-menu dropdown-menu-default">
                                     <li class="divider"> </li>
                                     
@@ -99,10 +84,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            <!-- END USER LOGIN DROPDOWN -->
-                            <!-- BEGIN QUICK SIDEBAR TOGGLER -->
-                           
-                            <!-- END QUICK SIDEBAR TOGGLER -->
                         </ul>
                     </div>
                     <!-- END TOP NAVIGATION MENU -->
@@ -124,12 +105,6 @@
                 <i class="icon-arrow-up"></i>
             </div>
         </div>
-        <!-- END FOOTER -->
-        <!--[if lt IE 9]>
-<script src="dashboard/assets/global/plugins/respond.min.js"></script>
-<script src="dashboard/assets/global/plugins/excanvas.min.js"></script> 
-<![endif]-->
-        <!-- BEGIN CORE PLUGINS -->
         <script src="/dashboard/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
@@ -209,6 +184,7 @@
               $("button#a_del").click(function(){
                return ConfirmDelete();
               });
+              $(".custom-alerts").css('background-color', 'yellow');
         </script>
         <!-- END THEME LAYOUT SCRIPTS -->
     </body>
