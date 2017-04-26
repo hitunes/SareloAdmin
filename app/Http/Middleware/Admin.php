@@ -19,9 +19,12 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        $role = Role::where('name', 'Super Admin')->first();
+        $arr = [];
+        $admin_ids = Role::select('id')->where('name', "!=", 'User')->get()->each(function($k) use(&$arr) {
+            $arr[] =$k->id;
+        });
 
-        if (Auth::user() && Auth::user()->role_id === $role->id) {
+        if (Auth::user() && in_array(Auth::user()->role_id, $arr)) {
             return $next($request);
         }
         return redirect('/my-account');

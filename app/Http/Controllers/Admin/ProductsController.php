@@ -34,12 +34,12 @@ class ProductsController extends Controller
 				->orWhere('price', 'LIKE', "%$keyword%")
 				->orWhere('unit', 'LIKE', "%$keyword%")
 				->orWhere('unit_type_id', 'LIKE', "%$keyword%")
-				
+
                 ->paginate($perPage);
         } else {
             $products = Product::paginate($perPage);
         }
-        $categories = Category::all(); 
+        $categories = Category::all();
         $unit_type = UnitType::all();
         // dd($unit_type);
 
@@ -63,16 +63,15 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-     public function add_product(Request $request)
+    public function add_product(Request $request)
     {
 
         $this->validate($request, [
-            'name' => 'required', 
+            'name' => 'required',
             'description' => 'required',
             'price' => 'required',
             'unit' => 'required',
             'unit_type_id' => 'required',
-            'category_id' => 'required',
             'product_image' => 'required'
         ]);
         // Storage::put(filePath, $contents);
@@ -90,7 +89,7 @@ class ProductsController extends Controller
             'category_id' => $request->input('category_id'),
             'products_image' => $store
         ]);
-        // dd($product);exit;
+
             $product->save();
         return redirect('admin/products')->with('success', 'Product Added Successfully!.');
     }
@@ -121,7 +120,7 @@ class ProductsController extends Controller
     {
         $products = Product::all();
         $found_product = Product::findOrFail($id);
-        $categories = Category::all(); 
+        $categories = Category::all();
         $unit_type = UnitType::all();
         // dd($products);exit;
         return view('admin.dashboard.update_product', compact('found_product', 'categories', 'unit_type', 'products'));
@@ -137,13 +136,13 @@ class ProductsController extends Controller
      */
     public function update($id, Request $request)
     {
-        
+
         $requestData = $request->all();
         // dd($requestData); exit;
-        
+
         $unit_type = UnitType::all();
-        $categories = Category::all(); 
-        $product = Product::findOrFail($id);        
+        $categories = Category::all();
+        $product = Product::findOrFail($id);
         $product->update($requestData);
         return redirect('admin/products')->with(['products' => $product, 'unit_type' => $unit_type, 'categories' => $categories])->with('success', 'Product Updated Successfully!.');
     }

@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['middleware' => 'admin'], function() {
+Route::group(['middleware' => ['admin']], function() {
     Route::group(['prefix' => 'admin'], function() {
             Route::match(['get', 'post'], '/create', 'AdminController@signup');
             Route::get('/logout', 'AdminController@logout');

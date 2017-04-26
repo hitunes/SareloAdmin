@@ -9,7 +9,7 @@
            <div class="content clearfix">
                 <!--starts here -->
                 @foreach($addresses as $address)
-                <label class="card m-b-0 bd-4 width-100p pos-rel w-100">
+                <div class="card m-b-0 bd-4 width-100p pos-rel w-100">
                     <div class="p-15 clearfix">
                         <p class="pull-left m-b-0 c-brand-green p-t-6">
                             <span><i class="fa fa-home"></i></span>
@@ -19,7 +19,7 @@
                     </div>
 
                     <input type="radio" name="address" class="addresses pos-abs">
-                </label>
+                </div>
                 @endforeach
                 <!-- starts here end -->
             </div>
