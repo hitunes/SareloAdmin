@@ -10,29 +10,23 @@
             <div class="page-sidebar-wrapper">
                 <div class="page-sidebar navbar-collapse collapse">
                     <ul class="page-sidebar-menu">
-                        <li class="nav-item  ">
-                            <a href="{{url('admin/dashboard')}}" class="nav-link ">
+                       <li class="nav-item ">
+                            <a href="{{url('/admin/dashboard')}}" class="nav-link ">
                                 <i class="icon-home"></i>
                                 <span class="title">Dashboard</span>
+                                <span class="selected"></span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                                <a href="{{url('admin/users')}}" class="nav-link ">
-                                    <i class="icon-user"></i>
-                                    <span class="title">Users</span>
-                                    <span class="selected"></span>
-                                </a>
-                        </li>
-                        <li class="nav-item  ">
-                            <a href="{{url('admin/orders')}}" class="nav-link ">
+                        <li class="nav-item active open">
+                            <a href="{{url('/admin/orders')}}" class="nav-link ">
                                 <i class="icon-basket"></i>
                                 <span class="title">Orders</span>
                             </a>
                         </li>
-                         <li class="nav-item  ">
-                            <a href="{{url('/admin/slots')}}" class="nav-link ">
-                                <i class="icon-basket"></i>
-                                <span class="title">Slots</span>
+                        <li class="nav-item  ">
+                            <a href="{{url('/admin/products')}}" class="nav-link ">
+                                <i class="icon-graph"></i>
+                                <span class="title">Products</span>
                             </a>
                         </li>
                         <li class="nav-item  ">
@@ -41,24 +35,25 @@
                                 <span class="title">Unit Types</span>
                             </a>
                         </li>
-                        <!--<li class="nav-item  active open">
-                            <a href="order_view.html" class="nav-link ">
-                                <i class="icon-tag"></i>
-                                <span class="title">Order View</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>-->
-                        <!--<li class="nav-item  ">
-                            <a href="product.html" class="nav-link ">
-                                <i class="icon-graph"></i>
-                                <span class="title">Products</span>
-                            </a>
-                        </li>-->
                         <li class="nav-item  ">
-                            <a href="{{url('admin/products')}}" class="nav-link ">
+                            <a href="{{url('/admin/slots')}}" class="nav-link ">
                                 <i class="icon-graph"></i>
-                                <span class="title">Products</span>
+                                <span class="title">Slots</span>
                             </a>
+                        </li>
+                        <li class="nav-item">
+                                <a href="{{url('/admin/users')}}" class="nav-link ">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Users</span>
+                                    <span class="selected"></span>
+                                </a>
+                        </li>
+                        <li class="nav-item">
+                                <a href="{{url('/admin/create')}}" class="nav-link ">
+                                    <i class="icon-user"></i>
+                                    <span class="title">Manage Admin</span>
+                                    <span class="selected"></span>
+                                </a>
                         </li>
                     </ul>
                     <!-- END SIDEBAR MENU -->
@@ -88,31 +83,6 @@
                                             <span class="hidden-xs">| Dec 27, 2013 7:16:25 </span>
                                         </span>
                                     </div>
-                                    <div class="actions">
-
-                                        <div class="btn-group">
-                                            <a class="btn red btn-outline btn-circle" href="javascript:;" data-toggle="dropdown">
-                                                <i class="fa fa-share"></i>
-                                                <span class="hidden-xs"> Tools </span>
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
-                                            <ul class="dropdown-menu pull-right">
-                                                <li>
-                                                    <a href="javascript:;"> Export to Excel </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;"> Export to CSV </a>
-                                                </li>
-                                                <li>
-                                                    <a href="javascript:;"> Export to XML </a>
-                                                </li>
-                                                <li class="divider"> </li>
-                                                <li>
-                                                    <a href="javascript:;"> Print Invoices </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div class="portlet-body">
                                     <div class="tabbable-line">
@@ -120,22 +90,6 @@
                                             <li class="active">
                                                 <a href="#tab_1" data-toggle="tab"> Details </a>
                                             </li>
-                                            <!--<li>
-                                                <a href="#tab_2" data-toggle="tab"> Invoices
-                                                    <span class="badge badge-success">4</span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="#tab_3" data-toggle="tab"> Credit Memos </a>
-                                            </li>
-                                            <li>
-                                                <a href="#tab_4" data-toggle="tab"> Shipments
-                                                    <span class="badge badge-danger"> 2 </span>
-                                                </a>
-                                            </li>-->
-                                            <!--<li>
-                                                <a href="#tab_5" data-toggle="tab"> History </a>
-                                            </li>-->
                                         </ul>
                                         <div class="tab-content">
                                             <div class="tab-pane active" id="tab_1">
@@ -158,7 +112,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="row static-info">
-                                                                    <div class="col-md-5 name"> Order Date & Time: </div>
+                                                                    <div class="col-md-5 name"> Order Date& Time: </div>
                                                                     <div class="col-md-7 value">
                                                                     @if(isset($order->created_at))
                                                                     {{$order->created_at->diffForHumans()}} @endif
@@ -202,8 +156,8 @@
                                                                     <div class="col-md-7 value"> {{$order->user->email}} </div>
                                                                 </div>
                                                                 <div class="row static-info">
-                                                                    <div class="col-md-5 name"> Area: </div>
-                                                                    <div class="col-md-7 value"> {{$order->user_address->city}} </div>
+                                                                    <div class="col-md-5 name"> Address: </div>
+                                                                    <div class="col-md-7 value"> {{$order->user_address->address}} {{$order->user_address->city}}  </div>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Phone Number: </div>
@@ -214,54 +168,6 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <!--<div class="col-md-6 col-sm-12">
-                                                        <div class="portlet green-meadow box">
-                                                            <div class="portlet-title">
-                                                                <div class="caption">
-                                                                    <i class="fa fa-cogs"></i>Billing Address </div>
-                                                                <div class="actions">
-                                                                    <a href="javascript:;" class="btn btn-default btn-sm">
-                                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="portlet-body">
-                                                                <div class="row static-info">
-                                                                    <div class="col-md-12 value"> Jhon Done
-                                                                        <br> #24 Park Avenue Str
-                                                                        <br> New York
-                                                                        <br> Connecticut, 23456 New York
-                                                                        <br> United States
-                                                                        <br> T: 123123232
-                                                                        <br> F: 231231232
-                                                                        <br> </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6 col-sm-12">
-                                                        <div class="portlet red-sunglo box">
-                                                            <div class="portlet-title">
-                                                                <div class="caption">
-                                                                    <i class="fa fa-cogs"></i>Shipping Address </div>
-                                                                <div class="actions">
-                                                                    <a href="javascript:;" class="btn btn-default btn-sm">
-                                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="portlet-body">
-                                                                <div class="row static-info">
-                                                                    <div class="col-md-12 value"> Jhon Done
-                                                                        <br> #24 Park Avenue Str
-                                                                        <br> New York
-                                                                        <br> Connecticut, 23456 New York
-                                                                        <br> United States
-                                                                        <br> T: 123123232
-                                                                        <br> F: 231231232
-                                                                        <br> </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>-->
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12 col-sm-12">
@@ -288,9 +194,6 @@
                                                                             </thead>
                                                                             <tbody>
                                                                                 @foreach($order->order_products as $item)
-
-
-
                                                                                     <tr>
                                                                                         <td>
                                                                                             <a target="_blank" href="/admin/products/{{$item->product->id}}">
@@ -315,8 +218,6 @@
                                                     <div class="col-md-6">
                                                         <div class="well">
                                                             <div class="row static-info align-reverse">
-                                                                <div class="col-md-8 name"> Your Basket: </div>
-                                                                <div class="col-md-3 value"> &#8358; 1,124.50 </div>
                                                             </div>
                                                             <div class="row static-info align-reverse">
                                                                 <div class="col-md-8 name"> Sales Tax: </div>
@@ -331,8 +232,6 @@
                                                                 <div class="col-md-3 value"> &#8358; 40.50 </div>
                                                             </div>
                                                             <div class="row static-info align-reverse">
-                                                                <div class="col-md-8 name"> Total Due: </div>
-                                                                <div class="col-md-3 value"> &#8358; 1,467.10 </div>
                                                             </div>
                                                         </div>
                                                     </div>

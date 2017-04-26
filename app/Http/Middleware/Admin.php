@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Auth;
+use App\User;
 
 class Admin
 {
@@ -16,7 +17,9 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user() && Auth::user()->role_id === 2) {
+        // $role_name = User::join('roles', 'users.role_id', 'roles.id')
+        //             ->where('roles.name', 'User')->get();
+        if (Auth::user() && Auth::user()->role_id === 4) {
             return $next($request);
         }
         return redirect('/admin');

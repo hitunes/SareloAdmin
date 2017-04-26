@@ -13,6 +13,7 @@
 
 Route::group(['middleware' => 'admin'], function() {
     Route::group(['prefix' => 'admin'], function() {
+            Route::match(['get', 'post'], '/create', 'AdminController@signup');
             Route::get('/logout', 'AdminController@logout');
             Route::get('/dashboard', 'AdminController@index');
             Route::get('/users', 'Admin\UserController@index');
@@ -24,6 +25,7 @@ Route::group(['middleware' => 'admin'], function() {
             Route::get('/orders/{id}', 'Admin\OrdersController@show');
             Route::get('/orders', 'AdminController@orders');
             Route::get('/order_view', 'AdminController@order_view');
+            Route::get('/orders/delete/{id}', 'Admin\\OrdersController@destroy');
             Route::get('/product_edit', 'AdminController@product_edit');
             Route::match(['get', 'post'], '/slots', 'Admin\\SlotsController@index');
             Route::match(['get', 'post'], '/slots/create', 'Admin\\SlotsController@store');
@@ -37,8 +39,6 @@ Route::group(['middleware' => 'admin'], function() {
             Route::get('/unit-types/delete/{id}', 'Admin\\UnitTypesController@destroy');
             Route::get('/unit-types/edit/{id}', 'Admin\\UnitTypesController@edit');
             Route::post('/unit-types/update/{id}', 'Admin\\UnitTypesController@update');
-
-
     });
 });
 
