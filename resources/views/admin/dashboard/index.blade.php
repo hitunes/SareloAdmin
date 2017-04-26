@@ -30,7 +30,7 @@
 
                             <!-- BEGIN WIDGET THUMB -->
                             <div class="widget-thumb widget-bg-color-white text-uppercase margin-bottom-20 bordered">
-                                <h4 class="widget-thumb-heading">Total Expense</h4>
+                                <h4 class="widget-thumb-heading">Total Revenue</h4>
                                 <div class="widget-thumb-wrap">
                                     <i class="widget-thumb-icon bg-red icon-layers"></i>
                                     <div class="widget-thumb-body">
