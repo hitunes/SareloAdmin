@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-   
+
     <head>
         <meta charset="utf-8" />
         <title>@yield('title')</title>
@@ -19,7 +19,7 @@
         <!-- BEGIN PAGE LEVEL PLUGINS -->
         <link href="/dashboard/assets/global/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
         <link href="/dashboard/assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
-        <link href="/dashboard/assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
+        {{-- <link href="/dashboard/assets/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" /> --}}
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="/dashboard/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
@@ -63,26 +63,26 @@
                     <div class="top-menu">
                         <ul class="nav navbar-nav pull-right">
                             <li class="separator hide"> </li>
-                               
+
                             </li>
                             <!-- END NOTIFICATION DROPDOWN -->
                             <li class="separator hide"> </li>
                             <li class="separator hide"> </li>
                             <li class="dropdown dropdown-user dropdown-dark">
-                                
-                                   
+
+
 
                                 <a href="{{url('admin/logout')}}" >
-                                
+
                                     <span style="color: #222; cursor: default;" class="username username-hide-on-mobile"><b> {{$email}} </b>| </span>
-                                 
-                                 
+
+
                                     <span class="username username-hide-on-mobile"> Logout
                                     </span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-default">
                                     <li class="divider"> </li>
-                                    
+
                                     <li>
                                         <a href="{{url('admin/logout')}}">
                                             <i class="icon-key"></i> Log Out </a>
@@ -105,12 +105,12 @@
             @yield('content')
 
                 <div class="page-footer">
-            
+
             <div class="scroll-to-top">
                 <i class="icon-arrow-up"></i>
             </div>
         </div>
-        <script src="/dashboard/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        {{-- <script src="/dashboard/assets/global/plugins/jquery.min.js" type="text/javascript"></script> --}}
         <script src="/dashboard/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -149,13 +149,7 @@
         <script src="/dashboard/assets/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-        <script src="/dashboard/assets/global/plugins/jqvmap/jqvmap/jquery.vmap.js" type="text/javascript"></script>
-        <script src="/dashboard/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.russia.js" type="text/javascript"></script>
-        <script src="/dashboard/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.world.js" type="text/javascript"></script>
-        <script src="/dashboard/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.europe.js" type="text/javascript"></script>
-        <script src="/dashboard/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.germany.js" type="text/javascript"></script>
-        <script src="/dashboard/assets/global/plugins/jqvmap/jqvmap/maps/jquery.vmap.usa.js" type="text/javascript"></script>
-        <script src="/dashboard/assets/global/plugins/jqvmap/jqvmap/data/jquery.vmap.sampledata.js" type="text/javascript"></script>
+
         <!-- END PAGE LEVEL PLUGINS -->
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="/dashboard/assets/global/scripts/app.min.js" type="text/javascript"></script>
@@ -187,54 +181,57 @@
               });
               $("button#a_del").click(function(){
                return ConfirmDelete();
-              });           
-              
+              });
+
 
         </script>
         <script type="text/javascript">
-            $('#updateStatus').change(function()
-            {
+            $('.updateStatus').change(function(){
+
                 var status = $(this).find('option:selected').val();
-                console.log(status);
+
+                var id = $(this).data("payload");
+
+                $.ajax({
+                        url: "/admin/update_status/"+id,
+                        type: "POST",
+                        data: {status:status},
+                        success: function(data){
+                            displayMessage(status, id);
+                            $("#"+id).html(data);
+                        },error:function(){
+                            alert("error!!!!");
+                        }
+                });
+
+            });
+
+
+            function displayMessage(status, id) {
+                $("#"+id).css('color', '#fff');
+
                 switch (status) {
                     case "Delivered":
-                        $("#current_status").css('background-color', '#5cb85c').css('color','white');
-                        $("#current_status").addClass('glyphicon');
-                        $("#current_status").html('Delivered');
+                        $("#"+id).css('background-color', '#5cb85c').css('color','white');
+
+                        $("#"+id).addClass('glyphicon');
+                        $("#"+id).html('Delivered');
                         break;
                     case "Processing":
-                        $("#current_status").css('background-color', 'orange');
-                        $("#current_status").html('Processing');
+                        $("#"+id).css('background-color', 'orange');
+                        $("#"+id).html('Processing');
                         break;
                     case "Confirmed":
-                        $("#current_status").css('background-color', '#22b9b7');
-                        $("#current_status").html('Confirmed');
+                        $("#"+id).css('background-color', '#22b9b7');
+                        $("#"+id).html('Confirmed');
                         break;
                     case "Gone to Market":
-                        $("#current_status").css('background-color', '#b92296').css('color', '#ffffff');
-                        $("#current_status").html('Gone to Market');
+                        $("#"+id).css('background-color', '#b92296').css('color', '#ffffff');
+                        $("#"+id).html('Gone to Market');
                     default:
                         break;
+                }
             }
-                var id = $(this).data("payload");
-                $.get('update_status/'+id, function(data){
-                    alert(data);
-
-                    $("#current_status").html(data);
-                    // $.ajax({
-                    //     url: "/update_status/"+id,
-                    //     type: "POST",
-                    //     data: {status:status},
-                    //     success: function(data){
-                    //         alert(data);
-                    //     },error:function(){ 
-                    //         alert("error!!!!");
-                    //     }
-                });
-                // })
-
-                // alert(option);
-            });
 
         </script>
     </body>

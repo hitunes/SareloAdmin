@@ -51,9 +51,9 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         $requestData = $request->all();
-        
+
         Order::create($requestData);
 
         Session::flash('flash_message', 'Order added!');
@@ -101,9 +101,9 @@ class OrdersController extends Controller
      */
     public function update($id, Request $request)
     {
-        
+
         $requestData = $request->all();
-        
+
         $order = Order::findOrFail($id);
         $order->update($requestData);
 
@@ -131,15 +131,13 @@ class OrdersController extends Controller
     public function updateStatus(Request $request, $id)
     {
        if ($request->ajax()) {
-           return 'Coming to ajax';
-           $order = Order::findOrFail($id);
-           $requestData = $request->all();
-           $order->status = $request->status;
-           $order->update($requestData);
-           return response()->json(array('success' => 'Status updated successfully'));
-           return 'Coming to ajax';
+
+           $order = Order::where('id', $id)->update($request->all());
+
+           return $request->status;
+
        }else{
-        return 'Nothing';
+            return;
        }
     }
 }
