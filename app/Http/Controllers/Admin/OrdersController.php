@@ -127,4 +127,19 @@ class OrdersController extends Controller
 
         return redirect('admin/orders');
     }
+
+    public function updateStatus(Request $request, $id)
+    {
+       if ($request->ajax()) {
+           return 'Coming to ajax';
+           $order = Order::findOrFail($id);
+           $requestData = $request->all();
+           $order->status = $request->status;
+           $order->update($requestData);
+           return response()->json(array('success' => 'Status updated successfully'));
+           return 'Coming to ajax';
+       }else{
+        return 'Nothing';
+       }
+    }
 }

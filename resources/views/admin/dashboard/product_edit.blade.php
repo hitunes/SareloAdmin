@@ -228,14 +228,14 @@
                                                             {{$product->price}}
                                                         </td>
                                                         <td>
-
                                                             <div class="" style="background: #eee;">
                                                                 <img class="" style="width: 100%; height: 80px;" src="{{env("MEDIA_CDN").$product->products_image}}">
                                                             </div>
                                                         </td>
                                                         <td>
                                                             @if(isset($product->created_at))
-                                                                {{$product->created_at->diffForHumans()}}
+                                                                {{$product->updated_at}}
+                                                                
                                                             @endif
                                                         </td>
                                                         <td>

@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class CheckRole
+class Role
 {
     /**
      * Handle an incoming request.
@@ -13,12 +13,12 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
-    
     public function handle($request, Closure $next)
     {
         if ($request->user() === null) {
             return response("Insufficient Permission", 401);
         }
+        
         $action = $request->route()->getAction();
 
         $roles = isset($action['roles'])? $action['roles']: null;
@@ -26,5 +26,6 @@ class CheckRole
             return $next($request);
         }
         return response("Insufficient Permission", 401);
+
     }
 }
