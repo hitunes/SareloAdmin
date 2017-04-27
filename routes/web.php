@@ -121,3 +121,5 @@ Route::get('/', 'IndexController@index');
 Route::post('/account/update-details', 'AccountController@updateUserDetails');
 Route::post('/account/update-email', 'AccountController@updateEmail');
 Route::post('/account/update-password', 'AccountController@changePassword');
+
+Route::post('/addresses/{id}/update', 'AccountController@update');
