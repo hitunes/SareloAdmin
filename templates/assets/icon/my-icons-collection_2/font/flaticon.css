@@ -1,6 +1,6 @@
 	/*
   	Flaticon icon font: Flaticon
-  	Creation date: 27/04/2017 17:19
+  	Creation date: 27/04/2017 18:06
   	*/
 
 @font-face {
@@ -24,19 +24,15 @@
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
 [class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
   font-family: Flaticon;
-font-size: 20px;
+        font-size: 20px;
 font-style: normal;
-}
-
-.f-150[class^="flaticon-"]:before, .f-150[class*=" flaticon-"]:before,
-.f-150[class^="flaticon-"]:after, .f-150[class*=" flaticon-"]:after {   
-  font-size: 150px;
+margin-left: 20px;
 }
 
 .flaticon-money:before { content: "\f100"; }
 .flaticon-shopping-basket:before { content: "\f101"; }
 .flaticon-user:before { content: "\f102"; }
-.flaticon-placeholder-2:before { content: "\f103"; }
-.flaticon-placeholder-1:before { content: "\f104"; }
+.flaticon-placeholder-1:before { content: "\f103"; }
+.flaticon-location:before { content: "\f104"; }
 .flaticon-placeholder:before { content: "\f105"; }
 .flaticon-google-glass-logo:before { content: "\f106"; }
