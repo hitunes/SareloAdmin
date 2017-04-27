@@ -66,6 +66,7 @@ return [
         'custom' => [
             'driver' => 'local',
             'root' => env("UPLOAD_PATH"),
+            //https://laracasts.com/discuss/channels/general-discussion/l5-disable-csrf-middleware-on-certain-routes
         ],
 
     ],

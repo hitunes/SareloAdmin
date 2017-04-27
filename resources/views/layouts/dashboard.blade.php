@@ -36,6 +36,11 @@
         #edit_each_product{
             display: none;
         }
+        #current_status{
+            background-color: white;
+            color: #222;
+            font-weight: bold;
+        }
         .dataTables_extended_wrapper div.dataTables_info, .dataTables_extended_wrapper div.dataTables_length, .dataTables_extended_wrapper div.dataTables_paginate{
             display: none;
         }
@@ -58,24 +63,11 @@
                     <div class="top-menu">
                         <ul class="nav navbar-nav pull-right">
                             <li class="separator hide"> </li>
-                            <!-- BEGIN NOTIFICATION DROPDOWN -->
-                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                            <li class="dropdown dropdown-extended dropdown-notification dropdown-dark" id="header_notification_bar">
                                
                             </li>
                             <!-- END NOTIFICATION DROPDOWN -->
                             <li class="separator hide"> </li>
-                            <!-- BEGIN INBOX DROPDOWN -->
-                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                           
-                            <!-- END INBOX DROPDOWN -->
                             <li class="separator hide"> </li>
-                            <!-- BEGIN TODO DROPDOWN -->
-                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
-                            
-                            <!-- END TODO DROPDOWN -->
-                            <!-- BEGIN USER LOGIN DROPDOWN -->
-                            <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
                             <li class="dropdown dropdown-user dropdown-dark">
                                 
                                    
@@ -88,8 +80,6 @@
                                     <span class="username username-hide-on-mobile"> Logout
                                     </span>
                                 </a>
-                                    <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
-                                    <!--<img alt="" class="img-circle" src="assets/layouts/layout4/img/avatar9.jpg" /> </a>-->
                                 <ul class="dropdown-menu dropdown-menu-default">
                                     <li class="divider"> </li>
                                     
@@ -99,10 +89,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            <!-- END USER LOGIN DROPDOWN -->
-                            <!-- BEGIN QUICK SIDEBAR TOGGLER -->
-                           
-                            <!-- END QUICK SIDEBAR TOGGLER -->
                         </ul>
                     </div>
                     <!-- END TOP NAVIGATION MENU -->
@@ -124,12 +110,6 @@
                 <i class="icon-arrow-up"></i>
             </div>
         </div>
-        <!-- END FOOTER -->
-        <!--[if lt IE 9]>
-<script src="dashboard/assets/global/plugins/respond.min.js"></script>
-<script src="dashboard/assets/global/plugins/excanvas.min.js"></script> 
-<![endif]-->
-        <!-- BEGIN CORE PLUGINS -->
         <script src="/dashboard/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
@@ -202,15 +182,61 @@
               else
                 return false;
               }
-
               $("a#a_del").click(function(){
                return ConfirmDelete();
               });
               $("button#a_del").click(function(){
                return ConfirmDelete();
-              });
+              });           
+              
+
         </script>
-        <!-- END THEME LAYOUT SCRIPTS -->
+        <script type="text/javascript">
+            $('#updateStatus').change(function()
+            {
+                var status = $(this).find('option:selected').val();
+                console.log(status);
+                switch (status) {
+                    case "Delivered":
+                        $("#current_status").css('background-color', '#5cb85c').css('color','white');
+                        $("#current_status").addClass('glyphicon');
+                        $("#current_status").html('Delivered');
+                        break;
+                    case "Processing":
+                        $("#current_status").css('background-color', 'orange');
+                        $("#current_status").html('Processing');
+                        break;
+                    case "Confirmed":
+                        $("#current_status").css('background-color', '#22b9b7');
+                        $("#current_status").html('Confirmed');
+                        break;
+                    case "Gone to Market":
+                        $("#current_status").css('background-color', '#b92296').css('color', '#ffffff');
+                        $("#current_status").html('Gone to Market');
+                    default:
+                        break;
+            }
+                var id = $(this).data("payload");
+                $.get('update_status/'+id, function(data){
+                    alert(data);
+
+                    $("#current_status").html(data);
+                    // $.ajax({
+                    //     url: "/update_status/"+id,
+                    //     type: "POST",
+                    //     data: {status:status},
+                    //     success: function(data){
+                    //         alert(data);
+                    //     },error:function(){ 
+                    //         alert("error!!!!");
+                    //     }
+                });
+                // })
+
+                // alert(option);
+            });
+
+        </script>
     </body>
 
 </html>

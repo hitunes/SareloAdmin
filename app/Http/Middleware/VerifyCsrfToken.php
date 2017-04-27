@@ -13,6 +13,7 @@ class VerifyCsrfToken extends BaseVerifier
      */
     protected $except = [
         '/cart/add',
+        '/admin/update_status/{id}',
         '/addresses/*/update'
     ];
 }
