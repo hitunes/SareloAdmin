@@ -188,25 +188,54 @@
               $("button#a_del").click(function(){
                return ConfirmDelete();
               });           
-              // var confirm = "Confirmed";
-              // var processing = "Processing";
-              // var market = "Gone to Market";
-              // var delivered = "Delivered";
+              
 
-              // var current_status = $("#current_status").text();
-              // if (current_status = confirm) {
-              //   $("#current_status").css('background-color', 'red');
-              //   $("#current_status").css('color', '#fff');
-              // }else if (current_status = processing) {
-              //   $("#current_status").css('background-color', 'green');
-              //   $("#current_status").css('color', '#fff');
-              // }else if (current_status = market) {
-              //   $("#current_status").css('background-color', 'blue');
-              //   $("#current_status").css('color', '#fff'); 
-              // }else if (current_status = delivered) {
-              //   $("#current_status").css('background-color', 'brown');
-              //   $("#current_status").css('color', '#fff'); 
-              // }
+        </script>
+        <script type="text/javascript">
+            $('#updateStatus').change(function()
+            {
+                var status = $(this).find('option:selected').val();
+                console.log(status);
+                switch (status) {
+                    case "Delivered":
+                        $("#current_status").css('background-color', '#5cb85c').css('color','white');
+                        $("#current_status").addClass('glyphicon');
+                        $("#current_status").html('Delivered');
+                        break;
+                    case "Processing":
+                        $("#current_status").css('background-color', 'orange');
+                        $("#current_status").html('Processing');
+                        break;
+                    case "Confirmed":
+                        $("#current_status").css('background-color', '#22b9b7');
+                        $("#current_status").html('Confirmed');
+                        break;
+                    case "Gone to Market":
+                        $("#current_status").css('background-color', '#b92296').css('color', '#ffffff');
+                        $("#current_status").html('Gone to Market');
+                    default:
+                        break;
+            }
+                var id = $(this).data("payload");
+                $.get('update_status/'+id, function(data){
+                    alert(data);
+
+                    $("#current_status").html(data);
+                    // $.ajax({
+                    //     url: "/update_status/"+id,
+                    //     type: "POST",
+                    //     data: {status:status},
+                    //     success: function(data){
+                    //         alert(data);
+                    //     },error:function(){ 
+                    //         alert("error!!!!");
+                    //     }
+                });
+                // })
+
+                // alert(option);
+            });
+
         </script>
     </body>
 

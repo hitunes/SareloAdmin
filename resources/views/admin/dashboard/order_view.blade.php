@@ -121,10 +121,10 @@
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Order Status: </div>
                                                                     <div class="col-md-7 value">
-                                                                        <span style="position: absolute;" class="label label-success"> {{$order->status}} </span>
+                                                                        <span id="current_status" style="position: absolute;" class="label label-success"> {{$order->status}} </span>
                                                                     </div>
                                                                      <span class="col-md-5" style=" display:inline; float: right; margin-left:-5px;">
-                                                                            <select name="" id="input" class="form-control" required="required">
+                                                                            <select name="" id="updateStatus" id="input" class="form-control" required="required">
                                                                                 <option value="">Update Status</option>
                                                                                 <option value="Confirmed">Confirmed</option>
                                                                                 <option value="Processing">Processing</option>

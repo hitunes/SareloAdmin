@@ -117,7 +117,7 @@
                                                                 <td> {{$order->receiver_phone}} </td>
                                                                 <td>
 
-                                                                    <select name="order_status" class="form-control form-filter input-sm">
+                                                                    <select id="updateStatus" name="order_status" class="form-control form-filter input-sm">
                                                                         <option value="">Select...</option>
                                                                         <option value="">Confirmed</option>
                                                                         <option value="">Processing</option>
@@ -131,7 +131,7 @@
                                                                 </td>
                                                                 <td>
 
-                                                                        <span class="label label-sm lgreen label-success"> {{$order->status}} </span>
+                                                                        <span id="current_status" class="label label-sm lgreen label-success"> {{$order->status}} </span>
 
                                                                 </td>
                                                             </form>

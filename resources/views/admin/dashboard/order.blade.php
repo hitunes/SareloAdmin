@@ -181,7 +181,7 @@
         </div>
         <script src="/js/jquery.min.js" type="text/javascript"></script>
 
-        <script type="text/javascript">
+        {{-- <script type="text/javascript">
             $('#updateStatus').change(function()
             {
                 var status = $(this).find('option:selected').val();
@@ -226,7 +226,7 @@
                 // alert(option);
             });
 
-        </script>
+        </script> --}}
         <script type="text/javascript">
                 function ConfirmDelete()
               {
