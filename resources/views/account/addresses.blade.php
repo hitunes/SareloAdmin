@@ -15,7 +15,7 @@
                             <span><i class="fa fa-home"></i></span>
                             <span class="addressText"> {{$address->address}}</span>
                         </p>
-                        <div class="pull-right"><button class="btn bg-transparent no-bd editBtn">Edit</button></div>
+                        <div class="pull-right"><button data-payload="{{$address->id}}" class="btn bg-transparent no-bd editBtn">Edit</button></div>
                     </div>
 
                     <input type="radio" name="address" class="addresses pos-abs">
