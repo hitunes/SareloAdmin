@@ -186,31 +186,10 @@
 
         </script>
         <script type="text/javascript">
-            $('.updateStatus').change(function()
-            {
+            $('.updateStatus').change(function(){
+
                 var status = $(this).find('option:selected').val();
 
-                switch (status) {
-                    case "Delivered":
-                        $(this).find("span.current_status").css('background-color', '#5cb85c').css('color','white');
-
-                        $(this).find("span.current_status").addClass('glyphicon');
-                        $(this).find("span.current_status").html('Delivered');
-                        break;
-                    case "Processing":
-                        $(this).find(".current_status").css('background-color', 'orange');
-                        $(this).find(".current_status").html('Processing');
-                        break;
-                    case "Confirmed":
-                        $(this).find(".current_status").css('background-color', '#22b9b7');
-                        $(this).find(".current_status").html('Confirmed');
-                        break;
-                    case "Gone to Market":
-                        $(this).find(".current_status").css('background-color', '#b92296').css('color', '#ffffff');
-                        $(this).find(".current_status").html('Gone to Market');
-                    default:
-                        break;
-            }
                 var id = $(this).data("payload");
 
                 $.ajax({
@@ -218,15 +197,41 @@
                         type: "POST",
                         data: {status:status},
                         success: function(data){
-
+                            displayMessage(status, id);
                             $("#"+id).html(data);
                         },error:function(){
                             alert("error!!!!");
                         }
-
                 });
 
             });
+
+
+            function displayMessage(status, id) {
+                $("#"+id).css('color', '#fff');
+
+                switch (status) {
+                    case "Delivered":
+                        $("#"+id).css('background-color', '#5cb85c').css('color','white');
+
+                        $("#"+id).addClass('glyphicon');
+                        $("#"+id).html('Delivered');
+                        break;
+                    case "Processing":
+                        $("#"+id).css('background-color', 'orange');
+                        $("#"+id).html('Processing');
+                        break;
+                    case "Confirmed":
+                        $("#"+id).css('background-color', '#22b9b7');
+                        $("#"+id).html('Confirmed');
+                        break;
+                    case "Gone to Market":
+                        $("#"+id).css('background-color', '#b92296').css('color', '#ffffff');
+                        $("#"+id).html('Gone to Market');
+                    default:
+                        break;
+                }
+            }
 
         </script>
     </body>

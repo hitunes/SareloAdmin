@@ -154,7 +154,7 @@
                                                                 </td>
                                                                 <td>
 
-                                                                        <span id="{{$order->id}}" class="label label-sm lgreen label-success"> {{$order->status}} </span>
+                                                                        <span id="{{$order->id}}" class="label label-sm" style="color:#222;"> {{$order->status}} </span>
 
                                                                 </td>
                                                             </form>
