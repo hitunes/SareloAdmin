@@ -659,6 +659,27 @@ const app = {
         }
     });
   },
+contentEditor2: function(){
+    var editBtns = $('.editBtn');
+   // console.log(editBtn);
+
+    editBtns.on('click', function(){
+
+      var editor = $(this).parent()[0].previousElementSibling.lastElementChild;
+
+      if (!editor.isContentEditable) {
+           // console.log(editor);
+            editor.contentEditable = true;
+            editor.focus();
+            $(this).text('Save');
+        } else {
+            editor.contentEditable = false;
+            // Change Button Text and Color
+            $(this).text('Edit');
+        }
+  });
+
+},
 selectDeliveryDate: function () {
   $('.delivery_date').on('click', function ( ) {
       var option = $(document).find("input[type='radio']");
