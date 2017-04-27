@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Auth;
 
+use App\Models\UserAddress;
+
 class AccountController extends Controller
 {
     public function updateUserDetails(Request $request)
@@ -56,5 +58,21 @@ class AccountController extends Controller
     	}
 
     	return redirect()->back()->with('status_message', 'User not password changed');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+                'address' => 'required'
+            ]);
+
+        $address = UserAddress::where('id', $id)->update($request->all());
+
+        if($address)
+            \Session::flash('status_message', 'Address updated');
+        else
+            \Session::flash('status_message', 'Address is not updated');
+
+        return response()->json(['status' => 'done']);
     }
 }
