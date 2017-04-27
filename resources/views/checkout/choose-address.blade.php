@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     </head>
     <body>
-    
+
         <div class="wrapper clearfix">
             <header class="m-b-30">
                 <!-- ===Nav bar starts here == -->
@@ -25,7 +25,7 @@
                                 <img src="/assets/img/logo/sarelo3.svg">
                             </a>
                         </div>
-                        
+
                     </div>
                 </nav>
             <!-- ===Nav bar endss here == -->
@@ -34,7 +34,7 @@
                <div class="progressContainer dis-flex">
                     <div class="wizard">
                         <div class="wizard-inner">
-                            
+
                             <ul class="nav nav-tabs">
 
                                 <li role="presentation" class="active">
@@ -94,28 +94,28 @@
                                 </div>
                                <form method="post">
                                     {{csrf_field()}}
-                                    
+                                    <?php $i = 0; ?>
                                     @foreach($addresses as $address)
                                         <div class="content p-t-10 clearfix m-t-20">
                                             <!--starts here -->
-                                            <label class="card m-b-0 bd-brand-purple bd-4 width-100p pos-rel w-100">
-                                                
+                                            <label class="@if($i == 0) bg-brand-purple-op @endif  card m-b-0 bd-brand-purple bd-4 width-100p pos-rel w-100">
+
                                                 <div class="p-15 clearfix">
                                                     <p class="pull-left m-b-0 c-brand-purple"><span><i class="fa fa-home"></i></span> {{$address->address}}</p>
                                                     <div class="pull-right"><i class="fa fa-check-circle-o f-23 c-brand-purple"></i></div>
                                                 </div>
-                                                <input type="radio" name="address" value="{{$address->id}}" class="addresses pos-abs">
-                                                 
+                                                <input @if($i == 0) checked @endif type="radio" name="address" value="{{$address->id}}" class="addresses pos-abs">
+
                                             </label>
                                             <!-- starts here end -->
                                         </div>
-
+                                    <?php $i++;?>
                                     @endforeach
                                     @if ($errors->has('address'))
-                                                            <span class="help-block">
-                                                                <strong>{{ $errors->first('address') }}</strong>
-                                                            </span>
-                                                 @endif
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('address') }}</strong>
+                                        </span>
+                                    @endif
                                 <div class="content p-t-10 clearfix">
                                     <a href="/new-address" class="btn btn-block bg-white bd-gray bd-4">Add New Address</a>
                                 </div>
@@ -149,17 +149,17 @@
                                 </form>
                            </div>
                             <p class="text-center">*Terms and conditions apply on free delivery. <a href="#" class="c-brand-purple">Learn more</a></p>
-                           
+
                        </div>
                        <div class="col-md-4">
                            @include('checkout.billing-summary')
                        </div>
-                   </div> 
+                   </div>
                 </div>
             </section>
         </div>
 
-        
+
         <!-- jQuery -->
         <script src="/assets/js/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
@@ -169,10 +169,10 @@
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
          <script>
              $(document).ready(function(){
-        
+
                 app.radioChooser("bg-brand-purple-op");
                 app.contentEditor();
-                
+
              });
          </script>
     </body>

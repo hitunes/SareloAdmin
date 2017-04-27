@@ -69,14 +69,11 @@
                                     </div>
                                 </div>
                                 <div class="portlet-body">
-                                    <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
+                                    <table class="table table-striped table-bordered table-hover order-column" id="sample_1">
                                         <thead>
                                             <tr>
-                                                <th>
-                                                    <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /> 
-                                                </th>
                                                 <th> Email </th>
-                                                <th> Expense (NGN) </th>
+                                                <th> Total Amount Ordered (NGN) </th>
                                                 <th> Date credit </th>
                                                 <th> Phone Number </th>
                                             </tr>
@@ -84,9 +81,6 @@
                                         <tbody>
                                             @foreach($users as $user)
                                                 <tr class="odd gradeX">
-                                                    <td>
-                                                        <input type="checkbox" class="checkboxes" value="1" /> 
-                                                    </td>
                                                     <td>
                                                         <a href="mailto:{{$user->email}}"> {{$user->email}} </a>
                                                     </td>

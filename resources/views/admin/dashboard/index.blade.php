@@ -82,9 +82,6 @@
                                 </div>
                                 <div class="portlet-body">
                                     <div class="table-container">
-                                        <div class="table-actions-wrapper">
-                                            <span> </span>
-                                        </div>
                                         {{ $orders->links() }}
                                         <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_orders">
                                             <thead>
@@ -120,7 +117,7 @@
                                                                 <td> {{$order->receiver_phone}} </td>
                                                                 <td>
 
-                                                                    <select name="order_status" class="form-control form-filter input-sm">
+                                                                    <select id="updateStatus" name="order_status" class="form-control form-filter input-sm">
                                                                         <option value="">Select...</option>
                                                                         <option value="">Confirmed</option>
                                                                         <option value="">Processing</option>
@@ -134,13 +131,15 @@
                                                                 </td>
                                                                 <td>
 
-                                                                        <span class="label label-sm lgreen label-success"> {{$order->status}} </span>
+                                                                        <span id="current_status" class="label label-sm lgreen label-success"> {{$order->status}} </span>
 
                                                                 </td>
                                                             </form>
                                                                 <td>
                                                                     <a href="{{url('admin/orders',$order->id)}}"><button class="btn btn-sm btn-success margin-bottom">
-                                                                            <i class="fa fa-eye"></i> View</button></a>
+                                                                            <i class="fa fa-eye"></i> View</button></a> <br> <br>
+                                                                     <a id="a_del1" href="{{url('admin/orders/delete',$order->id)}}"><button class="btn btn-sm btn-danger margin-bottom">
+                                                                            <i class="icon-remove-sign"></i> Cancel</button></a>
                                                                 </td>
 
                                                             </tr>
