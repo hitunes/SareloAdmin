@@ -607,18 +607,20 @@ const app = {
       $("#submit").prop('disabled', 'disabled');
     }*/
   },
-  contentEditor: function(){
+  contentEditor2: function(){
     var editBtns = $('.editBtn');
-   // console.log(editBtn);
+    console.log(editBtns);
 
-    editBtns.on('click', function(){
+    editBtns.on('click', function(e){
+      e.preventDefault();
+      console.log(e.target.nodeName);
       //console.log($(this).parent()[0].previousElementSibling.lastElementChild);
       var editor = $(this).parent()[0].previousElementSibling.lastElementChild;
 
       if (!editor.isContentEditable) {
            // console.log(editor);
             editor.contentEditable = true;
-            editor.focus();
+           // editor.focus();
             $(this).text('Save');
         } else {
             editor.contentEditable = false;
@@ -626,10 +628,12 @@ const app = {
             $(this).text('Edit');
         }
     });
-    
-    //var editor = $('.editor');
+  },
+  contentEditor: function(){ 
+    var editor = $('#editor');
+    var editBtn = $("#editBtn");
 
-    /*editBtn.on('click', function(e) {
+    editBtn.on('click', function(e) {
 
         if (!editor[0].isContentEditable) {
            // console.log(editor);
@@ -644,7 +648,7 @@ const app = {
             editBtn.css('backgroundColor', '#F96');
 
         }
-    });*/
+    });
   },
   inlineEditor: function(){
     var editBtn = $('.change');
