@@ -188,25 +188,25 @@
               $("button#a_del").click(function(){
                return ConfirmDelete();
               });           
-              var confirm = "Confirmed";
-              var processing = "Processing";
-              var market = "Gone to Market";
-              var delivered = "Delivered";
+              // var confirm = "Confirmed";
+              // var processing = "Processing";
+              // var market = "Gone to Market";
+              // var delivered = "Delivered";
 
-              var current_status = $("#current_status").text();
-              if (current_status = confirm) {
-                $("#current_status").css('background-color', 'red');
-                $("#current_status").css('color', '#fff');
-              }else if (current_status = processing) {
-                $("#current_status").css('background-color', 'green');
-                $("#current_status").css('color', '#fff');
-              }else if (current_status = market) {
-                $("#current_status").css('background-color', 'blue');
-                $("#current_status").css('color', '#fff'); 
-              }else if (current_status = delivered) {
-                $("#current_status").css('background-color', 'brown');
-                $("#current_status").css('color', '#fff'); 
-              }
+              // var current_status = $("#current_status").text();
+              // if (current_status = confirm) {
+              //   $("#current_status").css('background-color', 'red');
+              //   $("#current_status").css('color', '#fff');
+              // }else if (current_status = processing) {
+              //   $("#current_status").css('background-color', 'green');
+              //   $("#current_status").css('color', '#fff');
+              // }else if (current_status = market) {
+              //   $("#current_status").css('background-color', 'blue');
+              //   $("#current_status").css('color', '#fff'); 
+              // }else if (current_status = delivered) {
+              //   $("#current_status").css('background-color', 'brown');
+              //   $("#current_status").css('color', '#fff'); 
+              // }
         </script>
     </body>
 

@@ -28,7 +28,7 @@ const app = {
     }
 
     function displayMatches(e) {
-      
+
       const matchArray = findMatches(this.value, cities);
       const html = matchArray.map(place => {
         const regex = new RegExp(this.value, 'gi');
@@ -49,12 +49,12 @@ const app = {
       lists.forEach(function(list){
         list.addEventListener('click', triga);
       })
-      
+
       /* ternary operator to hide or show list */
       this.value.length > 0 ? suggestions.style.display = 'block' : suggestions.style.display = 'none';
     }
 
-    
+
 
     const searchInput = document.querySelector('.search');
     const suggestions = document.querySelector('.suggestions');
@@ -65,7 +65,7 @@ const app = {
     //a function to show sidebar as soon as I click on the list of products filtered...
     /*const $html = document.getElementsByTagName('html')[0];
     const lists = Array.from(suggestions.querySelectorAll("li"));
-  
+
 
     lists.forEach(function(list){
       list.addEventListener('click', function(){
@@ -73,11 +73,11 @@ const app = {
         console.log(this.textContent);
       });
     })*/
-    
+
 
   },
   fecther: function(){
-  
+
   var obj = {
     products: [
       {
@@ -226,16 +226,16 @@ const app = {
   };
 
   var dataLog = obj.products;
-  
+
   $("#querySelector").on("keyup", function(e){
-   
+
       $.getJSON('/api/search/'+ $("#querySelector").val())
-      
+
       .done(function(response) {
-          
+
           var output = '<ul class="suggestions">';
           $.each(response.data.products, function(key, val){
-            
+
               output += `<li id="${val.id}" data-product-id="${val.id}" data-product = "${val.name}" data-price = "${val.price}" data-unit = "${val.unit}" data-img = "${val.img}">`;
               output += `<div class="clearfix pos-rel">
                     <span class="pull-left products pos-abs">${val.name}</span>
@@ -243,20 +243,20 @@ const app = {
                     <small class="pull-right">${val.unit}</small>
                 </div>`;
               output += "</li>";
- 
+
           });
           output += '</ul>';
 
          $(".update").html(output);
-        
+
       }).fail(function() {
           var searchField = $("#querySelector").val();
-          
+
           // var myExp = new RegExp(searchField, 'i');
-      
+
           // var output = '<ul class="suggestions">';
           // $.each(dataLog, function(key, val){
-            
+
           //   if((val.unit.search(myExp) != -1) || (val.product.search(myExp) != -1)) {
 
           //       output += `<li id="${val.id}" data-product-id="${val.id}" data-product = "${val.product}" data-price = "${val.price}" data-unit = "${val.unit}" data-img = "${val.img}">`;
@@ -267,23 +267,23 @@ const app = {
           //                 </div>`;
           //       output += "</li>";
           //   }
-            
+
           // });
           // output += '</ul>';
-     
+
           if(searchField.length === 0){
             output = "";
           }
           $(".update").html(output);
       }).always(function(){
-      
+
         $('.loading').hide();
       });
     });
   },
   cartCtrl: function(){
     var cart = [];
-    
+
     //function that returns objects
     function Item (name, price, count, unit, img, product_id){
       this.name = name;
@@ -293,7 +293,7 @@ const app = {
       this.img = img;
       this.id = product_id
     }
-   
+
     //addItemToCart(name, price, count)
     function addItemToCart(name, price, count, unit, img, product_id){
       console.log(unit);
@@ -305,7 +305,7 @@ const app = {
       //   }
       // }
       var item = new Item(name, price, count, unit, img, product_id);
-      
+
       saveCartItem(item);
     }
 
@@ -369,7 +369,7 @@ const app = {
     //listCart return array[] of items
     function listCart(){
       var cartCopy = [];
-      
+
       for(var i in cart){
         var item = cart[i];
         var itemCopy = {};
@@ -378,18 +378,18 @@ const app = {
         }
         cartCopy.push(itemCopy);
       }
- 
+
       return cartCopy;
     }
 
     //save cart.............
     function saveCart(){
       localStorage.setItem("shoppingCart", JSON.stringify(cart));
-    } 
+    }
 
     //load the cart
     function loadCart(){
-        cart = JSON.parse(localStorage.getItem("shoppingCart"));       
+        cart = JSON.parse(localStorage.getItem("shoppingCart"));
     }
 
     //calculates service charges here....
@@ -428,14 +428,14 @@ const app = {
     function displayCart(){
       $("#loader").show();
       $.getJSON('/cart').done(function(response){
-          
+
           var output = "";
           var output2 = "";
           var totalCount = 0;
           var total_cost = 0;
-          
+
           $.each(response.data.cart, function(key, val){
-            
+
             output += `
             <li class="pos-rel animated" data-product="${val.name}" id="pr_${val.name}">
               <div class="row">
@@ -443,7 +443,7 @@ const app = {
                       <div class="row">
                           <div class="col-xs-5 p-r-0">
                               <div class="thumbnail">
-                                  <img src="${val.img}">
+                                  <img src="${val.options.img}">
                               </div>
                           </div>
                           <div class="col-xs-7 p-l-0">
@@ -467,13 +467,13 @@ const app = {
               </div>
               <span class="fa fa-remove pos-abs" data-product="${val.name}" data-cart-item-id="${key}"></span>
            </li>`;
-           
+
            output2 += `
           <tr class="p-t-14 width-33_3p" data-product="${val.name}" id="pr_${val.name}">
               <td class="">
                   <div class="clearfix">
                       <div class="f-left p-r-15">
-                          <img src="${val.img}" class="width-40 h-40 bd-50p">
+                          <img src="${val.options.img}" class="width-40 h-40 bd-50p">
                       </div>
                       <div class="f-left">
                           <div>${val.name}</div>
@@ -498,44 +498,44 @@ const app = {
 
             totalCount += val.qty;
             total_cost += val.subtotal;
-            
+
         })
         total_cost =  roundToTwo(total_cost)
         total_cost === 0 ? a() : b();
           for (var i = 0; i < response.data.charges.length; i++) {
-        
+
              if(response.data.charges[i].name == "Delivery fee"){
                var delivery_fee = deliveryCtrl(response.data.charges[i].fixed_amount);
                $("#deliveryFee").html(roundToTwo(delivery_fee.toLocaleString()));
-               
+
              }
 
              if(response.data.charges[i].name == "Service Charge"){
                var service_charge = serviceChargeCtrl(response.data.charges[i].percentage, total_cost);
-               service_charge = roundToTwo(service_charge);                            
+               service_charge = roundToTwo(service_charge);
                $("#serviceCharge").html(service_charge.toLocaleString());
              }
-      
+
           }
-        
-          
+
+
           $("#basketList").html(output);
           $(".items").html(totalCount);
           $("#totalP").html(total_cost.toLocaleString());
           $("#cartTable").html(output2);
 
-          $("#grandTP").html((total_cost + service_charge + delivery_fee).toLocaleString('en-NG')); 
+          $("#grandTP").html((total_cost + service_charge + delivery_fee).toLocaleString('en-NG'));
           $('#loader').hide();
       })
       .fail(function() {
           setTimeout(function() {
             $('#loader').hide();
-              
+
               }, 5000);
           });
     }
-    
-  
+
+
 
     function saveCartItem(item){
 
@@ -555,16 +555,16 @@ const app = {
       })
     }
 
-  
+
 
 
 
     $(document).on('click', '.suggestions li', function(e){
         e.preventDefault();
-      
+
       //open cart if width is big enough...
         if($(window).width() >= 768){
-          $("html").addClass("open"); 
+          $("html").addClass("open");
         }
        //name, price, and count
         var name = $(this).attr("data-product");
@@ -582,13 +582,13 @@ const app = {
     $(document).on('click', 'li .fa-remove', function(){
       var id = $(this).attr('data-cart-item-id');
       removeItemFromCartAll(id);
-  
+
     });
 
     $(document).on('click', '.counter .plus', function(){
       var name = $(this).attr('data-product');
       var cart_id = $(this).attr('data-cart-item-id');
-      
+
       updateCartItem(cart_id);
     });
 
@@ -620,17 +620,17 @@ const app = {
     $("table").find("input[type='radio']").on("change", function(){
         $("table").find(".bg-gray-light").removeClass("bg-gray-light");
         $(this).parents("tr").addClass("bg-gray-light");
-       
+
     });
   },
   validator: function(){
     //console.log($("#addressForm").parsley().isValid());
     var form = $("#addressForm");
     if( form.parsley().isValid()){
-      $("#submit").prop('disabled', false); 
+      $("#submit").prop('disabled', false);
     }
     else{
-      $("#submit").prop('disabled', 'disabled'); 
+      $("#submit").prop('disabled', 'disabled');
     }
   },
   contentEditor: function(){
@@ -640,7 +640,7 @@ const app = {
 
     editBtn.on('click', function(e) {
       e.preventDefault();
-        
+
         if (!editor[0].isContentEditable) {
             console.log(editor);
             editor[0].contentEditable = true;
@@ -648,17 +648,38 @@ const app = {
             editBtn.text('Save');
             editBtn.css('backgroundColor', '#6F9');
         } else {
-           
+
             editor[0].contentEditable = false;
             // Change Button Text and Color
             editBtn.text('Edit');
             editBtn.css('backgroundColor', '#F96');
-           
+
             receiverNo.val(editor[0].innerHTML);
-        
+
         }
     });
   },
+contentEditor2: function(){
+    var editBtns = $('.editBtn');
+   // console.log(editBtn);
+
+    editBtns.on('click', function(){
+
+      var editor = $(this).parent()[0].previousElementSibling.lastElementChild;
+
+      if (!editor.isContentEditable) {
+           // console.log(editor);
+            editor.contentEditable = true;
+            editor.focus();
+            $(this).text('Save');
+        } else {
+            editor.contentEditable = false;
+            // Change Button Text and Color
+            $(this).text('Edit');
+        }
+  });
+
+},
 selectDeliveryDate: function () {
   $('.delivery_date').on('click', function ( ) {
       var option = $(document).find("input[type='radio']");
@@ -666,11 +687,11 @@ selectDeliveryDate: function () {
       $("input:radio").attr("checked", false);
       $("input:radio").removeAttr("checked");
       var delivery_date = $(this).data("payload");
-      $(".delivery_date_v").val(delivery_date);    
+      $(".delivery_date_v").val(delivery_date);
   });
 },
   inlineEditor: function(){
-    
+
     var editBtn = $('.change');
     /*var editor = editBtn.parents("td");
     console.log(editor);*/
@@ -678,9 +699,9 @@ selectDeliveryDate: function () {
     editBtn.on('click', function(e) {
        //console.log($(this).parent());
         e.preventDefault();
-       
+
        var editor = $(this).parent()[0].previousElementSibling.firstElementChild;
-      
+
        if(editor.disabled){
          editor.disabled = false;
          $(this).text('Save');
@@ -690,7 +711,7 @@ selectDeliveryDate: function () {
          $(this).text('Change');
        }
     });
-    
+
   },
   preventFormSubmit: function(){
     $(window).keydown(function(event){
@@ -719,9 +740,9 @@ selectDeliveryDate: function () {
   },
    toggleCollapse: function(){
 		const mores = Array.from(document.querySelectorAll(".mores"));
-    
+
 	  const tables = Array.from(document.querySelectorAll(".tables"));
-  
+
 		//textcontent varaible;
 		let texts;
 		//css display properties block and none...
@@ -745,13 +766,13 @@ selectDeliveryDate: function () {
 		//interestHandler handles toggling between first and second function
 		function moreHandler(){
 				console.log(this.textContent);
-				
+
 				booled ? showMore() : showLess();
 				//change button textcontent..
 				this.textContent = texts;
 				//hide less part or show it instead...
 				tables[mores.indexOf(this)].querySelector('tbody').style.display = c;
-				
+
 		}
 
 		mores.forEach(function(more){
@@ -759,6 +780,6 @@ selectDeliveryDate: function () {
 		});
 	}
 }
-function roundToTwo(num) {    
+function roundToTwo(num) {
     return +(Math.round(num + "e+2")  + "e-2");
 }

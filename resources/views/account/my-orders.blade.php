@@ -40,7 +40,7 @@
                                     <td class="">
                                         <div class="clearfix">
                                             <div class="f-left p-r-15">
-                                                <img src="{{$order_product->product->name}}" class="width-40 h-40 bd-50p">
+                                                <img src="{{env("MEDIA_CDN").$order_product->product->products_image}}" class="width-40 h-40 bd-50p">
                                             </div>
                                             <div class="f-left">
                                                 <div>{{$order_product->product->name}}</div>

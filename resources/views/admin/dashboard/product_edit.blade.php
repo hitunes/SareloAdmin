@@ -228,17 +228,14 @@
                                                             {{$product->price}}
                                                         </td>
                                                         <td>
-                                                        <?php
-                                                            $product_image = str_replace('public/', '', $product->products_image);
-                                                            // dd($product_image); exit;
-                                                         ?>
                                                             <div class="" style="background: #eee;">
-                                                                <img class="" style="width: 80px; height: 80px;" src="  {{ asset("\.$product->products_image") }}"  >
+                                                                <img class="" style="width: 100%; height: 80px;" src="{{env("MEDIA_CDN").$product->products_image}}">
                                                             </div>
                                                         </td>
                                                         <td>
                                                             @if(isset($product->created_at))
-                                                                {{$product->created_at->diffForHumans()}}
+                                                                {{$product->updated_at}}
+                                                                
                                                             @endif
                                                         </td>
                                                         <td>

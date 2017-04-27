@@ -75,8 +75,9 @@ class ProductsController extends Controller
             'product_image' => 'required'
         ]);
         $filename = $request->file('product_image')->getClientOriginalName();
+        $img_ext = ['.jpg', '.jpeg', '.PNG', '.png'];
+        $filename = str_replace($img_ext, '', $filename);
         $store  = Storage::disk('custom')->put($filename, $request->file('product_image'));
-        // $filepath = $request->file('product_image')->store();
         $product = new Product([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
@@ -132,11 +133,23 @@ class ProductsController extends Controller
      */
     public function update($id, Request $request)
     {
-
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'unit' => 'required',
+            'unit_type_id' => 'required',
+            'product_image' => 'required'
+        ]);
+        $filename = $request->file('product_image')->getClientOriginalName();
+        $img_ext = ['.jpg', '.jpeg', '.PNG', '.png'];
+        $filename = str_replace($img_ext, '', $filename);
+        $store  = Storage::disk('custom')->put($filename, $request->file('product_image'));
         $requestData = $request->all();
         $unit_type = UnitType::all();
         $categories = Category::all();
         $product = Product::findOrFail($id);
+        $product->products_image = $store;
         $product->update($requestData);
         return redirect('admin/products')->with(['products' => $product, 'unit_type' => $unit_type, 'categories' => $categories])->with('success', 'Product Updated Successfully!.');
     }

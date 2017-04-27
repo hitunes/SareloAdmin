@@ -95,6 +95,13 @@
                                 <div class="alert alert-danger">
                                     {{ session('delete_message') }}
                                 </div>
+                            @elseif(count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    @foreach($errors->all() as $error)
+                                        <strong>Error Upon Submission...</strong> {{ $error }}
+                                    @endforeach
+                                </div>
                             @endif
                             <form method="POST" action="" enctype="multipart/form-data" class="form-horizontal form-row-seperated" action="#">
                             {{csrf_field()}}
@@ -168,11 +175,6 @@
 
 
                                                         </div>
-                                                          <?php
-                                                            $product_image = str_replace('public/', '', $found_product->products_image);
-                                                            // dd($product_image); exit;
-                                                         ?>
-
 
                                                         <div class="prod_im\g">
                                                             <div id="tab_images_uploader_container" class="margin-bottom-10">
@@ -196,7 +198,7 @@
                                             <hr>
                                             <p>
                                                 <center>
-                                                     <img class="" style="width: 200px; height: 250px;" src="  {{ asset("storage/$product_image") }}"   alt="{{$found_product->name}} image display here" />
+                                                     <img class="" style="width: 200px; height: 250px;" src="{{env("MEDIA_CDN").$found_product->products_image}}"  alt="{{$found_product->name}} image display here" />
                                                 </center>
                                             </p>
                                         </div>

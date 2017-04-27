@@ -13,6 +13,7 @@
 
 Route::group(['middleware' => ['admin']], function() {
     Route::group(['prefix' => 'admin'], function() {
+            Route::post('/update_status/{id}', 'Admin\OrdersController@updateStatus');
             Route::match(['get', 'post'], '/create', 'AdminController@signup');
             Route::get('/logout', 'AdminController@logout');
             Route::get('/dashboard', 'AdminController@index');

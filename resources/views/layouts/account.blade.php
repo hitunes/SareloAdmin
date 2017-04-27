@@ -147,7 +147,7 @@
          <script>
              $(document).ready(function(){
                  app.toggleCollapse();
-                 app.contentEditor();
+                 app.contentEditor2();
              });
          </script>
     </body>

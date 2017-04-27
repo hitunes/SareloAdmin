@@ -74,6 +74,11 @@
                                     @endforeach
                                 </div>
                             @endif
+                            <div class="col-md-8">
+                                <div id="getStatus">
+                                    
+                                </div>
+                            </div>
                         <div class="col-md-12">
 
                             <!-- Begin: life time stats -->
@@ -110,7 +115,7 @@
                                             </thead>
                                             <tbody>
                                                 <?php $num = 1; ?>
-                                                <form method="POST" action="/update_orders">
+                                                <form method="POST" action="">
                                                     @foreach($orders as $order)
 
                                                             <tr>
@@ -120,7 +125,7 @@
                                                                 </td>
                                                                 <td>
                                                                     @if(isset($order->created_at))
-                                                                    {{$order->created_at->diffForHumans()}}
+                                                                    {{$order->created_at}}
                                                                     @endif
                                                                 </td>
                                                                 <td> {{$order->total}} </td>
@@ -139,7 +144,7 @@
                                                                 <td> {{$order->receiver_phone}} </td>
                                                                 <td>
 
-                                                                    <select name="order_status" class="form-control form-filter input-sm">
+                                                                    <select id="updateStatus" name="order_status" class="form-control" data-payload="{{$order->id}}">
                                                                         <option value="">Select...</option>
                                                                         <option value="Confirmed">Confirmed</option>
                                                                         <option value="Processing">Processing</option>
@@ -174,6 +179,54 @@
                 </div>
             </div>
         </div>
+        <script src="/js/jquery.min.js" type="text/javascript"></script>
+
+        <script type="text/javascript">
+            $('#updateStatus').change(function()
+            {
+                var status = $(this).find('option:selected').val();
+                console.log(status);
+                switch (status) {
+                    case "Delivered":
+                        $("#current_status").css('background-color', '#5cb85c').css('color','white');
+                        $("#current_status").addClass('glyphicon');
+                        $("#current_status").html('Delivered');
+                        break;
+                    case "Processing":
+                        $("#current_status").css('background-color', 'orange');
+                        $("#current_status").html('Processing');
+                        break;
+                    case "Confirmed":
+                        $("#current_status").css('background-color', '#22b9b7');
+                        $("#current_status").html('Confirmed');
+                        break;
+                    case "Gone to Market":
+                        $("#current_status").css('background-color', '#b92296').css('color', '#ffffff');
+                        $("#current_status").html('Gone to Market');
+                    default:
+                        break;
+            }
+                var id = $(this).data("payload");
+                $.get('update_status/'+id, function(data){
+                    alert(data);
+
+                    $("#current_status").html(data);
+                    // $.ajax({
+                    //     url: "/update_status/"+id,
+                    //     type: "POST",
+                    //     data: {status:status},
+                    //     success: function(data){
+                    //         alert(data);
+                    //     },error:function(){ 
+                    //         alert("error!!!!");
+                    //     }
+                });
+                // })
+
+                // alert(option);
+            });
+
+        </script>
         <script type="text/javascript">
                 function ConfirmDelete()
               {
@@ -187,6 +240,5 @@
               $("a#a_del").click(function(){
                return ConfirmDelete();
               });
-           
         </script>
 @endsection
