@@ -88,7 +88,7 @@
                                     <div class="tabbable-line">
                                         <ul class="nav nav-tabs nav-tabs-lg">
                                             <li class="active">
-                                                <a href="#tab_1" data-toggle="tab"> Details </a>
+                                                <a href="#tab_1" data-toggle="tab"> Details </a> 
                                             </li>
                                         </ul>
                                         <div class="tab-content">
@@ -121,8 +121,18 @@
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Order Status: </div>
                                                                     <div class="col-md-7 value">
-                                                                        <span class="label label-success"> {{$order->status}} </span>
+                                                                        <span style="position: absolute;" class="label label-success"> {{$order->status}} </span>
                                                                     </div>
+                                                                     <span class="col-md-5" style=" display:inline; float: right; margin-left:-5px;">
+                                                                            <select name="" id="input" class="form-control" required="required">
+                                                                                <option value="">Update Status</option>
+                                                                                <option value="Confirmed">Confirmed</option>
+                                                                                <option value="Processing">Processing</option>
+                                                                                <option value="Gone to Market">Gone to Market</option>
+                                                                                <option value="Delivered">Delivered</option>
+
+                                                                            </select>
+                                                                        </span>
                                                                 </div>
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Grand Total: </div>
@@ -132,6 +142,11 @@
                                                                     <div class="col-md-5 name"> Payment Information: </div>
                                                                     <div class="col-md-7 value"> {{$order->payment_method}} </div>
                                                                 </div>
+                                                                 <div class="row static-info">
+                                                                    <div class="col-md-5 name"> Payment Status: </div>
+                                                                    <div class="col-md-7 value"> {{$order->payment_method}} </div>
+                                                                </div>
+
                                                             </div>
                                                         </div>
                                                     </div>

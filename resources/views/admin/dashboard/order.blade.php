@@ -99,6 +99,8 @@
                                                     <th width="15%"> Order Date</th>
                                                     <th width="10%"> Price </th>
                                                     <th width="15%"> Payment Method</th>
+                                                    <th width="15%"> Update Payment</th>
+                                                    <th width="15%"> Payment Satus</th>
                                                     <th width="15%"> Phone</th>
                                                     <th width="15%"> Update Status </th>
                                                     <th width="15%"> Current Status </th>
@@ -123,19 +125,31 @@
                                                                 </td>
                                                                 <td> {{$order->total}} </td>
                                                                 <td> {{$order->payment_method}} </td>
+                                                                 <td>
+                                                                      <select name="order_status" class="form-control form-filter input-sm">
+                                                                        <option value="">Select...</option>
+                                                                        <option value="Confirmed">Confirmed</option>
+                                                                        <option value="Processing">Processing</option>
+                                                                        <option value="Gone to Market">Gone to Market</option>
+                                                                        <option value="Delivered">Delivered</option>
+                                                                    </select>
+                                                                 </td>
+                                                                <td> {{$order->payment_status}} </td>
+
                                                                 <td> {{$order->receiver_phone}} </td>
                                                                 <td>
 
                                                                     <select name="order_status" class="form-control form-filter input-sm">
                                                                         <option value="">Select...</option>
-                                                                       {{--  @foreach($order->total as $present_status)
-                                                                            <option value="{{$present_status}}">{{$present_status}}</option>
-                                                                        @endforeach --}}
+                                                                        <option value="Confirmed">Confirmed</option>
+                                                                        <option value="Processing">Processing</option>
+                                                                        <option value="Gone to Market">Gone to Market</option>
+                                                                        <option value="Delivered">Delivered</option>
                                                                     </select>
                                                                 </td>
                                                                 <td>
 
-                                                                        <span class="label label-sm lgreen label-success"> {{$order->status}} </span>
+                                                                        <span id="current_status" class="label label-sm lgreen label-success"> {{$order->status}} </span>
 
                                                                 </td>
                                                             </form>

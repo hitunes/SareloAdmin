@@ -74,14 +74,11 @@ class ProductsController extends Controller
             'unit_type_id' => 'required',
             'product_image' => 'required'
         ]);
-        // Storage::put(filePath, $contents);
         $filename = $request->file('product_image')->getClientOriginalName();
-        // $ext = substr($filename, strrpos($filename, "."));
-        // $replace_ext = str_replace($ext,"image",$ext);
         $store  = Storage::disk('custom')->put($filename, $request->file('product_image'));
-        $filepath = $request->file('product_image')->store('public');
+        // $filepath = $request->file('product_image')->store();
         $product = new Product([
-            'name' => $request->input('name'), //colecting value from user from the text box to column names on the right handside
+            'name' => $request->input('name'),
             'description' => $request->input('description'),
             'price' => $request->input('price'),
             'unit' => $request->input('unit'),
@@ -122,7 +119,6 @@ class ProductsController extends Controller
         $found_product = Product::findOrFail($id);
         $categories = Category::all();
         $unit_type = UnitType::all();
-        // dd($products);exit;
         return view('admin.dashboard.update_product', compact('found_product', 'categories', 'unit_type', 'products'));
     }
 
@@ -138,8 +134,6 @@ class ProductsController extends Controller
     {
 
         $requestData = $request->all();
-        // dd($requestData); exit;
-
         $unit_type = UnitType::all();
         $categories = Category::all();
         $product = Product::findOrFail($id);

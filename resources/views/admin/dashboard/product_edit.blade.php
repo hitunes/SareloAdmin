@@ -233,7 +233,7 @@
                                                             // dd($product_image); exit;
                                                          ?>
                                                             <div class="" style="background: #eee;">
-                                                                <img class="" style="width: 80px; height: 80px;" src="  {{ asset("storage/$product_image") }}"  >
+                                                                <img class="" style="width: 80px; height: 80px;" src="  {{ asset("\.$product->products_image") }}"  >
                                                             </div>
                                                         </td>
                                                         <td>
