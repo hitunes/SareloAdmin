@@ -969,7 +969,7 @@ label.required:after {content: '*';color: #FF5757;margin-left: 2px;}
 }
 
 .login-bg{
-  background-image:url(../img/tomatoes-min.jpeg);
+  background-image:url(../img/bg-login.png);
   background-size:cover;
   background-position:center center;
 }

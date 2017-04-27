@@ -607,7 +607,7 @@ const app = {
       $("#submit").prop('disabled', 'disabled');
     }*/
   },
-  contentEditor: function(){
+  contentEditor2: function(){
     var editBtns = $('.editBtn');
     console.log(editBtns);
 
@@ -628,10 +628,12 @@ const app = {
             $(this).text('Edit');
         }
     });
-    
-    //var editor = $('.editor');
+  },
+  contentEditor: function(){ 
+    var editor = $('#editor');
+    var editBtn = $("#editBtn");
 
-    /*editBtn.on('click', function(e) {
+    editBtn.on('click', function(e) {
 
         if (!editor[0].isContentEditable) {
            // console.log(editor);
@@ -646,7 +648,7 @@ const app = {
             editBtn.css('backgroundColor', '#F96');
 
         }
-    });*/
+    });
   },
   inlineEditor: function(){
     var editBtn = $('.change');
