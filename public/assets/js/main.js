@@ -227,6 +227,8 @@ const app = {
 
   var dataLog = obj.products;
 
+  $("input.search").focus();
+
   $("#querySelector").on("keyup", function(e){
 
       $.getJSON('/api/search/'+ $("#querySelector").val())
@@ -659,11 +661,11 @@ const app = {
         }
     });
   },
-contentEditor2: function(){
+  contentEditor2: function(){
     var editBtns = $('.editBtn');
-   // console.log(editBtn);
 
     editBtns.on('click', function(){
+
 
       var editor = $(this).parent()[0].previousElementSibling.lastElementChild;
 
@@ -672,8 +674,19 @@ contentEditor2: function(){
             editor.contentEditable = true;
             editor.focus();
             $(this).text('Save');
+
         } else {
             editor.contentEditable = false;
+            new_address = editor.innerHTML;
+            postData = {address: new_address}
+            var id = $(this).data("payload");
+
+            $.post("/addresses/"+id+"/update", postData, function (response) {
+              if(response.status == "done"){
+                location.reload();
+              }
+            });
+
             // Change Button Text and Color
             $(this).text('Edit');
         }

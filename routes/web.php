@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//pending, successfull cancel
 Route::group(['middleware' => ['admin']], function() {
     Route::group(['prefix' => 'admin'], function() {
             Route::post('/update_sta+tus/{id}', 'Admin\OrdersController@updateStatus');

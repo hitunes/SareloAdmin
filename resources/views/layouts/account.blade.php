@@ -146,6 +146,8 @@
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
          <script>
              $(document).ready(function(){
+                app.cartCtrl();
+
                  app.toggleCollapse();
                  app.contentEditor2();
              });
