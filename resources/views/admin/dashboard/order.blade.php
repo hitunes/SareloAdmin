@@ -76,7 +76,7 @@
                             @endif
                             <div class="col-md-8">
                                 <div id="getStatus">
-                                    
+
                                 </div>
                             </div>
                         <div class="col-md-12">
@@ -111,7 +111,7 @@
                                                     <th width="15%"> Current Status </th>
                                                     <th width="5%"> Details </th>
                                                 </tr>
-                                            
+
                                             </thead>
                                             <tbody>
                                                 <?php $num = 1; ?>
@@ -144,7 +144,7 @@
                                                                 <td> {{$order->receiver_phone}} </td>
                                                                 <td>
 
-                                                                    <select id="updateStatus" name="order_status" class="form-control" data-payload="{{$order->id}}">
+                                                                    <select class="updateStatus" name="order_status" class="form-control" data-payload="{{$order->id}}">
                                                                         <option value="">Select...</option>
                                                                         <option value="Confirmed">Confirmed</option>
                                                                         <option value="Processing">Processing</option>
@@ -154,7 +154,7 @@
                                                                 </td>
                                                                 <td>
 
-                                                                        <span id="current_status" class="label label-sm lgreen label-success"> {{$order->status}} </span>
+                                                                        <span id="{{$order->id}}" class="label label-sm" style="color:#222;"> {{$order->status}} </span>
 
                                                                 </td>
                                                             </form>
@@ -217,7 +217,7 @@
                     //     data: {status:status},
                     //     success: function(data){
                     //         alert(data);
-                    //     },error:function(){ 
+                    //     },error:function(){
                     //         alert("error!!!!");
                     //     }
                 });
