@@ -20,6 +20,7 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+
     }
 
     /**
@@ -37,6 +38,16 @@ class HomeController extends Controller
         return view('account.index', compact('completed_orders', 'pending_orders'));
     }
 
+    public function orders()
+    {
+
+        $completed_orders = Order::GetOrderDetails(\Auth::user()->id, 'completed')->get();
+
+        $pending_orders = Order::GetOrderDetails(\Auth::user()->id, 'pending')->get();
+
+        return view('account.my-orders', compact('completed_orders', 'pending_orders'));
+    }
+
 
     public function addresses()
     {
@@ -51,14 +62,14 @@ class HomeController extends Controller
         if($request->isMethod('post')){
             $this->validate($request, [
                 'address' => 'required',
-                'phone' => 'required'
+                'city' => 'required'
             ]);
 
             $address = new UserAddress($request->all());
 
             \Auth::user()->user_addresses()->save($address);
 
-            \Session::put('alert_message', 'Address Added');
+            return redirect()->back()->with('status_message', 'Address added');
         }
 
         return view('account.new-address');

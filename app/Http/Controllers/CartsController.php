@@ -23,7 +23,7 @@ class CartsController extends Controller
         $this->manager->setSerializer(new DataArraySerializer());
 
         $this->charges = $this->getCharges();
-        
+
     }
 
     public function addCartItem(Request $request)
@@ -35,7 +35,10 @@ class CartsController extends Controller
             'name' => $request->name,
             'qty' => (int) $request->count,
             'price' => (double) $request->price,
-            'options' => ['unit' => $request->unit]
+            'options' => [
+                'unit' => $request->unit,
+                'img' => $request->img
+                ]
         ];
 
        Cart::add($cart_arr);
@@ -57,14 +60,14 @@ class CartsController extends Controller
     }
 
     public function updateCart(Request $request, $cart_id)
-    {   
+    {
         $item = Cart::get($cart_id);
 
         $item = (array) $item;
 
         if($request->action == 'subtract')
             $qty = intval($item['qty'] - 1);
-        
+
         if($request->action == 'addition')
             $qty = intval($item['qty'] + 1);
 
@@ -72,9 +75,9 @@ class CartsController extends Controller
             Cart::update($cart_id, $qty);
         else
             Cart::remove($cart_id);
-        
+
         return response()->json(['status' => 'success', 'data' => Cart::content()]);
-        
+
     }
 
 
@@ -82,7 +85,7 @@ class CartsController extends Controller
     {
         Cart::remove($id);
 
-        return response()->json(['status' => 'success', 'data' => Cart::content()]);        
+        return response()->json(['status' => 'success', 'data' => Cart::content()]);
     }
 
 

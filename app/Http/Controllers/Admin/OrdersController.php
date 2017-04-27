@@ -19,7 +19,7 @@ class OrdersController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 2;
+        $perPage = 10;
 
         if (!empty($keyword)) {
             $orders = Order::where('user_id', 'LIKE', "%$keyword%")

@@ -11,8 +11,9 @@
 |
 */
 
-Route::group(['middleware' => 'admin'], function() {
+Route::group(['middleware' => ['admin']], function() {
     Route::group(['prefix' => 'admin'], function() {
+            Route::match(['get', 'post'], '/create', 'AdminController@signup');
             Route::get('/logout', 'AdminController@logout');
             Route::get('/dashboard', 'AdminController@index');
             Route::get('/users', 'Admin\UserController@index');
@@ -24,6 +25,7 @@ Route::group(['middleware' => 'admin'], function() {
             Route::get('/orders/{id}', 'Admin\OrdersController@show');
             Route::get('/orders', 'AdminController@orders');
             Route::get('/order_view', 'AdminController@order_view');
+            Route::get('/orders/delete/{id}', 'Admin\\OrdersController@destroy');
             Route::get('/product_edit', 'AdminController@product_edit');
             Route::match(['get', 'post'], '/slots', 'Admin\\SlotsController@index');
             Route::match(['get', 'post'], '/slots/create', 'Admin\\SlotsController@store');
@@ -37,8 +39,6 @@ Route::group(['middleware' => 'admin'], function() {
             Route::get('/unit-types/delete/{id}', 'Admin\\UnitTypesController@destroy');
             Route::get('/unit-types/edit/{id}', 'Admin\\UnitTypesController@edit');
             Route::post('/unit-types/update/{id}', 'Admin\\UnitTypesController@update');
-
-
     });
 });
 
@@ -79,13 +79,13 @@ Route::get('/cart', 'CartsController@getCartItems');
 Route::get('/cart/update/{cart_id}/{action}/', 'CartsController@updateCart');
 Route::get('/cart/delete/{cart_id}', 'CartsController@deleteCartItem');
 
-Route::match(['POST', 'GET'], '/checkout/billing-address', 'CheckoutController@billingAddress');
-Route::match(['POST', 'GET'], '/checkout/choose-address', 'CheckoutController@chooseAddress');
+Route::match(['POST', 'GET'], '/checkout/billing-address', 'CheckoutController@billingAddress')->middleware(['cartempty']);
+Route::match(['POST', 'GET'], '/checkout/choose-address', 'CheckoutController@chooseAddress')->middleware(['cartempty']);
 
 
-Route::match(['POST', 'GET'], '/checkout/choose-delivery-slot', 'DeliveryController@index');
-Route::match(['POST', 'GET'], '/checkout/confirm-order', 'ConfirmCheckoutController@index')->middleware('checkslot');
-Route::post('/checkout', 'ConfirmCheckoutController@checkout')->middleware('checkslot');
+Route::match(['POST', 'GET'], '/checkout/choose-delivery-slot', 'DeliveryController@index')->middleware(['cartempty']);
+Route::match(['POST', 'GET'], '/checkout/confirm-order', 'ConfirmCheckoutController@index')->middleware(['checkslot', 'cartempty']);
+Route::post('/checkout', 'ConfirmCheckoutController@checkout')->middleware(['checkslot', 'cartempty']);
 
 Route::get('/checkout/payment/{order_unique_reference}', 'PaymentController@index');
 
@@ -97,9 +97,9 @@ Route::get('/new-address', 'AddressController@create');
 Route::post('/new-address', 'AddressController@store');
 
 Route::get('/my-account', 'HomeController@index');
-Route::get('/my-orders', 'HomeController@index');
+Route::get('/my-orders', 'HomeController@orders');
 Route::get('/my-addresses', 'HomeController@addresses');
-Route::get('/account/new-addresses', 'HomeController@saveAddress');
+Route::match(['GET', 'POST'], '/account/new-addresses', 'HomeController@saveAddress');
 
 
 
@@ -116,3 +116,7 @@ Auth::routes();
 
 Route::get('/order/{id}/cancel', 'HomeController@cancelOrder');
 Route::get('/', 'IndexController@index');
+
+Route::post('/account/update-details', 'AccountController@updateUserDetails');
+Route::post('/account/update-email', 'AccountController@updateEmail');
+Route::post('/account/update-password', 'AccountController@changePassword');

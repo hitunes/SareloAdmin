@@ -17,13 +17,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        
-        // view()->composer(['/admin/*]', function($view){
-        //     $user = Auth::user()->first_name;
-        //     if (Auth::user()) {
-        //              $view->with('user', $user);
-        //     }
-        // });
+        view()->composer(['layouts.dashboard'], function($view){
+            if (Auth::user()) {
+                $view->with('email', Auth::user()->email);
+            }
+        });
     }
 
     /**

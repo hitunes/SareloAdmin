@@ -38,13 +38,13 @@ class TransactionController extends Controller
     public function update(Request $request, $transaction_id)
     {
         $transaction = Transaction::find($transaction_id)->update($request->all());
-      
+
         if($request->status == 'success'){
-            
+
             $transaction = Transaction::find($transaction_id);
 
             Order::where('id', $transaction->order_id)->update(['payment_status' => 'success']);
-            
+
             Cart::destroy();
         }
 
@@ -54,8 +54,9 @@ class TransactionController extends Controller
 
     public function bankCheckout($order_unique_reference)
     {
-        Order::where('order_unique_reference', $order_unique_reference)->update(['payment_method' => 'bank']);
-        
+        Order::where('order_unique_reference', $order_unique_reference)
+                ->update(['payment_method' => 'bank']);
+
         return redirect('/thankyou/'.$order_unique_reference);
     }
 

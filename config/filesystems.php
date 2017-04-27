@@ -65,9 +65,9 @@ return [
 
         'custom' => [
             'driver' => 'local',
-            'root' => 'C:\xampp\htdocs\sarelo_product_images',
+            'root' => env("UPLOAD_PATH"),
         ],
-        
+
     ],
 
 ];

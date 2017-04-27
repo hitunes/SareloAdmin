@@ -16,11 +16,11 @@
     </head>
     <body>
 
-        
+
 
         <!--sidebar menu on the right hand -->
         <aside class="sidebar left_sidebar visible-xs" id="left_sidebar">
-            <ul class="nav navbar-nav navbar-right">            
+            <ul class="nav navbar-nav navbar-right">
                 <li role="presentation">
                     <span>Already have an Account?</span><br>
                     <a href="/login" class="c-brand-purple"><span> Login</span></a>
@@ -59,7 +59,28 @@
                         </div>
                         <div class="collapse navbar-collapse" id="navcol-1">
                             <ul class="nav navbar-nav navbar-right">
-                                
+                                @if(isset(\Auth::user()->first_name))
+                                <li role="presentation" class="dropdown">
+                                    <a class="dropdown-toggle c-brand-green w-500 f-20 p-t-10" data-toggle="dropdown" href="#">
+                                        <span>Account </span>
+                                        <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">{{\Auth::user()->first_name}}</a></li>
+                                        <li><a href="/my-account">Your Account</a></li>
+                                        <li><a href="/my-order">Your Order</a></li>
+                                        <li>
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                                Log Out
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                                @else
                                 <li role="presentation">
                                     <span>Already have an Account?</span><br>
                                     <a href="/login" class="c-brand-purple"><span> Login</span></a>
@@ -73,6 +94,7 @@
                                         <span>Sign Up</span>
                                     </a>
                                 </li>
+                                @endif
                                 <li class="p-r-5 p-l-5 pos-rel">
                                     <button class="btn btn_cart btn_action f-18 w-500 cart_toggle">
                                         <i class="fa fa-shopping-basket m-r-5"></i>
@@ -92,8 +114,8 @@
                     <br><br><br>
                     <form class="query pos-rel">
                         <input class="form-control search p-r-20 p-l-40" type="search" placeholder="What do you want to buy?...." id="querySelector" autocomplete="off">
-                        <div class="update"> 
-                            
+                        <div class="update">
+
                         </div>
                     </form>
                 </div>
@@ -107,11 +129,11 @@
             <div class="loader" id="loader">
                 <img src="/assets/img/loaders/aj.gif">
             </div>
-    
+
             <div class="full_bag">
                 <div class="body" id="basket">
                     <ul class="p-l-0 list-style-none" id="basketList">
-                        
+
                     </ul>
                 </div>
                 <div class="footer">
@@ -160,7 +182,7 @@
                 <div class="wrap text-center">
                     <span class="fa fa-shopping-basket m-b-50" style="font-size: 150px;"></span>
                     <!--<img src="/assets/img/icon/Sarelo-basket.png" class="width-200">-->
-                    
+
                     <h4 class="m-b-50 l-spacing-2">Your food basket is empty</h4>
                     <br>
                     <h4 class="l-spacing-2">Use the search bar to ﬁnd<br> and add items to your basket</h4>
@@ -176,7 +198,7 @@
         <script src="/assets/js/jquery.min.js"></script>
 
         <!--jQuery UI -->
-        
+
         <!-- Bootstrap JavaScript -->
         <script src="/assets/js/bootstrap/bootstrap.min.js"></script>
         <!-- Slim Scroll -->
@@ -199,7 +221,7 @@
                     wheelStep: 10
                 });
 
-                
+
              });
          </script>
     </body>

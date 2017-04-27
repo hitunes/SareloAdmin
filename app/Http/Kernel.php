@@ -59,5 +59,7 @@ class Kernel extends HttpKernel
         'role' => \App\Http\Middleware\CheckRole::class,
         'checkslot' => \App\Http\Middleware\CheckSlotAvailability::class,
         'admin' => \App\Http\Middleware\Admin::class,
+        'cartempty' => \App\Http\Middleware\CartEmpty::class,
+
     ];
 }
