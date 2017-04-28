@@ -39,6 +39,7 @@ class AdminController extends Controller
                         ->join('roles','roles.id', '=', 'users.role_id')
                         ->where('roles.name', 'Super Admin')
                         ->paginate(10);
+                        
     	return view('admin.show', compact('admins'));
     }
 

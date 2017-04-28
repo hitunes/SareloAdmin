@@ -235,7 +235,7 @@
                             data: {payment_status:payment_status},
                             success: function(data){
                                 paymentMessage(payment_status, pay_id);
-                                $("#"+pay_id).html(data);
+                                $("#payment"+pay_id).html(data);
                             },error:function(){
                                 alert("error!!!!");
                             }
