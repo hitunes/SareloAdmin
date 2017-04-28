@@ -66,15 +66,7 @@
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
-                    <!-- BEGIN PAGE HEAD-->
-
-                    <!-- END PAGE HEAD-->
-                    <!-- BEGIN PAGE BREADCRUMB -->
-
-                    <!-- END PAGE BREADCRUMB -->
-                    <!-- BEGIN PAGE BASE CONTENT -->
-
-                    {{-- EDIT EACH PRODUCT BEGINS --}}
+                    
                     <span>
 
 
@@ -126,20 +118,6 @@
                                                             </label>
                                                             <div class="col-md-5">
                                                                 <textarea class="form-control" name="description"></textarea>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label class="col-md-2 control-label">Category:
-                                                                <span class="required"> * </span>
-                                                            </label>
-                                                            <div class="col-md-5">
-                                                                <select name="category_id" id="category_id" class="form-control" required="required">
-                                                                <option value="">Select type</option>
-                                                                @foreach($categories as $category)
-                                                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                                                @endforeach
-                                                                </select>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">

@@ -13,6 +13,9 @@
 //pending, successfull cancel
 Route::group(['middleware' => ['admin']], function() {
     Route::group(['prefix' => 'admin'], function() {
+            Route::get('/show', 'AdminController@show');
+            Route::match(['get', 'post'], '/edit/{id}', 'AdminController@edit');
+            Route::match(['get', 'post'], '/change_password/{id}', 'AdminController@changePassword');
             Route::post('/update_status/{id}', 'Admin\OrdersController@updateStatus');
             Route::post('/payment_status/{id}', 'Admin\OrdersController@paymentStatus');
             Route::match(['get', 'post'], '/create', 'AdminController@signup');

@@ -12,23 +12,13 @@
         <!-- Main CSS here -->
         <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
         <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
+        <link rel="stylesheet" type="text/css" href="assets/icon/flaticon/flaticon.css">
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     </head>
     <body>
         <!--sidebar menu on the right hand -->
         <aside class="sidebar left_sidebar visible-xs" id="left_sidebar">
-            <ul class="nav navbar-nav navbar-right">
-                <li role="presentation" class="dropdown c-brand-green w-500 f-20 p-t-20 p-r-50">
-                    <span>Account </span><span><i class="fa fa-caret-down"></i></span>
-                </li>
-                <li class="p-r-5 p-l-5 pos-rel acc_basket_btn">
-                    <button class="btn btn_cart btn_action f-18 w-500 cart_toggle bd-4">
-                        <i class="fa fa-shopping-basket m-r-5"></i>
-                        <!--<img src="assets/img/icon/Sarelo-basket.png" width="27px">-->My Basket
-                    </button>
-                    <span class="badge bg-red pos-abs t-10 l-0 items">0</span>
-                </li>
-            </ul>
+
         </aside>
         <!--left side bar for mobile ends here-->
 
@@ -129,9 +119,9 @@
         <!-- main contents ends here -->
 
         <!--sidebar menu on the right hand -->
-        <aside class="sidebar right_sidebar" id="right_sidebar">
+      {{--   <aside class="sidebar right_sidebar" id="right_sidebar">
 
-        </aside>
+        </aside> --}}
 
         <!--overlay to call -->
         <!-- <div id="overlay">
@@ -146,11 +136,14 @@
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
          <script>
              $(document).ready(function(){
-                app.cartCtrl();
-
+                // app.cartCtrl();
                  app.toggleCollapse();
                  app.contentEditor2();
+                 app.toggleSidebars();
+                 app.sidebarCtrl();
+
              });
          </script>
+
     </body>
 </html>

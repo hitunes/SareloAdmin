@@ -11,6 +11,12 @@ body{
   background: #F7F7F7;
 }
 
+.wrapper.index{
+  background-image: url(../img/bg-img.png);
+  background-position: -150px 450px;
+  background-repeat: no-repeat;
+}
+
 .wrapper header{
   background: #FFF;
   width: 100%;
@@ -39,7 +45,7 @@ aside.sidebar{
 }
 
 aside.left_sidebar{
-  transform: translate3d(-450px, 0, 0);
+  transform: translate3d(-100%, 0, 0);
 }
 
 aside.right_sidebar{
@@ -95,7 +101,7 @@ nav.navbar.navbar-default {
   padding: 15px 25px 5px;
 }
 
-.navbar-nav>li:nth-child(2) {
+.wrapper.index .navbar-nav>li:nth-child(2) {
   padding: 5px 0px 10px 0px;
   height: 75px;
 }
@@ -207,9 +213,9 @@ ul.suggestions{
   overflow: hidden;
   overflow: hidden;
   padding-left: 0px;
- -webkit-box-shadow: 0px 4px 6px -1px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 4px 6px -1px rgba(0,0,0,0.75);
-  box-shadow: 0px 4px 6px -1px rgba(0,0,0,0.75);
+ -webkit-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  -moz-box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
   
 }
 
@@ -612,7 +618,6 @@ div.clearfix small,
 .p-t-50 {padding-top:50px !important;}
 .p-t-60 {padding-top:60px !important;}
 .p-t-80 {padding-top:80px !important;}
-.p-t-80 {padding-top:100px !important;}
 .p-t-100 {padding-top:100px !important;}
 .p-t-140 {padding-top:140px !important;}
 /****  Padding Bottom  ****/
@@ -970,9 +975,13 @@ label.required:after {content: '*';color: #FF5757;margin-left: 2px;}
 }
 
 .login-bg{
-  background-image:url(../img/tomatoes-min.jpeg);
+  background-image:url(../img/bg-login.png);
   background-size:cover;
   background-position:center center;
+}
+
+.login-bg input{
+  height: 40px;
 }
 
 .addresses{

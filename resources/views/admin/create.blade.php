@@ -65,7 +65,7 @@
                                         <span class="title">Edit Slot</span>
                                     </a>
                         <li class="nav-item  ">
-                            <a href="#" class="nav-link ">
+                            <a href="{{url('/admin/show')}}" class="nav-link ">
                                 <i class="glyphicon glyphicon-eye-open"></i>
                                 <span class="title">Admins</span>
                             </a>

@@ -791,7 +791,99 @@ selectDeliveryDate: function () {
 		mores.forEach(function(more){
 			 more.addEventListener('click', moreHandler);
 		});
-	}
+	},
+  //move navbar content and sidebar into right bar content.....
+  sidebarCtrl: function(){
+      let navbar_initialized = false,
+      misc = {
+          navbar_menu_visible: 0
+      },
+      initRightMenu =  function(){
+          if(!navbar_initialized){
+              $navbar = $('nav').find('.navbar-collapse').first().clone(true);
+              //console.log($navbar);
+
+              $sidebar = $('.page-sidebar');
+
+              //undefined
+              sidebar_color = $sidebar.data('color');
+
+              ul_content = '';
+
+
+              // add the content from the sidebar to the right menu
+              content_buff = $sidebar.find('.page-sidebar-menu').html();
+             // console.log(content_buff);
+              ul_content = ul_content + content_buff;
+
+              //add the content from the regular header to the right menu
+             /* $navbar.children('ul').each(function(){
+                  content_buff = $(this).html();
+                  ul_content = ul_content + content_buff;
+              });*/
+
+              ul_content = '<ul class="nav navbar-nav">' + ul_content + '</ul>';
+
+              console.log(ul_content);
+              //navbar_content = ul_content;
+
+              //$navbar.html(navbar_content);
+
+             $('.left_sidebar').append(ul_content);
+
+
+
+
+              $toggle = $('.menu_toggle');
+
+              $navbar.find('a').removeClass('btn btn-round btn-default');
+              $navbar.find('button').removeClass('btn-round btn-fill btn-info btn-primary btn-success btn-danger btn-warning btn-neutral');
+              $navbar.find('button').addClass('btn-simple btn-block');
+
+              $toggle.click(function (){
+                  if(misc.navbar_menu_visible == 1) {
+                      $('html').removeClass('nav-open');
+                      misc.navbar_menu_visible = 0;
+                      $('#bodyClick').remove();
+                      setTimeout(function(){
+                          $toggle.removeClass('toggled');
+                      }, 400);
+
+                  } else {
+                      setTimeout(function(){
+                          $toggle.addClass('toggled');
+                      }, 430);
+
+                      div = '<div id="bodyClick"></div>';
+                      $(div).appendTo("body").click(function() {
+                          $('html').removeClass('nav-open');
+                          misc.navbar_menu_visible = 0;
+                          $('#bodyClick').remove();
+                          setTimeout(function(){
+                              $toggle.removeClass('toggled');
+                          }, 400);
+                      });
+
+                      $('html').addClass('nav-open');
+                      misc.navbar_menu_visible = 1;
+
+                  }
+              });
+              navbar_initialized = true;
+          }
+
+      };
+      // Init navigation toggle for small screens
+      if($(window).width() <= 991){
+      initRightMenu();
+      }
+      // activate collapse right menu when the windows is resized
+      $(window).resize(function(){
+          if($(window).width() <= 991){
+              initRightMenu();
+          }
+      });
+  }
 }
 function roundToTwo(num) {
     return +(Math.round(num + "e+2")  + "e-2");

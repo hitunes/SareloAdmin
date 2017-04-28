@@ -63,20 +63,13 @@
                     <div class="top-menu">
                         <ul class="nav navbar-nav pull-right">
                             <li class="separator hide"> </li>
-
                             </li>
                             <!-- END NOTIFICATION DROPDOWN -->
                             <li class="separator hide"> </li>
                             <li class="separator hide"> </li>
-                            <li class="dropdown dropdown-user dropdown-dark">
-
-
-
+                            <li class="dropdown dropdown-user dropdown-dark" style="margin-top: 10px;">
                                 <a href="{{url('admin/logout')}}" >
-
                                     <span style="color: #222; cursor: default;" class="username username-hide-on-mobile"><b> {{$email}} </b>| </span>
-
-
                                     <span class="username username-hide-on-mobile"> Logout
                                     </span>
                                 </a>
@@ -168,6 +161,7 @@
         <script src="/dashboard/assets/layouts/layout4/scripts/demo.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
         <script type="text/javascript">
+          
             function ConfirmDelete()
               {
               var x = confirm("Are you sure you want to delete?");
@@ -182,8 +176,6 @@
               $("button#a_del").click(function(){
                return ConfirmDelete();
               });
-
-
         </script>
         <script type="text/javascript">
             $('.updateStatus').change(function(){
@@ -242,7 +234,7 @@
                             data: {payment_status:payment_status},
                             success: function(data){
                                 paymentMessage(payment_status, pay_id);
-                                $("#"+pay_id).html(data);
+                                $("#payment"+pay_id).html(data);
                             },error:function(){
                                 alert("error!!!!");
                             }

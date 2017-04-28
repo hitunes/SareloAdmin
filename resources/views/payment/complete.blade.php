@@ -19,18 +19,28 @@
         <!--sidebar menu on the right hand -->
         <aside class="sidebar left_sidebar visible-xs" id="left_sidebar">
             <ul class="nav navbar-nav navbar-right">
-                <li role="presentation" class="dropdown c-brand-green w-500 f-20 p-t-20 p-r-50">
-                    <span>Account </span><span><i class="fa fa-angle-down"></i></span>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
-                    </ul>
-                </li>
+                @if(isset(\Auth::user()->first_name))
+                                <li role="presentation" class="dropdown">
+                                    <a class="dropdown-toggle c-brand-green w-500 f-20 p-t-10" data-toggle="dropdown" href="#">
+                                        <span>Account </span>
+                                        <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Hi {{\Auth::user()->first_name}}</a></li>
+                                        <li><a href="/my-account">Your Account</a></li>
+                                        <li><a href="/my-orders">Your Order</a></li>
+                                        <li>
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                                Log Out
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                                @endif
             </ul>
         </aside>
         <!--left side bar for mobile ends here-->
@@ -51,18 +61,28 @@
                         </div>
                         <div class="collapse navbar-collapse" id="navcol-1">
                             <ul class="nav navbar-nav navbar-right">
-                                <li role="presentation" class="dropdown c-brand-green w-500 f-20 p-t-20 p-r-50">
-                                    <span>Account </span><span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                 @if(isset(\Auth::user()->first_name))
+                                <li role="presentation" class="dropdown">
+                                    <a class="dropdown-toggle c-brand-green w-500 f-20 p-t-10" data-toggle="dropdown" href="#">
+                                        <span>Account </span>
+                                        <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
+                                    </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
+                                        <li><a href="#">Hi {{\Auth::user()->first_name}}</a></li>
+                                        <li><a href="/my-account">Your Account</a></li>
+                                        <li><a href="/my-orders">Your Order</a></li>
+                                        <li>
+                                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                                Log Out
+                                            </a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
                                     </ul>
                                 </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -84,7 +104,7 @@
                             <div class="content">
                                 <p class="f-24 m-t-0 m-b-10">Delivery time</p>
                                 <div class="f-24 w-500 m-b-20">
-                                    <time>{{date('l, M d', strtotime($order->orderSlot->delivery_date))}}, 
+                                    <time>{{date('l, M d', strtotime($order->orderSlot->delivery_date))}},
                                     {{$order->orderSlot->slot->time_range}}</time>
                                 </div>
                                 <a href="/my-orders"><button type="button" class="btn btn-md f-16 bg-orange bd-4">View order status</button></a>
@@ -93,8 +113,8 @@
                         </div>
                     <!-- END CONTENT -->
                     </div>
-                   
-                    
+
+
                 </div>
                 <!-- END CONTAINER -->
             </main>
@@ -110,7 +130,7 @@
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
          <script>
              $(document).ready(function(){
-                
+
              });
          </script>
     </body>

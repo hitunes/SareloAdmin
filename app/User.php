@@ -64,7 +64,8 @@ class User extends Authenticatable
         return false;
     }
     
-    public function order(){
-        return $this->belongsTo('App\Order');
+    public function order()
+    {
+        return $this->hasMany('App\Order');
     }
 }

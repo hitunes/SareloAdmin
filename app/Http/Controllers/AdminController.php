@@ -32,9 +32,15 @@ class AdminController extends Controller
         }
     	return view('admin.dashboard.index', compact('ordersResult', 'users', 'products', 'orders'));
     }
-     public function users()
+     public function show()
     {
-    	return view('admin.dashboard.users');
+        $admins = User::selectRaw('users.*')
+                        ->with('role') //relationship created
+                        ->join('roles','roles.id', '=', 'users.role_id')
+                        ->where('roles.name', 'Super Admin')
+                        ->paginate(10);
+                        
+    	return view('admin.show', compact('admins'));
     }
 
     public function orders()
@@ -101,7 +107,7 @@ class AdminController extends Controller
                         $password = $request->input('password');
                         $confirm_password = $request->input('confirm_password');
                         if ($password === $confirm_password) {
-                            $role = Role::where('name', 'Admin')->first();
+                            $role = Role::where('name', 'Super Admin')->first();
                             $user = new User([
                               'email' => $request->input('email'),
                               'password' => Hash::make($password),
@@ -114,12 +120,71 @@ class AdminController extends Controller
                         }
                 break;
                 case false:
-                    return view('/admin.create');
+                    return view('/admin/create');
                 break;
                 default:
-                    return view('/admin.create');
+                    return view('/admin/create');
                 break;
             }
+    }
+
+    
+    public function edit(Request $request, $id)
+    {
+        $method = $request->isMethod('post');
+        switch ($method) {
+            case true:
+                    $this->validate($request, [
+                        'email' => 'required|unique:users'
+                    ]);
+                    $requestData = $request->all();
+                    $admin = User::findOrFail($id);
+                    $admin->update($requestData);
+                    return redirect('admin/show')->with('success', 'Admin detail updated successfully!'); 
+                break;
+                case false:
+                    $admin = User::all();
+                    $admin = User::findOrFail($id);
+                    return view('/admin/edit', compact('admin'));
+                break;
+
+            default:
+
+                break;
+        }
+        
+    }
+
+    public function changePassword(Request $request, $id)
+    {
+        $method = $request->isMethod('post');
+        switch ($method) {
+            case true:
+                    $this->validate($request, [
+                        'password' => 'required|min:4',
+                        'confirm_password' => 'required|min:4'
+                    ]);
+                    $password = $request->input('password');
+                    $confirm_password = $request->input('confirm_password');
+                    $bcrypted_password = bcrypt($password);
+                    if ($password === $confirm_password) {
+                        $admin = User::findOrFail($id);
+                        $admin->password = $bcrypted_password;
+                        $admin->update();
+                        return redirect('admin/show')->with('success', 'Password was successfully changed!'); 
+                    }else{
+                        return back()->with('delete_message', 'Password doesn\'t match');
+                    }
+                break;
+                case false:
+                    $admin = User::all();
+                    $admin = User::findOrFail($id);
+                    return view('/admin/change_password', compact('admin'));
+                break;
+            default:
+
+                break;
+        }
     }
 
     public function logout()
@@ -127,10 +192,12 @@ class AdminController extends Controller
         Auth::logout();
         return redirect('/admin');
     }
-    public function destror($id)
+
+    public function destroy($id)
     {
-       Order::findOrFail($id);
+        Order::findOrFail($id);
         Order::destroy($id);
         return redirect('admin/orders')->with('delete_message', 'Order successfully deleted!'); 
     }
+
 }

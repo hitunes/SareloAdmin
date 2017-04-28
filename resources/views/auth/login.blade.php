@@ -35,7 +35,7 @@
                            <div class="card bg-opacity-white-80">
                                 <div class="logo text-center p-t-20">
                                     <a href="/">
-                                       <img src="/assets/img/logo/sarelo2.svg">
+                                       <img src="/assets/img/logo/sarelo3.svg">
                                     </a>
                                 </div>
                                 <div class="content p-t-0">
@@ -54,7 +54,7 @@
                                                     @endif
                                                 </div>
                                                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                                
+
                                                     <input type="password" class="form-control" name="password" placeholder="Password" required>
 
                                                         @if ($errors->has('password'))
@@ -62,7 +62,7 @@
                                                                 <strong>{{ $errors->first('password') }}</strong>
                                                             </span>
                                                         @endif
-                                                </div>                                              
+                                                </div>
                                                 <button type="submit" class="btn btn-md btn-block bg-brand-green">Log In</button>
                                             </form>
                                             <div class="or-separator m-b-10">or</div>
@@ -77,19 +77,19 @@
                                 </div>
                            </div>
                        </div>
-                   </div> 
+                   </div>
                 </div>
             </section>
         </div>
 
-        
+
         <!-- jQuery -->
         <script src="/assets/js/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->
         <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
          <script>
-             
+
          </script>
     </body>
 </html>

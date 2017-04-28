@@ -17,17 +17,17 @@ class UserController extends Controller
     {
         $completedOrders = DB::table('orders')->where('status', 'Completed')->sum('total');
         $ordersResult = number_format($completedOrders);
-        $usersOrderAmount = DB::select('
-                SELECT SUM(O.total), U.first_name, U.last_name
-                  FROM orders O JOIN users U 
-                    ON O.user_id = U.id
-                 GROUP BY U.first_name, U.last_name
-                 ORDER BY SUM(O.total) DESC
-            ');
-        $users = User::join('roles', 'users.role_id', 'roles.id')
-                        ->where('roles.name', 'User')
-                        ->paginate(10);
-          
+        $users = DB::select("Select u.first_name, u.last_name, u.email, u.phone, u.created_at,u.id, SUM(o.total) as total from users u
+                        JOIN roles r ON u.role_id = r.id
+                        LEFT JOIN orders o ON o.user_id = u.id
+                        where r.name = 'User'
+                        GROUP By u.id,u.first_name, u.last_name, u.email, u.phone, u.created_at");
+
+        // $users = DB::select(DB::raw("users.*"))
+
+
+
+
         return view('admin.dashboard.users', compact('users'));
     }
 
