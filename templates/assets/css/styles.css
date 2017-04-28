@@ -101,7 +101,7 @@ nav.navbar.navbar-default {
   padding: 15px 25px 5px;
 }
 
-.navbar-nav>li:nth-child(2) {
+.wrapper.index .navbar-nav>li:nth-child(2) {
   padding: 5px 0px 10px 0px;
   height: 75px;
 }

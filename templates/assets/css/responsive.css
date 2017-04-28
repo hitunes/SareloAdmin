@@ -30,6 +30,18 @@
       padding-right: 0px !important; 
   }
 
+ .left_sidebar .navbar-nav {
+    margin: 0px; 
+    font-size: 18px;
+  }
+
+  .left_sidebar .nav .open>a, .left_sidebar .nav .open>a:focus,
+  .left_sidebar .nav .open>a:hover {
+      background-color: transparent;
+      border: none;
+      color: #00A2D9 !important;
+  }
+
   .contents h1{
       font-size: 22px;
       line-height: 25px;
@@ -48,9 +60,9 @@
     min-height: calc(100% - 62px);
     top:62px;
  }
- .navbar-nav>li:nth-child(2) {
+ /*.navbar-nav>li:nth-child(2) {
     display: none;
-}
+}*/
 .progressContainer {
    height: auto !important;
 }
