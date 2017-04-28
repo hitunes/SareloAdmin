@@ -96,7 +96,7 @@
                                                     </td>
 
                                                     <td class="center">
-                                                     {{number_format($user->total, 2)}}
+                                                        &#x20A6;{{number_format($user->total, 2)}}
                                                     </td>
 
                                                     <td class="center"> {{$user->created_at}} </td>
