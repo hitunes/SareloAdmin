@@ -1194,3 +1194,7 @@ label {
     position: relative;
     top: 9px;
 }
+
+label.card .fa-check-circle-o{
+  display: none;
+}
