@@ -84,8 +84,11 @@
                                                     <td>
                                                         <a href="mailto:{{$user->email}}"> {{$user->email}} </a>
                                                     </td>
-                                                    <td> 120 </td>
-                                                    <td class="center"> 12 Jan 2012 </td>
+
+                                                    <td> 
+                                                        #400
+                                                    </td>
+                                                    <td class="center"> {{$user->created_at}} </td>
                                                     <td>
                                                         {{$user->phone}}
                                                     </td>

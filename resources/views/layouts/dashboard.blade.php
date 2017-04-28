@@ -214,7 +214,6 @@
                     case "Delivered":
                         $("#"+id).css('background-color', '#5cb85c').css('color','white');
 
-                        $("#"+id).addClass('glyphicon');
                         $("#"+id).html('Delivered');
                         break;
                     case "Processing":
@@ -233,6 +232,44 @@
                 }
             }
 
+                 $('.paymentStatus').change(function(){
+
+                    var payment_status = $(this).find('option:selected').val();
+                    var pay_id = $(this).data("payload");
+                    $.ajax({
+                            url: "/admin/payment_status/"+pay_id,
+                            type: "POST",
+                            data: {payment_status:payment_status},
+                            success: function(data){
+                                paymentMessage(payment_status, pay_id);
+                                $("#"+pay_id).html(data);
+                            },error:function(){
+                                alert("error!!!!");
+                            }
+                    });
+
+                });
+
+
+            function paymentMessage(payment_status, pay_id) {
+                $("#payment"+pay_id).css('color', '#fff');
+                switch (payment_status) {
+                    case "Pending":
+                        $("#payment"+pay_id).css('background-color', 'orange').css('color','white');
+                        $("#payment"+pay_id).text('Pending');
+                        break;
+                    case "Cancel":
+                        $("#payment"+pay_id).css('background-color', 'red');
+                        $("#payment"+pay_id).text('Cancel');
+                        break;
+                    case "Successfull":
+                        $("#payment"+pay_id).css('background-color', '#22b9b7');
+                        $("#payment"+pay_id).text('Successfull');
+                        break;
+                    default:
+                        break;
+                }
+            }
         </script>
     </body>
 
