@@ -236,8 +236,7 @@
          <script>
             $(document).ready(function(){
                 app.radioChooser("bg-dark");
-
-
+                app.copyLinkCtrl();
             });
          </script>
     </body>

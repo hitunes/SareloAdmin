@@ -62,7 +62,7 @@ const app = {
     searchInput.addEventListener('change', displayMatches);
     searchInput.addEventListener('keyup', displayMatches);
 
-    
+
 
 
   },
@@ -498,7 +498,7 @@ const app = {
         }
       });
 
-    
+
       $("#basketList").html(output);
       $("#cartTable").html(output2);
       $(".items").html(countCart());
@@ -621,7 +621,7 @@ const app = {
         }
     });
   },
-  contentEditor: function(){ 
+  contentEditor: function(){
     var editor = $('#editor');
     var editBtn = $("#editBtn");
 
@@ -732,62 +732,62 @@ const app = {
       misc = {
           navbar_menu_visible: 0
       },
-      initRightMenu =  function(){  
+      initRightMenu =  function(){
           if(!navbar_initialized){
               $navbar = $('nav').find('.navbar-collapse').first().clone(true);
               //console.log($navbar);
-          
+
               $sidebar = $('.page-sidebar');
 
               //undefined
               sidebar_color = $sidebar.data('color');
-              
+
               ul_content = '';
-              
-              
+
+
               // add the content from the sidebar to the right menu
               content_buff = $sidebar.find('.page-sidebar-menu').html();
              // console.log(content_buff);
               ul_content = ul_content + content_buff;
-              
+
               //add the content from the regular header to the right menu
              /* $navbar.children('ul').each(function(){
                   content_buff = $(this).html();
-                  ul_content = ul_content + content_buff;   
+                  ul_content = ul_content + content_buff;
               });*/
-              
+
               ul_content = '<ul class="nav navbar-nav">' + ul_content + '</ul>';
-              
+
               console.log(ul_content);
               //navbar_content = ul_content;
-              
+
               //$navbar.html(navbar_content);
-              
+
              $('.left_sidebar').append(ul_content);
-              
-              
-              
-              
+
+
+
+
               $toggle = $('.menu_toggle');
-              
+
               $navbar.find('a').removeClass('btn btn-round btn-default');
               $navbar.find('button').removeClass('btn-round btn-fill btn-info btn-primary btn-success btn-danger btn-warning btn-neutral');
               $navbar.find('button').addClass('btn-simple btn-block');
-              
-              $toggle.click(function (){    
+
+              $toggle.click(function (){
                   if(misc.navbar_menu_visible == 1) {
-                      $('html').removeClass('nav-open'); 
+                      $('html').removeClass('nav-open');
                       misc.navbar_menu_visible = 0;
                       $('#bodyClick').remove();
                       setTimeout(function(){
                           $toggle.removeClass('toggled');
                       }, 400);
-                  
+
                   } else {
                       setTimeout(function(){
                           $toggle.addClass('toggled');
                       }, 430);
-                      
+
                       div = '<div id="bodyClick"></div>';
                       $(div).appendTo("body").click(function() {
                           $('html').removeClass('nav-open');
@@ -797,26 +797,26 @@ const app = {
                               $toggle.removeClass('toggled');
                           }, 400);
                       });
-                  
+
                       $('html').addClass('nav-open');
                       misc.navbar_menu_visible = 1;
-                      
+
                   }
               });
               navbar_initialized = true;
           }
 
       };
-      // Init navigation toggle for small screens   
+      // Init navigation toggle for small screens
       if($(window).width() <= 991){
       initRightMenu();
       }
-      // activate collapse right menu when the windows is resized 
+      // activate collapse right menu when the windows is resized
       $(window).resize(function(){
           if($(window).width() <= 991){
-              initRightMenu();   
+              initRightMenu();
           }
-      });    
+      });
   },
   copyLinkCtrl: function(){
     document.getElementById("copyButton").addEventListener("click", function() {
@@ -867,7 +867,7 @@ const app = {
         var currentFocus = document.activeElement;
         target.focus();
         target.setSelectionRange(0, target.value.length);
-        
+
         // copy the selection
         var succeed;
         try {
@@ -879,7 +879,7 @@ const app = {
         if (currentFocus && typeof currentFocus.focus === "function") {
             currentFocus.focus();
         }
-        
+
         if (isInput) {
             // restore prior selection
             elem.setSelectionRange(origSelectionStart, origSelectionEnd);

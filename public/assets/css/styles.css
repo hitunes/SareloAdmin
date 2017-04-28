@@ -1194,3 +1194,10 @@ label {
     position: relative;
     top: 9px;
 }
+
+#addressContent > .content > label.card .fa-check-circle-o{
+    display: none;
+}
+#addressContent > div:nth-child(2) > label.card .fa-check-circle-o{
+  display: block;
+}
