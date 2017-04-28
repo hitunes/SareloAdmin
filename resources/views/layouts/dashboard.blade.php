@@ -67,7 +67,7 @@
                             <!-- END NOTIFICATION DROPDOWN -->
                             <li class="separator hide"> </li>
                             <li class="separator hide"> </li>
-                            <li class="dropdown dropdown-user dropdown-dark">
+                            <li class="dropdown dropdown-user dropdown-dark" style="margin-top: 10px;">
                                 <a href="{{url('admin/logout')}}" >
                                     <span style="color: #222; cursor: default;" class="username username-hide-on-mobile"><b> {{$email}} </b>| </span>
                                     <span class="username username-hide-on-mobile"> Logout
@@ -175,8 +175,6 @@
               $("button#a_del").click(function(){
                return ConfirmDelete();
               });
-
-
         </script>
         <script type="text/javascript">
             $('.updateStatus').change(function(){
