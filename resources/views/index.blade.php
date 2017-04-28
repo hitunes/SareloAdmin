@@ -67,7 +67,7 @@
                                         <span><i class="fa fa-angle-down" aria-hidden="true"></i></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="#">{{\Auth::user()->first_name}}</a></li>
+                                        <li><a href="#">Hi {{\Auth::user()->first_name}}</a></li>
                                         <li><a href="/my-account">Your Account</a></li>
                                         <li><a href="/my-order">Your Order</a></li>
                                         <li>
