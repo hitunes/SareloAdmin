@@ -22,7 +22,10 @@
 
   .navbar-toggle:first-child{
     float: left;
-    margin-left: 15px;
+    margin-left: 20px;
+  }
+  .navbar-toggle{
+    margin-right: 20px;
   }
 
   nav.navbar .container-fluid{
