@@ -22,12 +22,27 @@
 
   .navbar-toggle:first-child{
     float: left;
-    margin-left: 15px;
+    margin-left: 20px;
+  }
+  .navbar-toggle{
+    margin-right: 20px;
   }
 
   nav.navbar .container-fluid{
       padding-left: 0px !important;
       padding-right: 0px !important; 
+  }
+
+ .left_sidebar .navbar-nav {
+    margin: 0px; 
+    font-size: 18px;
+  }
+
+  .left_sidebar .nav .open>a, .left_sidebar .nav .open>a:focus,
+  .left_sidebar .nav .open>a:hover {
+      background-color: transparent;
+      border: none;
+      color: #00A2D9 !important;
   }
 
   .contents h1{
@@ -48,9 +63,9 @@
     min-height: calc(100% - 62px);
     top:62px;
  }
- .navbar-nav>li:nth-child(2) {
+ /*.navbar-nav>li:nth-child(2) {
     display: none;
-}
+}*/
 .progressContainer {
    height: auto !important;
 }
