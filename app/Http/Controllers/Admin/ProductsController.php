@@ -39,11 +39,8 @@ class ProductsController extends Controller
         } else {
             $products = Product::paginate($perPage);
         }
-        $categories = Category::all();
         $unit_type = UnitType::all();
-        // dd($unit_type);
-
-        return view('admin.dashboard.product_edit', ['products' => $products, 'unit_type' => $unit_type, 'categories' => $categories]);
+        return view('admin.dashboard.product_edit', ['products' => $products, 'unit_type' => $unit_type]);
     }
 
     /**
@@ -69,10 +66,10 @@ class ProductsController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'description' => 'required',
-            'price' => 'required',
-            'unit' => 'required',
+            'price' => 'required|int',
+            'unit' => 'required|integer',
             'unit_type_id' => 'required',
-            'product_image' => 'required'
+            'product_image' => 'required|image'
         ]);
         $filename = $request->file('product_image')->getClientOriginalName();
         $img_ext = ['.jpg', '.jpeg', '.PNG', '.png'];
@@ -84,11 +81,9 @@ class ProductsController extends Controller
             'price' => $request->input('price'),
             'unit' => $request->input('unit'),
             'unit_type_id' => $request->input('unit_type_id'),
-            'category_id' => $request->input('category_id'),
             'products_image' => $store
         ]);
-
-            $product->save();
+        $product->save();
         return redirect('admin/products')->with('success', 'Product Added Successfully!.');
     }
 
@@ -136,10 +131,10 @@ class ProductsController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'description' => 'required',
-            'price' => 'required',
-            'unit' => 'required',
+            'price' => 'required|int',
+            'unit' => 'required|int',
             'unit_type_id' => 'required',
-            'product_image' => 'required'
+            'product_image' => 'required|image'
         ]);
         $filename = $request->file('product_image')->getClientOriginalName();
         $img_ext = ['.jpg', '.jpeg', '.PNG', '.png'];
@@ -147,11 +142,10 @@ class ProductsController extends Controller
         $store  = Storage::disk('custom')->put($filename, $request->file('product_image'));
         $requestData = $request->all();
         $unit_type = UnitType::all();
-        $categories = Category::all();
         $product = Product::findOrFail($id);
         $product->products_image = $store;
         $product->update($requestData);
-        return redirect('admin/products')->with(['products' => $product, 'unit_type' => $unit_type, 'categories' => $categories])->with('success', 'Product Updated Successfully!.');
+        return redirect('admin/products')->with(['products' => $product, 'unit_type' => $unit_type])->with('success', 'Product Updated Successfully!.');
     }
 
     /**

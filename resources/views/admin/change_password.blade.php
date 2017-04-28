@@ -84,7 +84,7 @@
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
                     <div class="row">
-                        <div class="col-md-6 col-md-offset-2">
+                        <div class="col-md-5 col-md-offset-2">
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
@@ -97,11 +97,9 @@
                                    				<div class="well">
                                    					<form action="" method="POST" role="form">
                                                                {{csrf_field()}}
-                                   						
                                    						<legend><center>
-                                   							Create Administrator
+                                   							Change Password
                                    						</center></legend>
-
                                    						@if (session('success'))
                                                                    <div class="alert alert-success">
                                                                        {{ session('success') }}
@@ -112,24 +110,18 @@
                                                                    </div>
                                                                    
                                                                @endif
-                                   						<div class="form-group">
-                                   							<label for="">Email:</label>
-                                   							<input type="text" name="email" class="form-control" id="" placeholder="Email address here"> <br>
-                                   								@if ($errors->has('email')) <p class="help-block" style="color: red">{{ $errors->first('email') }}</p> @endif
-                                   						</div>
-                                   						<div class="form-group">
-                                   							<label for="">Password:</label>
-                                   							<input type="password" name="password" class="form-control" id="" placeholder="Password here"> <br>
-                                   								@if ($errors->has('password')) <p class="help-block" style="color: red">{{ $errors->first('password') }}</p> @endif
-
-                                   						</div>
-                                   						<div class="form-group">
-                                   							<label for="">Confirm Password:</label>
-                                   							<input type="password" name="confirm_password" class="form-control" id="" placeholder="Confirm password"> <br>
-                                   								@if ($errors->has('confirm_password')) <p class="help-block" style="color: red">{{ $errors->first('confirm_password') }}</p> @endif
-                                   						</div>
+                                              <div class="form-group">
+                                                <label for="">New Password:</label>
+                                                <input type="password" name="password" class="form-control" id="" placeholder=""> <br>
+                                                  @if ($errors->has('password')) <p class="help-block" style="color: red">{{ $errors->first('password') }}</p> @endif
+                                              </div>
+                                              <div class="form-group">
+                                                <label for="">Confirm Password:</label>
+                                                <input type="password" name="confirm_password" class="form-control" id="" placeholder=""> <br>
+                                                  @if ($errors->has('confirm_password')) <p class="help-block" style="color: red">{{ $errors->first('confirm_password') }}</p> @endif
+                                              </div>
                                    						<center>
-                                   							<button type="submit" class="btn btn-primary"> <i class="fa fa-key"></i> Signup</button>
+                                   							<button type="submit" class="btn btn-primary"> <i class="fa fa-save"></i> Change </button>
                                    						</center>
                                    						
                                    					</form>

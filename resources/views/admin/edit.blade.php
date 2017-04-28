@@ -85,6 +85,22 @@
                 <div class="page-content">
                     <div class="row">
                         <div class="col-md-6 col-md-offset-2">
+                             @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @elseif(session('delete_message'))
+                                <div class="alert alert-danger">
+                                    {{ session('delete_message') }}
+                                </div>
+                                @elseif(count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    @foreach($errors->all() as $error)
+                                        <strong>Error Upon Submission...</strong> {{ $error }}
+                                    @endforeach
+                                </div>
+                            @endif
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
@@ -97,11 +113,9 @@
                                    				<div class="well">
                                    					<form action="" method="POST" role="form">
                                                                {{csrf_field()}}
-                                   						
                                    						<legend><center>
-                                   							Create Administrator
+                                   							Moderate Admin
                                    						</center></legend>
-
                                    						@if (session('success'))
                                                                    <div class="alert alert-success">
                                                                        {{ session('success') }}
@@ -112,24 +126,21 @@
                                                                    </div>
                                                                    
                                                                @endif
+                                              <div class="form-group">
+                                                <label for="">First name:</label>
+                                                <input type="text" name="text" value="{{$admin->first_name}}" class="form-control" id="" placeholder=""> <br>
+                                              </div>
+                                              <div class="form-group">
+                                                <label for="">Last name:</label>
+                                                <input type="text" name="text" value="{{$admin->last_name}}" class="form-control" id="" placeholder=""> <br>
+                                              </div>
                                    						<div class="form-group">
                                    							<label for="">Email:</label>
-                                   							<input type="text" name="email" class="form-control" id="" placeholder="Email address here"> <br>
+                                   							<input type="text" name="email" value="{{$admin->email}}" class="form-control" id="" placeholder="Email address here"> <br>
                                    								@if ($errors->has('email')) <p class="help-block" style="color: red">{{ $errors->first('email') }}</p> @endif
                                    						</div>
-                                   						<div class="form-group">
-                                   							<label for="">Password:</label>
-                                   							<input type="password" name="password" class="form-control" id="" placeholder="Password here"> <br>
-                                   								@if ($errors->has('password')) <p class="help-block" style="color: red">{{ $errors->first('password') }}</p> @endif
-
-                                   						</div>
-                                   						<div class="form-group">
-                                   							<label for="">Confirm Password:</label>
-                                   							<input type="password" name="confirm_password" class="form-control" id="" placeholder="Confirm password"> <br>
-                                   								@if ($errors->has('confirm_password')) <p class="help-block" style="color: red">{{ $errors->first('confirm_password') }}</p> @endif
-                                   						</div>
                                    						<center>
-                                   							<button type="submit" class="btn btn-primary"> <i class="fa fa-key"></i> Signup</button>
+                                   							<button type="submit" class="btn btn-primary"> <i class="fa fa-save"></i> Update </button>
                                    						</center>
                                    						
                                    					</form>
