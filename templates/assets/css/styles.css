@@ -45,7 +45,7 @@ aside.sidebar{
 }
 
 aside.left_sidebar{
-  transform: translate3d(-450px, 0, 0);
+  transform: translate3d(-100%, 0, 0);
 }
 
 aside.right_sidebar{
