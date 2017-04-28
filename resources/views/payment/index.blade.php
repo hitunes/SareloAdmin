@@ -198,7 +198,7 @@
                                                 <span>Delivery Slot</span>
                                                 <span class="pull-right">
                                                     <span class="cash">
-                                                        {{$order->orderSlot->slot->time_range}}, {{date('l d M', strtotime($order->orderSlot->slot->delivery_date))}}
+                                                        {{$order->orderSlot->slot->time_range}}, {{date('l d M', strtotime($order->orderSlot->delivery_date))}}
                                                     </span>
                                                 </span>
                                             </p>
