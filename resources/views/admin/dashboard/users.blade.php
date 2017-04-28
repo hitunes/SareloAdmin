@@ -73,7 +73,7 @@
                                         <thead>
                                             <tr>
                                                 <th> Email </th>
-                                                <th> Total Amount Ordered (NGN) </th>
+                                                {{-- <th> Total Amount Ordered (NGN) </th> --}}
                                                 <th> Date credit </th>
                                                 <th> Phone Number </th>
                                             </tr>
@@ -85,9 +85,6 @@
                                                         <a href="mailto:{{$user->email}}"> {{$user->email}} </a>
                                                     </td>
 
-                                                    <td> 
-                                                        #400
-                                                    </td>
                                                     <td class="center"> {{$user->created_at}} </td>
                                                     <td>
                                                         {{$user->phone}}
