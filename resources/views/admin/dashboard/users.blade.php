@@ -73,7 +73,7 @@
                                         <thead>
                                             <tr>
                                                 <th> Email </th>
-                                                {{-- <th> Total Amount Ordered (NGN) </th> --}}
+                                                <th> Total Amount Ordered (NGN) </th>
                                                 <th> Date credit </th>
                                                 <th> Phone Number </th>
                                             </tr>
@@ -83,6 +83,10 @@
                                                 <tr class="odd gradeX">
                                                     <td>
                                                         <a href="mailto:{{$user->email}}"> {{$user->email}} </a>
+                                                    </td>
+
+                                                    <td class="center">
+                                                     {{$user->total}}
                                                     </td>
 
                                                     <td class="center"> {{$user->created_at}} </td>
