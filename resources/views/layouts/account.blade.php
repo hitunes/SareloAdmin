@@ -119,9 +119,9 @@
         <!-- main contents ends here -->
 
         <!--sidebar menu on the right hand -->
-        <aside class="sidebar right_sidebar" id="right_sidebar">
+      {{--   <aside class="sidebar right_sidebar" id="right_sidebar">
 
-        </aside>
+        </aside> --}}
 
         <!--overlay to call -->
         <!-- <div id="overlay">
@@ -136,8 +136,7 @@
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
          <script>
              $(document).ready(function(){
-                app.cartCtrl();
-
+                // app.cartCtrl();
                  app.toggleCollapse();
                  app.contentEditor2();
                  app.toggleSidebars();
