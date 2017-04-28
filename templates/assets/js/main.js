@@ -836,7 +836,7 @@ const app = {
         }
         msgElem.textContent = msg;
         setTimeout(function() {
-            msgElem.textContent = "copy link";
+            msgElem.textContent = "copy";
         }, 2000);
     }
 
