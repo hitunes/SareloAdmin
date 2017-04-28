@@ -11,14 +11,14 @@
         <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.min.css">
         <!-- Main CSS here -->
         <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
-
+        <link rel="stylesheet" type="text/css" href="/assets/icon/flaticon/flaticon.css">
          <!--Responsive CSS added here -->
-        <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
-        
+        <link rel="stylesheet" type="text/css" href="/assets/css/responsive.css">
+
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     </head>
     <body>
-    
+
         <div class="wrapper clearfix">
             <header class="m-b-30">
                 <!-- ===Nav bar starts here == -->
@@ -29,7 +29,7 @@
                                 <img src="/assets/img/logo/sarelo3.svg">
                             </a>
                         </div>
-                        
+
                     </div>
                 </nav>
                 <!-- ===Nav bar endss here == -->
@@ -38,7 +38,7 @@
                 <div class="progressContainer dis-flex">
                     <div class="wizard">
                         <div class="wizard-inner">
-                            
+
                             <ul class="nav nav-tabs">
 
                                 <li role="presentation"  class="active">
@@ -95,7 +95,7 @@
                            <div class="card">
                                 <div class="header">
                                     <h4 class="title">
-                                        <i class="fa fa-shopping-basket c-brand-green f-27"></i> Confirm Your Order
+                                        <i class="flaticon-shopping-basket c-brand-green f-27"></i> Confirm Your Order
                                     </h4>
                                 </div>
                                 <div class="content clearfix p-b-0">
@@ -132,7 +132,7 @@
                                                         </td>
                                                         <td class="text-right"><button class="btn bg-transparent no-bd change">Change</button></td>
                                                     </tr>
-                                                   
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -149,7 +149,7 @@
                                         <div class="table-responsive">
                                             <table class="table table-hover border-bottom m-0">
                                                 <tbody id="cartTable">
-                                            
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -173,10 +173,10 @@
                                     </div>
                                 </div>
                                 </form>
-                                
+
                            </div>
                             <p class="text-center">*Terms and conditions apply on free delivery. <a href="#" class="c-brand-purple">Learn more</a></p>
-                           
+
                        </div>
                        <div class="col-md-4">
                            <div class="card">
@@ -192,17 +192,17 @@
                                         <li>
                                             <p class="menus">
                                                 <span>Your Basket</span>
-                                                <span class="pull-right"> 
+                                                <span class="pull-right">
                                                     &#8358;
                                                     <span class="cash" id="totalP"></span>
                                                 </span>
                                             </p>
                                         </li>
-                                       
+
                                         <li>
                                             <p class="menus">
                                                 <span>Service charge</span>
-                                                <span class="pull-right"> 
+                                                <span class="pull-right">
                                                     &#8358;
                                                     <span class="cash" id="serviceCharge"></span>
                                                 </span>
@@ -211,7 +211,7 @@
                                         <li>
                                             <p class="menus">
                                                 <span>Delivery Charge</span>
-                                                <span class="pull-right"> 
+                                                <span class="pull-right">
                                                     &#8358;
                                                     <span class="cash" id="deliveryFee"></span>
                                                 </span>
@@ -220,7 +220,7 @@
                                         <li>
                                             <p class="menus">
                                                 <span>Delivery Slot</span>
-                                                <span class="pull-right"> 
+                                                <span class="pull-right">
                                                     <span class="cash">
                                                         {{$options['slot']['time_range']}}, {{date('l d M', strtotime($options['delivery_date']))}}
                                                     </span>
@@ -233,7 +233,7 @@
                                         <li>
                                             <p class="menus">
                                                 <span>Total Due</span>
-                                                <span class="pull-right c-brand-green f-20"> 
+                                                <span class="pull-right c-brand-green f-20">
                                                     &#8358;
                                                     <span class="cash" id="grandTP"></span>
                                                 </span>
@@ -243,12 +243,12 @@
                                 </div>
                            </div>
                        </div>
-                   </div> 
+                   </div>
                 </div>
             </section>
         </div>
 
-        
+
         <!-- jQuery -->
         <script src="/assets/js/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->

@@ -11,15 +11,16 @@
         <link rel="stylesheet" href="/assets/css/bootstrap/bootstrap.min.css">
         <!-- Main CSS here -->
         <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+        <link rel="stylesheet" type="text/css" href="/assets/icon/flaticon/flaticon.css">
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-    
-    
+
+
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
     </head>
     <body>
-    
+
         <div class="wrapper clearfix">
             <header class="m-b-30">
                 <!-- ===Nav bar starts here == -->
@@ -30,7 +31,7 @@
                                 <img src="/assets/img/logo/sarelo3.svg">
                             </a>
                         </div>
-                        
+
                     </div>
                 </nav>
             <!-- ===Nav bar endss here == -->
@@ -39,7 +40,7 @@
                <div class="progressContainer dis-flex">
                     <div class="wizard">
                         <div class="wizard-inner">
-                            
+
                             <ul class="nav nav-tabs">
 
                                 <li role="presentation" class="active">
@@ -96,7 +97,7 @@
                            <div class="card">
                                 <div class="header">
                                     <h4 class="title">
-                                        <i class="fa fa-money"></i> Select Payment Method
+                                        <i class="flaticon-money c-brand-green"></i> Select Payment Method
                                     </h4>
                                 </div>
                                 <div class="content">
@@ -113,7 +114,7 @@
                                 				<span><i class="fa fa-university"></i></span> Bank Transfer
                                 			</label>
                                 		</div>
-                                		
+
                                 	</div>
                                 	<p>Use the following details to pay via Bank transfer</p>
                                 	<div class="p-l-30 p-b-60">
@@ -129,13 +130,14 @@
                                 				</tr>
                                 			</tbody>
                                 		</table>
-                                		<div class="row">
-                                			<p class="col-md-8">Paying via mobile app? Use this number in the comment</p>
-                                			<p class="col-md-2 w-600">{{$order->order_unique_reference}}</p>
-                                			<div class="col-md-2">
-                                				<button class="btn bg-transparent uppercase f-12">copy</button>
-                                			</div>
-                                		</div>
+
+                                        <div class="row">
+                                            <p>Paying via mobile app? Use this number in the comment</p>
+                                            <div class="w-600">
+                                                <span> {{$order->order_unique_reference}}</span>
+                                                <button class="btn bg-transparent uppercase f-12">copy</button>
+                                            </div>
+                                        </div>
                                 	</div>
                                 	<div class="clearfix p-b-20">
                                 	    {{-- <div class="f-left">
@@ -148,16 +150,17 @@
                                 </div>
                            </div>
                             <p class="text-center">*Terms and conditions apply on free delivery. <a href="#" class="c-brand-purple">Learn more</a></p>
-                           
+
                        </div>
                        <div class="col-md-4">
-                           
+
                            <div class="card">
                                 <div class="header">
                                     <h4 class="title">Cart Summary</h4>
                                 </div>
                                 <div class="content">
                                     <p class="category">The total cost is inclusive of tax, delivery and service charge.</p>
+
                                     <ul class="p-l-0 list-style-none">
                                         <li>
                                             <hr>
@@ -165,17 +168,17 @@
                                         <li>
                                             <p class="menus">
                                                 <span>Your Basket</span>
-                                                <span class="pull-right"> 
+                                                <span class="pull-right">
                                                     &#8358;
                                                     <span class="cash">{{$order->orderProducts->sum('sub_total')}}</span>
                                                 </span>
                                             </p>
                                         </li>
-                                        
+
                                         <li>
                                             <p class="menus">
                                                 <span>Service charge</span>
-                                                <span class="pull-right"> 
+                                                <span class="pull-right">
                                                     &#8358;
                                                     <span class="cash">{{$charge_arr['service_charge']}}</span>
                                                 </span>
@@ -184,7 +187,7 @@
                                         <li>
                                             <p class="menus">
                                                 <span>Delivery Charge</span>
-                                                <span class="pull-right"> 
+                                                <span class="pull-right">
                                                     &#8358;
                                                     <span class="cash">{{$order->orderProducts->sum('sub_total') * .1}}</span>
                                                 </span>
@@ -193,7 +196,7 @@
                                         <li>
                                             <p class="menus">
                                                 <span>Delivery Slot</span>
-                                                <span class="pull-right"> 
+                                                <span class="pull-right">
                                                     <span class="cash">
                                                         {{$order->orderSlot->slot->time_range}}, {{date('l d M', strtotime($order->orderSlot->slot->delivery_date))}}
                                                     </span>
@@ -206,7 +209,7 @@
                                         <li>
                                             <p class="menus">
                                                 <span>Total Due</span>
-                                                <span class="pull-right c-brand-green f-20"> 
+                                                <span class="pull-right c-brand-green f-20">
                                                     &#8358;
                                                     <span class="cash">{{number_format($order->total, 2)}}</span>
                                                 </span>
@@ -217,7 +220,7 @@
                            </div>
                        </div>
                        </div>
-                   </div> 
+                   </div>
                 </div>
             </section>
         </div>
