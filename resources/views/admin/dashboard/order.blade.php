@@ -139,7 +139,7 @@
                                                                     </select>
                                                                  </td>
                                                                 <td>
-                                                                     <span id="payment{{$order->id}}" class="label payment label-sm" style="color:#222;"> {{$order->payment_status}} </span>                                                                   
+                                                                     <span id="payment{{$order->id}}" class="label payment label-sm" data-payload="{{$order->id}}" style="color:#222;"> {{$order->payment_status}} </span>                                                                   
 
                                                                 </td>
 

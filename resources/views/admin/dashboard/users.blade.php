@@ -72,6 +72,8 @@
                                     <table class="table table-striped table-bordered table-hover order-column" id="sample_1">
                                         <thead>
                                             <tr>
+                                                <th> First name </th>
+                                                <th> Last name</th>
                                                 <th> Email </th>
                                                 <th> Total Amount Ordered (NGN) </th>
                                                 <th> Date credit </th>
@@ -82,11 +84,19 @@
                                             @foreach($users as $user)
                                                 <tr class="odd gradeX">
                                                     <td>
+                                                        {{$user->first_name}} 
+                                                    </td>
+
+                                                    <td>
+                                                        {{$user->last_name}} </a>
+                                                    </td>
+
+                                                    <td>
                                                         <a href="mailto:{{$user->email}}"> {{$user->email}} </a>
                                                     </td>
 
                                                     <td class="center">
-                                                     {{$user->total}}
+                                                     {{number_format($user->total, 2)}}
                                                     </td>
 
                                                     <td class="center"> {{$user->created_at}} </td>
