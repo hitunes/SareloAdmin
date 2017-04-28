@@ -123,15 +123,8 @@
                                                                     <div class="col-md-7 value">
                                                                         <span id="current_status" style="position: absolute;" class="label label-success"> {{$order->status}} </span>
                                                                     </div>
-                                                                     <span class="col-md-5" style=" display:inline; float: right; margin-left:-5px;">
-                                                                            <select name="" id="updateStatus" id="input" class="form-control" required="required">
-                                                                                <option value="">Update Status</option>
-                                                                                <option value="Confirmed">Confirmed</option>
-                                                                                <option value="Processing">Processing</option>
-                                                                                <option value="Gone to Market">Gone to Market</option>
-                                                                                <option value="Delivered">Delivered</option>
-
-                                                                            </select>
+                                                                     <span class="col-md-5">
+                                                                           
                                                                         </span>
                                                                 </div>
                                                                 <div class="row static-info">

@@ -140,4 +140,17 @@ class OrdersController extends Controller
             return;
        }
     }
+
+    public function paymentStatus(Request $request, $id)
+    {
+       if ($request->ajax()) {
+
+           $order = Order::where('id', $id)->update($request->all());
+
+           return $request->payment_status;
+
+       }else{
+            return;
+       }
+    }
 }

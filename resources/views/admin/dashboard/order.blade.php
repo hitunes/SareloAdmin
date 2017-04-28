@@ -131,15 +131,17 @@
                                                                 <td> {{$order->total}} </td>
                                                                 <td> {{$order->payment_method}} </td>
                                                                  <td>
-                                                                      <select name="order_status" class="form-control form-filter input-sm">
+                                                                      <select class="paymentStatus" name="paymentStatus" class="form-control form-filter input-sm" data-payload="{{$order->id}}">
                                                                         <option value="">Select...</option>
-                                                                        <option value="Confirmed">Confirmed</option>
-                                                                        <option value="Processing">Processing</option>
-                                                                        <option value="Gone to Market">Gone to Market</option>
-                                                                        <option value="Delivered">Delivered</option>
+                                                                        <option value="Pending">Pending</option>
+                                                                        <option value="Cancel">Cancel</option>
+                                                                        <option value="Successfull">Successfull</option>
                                                                     </select>
                                                                  </td>
-                                                                <td> {{$order->payment_status}} </td>
+                                                                <td>
+                                                                     <span id="payment{{$order->id}}" class="label payment label-sm" style="color:#222;"> {{$order->payment_status}} </span>                                                                   
+
+                                                                </td>
 
                                                                 <td> {{$order->receiver_phone}} </td>
                                                                 <td>
@@ -180,53 +182,6 @@
             </div>
         </div>
         <script src="/js/jquery.min.js" type="text/javascript"></script>
-
-        {{-- <script type="text/javascript">
-            $('#updateStatus').change(function()
-            {
-                var status = $(this).find('option:selected').val();
-                console.log(status);
-                switch (status) {
-                    case "Delivered":
-                        $("#current_status").css('background-color', '#5cb85c').css('color','white');
-                        $("#current_status").addClass('glyphicon');
-                        $("#current_status").html('Delivered');
-                        break;
-                    case "Processing":
-                        $("#current_status").css('background-color', 'orange');
-                        $("#current_status").html('Processing');
-                        break;
-                    case "Confirmed":
-                        $("#current_status").css('background-color', '#22b9b7');
-                        $("#current_status").html('Confirmed');
-                        break;
-                    case "Gone to Market":
-                        $("#current_status").css('background-color', '#b92296').css('color', '#ffffff');
-                        $("#current_status").html('Gone to Market');
-                    default:
-                        break;
-            }
-                var id = $(this).data("payload");
-                $.get('update_status/'+id, function(data){
-                    alert(data);
-
-                    $("#current_status").html(data);
-                    // $.ajax({
-                    //     url: "/update_status/"+id,
-                    //     type: "POST",
-                    //     data: {status:status},
-                    //     success: function(data){
-                    //         alert(data);
-                    //     },error:function(){
-                    //         alert("error!!!!");
-                    //     }
-                });
-                // })
-
-                // alert(option);
-            });
-
-        </script> --}}
         <script type="text/javascript">
                 function ConfirmDelete()
               {
