@@ -7,13 +7,13 @@
             <div class="page-sidebar-wrapper">
                 <div class="page-sidebar navbar-collapse collapse">
                         <ul class="page-sidebar-menu">
-                           <li class="nav-item">
-                            <a href="{{url('/admin/dashboard')}}" class="nav-link ">
-                                <i class="icon-home"></i>
-                                <span class="title">Dashboard</span>
-                                <span class="selected"></span>
-                            </a>
-                        </li>
+                              <li class="nav-item">
+                                <a href="{{url('/admin/dashboard')}}" class="nav-link ">
+                                    <i class="icon-home"></i>
+                                    <span class="title">Dashboard</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
                             <li class="nav-item  ">
                                 <a href="{{url('/admin/orders')}}" class="nav-link ">
                                     <i class="icon-basket"></i>
@@ -26,13 +26,13 @@
                                     <span class="title">Products</span>
                                 </a>
                             </li>
-                            <li class="nav-item  active open">
+                            <li class="nav-item  ">
                                 <a href="{{url('/admin/unit-types')}}" class="nav-link ">
                                     <i class="icon-graph"></i>
                                     <span class="title">Unit Types</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item  ">
                                 <a href="{{url('/admin/slots')}}" class="nav-link ">
                                     <i class="icon-graph"></i>
                                     <span class="title">Slots</span>
@@ -52,19 +52,13 @@
                                         <span class="selected"></span>
                                     </a>
                             </li>
-                                <li class="nav-item ">
-                                    <a href="{{url('/admin/slots/create')}}" class="nav-link ">
-                                        <i class="icon-plus"></i>
-                                        <span class="title">Add Slot</span>
+                            <li class="nav-item active open">
+                                    <a href="{{url('/admin/show')}}" class="nav-link ">
+                                        <i class="icon-user"></i>
+                                        <span class="title">Admins</span>
                                         <span class="selected"></span>
                                     </a>
-                                </li>
-                                <li class="nav-item ">
-                                    <a href="{{url('/admin/slots')}}" class="nav-link ">
-                                        <i class="icon-pencil"></i>
-                                        <span class="title">Edit Slot</span>
-                                    </a>
-                                </li>
+                            </li>
                         </ul>
                 </div>
             </div>
@@ -73,45 +67,113 @@
                 <div class="page-content">
                     <div class="row">
                         <div class="col-md-12">
+                            @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @elseif(session('delete_message'))
+                                <div class="alert alert-danger">
+                                    {{ session('delete_message') }}
+                                </div>
+                                @elseif(count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    @foreach($errors->all() as $error)
+                                        <strong>Error Upon Submission...</strong> {{ $error }}
+                                    @endforeach
+                                </div>
+                            @endif
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light bordered">
                                 <div class="portlet-title">
                                     <div class="caption font-dark">
                                         <i class="icon-settings font-dark"></i>
-                                        <span class="caption-subject bold uppercase"> Users' Profile</span>
+                                        <span class="caption-subject bold uppercase"> Admins' Detail</span>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
-                                    <table class="table table-striped table-bordered table-hover table-checkable order-column" id="sample_1">
+                                    <table class="table table-striped table-bordered table-hover order-column" id="sample_1">
                                         <thead>
                                             <tr>
                                                 <th>
-                                                    <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /> 
+                                                    <center>
+                                                         First name 
+                                                    </center>
+                                                 </th>
+                                                 <th>
+                                                    <center>
+                                                         Last name 
+                                                    </center>
+                                                 </th>
+                                                <th>
+                                                    <center>
+                                                         Email 
+                                                    </center>
+                                                 </th>
+                                                <th> 
+                                                    <center>
+                                                        Date credit 
+                                                    </center>
                                                 </th>
-                                                <th> Email </th>
-                                                <th> Expense (NGN) </th>
-                                                <th> Date credit </th>
-                                                <th> Phone Number </th>
+                                                <th> 
+                                                    <center>
+                                                        Phone Number
+                                                    </center>
+                                                </th>
+                                                 <th> 
+                                                    <center>
+                                                        Change Password
+                                                    </center>
+                                                </th>
+                                                <th> 
+                                                    <center>
+                                                        Moderate
+                                                    </center>
+                                                </th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($users as $user)
+                                            @foreach($admins as $admin)
                                                 <tr class="odd gradeX">
                                                     <td>
-                                                        <input type="checkbox" class="checkboxes" value="1" /> 
+                                                        <center>
+                                                            {{$admin->first_name}}
+                                                        </center>
                                                     </td>
                                                     <td>
-                                                        <a href="mailto:{{$user->email}}"> {{$user->email}} </a>
+                                                        <center>
+                                                            {{$admin->last_name}}
+                                                        </center>
                                                     </td>
-                                                    <td> 120 </td>
-                                                    <td class="center"> 12 Jan 2012 </td>
                                                     <td>
-                                                        {{$user->phone}}
+                                                        <center>
+                                                            <a href="mailto:{{$admin->email}}"> {{$admin->email}} </a>
+                                                        </center>
+                                                    </td>
+                                                    <td> 
+                                                        <center>
+                                                            {{$admin->created_at}}
+                                                        </center>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            {{$admin->phone}}
+                                                        </center>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <a href="{{url('admin/change_password',$admin->id)}}">Change</a>
+                                                        </center>
+                                                    </td>
+                                                    <td>
+                                                        <center>
+                                                            <a href="{{url('admin/edit',$admin->id)}}" class="btn btn-sm btn-default margin-bottom" id="edit_product">
+                                                                    <i class="fa fa-pencil"></i> Edit </a>
+                                                        </center>
                                                     </td>
                                                 </tr>
                                             @endforeach
-
-                                            
                                         </tbody>
                                     </table>
                                 </div>

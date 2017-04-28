@@ -158,7 +158,7 @@
                                                             </label>
                                                             <div class="col-md-2">
                                                                 <select name="unit_type_id" id="unit_type_id" class="form-control" required="required">
-                                                                    <option value="">Select type</option>
+                                                                    <option value="">Type</option>
                                                                     @foreach($unit_type as $unit_types)
                                                                          <option value="{{$unit_types->id}}">{{$unit_types->name}}</option>
                                                                     @endforeach

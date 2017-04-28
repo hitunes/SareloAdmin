@@ -17,17 +17,9 @@ class UserController extends Controller
     {
         $completedOrders = DB::table('orders')->where('status', 'Completed')->sum('total');
         $ordersResult = number_format($completedOrders);
-        $usersOrderAmount = DB::select('
-                SELECT SUM(O.total), U.first_name, U.last_name
-                  FROM orders O JOIN users U 
-                    ON O.user_id = U.id
-                 GROUP BY U.first_name, U.last_name
-                 ORDER BY SUM(O.total) DESC
-            ');
         $users = User::join('roles', 'users.role_id', 'roles.id')
                         ->where('roles.name', 'User')
                         ->paginate(10);
-          
         return view('admin.dashboard.users', compact('users'));
     }
 

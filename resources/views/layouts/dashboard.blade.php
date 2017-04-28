@@ -63,20 +63,13 @@
                     <div class="top-menu">
                         <ul class="nav navbar-nav pull-right">
                             <li class="separator hide"> </li>
-
                             </li>
                             <!-- END NOTIFICATION DROPDOWN -->
                             <li class="separator hide"> </li>
                             <li class="separator hide"> </li>
                             <li class="dropdown dropdown-user dropdown-dark">
-
-
-
                                 <a href="{{url('admin/logout')}}" >
-
                                     <span style="color: #222; cursor: default;" class="username username-hide-on-mobile"><b> {{$email}} </b>| </span>
-
-
                                     <span class="username username-hide-on-mobile"> Logout
                                     </span>
                                 </a>
