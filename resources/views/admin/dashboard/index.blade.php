@@ -82,6 +82,9 @@
                                 </div>
                                 <div class="portlet-body">
                                     <div class="table-container">
+                                        <div class="table-actions-wrapper">
+                                            <span> </span>
+                                        </div>
                                         {{ $orders->links() }}
                                         <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_orders">
                                             <thead>
@@ -90,16 +93,18 @@
                                                     <th width="15%"> Order Date</th>
                                                     <th width="10%"> Price </th>
                                                     <th width="15%"> Payment Method</th>
+                                                    <th width="15%"> Update Payment</th>
+                                                    <th width="15%"> Payment Satus</th>
                                                     <th width="15%"> Phone</th>
                                                     <th width="15%"> Update Status </th>
                                                     <th width="15%"> Current Status </th>
                                                     <th width="5%"> Details </th>
                                                 </tr>
-                                            
+
                                             </thead>
                                             <tbody>
                                                 <?php $num = 1; ?>
-                                                <form method="POST" action="/update_orders">
+                                                <form method="POST" action="">
                                                     @foreach($orders as $order)
 
                                                             <tr>
@@ -109,36 +114,45 @@
                                                                 </td>
                                                                 <td>
                                                                     @if(isset($order->created_at))
-                                                                    {{$order->created_at->diffForHumans()}}
+                                                                    {{$order->created_at}}
                                                                     @endif
                                                                 </td>
                                                                 <td> {{$order->total}} </td>
                                                                 <td> {{$order->payment_method}} </td>
+                                                                 <td>
+                                                                      <select class="paymentStatus" name="paymentStatus" class="form-control form-filter input-sm" data-payload="{{$order->id}}">
+                                                                        <option value="">Select...</option>
+                                                                        <option value="Pending">Pending</option>
+                                                                        <option value="Cancel">Cancel</option>
+                                                                        <option value="Successfull">Successfull</option>
+                                                                    </select>
+                                                                 </td>
+                                                                <td>
+                                                                     <span id="payment{{$order->id}}" class="label payment label-sm" style="color:#222;"> {{$order->payment_status}} </span>                                                                   
+
+                                                                </td>
+
                                                                 <td> {{$order->receiver_phone}} </td>
                                                                 <td>
 
-                                                                    <select id="updateStatus" name="order_status" class="form-control form-filter input-sm">
+                                                                    <select class="updateStatus" name="order_status" class="form-control" data-payload="{{$order->id}}">
                                                                         <option value="">Select...</option>
-                                                                        <option value="">Confirmed</option>
-                                                                        <option value="">Processing</option>
-                                                                        <option value="">Gone to Market</option>
-                                                                        <option value="">Delivered</option>
-
-                                                                       {{--  @foreach($order->total as $present_status)
-                                                                            <option value="{{$present_status}}">{{$present_status}}</option>
-                                                                        @endforeach --}}
+                                                                        <option value="Confirmed">Confirmed</option>
+                                                                        <option value="Processing">Processing</option>
+                                                                        <option value="Gone to Market">Gone to Market</option>
+                                                                        <option value="Delivered">Delivered</option>
                                                                     </select>
                                                                 </td>
                                                                 <td>
 
-                                                                        <span id="current_status" class="label label-sm lgreen label-success"> {{$order->status}} </span>
+                                                                        <span id="{{$order->id}}" class="label label-sm" style="color:#222;"> {{$order->status}} </span>
 
                                                                 </td>
                                                             </form>
                                                                 <td>
                                                                     <a href="{{url('admin/orders',$order->id)}}"><button class="btn btn-sm btn-success margin-bottom">
-                                                                            <i class="fa fa-eye"></i> View</button></a> <br> <br>
-                                                                     <a id="a_del1" href="{{url('admin/orders/delete',$order->id)}}"><button class="btn btn-sm btn-danger margin-bottom">
+                                                                            <i class="fa fa-eye"></i> View</button></a> </br> </br>
+                                                                    <a id="a_del1" href="{{url('admin/orders/delete',$order->id)}}"><button class="btn btn-sm btn-danger margin-bottom">
                                                                             <i class="icon-remove-sign"></i> Cancel</button></a>
                                                                 </td>
 
