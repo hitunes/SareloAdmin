@@ -134,8 +134,8 @@
                                         <div class="row">
                                             <p>Paying via mobile app? Use this number in the comment</p>
                                             <div class="w-600">
-                                                <span> {{$order->order_unique_reference}}</span>
-                                                <button class="btn bg-transparent uppercase f-12">copy</button>
+                                                <span id="copyTarget"> {{$order->order_unique_reference}}</span>
+                                                <button id="copyButton" class="btn bg-transparent uppercase f-12">copy</button>
                                             </div>
                                         </div>
                                 	</div>
