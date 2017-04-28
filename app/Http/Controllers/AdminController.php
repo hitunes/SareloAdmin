@@ -107,7 +107,7 @@ class AdminController extends Controller
                         $password = $request->input('password');
                         $confirm_password = $request->input('confirm_password');
                         if ($password === $confirm_password) {
-                            $role = Role::where('name', 'Admin')->first();
+                            $role = Role::where('name', 'Super Admin')->first();
                             $user = new User([
                               'email' => $request->input('email'),
                               'password' => Hash::make($password),

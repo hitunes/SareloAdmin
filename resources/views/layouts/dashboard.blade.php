@@ -161,6 +161,7 @@
         <script src="/dashboard/assets/layouts/layout4/scripts/demo.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
         <script type="text/javascript">
+          
             function ConfirmDelete()
               {
               var x = confirm("Are you sure you want to delete?");

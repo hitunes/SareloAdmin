@@ -17,7 +17,6 @@ class UserController extends Controller
     {
         $completedOrders = DB::table('orders')->where('status', 'Completed')->sum('total');
         $ordersResult = number_format($completedOrders);
-
         $users = DB::select("Select u.first_name, u.last_name, u.email, u.phone, u.created_at,u.id, SUM(o.total) as total from users u
                         JOIN roles r ON u.role_id = r.id
                         LEFT JOIN orders o ON o.user_id = u.id
