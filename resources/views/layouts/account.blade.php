@@ -37,7 +37,7 @@
                                 <img src="/assets/img/logo/sarelo3.svg">
                             </a>
                             <button class="navbar-toggle cart_toggle pos-rel bd-4">
-                                <i class="fa fa-shopping-basket"></i>
+                                <i class="flaticon-shopping-basket m-r-5"></i>
                                  <span class="badge bg-red pos-abs t-0 r-0 items">0</span>
                             </button>
                         </div>
@@ -68,7 +68,7 @@
                                 @endif
                                 <li class="p-r-5 p-l-5 pos-rel acc_basket_btn">
                                     <button class="btn btn_cart btn_action f-18 w-500 cart_toggle bd-4">
-                                        <i class="fa fa-shopping-basket m-r-5"></i>
+                                        <i class="flaticon-shopping-basket m-r-5></i>
                                         <!--<img src="assets/img/icon/Sarelo-basket.png" width="27px">-->  My Basket
                                     </button>
                                     <span class="badge bg-red pos-abs t-10 l-0 items">0</span>
