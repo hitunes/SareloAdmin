@@ -1013,7 +1013,7 @@
                             <div class="col-md-6 col-xs-6 padding-0 text-left">
                                 <h4>PURCHASE DATE</h4>
                                 <h2>{{date('d M, Y', strtotime($order->created_at))}}</h2>
-                                <h2>25 February, 2017</h2>
+
                             </div>
                             <div class="col-md-6 col-xs-6 padding-0 text-right">
                                 <h4>Transaction Code</h4>

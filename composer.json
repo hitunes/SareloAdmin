@@ -16,7 +16,8 @@
         "laravelcollective/html": "^5.3",
         "league/csv": "^8.0",
         "league/fractal": "^0.15.0",
-        "maatwebsite/excel": "^2.1"
+        "maatwebsite/excel": "^2.1",
+        "wildbit/laravel-postmark-provider": "^3.0"
     },
     "require-dev": {
         "appzcoder/crud-generator": "^2.0",

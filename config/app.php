@@ -166,6 +166,7 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         'Maatwebsite\Excel\ExcelServiceProvider',
+        // 'Postmark\Adapters\LaravelMailProvider',
 
         /*
          * Package Service Providers...
