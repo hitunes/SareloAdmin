@@ -22,9 +22,9 @@ class DeliveryController extends Controller
     public function index(Request $request)
     {
         $slots = [];
-        
+
         $days = 6;
-        
+
         for($i=0; $i<=$days; $i++){
 
             if($i === 0){
@@ -33,13 +33,14 @@ class DeliveryController extends Controller
             }
             else{
                 $index = date('Y-m-d', strtotime((new Carbon('Africa/Lagos'))->addDay($i)->toDateTimeString()));
-                $slots[$index] = Slot::getAvailableSlot((new Carbon('Africa/Lagos'))->addDay($i));                
+                $slots[$index] = Slot::getAvailableSlot((new Carbon('Africa/Lagos'))->addDay($i));
             }
         }
-        
+
+
         if($request->isMethod('post')){
             //check if slot is still available
-        
+
             $this->validate($request, [
                 'delivery_date' => 'required',
                 'slot_id' => 'required',
@@ -52,7 +53,7 @@ class DeliveryController extends Controller
         }
 
         $basket = Helpers::getCartSummary();
-      
+
         return view('checkout.select-slot', compact('slots', 'basket'));
     }
 }
