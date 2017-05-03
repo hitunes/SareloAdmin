@@ -40,11 +40,11 @@ class Slot extends Model
         //                      left join order_slots os ON s.id = os.slot_id
         //                      where os.delivery_date=?)", [date('Y-m-d', strtotime($date))]);
 
-        $slot =\DB::select("select s.*,count(os.id) as count from slots s
+        $slots =\DB::select("select s.*,count(os.id) as used_slot_count from slots s
                             left join order_slots os ON os.slot_id = s.id
                             where os.delivery_date=? OR os.delivery_date is null
                             GROUP BY s.id
-                            Having s.slot_available > count",
+                            Having s.slot_available > used_slot_count",
                             [date('Y-m-d', strtotime($date))]);
 
         return $slots;
