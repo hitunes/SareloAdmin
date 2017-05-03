@@ -899,14 +899,14 @@
                                         <td style="border-top: 1px solid #ddd; padding: 15px 15px 15px 0px;"><p>{{$order_product->product->name}}</p></td>
                                         <td style="border-top: 1px solid #ddd; padding: 15px">{{$order_product->qty}}</td>
                                         <td style="border-top: 1px solid #ddd; padding: 15px">&#x20A6; {{number_format($order_product->product->price)}}</td>
-                                        <td style="border-top: 1px solid #ddd; padding: 0px; text-align: right;">&#x20A6; {{number_format($order_product->subtotal)}}</td>
+                                        <td style="border-top: 1px solid #ddd; padding: 0px; text-align: right;">&#x20A6; {{number_format($order_product->sub_total)}}</td>
                                     </tr>
                                     @endforeach
                                     <tr>
                                         <td style="border-top: 1px solid #ddd; padding: 15px 15px 15px 0px;"></td>
                                         <td style="border-top: 1px solid #ddd; padding: 15px"></td>
                                         <td style="border-top: 1px solid #ddd; padding: 15px"></td>
-                                        <td style="border-top: 1px solid #ddd; padding: 0px; text-align: right;"><h4 class="total">&#x20A6; {number_format($order->total)}}</h4></td>
+                                        <td style="border-top: 1px solid #ddd; padding: 0px; text-align: right;"><h4 class="total">&#x20A6; {{number_format($order->total)}}</h4></td>
                                     </tr>
                                 </tbody>
                             </table>
