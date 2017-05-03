@@ -10,6 +10,10 @@ use App\Models\Charge;
 
 use App\Models\Order;
 
+use Illuminate\Support\Facades\Mail;
+
+use App\Mail\OrderInvoice;
+
 use \Cart;
 
 
@@ -47,6 +51,9 @@ class PaymentController extends Controller
                     ->first();
         //clear cart
         Cart::destroy();
+
+        //mail user
+        Mail::to($request->user())->send(new OrderInvoice($order));
 
         return view('payment.complete', compact('order'));
     }

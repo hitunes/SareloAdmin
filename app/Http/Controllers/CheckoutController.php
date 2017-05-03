@@ -168,7 +168,7 @@ class CheckoutController extends Controller
                 $charges_subtotal += $total * ($charge['percentage']/100);
          }
 
-         $total +=  $charges_subtotal;
+         $total += $charges_subtotal;
 
          $order = Order::create([
              'user_id' => Auth::user()->id,
