@@ -35,10 +35,17 @@ class Slot extends Model
 
     public static function getAvailableSlot($date)
     {
-        $slots = \DB::select("Select * from slots where slot_available
-                            > (SELECT count(os.slot_id) from slots s
-                             left join order_slots os ON s.id = os.slot_id
-                             where os.delivery_date=?)", [date('Y-m-d', strtotime($date))]);
+        // $slots = \DB::select("Select * from slots where slot_available
+        //                     > (SELECT count(os.slot_id) from slots s
+        //                      left join order_slots os ON s.id = os.slot_id
+        //                      where os.delivery_date=?)", [date('Y-m-d', strtotime($date))]);
+
+        $slot =\DB::select("select s.*,count(os.id) as count from slots s
+                            left join order_slots os ON os.slot_id = s.id
+                            where os.delivery_date=? OR os.delivery_date is null
+                            GROUP BY s.id
+                            Having s.slot_available > count",
+                            [date('Y-m-d', strtotime($date))]);
 
         return $slots;
     }
