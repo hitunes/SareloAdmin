@@ -7,3 +7,4 @@
 * setup Mailgun or other email service provider (App was tested with mailgun)
 * setup facebook and google app for social login
 * Modify sender's name in email template
+* setup a subdomain to serve as cdn for uploaded images
