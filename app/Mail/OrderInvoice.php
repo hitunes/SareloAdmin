@@ -37,5 +37,6 @@ class OrderInvoice extends Mailable
     public function build()
     {
         return $this->view('emails.orders.invoice');
+        // return $this->text('emails.orders.invoice_plain');
     }
 }
