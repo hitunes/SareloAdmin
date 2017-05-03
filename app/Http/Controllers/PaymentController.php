@@ -16,6 +16,7 @@ use App\Mail\OrderInvoice;
 
 use \Cart;
 
+use Auth;
 
 class PaymentController extends Controller
 {
@@ -53,7 +54,7 @@ class PaymentController extends Controller
         Cart::destroy();
 
         //mail user
-        Mail::to($request->user())->send(new OrderInvoice($order));
+        Mail::to(Auth::user())->send(new OrderInvoice($order));
 
         return view('payment.complete', compact('order'));
     }
