@@ -32,26 +32,31 @@ class Slot extends Model
         return $this->hasMany('App\Models\OrderSlot');
     }
 
-    
+
     public static function getAvailableSlot($date)
     {
-        $slots = \DB::select("Select * from slots where slot_available
-                            > (SELECT count(os.slot_id) from slots s 
-                             left join order_slots os ON s.id = os.slot_id
-                             where os.delivery_date=?)", [date('Y-m-d', strtotime($date))]);
-        
-        return $slots;
+        $all_slots = self::all();
+
+        $avail_slots = [];
+
+        foreach ($all_slots as $slot) {
+            $result = \DB::select("SELECT count(id) as count from order_slots where slot_id=:slot_id AND delivery_date=:datum OR delivery_date is null", ["datum" =>date('Y-m-d', strtotime($date)), "slot_id" => $slot->id]);
+           if($slot->slot_available > $result[0]->count)
+                $avail_slots[] = $slot;
+        }
+
+        return $avail_slots;
     }
 
 
     public static function isAvailable($slot_id, $date)
     {
-        $status = (bool)  \DB::select("Select * from slots where  id =$slot_id AND slot_available
-                            > (SELECT count(os.slot_id) from slots s 
+        $status = (bool)  \DB::select("Select * from slots where id = $slot_id AND slot_available
+                            > (SELECT count(os.slot_id) from slots s
                              left join order_slots os ON s.id = os.slot_id
-                             where os.delivery_date=:date AND os.slot_id =:slot_id)", 
+                             where os.delivery_date=:date AND os.slot_id =:slot_id)",
                              ["date" => date('Y-m-d', strtotime($date)), 'slot_id' => $slot_id,]);
-        
+
                             //  dd($status);
         return $status;
 
