@@ -70,7 +70,6 @@ class CheckoutController extends Controller
                             ]);
 
 
-
             $new_user->user_addresses()->save($new_address);
 
             if($request->instruction)
@@ -95,7 +94,7 @@ class CheckoutController extends Controller
     {
         $basket = Helpers::getCartSummary();
 
-        $addresses = UserAddress::where('user_id', Auth::user()->id)->get();
+        $addresses = UserAddress::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->get();
 
         if($request->isMethod('post'))
         {
