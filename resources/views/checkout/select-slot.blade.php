@@ -126,8 +126,9 @@
                                                                         <?php $count = 0;?>
                                                                         @foreach($value as $slot_details)
                                                                         <tr>
-                                                                            <td class="p-t-14 @if($count == 0) no-bd @endif">{{$slot_details->time_range}}</td>
                                                                             @if($slot_details->slot_available > $slot_details->used_count)
+                                                                            <td class="p-t-14 @if($count == 0) no-bd @endif">{{$slot_details->time_range}}</td>
+
                                                                             <td class="text-right @if($count == 0) no-bd @endif">
                                                                                 <label class="btn bg-transparent uppercase f-12">
                                                                                     choose
@@ -135,6 +136,7 @@
                                                                                 </label>
                                                                             </td>
                                                                             @else
+                                                                            <td class="p-t-14 no-bd opacity-70">{{$slot_details->time_range}}</td>
                                                                             <td class="p-t-14 no-bd text-right">
                                                                         <label class="btn bg-transparent-black no-bd p-0 uppercase" disabled="">
                                                                             unavailable
