@@ -105,7 +105,7 @@
                                 		<div class="col-md-4 col-sm-12 p-b-40">
                                 			<label class="online-pay btn p-l-30 p-r-30 p-t-10 p-b-10 bg-transparent-black bd-gray" onclick="payWithPaystack({{$order->id}})">
                                 				<input type="radio" name="bank" class="addresses">
-                                                <span><i class="fa fa-credit-card"></i></span> Pay Now
+                                                <span><i class="fa fa-credit-card"></i></span> Pay Online
                                 			</label>
                                 		</div>
                                 		<div class="col-md-4 col-sm-12 p-b-40">

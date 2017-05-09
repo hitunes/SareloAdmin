@@ -37,15 +37,18 @@ class Slot extends Model
     {
         $all_slots = self::all();
 
-        $avail_slots = [];
+        $slots = [];
 
         foreach ($all_slots as $slot) {
             $result = \DB::select("SELECT count(id) as count from order_slots where slot_id=:slot_id AND delivery_date=:datum OR delivery_date is null", ["datum" =>date('Y-m-d', strtotime($date)), "slot_id" => $slot->id]);
-           if($slot->slot_available > $result[0]->count)
-                $avail_slots[] = $slot;
+
+            $slot = $slot->toArray();
+            $slot['used_count'] = $result[0]->count;
+            $slots[] = (object) $slot;
         }
 
-        return $avail_slots;
+
+        return $slots;
     }
 
 

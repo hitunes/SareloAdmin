@@ -14,7 +14,7 @@
         <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     </head>
     <body>
-    
+
         <div class="wrapper clearfix">
             <header class="m-b-30">
                 <!-- ===Nav bar starts here == -->
@@ -25,7 +25,7 @@
                                 <img src="/assets/img/logo/sarelo3.svg">
                             </a>
                         </div>
-                        
+
                     </div>
                 </nav>
             <!-- ===Nav bar endss here == -->
@@ -34,7 +34,7 @@
                <div class="progressContainer dis-flex">
                     <div class="wizard">
                         <div class="wizard-inner">
-                            
+
                             <ul class="nav nav-tabs">
 
                                 <li role="presentation"  class="active">
@@ -104,13 +104,13 @@
                                             <div class="tabcordion">
                                                 <ul id="myTab" class="nav nav-tabs">
                                                     @foreach($slots as $key=>$value)
-                                                    <li @if($key == date('Y-m-d'))class="active delivery_date" @else class="delivery_date"@endif @if($key == date('Y-m-d'))data-payload="{{date('Y-m-d')}}"
+                                                    <li @if($key == date('Y-m-d')) class="active delivery_date" @else class="delivery_date"@endif @if($key == date('Y-m-d'))data-payload="{{date('Y-m-d')}}"
                                                         @else data-payload="{{date('Y-m-d', strtotime($key))}}" @endif>
                                                         <a href="#{{$key}}" data-toggle="tab">
                                                             @if($key == date('Y-m-d'))
                                                                 <p>Today</p>
                                                             @else
-                                                            <p>{{date('l', strtotime($key))}}</p> 
+                                                            <p>{{date('l', strtotime($key))}}</p>
                                                             @endif
                                                             <p>{{date('M d', strtotime($key))}}</p>
                                                         </a>
@@ -127,17 +127,26 @@
                                                                         @foreach($value as $slot_details)
                                                                         <tr>
                                                                             <td class="p-t-14 @if($count == 0) no-bd @endif">{{$slot_details->time_range}}</td>
+                                                                            @if($slot_details->slot_available > $slot_details->used_count)
                                                                             <td class="text-right @if($count == 0) no-bd @endif">
                                                                                 <label class="btn bg-transparent uppercase f-12">
                                                                                     choose
                                                                                     <input type="radio" value="{{$slot_details->id}}" name="slot_id"  class="addresses pos-abs">
                                                                                 </label>
                                                                             </td>
+                                                                            @else
+                                                                            <td class="p-t-14 no-bd text-right">
+                                                                        <label class="btn bg-transparent-black no-bd p-0 uppercase" disabled="">
+                                                                            unavailable
+                                                                             <input type="radio" name="slot" class="addresses pos-abs" disabled="">
+                                                                        </label>
+                                                                    </td>
+                                                                    @endif
                                                                         </tr>
                                                                         <?php $count++;?>
-        
-                                                                        @endforeach                                                    
-                                    
+
+                                                                        @endforeach
+
                                                                 </tbody>
                                                             </table>
                                                         </div>
@@ -147,7 +156,7 @@
                                                 </div>
                                             </div>
                                             <input type="hidden" class="delivery_date_v" name="delivery_date" value="{{date('Y-m-d')}}">
-                                        
+
                                     </div>
                                     <!-- starts here end -->
                                     <div class="clearfix p-r-20 p-l-20">
@@ -167,12 +176,12 @@
                        <div class="col-md-4">
                            @include('checkout.billing-summary')
                        </div>
-                   </div> 
+                   </div>
                 </div>
             </section>
         </div>
 
-        
+
         <!-- jQuery -->
         <script src="/assets/js/jquery.min.js"></script>
         <!-- Bootstrap JavaScript -->

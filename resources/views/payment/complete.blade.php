@@ -108,7 +108,9 @@
                                     {{$order->orderSlot->slot->time_range}}</time>
                                 </div>
                                 <a href="/my-orders"><button type="button" class="btn btn-md f-16 bg-orange bd-4">View order status</button></a>
-                                <p class="f-18 m-t-30">We’ll let you know when your order is on the way. Track and make changes to your order via the link above. You can also call our Help Line for assistance.</p>
+                                <p class="f-18 m-t-30 text-justify">We’ll let you know when your order is on the way.
+                                  Track and make changes to your order via the link above.
+                                  You can also call our Help Line for assistance, 08108924456 or 07033582393.</p>
                             </div>
                         </div>
                     <!-- END CONTENT -->
