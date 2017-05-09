@@ -76,7 +76,7 @@ class ProductsController extends Controller
 
         $img_ext = ['.jpg', '.jpeg', '.PNG', '.png'];
         $filename = str_replace($img_ext, '', $filename);
-        $store  = Storage::disk('custom')->put($filename, $request->file('product_image'));
+        $store  = Storage::disk('custom')->put($filename, $request->file('product_image')); // first param name of folder second the content
         $product = new Product([
             'name' => $request->input('name'),
             'description' => $request->input('description'),

@@ -22,12 +22,6 @@ class UserController extends Controller
                         LEFT JOIN orders o ON o.user_id = u.id
                         where r.name = 'User'
                         GROUP By u.id,u.first_name, u.last_name, u.email, u.phone, u.created_at");
-
-        // $users = DB::select(DB::raw("users.*"))
-
-
-
-
         return view('admin.dashboard.users', compact('users'));
     }
 

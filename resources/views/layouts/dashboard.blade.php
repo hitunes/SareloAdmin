@@ -52,7 +52,7 @@
             <div class="page-header-inner ">
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
-                    <a href="{{url('/')}}">
+                    <a href="{{url('/admin/')}}">
                         <img src="/dashboard/assets/layouts/layout4/img/sarelo2.svg" alt="logo" class="logo-default" />
                     </a>
                 </div>

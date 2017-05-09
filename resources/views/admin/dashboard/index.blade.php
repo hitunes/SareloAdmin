@@ -75,9 +75,21 @@
                                 <div class="portlet-title">
                                     <div class="caption">
                                         <i class="icon-settings font-green"></i>
-                                        <span class="caption-subject font-green sbold uppercase"> Order Listing </span>
+                                        <span class="caption-subject font-green sbold uppercase"> Order Listing </span> 
                                     </div>
-                                    <div class="actions">
+                                     <div class="actions">
+                                         <form id="search_text" name="form_search" method="POST" action="{{url('admin/search_order')}}" class="form-inline">
+
+                                         {{csrf_field()}}
+                                           <div class="form-group">
+                                             <div class="input-group">
+                                              <input class="form-control" name="search" placeholder="Search for an order..." type="text">
+                                              <span class="input-group-btn">
+                                                 <input type="submit" class="btn btn-default"  value="Go!"/> 
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
