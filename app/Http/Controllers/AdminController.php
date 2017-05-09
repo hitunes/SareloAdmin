@@ -28,7 +28,7 @@ class AdminController extends Controller
                 ->orWhere('total', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
         } else {
-            $orders = Order::paginate($perPage);
+            $orders = Order::latest()->paginate($perPage);
         }
     	return view('admin.dashboard.index', compact('ordersResult', 'users', 'products', 'orders'));
     }

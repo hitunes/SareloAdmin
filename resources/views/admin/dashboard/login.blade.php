@@ -1,7 +1,6 @@
 @extends('layouts.login_dashboard')
 @section('content')
 	<div class="row" style="margin-top: 10%;">
-		
 			<div class="col-md-4 col-md-offset-4" >
 				<div class="well">
 					<form action="" method="POST" role="form">
