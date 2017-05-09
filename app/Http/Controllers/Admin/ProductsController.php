@@ -71,7 +71,9 @@ class ProductsController extends Controller
             'unit_type_id' => 'required',
             'product_image' => 'required|image'
         ]);
-        $filename = $request->file('product_image')->getClientOriginalName();
+        $filename =
+
+
         $img_ext = ['.jpg', '.jpeg', '.PNG', '.png'];
         $filename = str_replace($img_ext, '', $filename);
         $store  = Storage::disk('custom')->put($filename, $request->file('product_image'));
