@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\Role;
+use App\Models\Order;
+
 
 class User extends Authenticatable
 {
@@ -27,6 +29,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    public function billing_addreses()
+    {
+        hasMany('App\BillingAddress');
+    }
 
     public function role()
     {
@@ -64,8 +70,8 @@ class User extends Authenticatable
         return false;
     }
     
-    public function order()
+    public function orders()
     {
-        return $this->hasMany('App\Order');
+        return $this->hasMany('App\Models\Order');
     }
 }

@@ -26,6 +26,10 @@ class BillingAddress extends Model
      * @var array
      */
     protected $fillable = ['user_id','address', 'phone'];
-
+    
+    public function user()
+    {
+        belongsTo('App\User');
+    }
     
 }

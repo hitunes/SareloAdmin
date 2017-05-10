@@ -25,7 +25,7 @@ class ProductsController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 25;
+        $perPage = 10;
 
         if (!empty($keyword)) {
             $products = Product::where('name', 'LIKE', "%$keyword%")
@@ -161,4 +161,31 @@ class ProductsController extends Controller
         Product::destroy($id);
         return redirect('admin/products')->with('delete_message', '  Product has been Deleted!');
     }
+
+    public function search(Request $request)
+    {
+        $method = $request->isMethod('post');
+        switch ($method) {
+            case true:
+                $search = $request->input('search');
+                if(!$search){
+                    return redirect()->back()->with(['delete_message'=>'Please! type to search for a product']);
+                }else{
+                    $products = Product::latest()->where('name', 'LIKE', "%$search%")
+                                            ->orWhere('description', 'LIKE', "%$search%")
+                                            ->orWhere('price', 'LIKE', "%$search%")
+                                            ->paginate(10);
+                    $unit_type = UnitType::all();
+                    return view('admin.dashboard.product_search', compact('products', 'unit_type'))->with('success' ,'Search result completed for '.$search);
+                }
+                break;
+            case false:
+                break;
+            default:
+                break;
+        }
+        
+        
+    }
+
 }

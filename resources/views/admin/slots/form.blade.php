@@ -5,7 +5,7 @@
         {!! $errors->first('time_range', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('slot_available') ? 'has-error' : ''}}">
-    {!! Form::label('slot_available', 'Slot Available', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('slot_available', 'Number of slot available', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::number('slot_available', null, ['class' => 'form-control']) !!}
         {!! $errors->first('slot_available', '<p class="help-block">:message</p>') !!}
