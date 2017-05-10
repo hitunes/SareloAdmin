@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\UserAddress;
 use App\Order;
 use Illuminate\Http\Request;
 use Session;
@@ -26,11 +26,11 @@ class OrdersController extends Controller
 				->orWhere('total', 'LIKE', "%$keyword%")
                 ->orWhere('status', 'LIKE', "%$keyword%")
                 ->orWhere('payment_status', 'LIKE', "%$keyword%")
+                ->orWhere('order_unique_reference', 'LIKE', "%$keyword%")
                 ->paginate($perPage);
         } else {
             $orders = Order::latest()->paginate($perPage);
         }
-
         return view('admin.dashboard.order', compact('orders'));
     }
 
@@ -171,6 +171,7 @@ public function search(Request $request)
                                             ->orWhere('payment_status', 'LIKE', "%$search%")
                                             ->orWhere('payment_method', 'LIKE', "%$search%")
                                             ->orWhere('receiver_phone', 'LIKE', "%$search%")
+                                            ->orWhere('order_unique_reference', 'LIKE', "%$search%")
                                             ->paginate(10);
                     return view('admin.dashboard.orders_search', compact('orders'))->with('success' ,'Search result completed for '.$search);
                 }

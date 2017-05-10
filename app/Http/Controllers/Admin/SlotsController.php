@@ -27,7 +27,7 @@ class SlotsController extends Controller
 				
                 ->paginate($perPage);
         } else {
-            $slots = Slot::paginate($perPage);
+            $slots = Slot::latest()->paginate($perPage);
         }
 
         return view('admin.dashboard.slots', compact('slots'));
@@ -55,10 +55,31 @@ class SlotsController extends Controller
         $method = $request->isMethod('post');
         switch ($method) {
             case true:
-                    $requestData = $request->all();
-                    Slot::create($requestData);
+                    $this->validate($request, [
+                        'day_of_week' => 'required',
+                        'slot_available' => 'required',
+                        'from' => 'required',
+                        'to' => 'required',
+                        'moment1' => 'required',
+                        'moment2' => 'required'
+                    ]);
+                    $day_of_week = $request->input('day_of_week');
+
+                    $from = $request->input('from');
+                    $to = $request->input('to');
+                    $moment1 = $request->input('moment1');
+                    $moment2 = $request->input('moment2');
+
+                    $time_range = $from.$moment1."-".$to.$moment2;
+                    $slot_available = $request->input('slot_available');
+                    $slot = new Slot([
+                        'time_range' => $time_range,
+                        'day_of_week' => $day_of_week,
+                        'slot_available' => $slot_available 
+                        ]);
+                    $slot->save();
                     Session::flash('flash_message', 'Slot added!');
-                    return redirect('admin/slots');
+                    return redirect('admin/slots')->with('success', 'Slot Added Successfully!');
                 break;
             case false:
                     return view('admin/slots/create');
@@ -106,7 +127,10 @@ class SlotsController extends Controller
      */
     public function update($id, Request $request)
     {
-        
+        $this->validate($request, [
+                        'time_range' => 'required',
+                        'slot_available' => 'required'
+                    ]);
         $requestData = $request->all();
         
         $slot = Slot::findOrFail($id);
@@ -128,6 +152,6 @@ class SlotsController extends Controller
     {
         Slot::destroy($id);
         Session::flash('flash_message', 'Slot deleted!');
-        return redirect('admin/slots')->with('error_message', 'Slot Successfully Updated');
+        return redirect('admin/slots')->with('delete_message', 'Slot Deleted Successfully!');
     }
 }

@@ -9,11 +9,18 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+
+ 
+
 */
 //pending, successfull cancel
 Route::group(['middleware' => ['admin']], function() {
     Route::group(['prefix' => 'admin'], function() {
+            Route::get('/users/{id}', 'Admin\UserController@show');
+
+            Route::post('/search_user', 'Admin\UserController@search');
             Route::post('/search_order', 'Admin\OrdersController@search');
+            Route::post('/search_product', 'Admin\ProductsController@search');
             Route::get('/show', 'AdminController@show');
             Route::match(['get', 'post'], '/edit/{id}', 'AdminController@edit');
             Route::match(['get', 'post'], '/change_password/{id}', 'AdminController@changePassword');
@@ -29,6 +36,7 @@ Route::group(['middleware' => ['admin']], function() {
             Route::post('/products/{id}', 'Admin\ProductsController@update');
             Route::get('/products/destroy/{id}', 'Admin\ProductsController@destroy');
             Route::get('/orders/{id}', 'Admin\OrdersController@show');
+
             Route::get('/orders', 'AdminController@orders');
             Route::get('/order_view', 'AdminController@order_view');
             Route::get('/orders/delete/{id}', 'Admin\\OrdersController@destroy');

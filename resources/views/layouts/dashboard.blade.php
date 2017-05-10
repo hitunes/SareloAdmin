@@ -103,6 +103,7 @@
                 <i class="icon-arrow-up"></i>
             </div>
         </div>
+        
         {{-- <script src="/dashboard/assets/global/plugins/jquery.min.js" type="text/javascript"></script> --}}
         <script src="/dashboard/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
@@ -192,7 +193,7 @@
                             displayMessage(status, id);
                             $("#"+id).html(data);
                         },error:function(){
-                            alert("error!!!!");
+                            alert("Please pick a valid order status");
                         }
                 });
 
@@ -236,7 +237,7 @@
                                 paymentMessage(payment_status, pay_id);
                                 $("#payment"+pay_id).html(data);
                             },error:function(){
-                                alert("error!!!!");
+                                alert("Please pick a valid payment status");
                             }
                     });
 
@@ -262,7 +263,18 @@
                         break;
                 }
             }
-        </script>
+
+            // $("#submit_search").click(function(){
+            //     var text = $("#search_text").val();
+            //     if ($("#search_text").val() == '') {
+            //         alert('Please input a product name to search..');
+            //         return false;
+            //     }else{
+                   
+            //     }
+            // });
+
+            </script>
     </body>
 
 </html>
