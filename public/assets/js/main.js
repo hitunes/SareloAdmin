@@ -649,7 +649,13 @@ const app = {
       $(".items").html(item);
 
       $(this).next().text(count_value);
-      removeItemFromCart(id, false);
+      if(count_value > 0){
+        removeItemFromCart(id, false);
+      }
+      else{
+        removeItemFromCart(id);
+      }
+
     });
 
     $(document).on('click', '.removeItem', function(){
