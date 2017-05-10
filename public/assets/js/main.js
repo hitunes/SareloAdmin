@@ -312,11 +312,11 @@ const app = {
     }
 
     //removeItemFromCart(name) from the cart, just one item
-    function removeItemFromCart(cart_item_id){
+    function removeItemFromCart(cart_item_id, inc_dec = true){
       var action = 'subtract';
 
       $.getJSON('/cart/update/' + cart_item_id + '/' + action).done(function () {
-         displayCart();
+         displayCart(inc_dec);
       })
       // for(var i in cart){
       //   if(cart[i].name === name){
@@ -427,114 +427,118 @@ const app = {
 
 
     //display items in cart
-    function displayCart(){
-      $("#loader").show();
-      $.getJSON('/cart').done(function(response){
+    function displayCart(isRun = true){
+      if(isRun){
+        $("#loader").show();
+        $.getJSON('/cart').done(function(response){
 
-          var output = "";
-          var output2 = "";
-          var totalCount = 0;
-          var total_cost = 0;
+            var output = "";
+            var output2 = "";
+            var totalCount = 0;
+            var total_cost = 0;
 
-          $.each(response.data.cart, function(key, val){
+            $.each(response.data.cart, function(key, val){
 
-            output += `
-            <li class="pos-rel animated" data-product="${val.name}" id="pr_${val.name}">
-              <div class="row">
-                  <div class="col-xs-6">
-                      <div class="row">
-                          <div class="col-xs-5 p-r-0">
-                              <div class="thumbnail">
-                                  <img src="${val.options.img}">
-                              </div>
-                          </div>
-                          <div class="col-xs-7 p-l-0">
-                              <div class="pr-text">
-                                  <h4 class="m-b-0 m-t-5">${val.name}</h4>
-                                  <small>${val.options.unit}</small>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col-xs-3 p-l-0">
-                      <div class="counter">
-                          <div class="minus" data-product="${val.name}" data-cart-item-id="${key}">-</div>
-                          <div class="count">${val.qty}</div>
-                          <div class="plus" data-product="${val.name}" data-cart-item-id="${key}">+</div>
-                      </div>
-                  </div>
-                  <div class="col-xs-3">
-                      <h4 class="m-b-0 m-t-5">&#8358; ${roundToTwo(val.price).toLocaleString()}</h4>
-                  </div>
-              </div>
-              <span class="fa fa-remove pos-abs" data-product="${val.name}" data-cart-item-id="${key}"></span>
-           </li>`;
+              output += `
+              <li class="pos-rel animated" data-product="${val.name}" id="pr_${val.name}">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="row">
+                            <div class="col-xs-5 p-r-0">
+                                <div class="thumbnail">
+                                    <img src="${val.options.img}">
+                                </div>
+                            </div>
+                            <div class="col-xs-7 p-l-0">
+                                <div class="pr-text">
+                                    <h4 class="m-b-0 m-t-5">${val.name}</h4>
+                                    <small>${val.options.unit}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 p-l-0">
+                        <div class="counter">
+                            <div class="minus" data-price = "${val.price}" data-product="${val.name}" data-cart-item-id="${key}">-</div>
+                            <div class="count">${val.qty}</div>
+                            <div class="plus" data-price = "${val.price}" data-product="${val.name}" data-cart-item-id="${key}">+</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <h4 class="m-b-0 m-t-5">&#8358; ${roundToTwo(val.price).toLocaleString()}</h4>
+                    </div>
+                </div>
+                <span class="fa fa-trash pos-abs" data-product="${val.name}" data-cart-item-id="${key}"></span>
+             </li>`;
 
-           output2 += `
-          <tr class="p-t-14 width-33_3p" data-product="${val.name}" id="pr_${val.name}">
-              <td class="">
-                  <div class="clearfix">
-                      <div class="f-left p-r-15">
-                          <img src="${val.options.img}" class="width-40 h-40 bd-50p">
-                      </div>
-                      <div class="f-left">
-                          <div>${val.name}</div>
-                          <div class="f-12 opacity-50">${val.options.unit}</div>
-                      </div>
-                  </div>
-              </td>
-              <td class="width-33_3p">
-                  <div class="counter text-center p-t-0">
-                      <div class="minus" data-cart-item-id="${key}">-</div>
-                      <div class="count">${val.qty}</div>
-                      <div class="plus" data-cart-item-id="${key}">+</div>
-                  </div>
-              </td>
-              <td class="p-t-14 width-33_3p text-right">
-                  <div class="w-600 p-r-12">
-                      ₦ <span class="cash">${roundToTwo(val.price).toLocaleString()}</span>
-                  </div>
-                  <button class="btn bg-transparent-black opacity-50 f-12 removeItem" data-cart-item-id="${key}">REMOVE</button>
-              </td>
-          </tr>`;
+             output2 += `
+            <tr class="p-t-14 width-33_3p" data-product="${val.name}" id="pr_${val.name}">
+                <td class="">
+                    <div class="clearfix">
+                        <div class="f-left p-r-15">
+                            <img src="${val.options.img}" class="width-40 h-40 bd-50p">
+                        </div>
+                        <div class="f-left">
+                            <div>${val.name}</div>
+                            <div class="f-12 opacity-50">${val.options.unit}</div>
+                        </div>
+                    </div>
+                </td>
+                <td class="width-33_3p">
+                    <div class="counter text-center p-t-0">
+                        <div class="minus" data-price = "${val.price}" data-cart-item-id="${key}">-</div>
+                        <div class="count">${val.qty}</div>
+                        <div class="plus" data-price = "${val.price}" data-cart-item-id="${key}">+</div>
+                    </div>
+                </td>
+                <td class="p-t-14 width-33_3p text-right">
+                    <div class="w-600 p-r-12">
+                        ₦ <span class="cash">${roundToTwo(val.price).toLocaleString()}</span>
+                    </div>
+                    <button class="btn bg-transparent-black opacity-50 f-12 removeItem" data-cart-item-id="${key}">REMOVE</button>
+                </td>
+            </tr>`;
 
-            totalCount += val.qty;
-            total_cost += val.subtotal;
+              totalCount += val.qty;
+              total_cost += val.subtotal;
 
-        })
-        total_cost =  roundToTwo(total_cost)
-        total_cost === 0 ? a() : b();
-          for (var i = 0; i < response.data.charges.length; i++) {
+          })
+          total_cost =  roundToTwo(total_cost)
+          total_cost === 0 ? a() : b();
+            for (var i = 0; i < response.data.charges.length; i++) {
 
-             if(response.data.charges[i].name == "Delivery fee"){
-               var delivery_fee = deliveryCtrl(response.data.charges[i].fixed_amount);
-               $("#deliveryFee").html(roundToTwo(delivery_fee.toLocaleString()));
+               if(response.data.charges[i].name == "Delivery fee"){
+                 var delivery_fee = deliveryCtrl(response.data.charges[i].fixed_amount);
+                 $("#deliveryFee").html(roundToTwo(delivery_fee.toLocaleString()));
 
-             }
+               }
 
-             if(response.data.charges[i].name == "Service Charge"){
-               var service_charge = serviceChargeCtrl(response.data.charges[i].percentage, total_cost);
-               service_charge = roundToTwo(service_charge);
-               $("#serviceCharge").html(service_charge.toLocaleString());
-             }
+               if(response.data.charges[i].name == "Service Charge"){
+                 var service_charge = serviceChargeCtrl(response.data.charges[i].percentage, total_cost);
+                 service_charge = roundToTwo(service_charge);
+                 $("#serviceCharge").html(service_charge.toLocaleString());
+               }
 
-          }
+            }
 
 
-          $("#basketList").html(output);
-          $(".items").html(totalCount);
-          $("#totalP").html(total_cost.toLocaleString());
-          $("#cartTable").html(output2);
+            $("#basketList").html(output);
 
-          $("#grandTP").html((total_cost + service_charge + delivery_fee).toLocaleString('en-NG'));
-          $('#loader').hide();
-      })
-      .fail(function() {
-          setTimeout(function() {
+            $(".items").html(totalCount);
+
+            $("#totalP").html(total_cost.toLocaleString());
+            $("#cartTable").html(output2);
+
+            $("#grandTP").html((total_cost + service_charge + delivery_fee).toLocaleString('en-NG'));
             $('#loader').hide();
+        })
+        .fail(function() {
+            setTimeout(function() {
+              $('#loader').hide();
 
-              }, 5000);
-          });
+                }, 5000);
+            });
+      }
     }
 
 
@@ -547,11 +551,11 @@ const app = {
         })
     }
 
-    function updateCartItem(cart_id) {
+    function updateCartItem(cart_id, inc_dec = false) {
        var action = 'addition';
 
       $.getJSON('/cart/update/' + cart_id + '/' + action).done(function () {
-         displayCart();
+         displayCart(inc_dec);
       }).fail(function(error) {
           console.log(error);
       })
@@ -581,22 +585,71 @@ const app = {
     });
 
     //remove items from cart
-    $(document).on('click', 'li .fa-remove', function(){
+    $(document).on('click', 'li .fa-trash', function(){
       var id = $(this).attr('data-cart-item-id');
       removeItemFromCartAll(id);
 
     });
 
     $(document).on('click', '.counter .plus', function(){
-      var name = $(this).attr('data-product');
-      var cart_id = $(this).attr('data-cart-item-id');
 
-      updateCartItem(cart_id);
+      var name = $(this).attr('data-product');
+      var price = parseFloat($(this).attr('data-price'));
+
+      var total = $("#totalP").html();
+      total = parseFloat(total.replace(/[^0-9-.]/g, ''));
+      total += price;
+
+      $("#totalP").html(total.toLocaleString());
+
+      var service_charge = serviceChargeCtrl(10, total);
+      $("#serviceCharge").html(service_charge.toLocaleString());
+
+
+      var delivery_fee = parseFloat($("#deliveryFee").html());
+
+      var grandTP = total + service_charge + delivery_fee;
+
+      $("#grandTP").html(grandTP.toLocaleString());
+
+      var cart_item_id = $(this).attr('data-cart-item-id');
+
+      var count_value = parseInt($(this).prev().text()) + 1;
+      $(this).prev().text(count_value);
+
+      var item = parseInt($(".items").html()) + 1;
+      $(".items").html(item);
+
+      updateCartItem(cart_item_id, delta = false);
     });
 
     $(document).on('click', '.counter .minus', function(){
       var id = $(this).attr('data-cart-item-id');
-      removeItemFromCart(id);
+      var price = parseFloat($(this).attr('data-price'));
+
+      var total = $("#totalP").html();
+      total = parseFloat(total.replace(/[^0-9-.]/g, ''));
+      total -= price;
+
+      $("#totalP").html(total.toLocaleString());
+
+      var service_charge = serviceChargeCtrl(10, total);
+      $("#serviceCharge").html(service_charge.toLocaleString());
+
+
+      var delivery_fee = parseFloat($("#deliveryFee").html());
+
+      var grandTP = total + service_charge + delivery_fee;
+
+      $("#grandTP").html(grandTP.toLocaleString());
+
+      var count_value = parseInt($(this).next().text()) - 1;
+
+      var item = parseInt($(".items").html()) - 1;
+      $(".items").html(item);
+
+      $(this).next().text(count_value);
+      removeItemFromCart(id, false);
     });
 
     $(document).on('click', '.removeItem', function(){
