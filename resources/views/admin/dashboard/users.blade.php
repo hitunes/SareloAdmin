@@ -142,7 +142,7 @@
                                                     @endif
                                                     </td>
                                                     <td>
-                                                        <a href="{{url('admin/users',$user->id)}}" data-toggle="modal" class="btn btn-primary" >View</a>
+                                                        <a target="_blank" href="{{url('admin/users',$user->id)}}" data-toggle="modal" class="btn btn-primary" >View</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

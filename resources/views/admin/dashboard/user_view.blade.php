@@ -138,12 +138,16 @@
                                                         </div>
                                                         <div class="portlet-body">
                                                         <?php $num = 1;?>
+                                                        @if(count($user->user_addresses))
                                                             @foreach($user->user_addresses as $address)
                                                                 <div class="row static-info">
                                                                     <div class="col-md-10 name"> Address {{$num++ .":"}}  {{$address->address}}</div> <br> <br>
                                                                     <div class="col-md-7 value"> City: {{$address->city}} </div>
                                                                 </div> <hr>
                                                             @endforeach
+                                                        @else
+                                                            {{" No Address Found for this user  "}}
+                                                        @endif
                                                         </div>
                                                     </div>
                                                 </div>
@@ -170,6 +174,7 @@
                                                                            </tr>
                                                                         </thead>
                                                                         <tbody>
+                                                                        @if(count($user->orders))
                                                                             @foreach($user->orders as $item)
                                                                                     <tr>
                                                                                         <td>
@@ -185,6 +190,9 @@
                                                                                         <td> {{$item->receiver_phone}} </td>
                                                                                     </tr>
                                                                             @endforeach
+                                                                        @else 
+                                                                            {{" This user has no order"}}
+                                                                        @endif
                                                                     </tbody>
                                                                 </table>
                                                             </div>

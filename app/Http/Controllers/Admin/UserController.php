@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Order;
-use App\UserAddress;
+use App\Models\UserAddress;
 
 use DB;
 
@@ -62,7 +62,7 @@ class UserController extends Controller
                         ->join('roles', 'roles.id', '=', 'users.role_id')
                         ->where('roles.name', '!=', 'Super Admin')
                         ->findOrFail($id);
-        dd($user);exit;
+        // dd($user);exit;
         return view('admin.dashboard.user_view', compact('user'));
     }
 
