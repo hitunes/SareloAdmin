@@ -110,7 +110,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                {{count($users)}}
                                             @foreach($users as $user)
 
                                                 <tr class="odd gradeX">
