@@ -214,7 +214,7 @@
                                                                        <span id="payment{{$item->id}}" class="label payment label-sm label-warning" data-payload="{{$item->id}}" style="color:white; background-color: orange; "> {{$item->payment_status}} </span>
 
                                                                     @elseif(strtolower($item->payment_status) == 'successful')
-                                                                         <span id="payment{{$item->id}}" class="label payment label-sm" data-payload="{{$item->id}}" style="color:#222; background-color:#1ebea5;"> {{$item->payment_status}} </span>
+                                                                         <span id="payment{{$item->id}}" class="label payment label-success label-sm" style="color: white;" data-payload="{{$item->id}}" => {{$item->payment_status}} </span>
                                                                     @elseif(strtolower($item->payment_status) == 'cancel')
                                                                          <span id="payment{{$item->id}}" class="label payment label-danger label-sm" data-payload="{{$item->id}}" => {{$item->payment_status}} </span>
                                                                     @endif     
