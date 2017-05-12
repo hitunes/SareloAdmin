@@ -103,8 +103,9 @@
                                         <form method="post">
                                             <div class="tabcordion">
                                                 <ul id="myTab" class="nav nav-tabs">
+                                                    <?php $i = 0;?>
                                                     @foreach($slots as $key=>$value)
-                                                    <li @if($key == date('Y-m-d')) class="active delivery_date" @else class="delivery_date"@endif @if($key == date('Y-m-d'))data-payload="{{date('Y-m-d')}}"
+                                                    <li @if($key == 0) class="active delivery_date" @else class="delivery_date"@endif @if($key ==0) data-payload="{{date('Y-m-d', strtotime($key))}}"
                                                         @else data-payload="{{date('Y-m-d', strtotime($key))}}" @endif>
                                                         <a href="#{{$key}}" data-toggle="tab">
                                                             @if($key == date('Y-m-d'))
@@ -115,6 +116,7 @@
                                                             <p>{{date('M d', strtotime($key))}}</p>
                                                         </a>
                                                     </li>
+                                                    <?php $++;?>
                                                     @endforeach
                                                 </ul>
                                                 <div id="myTabContent" class="tab-content">
@@ -123,7 +125,7 @@
                                                         <div class="table-responsive">
                                                             <table class="table border-bottom table-hover m-b-0">
                                                                 <tbody>
-                                                                        <?php $count = 0;?>
+                                                                    <?php $count = 0;?>
                                                                         @foreach($value as $slot_details)
                                                                         <tr>
                                                                             @if($slot_details->slot_available > $slot_details->used_count)
