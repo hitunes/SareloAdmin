@@ -75,7 +75,6 @@ class OrdersController extends Controller
         $order = Order::with(['order_products' => function($q){
                         $q->with('product');
                 }])->findOrFail($id);
-        // dd($order);
         return view('admin.dashboard.order_view', compact('order'));
     }
 

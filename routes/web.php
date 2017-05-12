@@ -13,7 +13,6 @@
  
 
 */
-//pending, successfull cancel
 Route::group(['middleware' => ['admin']], function() {
     Route::group(['prefix' => 'admin'], function() {
             Route::get('/users/{id}', 'Admin\UserController@show');

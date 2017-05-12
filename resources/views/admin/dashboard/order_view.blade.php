@@ -215,10 +215,6 @@
                                                             <div class="portlet-title">
                                                                 <div class="caption">
                                                                     <i class="fa fa-cogs"></i>Shopping Cart </div>
-                                                                <!--<div class="actions">
-                                                                    <a href="javascript:;" class="btn btn-default btn-sm">
-                                                                        <i class="fa fa-pencil"></i> Edit </a>
-                                                                </div>-->
                                                             </div>
                                                             <div class="portlet-body">
                                                                 <div class="table-responsive">

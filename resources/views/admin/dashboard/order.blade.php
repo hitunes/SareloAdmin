@@ -153,15 +153,15 @@
                                                                 <td>
                                                                      
 
-                                                                     @if(strtolower($order->payment_status) == 'pending')
+                                                                        @if(strtolower($order->payment_status) == 'pending')
 
-                                                                       <span id="payment{{$order->id}}" class="label payment label-sm label-warning" data-payload="{{$order->id}}" style="color:white; "> {{$order->payment_status}} </span>
+                                                                       <span id="payment{{$order->id}}" class="label payment label-sm label-warning" data-payload="{{$order->id}}" style="color:white; background-color: orange; "> {{$order->payment_status}} </span>
 
                                                                     @elseif(strtolower($order->payment_status) == 'successful')
-                                                                         <span id="payment{{$order->id}}" class="label payment label-sm" data-payload="{{$order->id}}" style="color:#222; background-color:#1ebea5;"> {{$order->payment_status}} </span>
+                                                                         <span id="payment{{$order->id}}" class="label payment label-success label-sm" data-payload="{{$order->id}}" style="color:#fff; background-color:#1ebea5;"> {{$order->payment_status}} </span>
                                                                     @elseif(strtolower($order->payment_status) == 'cancel')
                                                                          <span id="payment{{$order->id}}" class="label payment label-danger label-sm" data-payload="{{$order->id}}" => {{$order->payment_status}} </span>
-                                                                    @endif                                                                
+                                                                    @endif                                                                  
 
                                                                 </td>
 
@@ -179,18 +179,18 @@
                                                                 <td>
                                                                         @if(strtolower($order->status) == 'delivered')
 
-                                                                            <span id="{{$order->id}}" class="label label-sm" style="color:#222; background-color:#5cb85c;"> {{$order->status}} </span>
+                                                                            <span id="{{$order->id}}" class="label label-sm" > {{$order->status}} </span>
 
                                                                         @elseif(strtolower($order->status) == 'processing')
                                                                              
-                                                                             <span id="{{$order->id}}" class="label label-sm" style="color:#222; background-color: orange;"> {{$order->status}} </span>
+                                                                             <span id="{{$order->id}}" class="label label-sm" > {{$order->status}} </span>
 
                                                                         @elseif(strtolower($order->status) == 'confirmed')
                                                                             
-                                                                            <span id="{{$order->id}}" class="label label-sm" style="color:#222; background-color: #22b9b7;"> {{$order->status}} </span>
+                                                                            <span id="{{$order->id}}" class="label label-sm" > {{$order->status}} </span>
                                                                         @elseif(strtolower($order->status) == 'gone to market')
                                                                             
-                                                                            <span id="{{$order->id}}" class="label label-sm" style="color:#222; background-color: #b92296;"> {{$order->status}} </span>
+                                                                            <span id="{{$order->id}}" class="label label-sm" > {{$order->status}} </span>
                                                                         @endif 
                                                                 </td>
                                                             </form>

@@ -114,52 +114,53 @@
                                 @else
                                     <div class="portlet-body">
                                         <table class="table table-striped table-bordered table-hover order-column" id="sample_1">
-                                            <thead>
-                                                <tr>
-                                                    <th> First name </th>
-                                                    <th> Last name</th>
-                                                    <th> Email </th>
-                                                    <th> Total Amount Ordered (NGN) </th>
-                                                    <th> Date credit </th>
-                                                    <th> Phone Number </th>
+                                        <thead>
+                                            <tr>
+                                                <th> First name </th>
+                                                <th> Last name</th>
+                                                <th> Email </th>
+                                                <th> Date registered </th>
+                                                <th> Phone Number </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($users as $user)
+
+                                                <tr class="odd gradeX">
+                                                    <td>
+                                                        {{$user->first_name}} 
+                                                    </td>
+
+                                                    <td>
+                                                        {{$user->last_name}} </a>
+                                                    </td>
+
+                                                    <td>
+                                                        <a href="mailto:{{$user->email}}"> {{$user->email}} </a>
+                                                    </td>
+
+                                                    <td class="center">
+                                                    @if(isset($user->created_at))
+                                                     {{$user->created_at}} 
+                                                    @endif
+                                                     </td>
+                                                    <td>
+
+                                                    @if(isset($user->phone))
+                                                        {{$user->phone}}
+                                                    @else
+                                                        {{"No Phone Number Uploaded"}}
+                                                    @endif
+                                                    </td>
+                                                    <td>
+                                                        <a target="_blank" href="{{url('admin/users',$user->id)}}" data-toggle="modal" class="btn btn-primary" >Full Details</a>
+                                                    </td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($users as $user)
-                                                    <tr class="odd gradeX">
-                                                        <td>
-                                                            {{$user->first_name}} 
-                                                        </td>
+                                            @endforeach
 
-                                                        <td>
-                                                            {{$user->last_name}} </a>
-                                                        </td>
-
-                                                        <td>
-                                                            <a href="mailto:{{$user->email}}"> {{$user->email}} </a>
-                                                        </td>
-
-                                                        <td class="center">
-                                                            &#x20A6;{{number_format($user->total, 2)}}
-                                                        </td>
-
-                                                        <td class="center"> {{$user->created_at}} </td>
-                                                        <td>
-                                                            @if(isset($user->phone))
-                                                                {{$user->phone}}
-                                                            @else
-                                                                {{"No Phone Number Uploaded"}}
-                                                            @endif
-                                                        </td>
-                                                        <td>
-                                                            <a href="{{url('admin/users',$user->id)}}" data-toggle="modal" class="btn btn-primary" >View</a>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
-
-                                                
-                                            </tbody>
-                                        </table>
+                                            
+                                        </tbody>
+                                    </table>
                                     </div>
                                 @endif
                             </div>
