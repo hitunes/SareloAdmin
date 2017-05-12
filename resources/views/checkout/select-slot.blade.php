@@ -105,7 +105,7 @@
                                                 <ul id="myTab" class="nav nav-tabs">
                                                     <?php $i = 0;?>
                                                     @foreach($slots as $key=>$value)
-                                                    <li @if($key == 0) class="active delivery_date" @else class="delivery_date"@endif @if($key ==0) data-payload="{{date('Y-m-d', strtotime($key))}}"
+                                                    <li @if($i == 0) class="active delivery_date" @else class="delivery_date"@endif @if($i ==0) data-payload="{{date('Y-m-d', strtotime($key))}}"
                                                         @else data-payload="{{date('Y-m-d', strtotime($key))}}" @endif>
                                                         <a href="#{{$key}}" data-toggle="tab">
                                                             @if($key == date('Y-m-d'))
@@ -120,8 +120,9 @@
                                                     @endforeach
                                                 </ul>
                                                 <div id="myTabContent" class="tab-content">
+                                                    <?php $j = 0; ?>
                                                     @foreach($slots as $key=>$value)
-                                                    <div class="tab-pane fade @if($key == date('Y-m-d')) active in @endif" id="{{$key}}">
+                                                    <div class="tab-pane fade @if($j == 0) active in @endif" id="{{$key}}">
                                                         <div class="table-responsive">
                                                             <table class="table border-bottom table-hover m-b-0">
                                                                 <tbody>
