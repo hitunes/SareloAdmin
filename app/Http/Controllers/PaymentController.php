@@ -54,7 +54,11 @@ class PaymentController extends Controller
         Cart::destroy();
 
         //mail user
-        Mail::to(Auth::user())->send(new OrderInvoice($order));
+        try {
+            Mail::to(Auth::user())->send(new OrderInvoice($order));
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
+        }
 
         return view('payment.complete', compact('order'));
     }

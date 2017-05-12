@@ -69,7 +69,7 @@
                                     <ul class="dropdown-menu">
                                         <li><a href="#">Hi {{\Auth::user()->first_name}}</a></li>
                                         <li><a href="/my-account">Your Account</a></li>
-                                        <li><a href="/my-order">Your Order</a></li>
+                                        <li><a href="/my-orders">Your Order</a></li>
                                         <li>
                                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
