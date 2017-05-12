@@ -116,6 +116,7 @@
                                             <tbody>
                                                 <?php $num = 1; ?>
                                                 <form method="POST" action="">
+                                                @if(count($orders))
                                                     @foreach($orders as $order)
 
                                                             <tr>
@@ -190,9 +191,11 @@
                                                                 </td>
 
                                                             </tr>
-                                                    @endforeach
-
-                                            </tbody>
+                                                        @endforeach
+                                                        @else
+                                                            
+                                                        @endif
+                                                    </tbody>
                                         </table>
                                     </div>
                                     {{ $orders->links() }}
@@ -204,8 +207,7 @@
             </div>
         </div>
         <script type="text/javascript">
-           // var div = $("#payment{{$order->id}}");
-           // console.log(div);
+
         </script>
 @endsection
 
