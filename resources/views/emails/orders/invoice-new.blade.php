@@ -66,7 +66,7 @@
                                  </tr>
                                  <tr>
                                    <td align="right" style="color: #37353E;font-weight: normal;font-size: 14px;margin: 0;letter-spacing: -0.02em;">
-                                       {{$order->order_unique_reference}}
+                                       {{strtoupper($order->order_unique_reference)}}
                                    </td>
                                  </tr>
                                </table>
