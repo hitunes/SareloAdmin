@@ -56,12 +56,11 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::with(['user_addresses', 'role', 'orders' => function($q) {
+
                                 $q->with(['order_products'=> function($qq){
                                     $qq->with('product');
                                 }]);
                         }])
-                        // ->join('roles', 'roles.id', '=', 'users.role_id')
-                        // ->where('roles.name', '!=', 'Super Admin')
                         ->findOrFail($id);
         return view('admin.dashboard.user_view', compact('user'));
     }

@@ -98,7 +98,7 @@
                                                     <div class="portlet yellow-crusta box">
                                                         <div class="portlet-title">
                                                             <div class="caption">
-                                                                <i class="fa fa-cogs"></i>User Details</div>
+                                                                <i class="glyphicon glyphicon-user"></i>User Details</div>
                                                         </div>
                                                         <div class="portlet-body">
                                                             <div class="row static-info">
@@ -130,7 +130,8 @@
                                                     <div class="portlet blue-hoki box">
                                                         <div class="portlet-title">
                                                             <div class="caption">
-                                                                <i class="fa fa-cogs"></i>Address </div>
+                                                                <i class="fa fa-cogs"></i>Address 
+                                                                ({{count($user->user_addresses)}})</div>
                                                             <!--<div class="actions">
                                                                 <a href="javascript:;" class="btn btn-default btn-sm">
                                                                     <i class="fa fa-pencil"></i> Edit </a>
@@ -167,10 +168,10 @@
                                                                            <tr role="row" class="heading">
                                                                                <th width="10%"> Order&nbsp;# </th>
                                                                                <th width="15%"> Order Date</th>
-                                                                               <th width="10%"> Price </th>
-                                                                               <th width="15%"> Payment Method</th>
+                                                                               <th width="15%"> Order Status</th>
                                                                                <th width="15%"> Payment Satus</th>
-                                                                               <th width="15%"> Phone</th>
+                                                                               <th width="15%"> Reciever's Phone</th>
+                                                                               <th width="15%"> Total</th>
                                                                            </tr>
                                                                         </thead>
                                                                         <tbody>
@@ -184,10 +185,46 @@
                                                                                                 {{$item->created_at}} 
                                                                                             @endif
                                                                                         </td>
-                                                                                        <td>&#8358;  {{$item->total}}</td>
-                                                                                        <td> {{$item->payment_method}} </td>
-                                                                                        <td> {{$item->payment_status}} </td>
+                                                                                       
+                                                                                        <td> 
+
+
+                                                                                        @if(strtolower($item->status) == 'delivered')
+
+                                                                            <span id="{{$item->id}}" class="label label-sm" style="color:#222; background-color:#5cb85c;"> {{$item->status}} </span>
+
+                                                                        @elseif(strtolower($item->status) == 'processing')
+                                                                             
+                                                                             <span id="{{$item->id}}" class="label label-sm" style="color:#222; background-color: orange;"> {{$item->status}} </span>
+
+                                                                        @elseif(strtolower($item->status) == 'confirmed')
+                                                                            
+                                                                            <span id="{{$item->id}}" class="label label-sm" style="color:#222; background-color: #22b9b7;"> {{$item->status}} </span>
+                                                                        @elseif(strtolower($item->status) == 'gone to market')
+                                                                            
+                                                                            <span id="{{$item->id}}" class="label label-sm" style="color:#222; background-color: #b92296;"> {{$item->status}} </span>
+                                                                        @endif 
+                                                                                       
+
+                                                                                         </td>
+                                                                                        <td> 
+
+                                                                                             @if(strtolower($item->payment_status) == 'pending')
+
+                                                                       <span id="payment{{$item->id}}" class="label payment label-sm label-warning" data-payload="{{$item->id}}" style="color:white; background-color: orange; "> {{$item->payment_status}} </span>
+
+                                                                    @elseif(strtolower($item->payment_status) == 'successful')
+                                                                         <span id="payment{{$item->id}}" class="label payment label-sm" data-payload="{{$item->id}}" style="color:#222; background-color:#1ebea5;"> {{$item->payment_status}} </span>
+                                                                    @elseif(strtolower($item->payment_status) == 'cancel')
+                                                                         <span id="payment{{$item->id}}" class="label payment label-danger label-sm" data-payload="{{$item->id}}" => {{$item->payment_status}} </span>
+                                                                    @endif     
+
+                                                                                        </td>
                                                                                         <td> {{$item->receiver_phone}} </td>
+                                                                                        <td> &#8358;{{number_format($item->total, 2)}} </td>
+                                                                                        <td>
+                                                                                            <a target="_blank" href="{{url('admin/orders',$item->id)}}" data-toggle="modal" class="btn btn-primary" >Full Details</a>
+                                                                                        </td>
                                                                                     </tr>
                                                                             @endforeach
                                                                         @else 
@@ -199,6 +236,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                {{-- PRODUCTS OF EACH ORDER START --}}
+
+
+
                                             </div>
                                             </div>
                                         </div>
