@@ -20,7 +20,7 @@
              </tr>
              <tr>
                <td align="center" style="padding: 0px 0px 20px 0px;">
-                <img src="{{env("APP_URL")}}/assets/img/logo/sarelo3.svg">
+                <img src="{{env("APP_URL")}}/assets/img/logo/sarelo3.svg" alt="Logo" title="Logo" style="display:block" width="250" height="60">
                </td>
              </tr>
              <tr>
