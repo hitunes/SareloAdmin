@@ -127,15 +127,17 @@
                                             <tbody>
                                                 <?php $num = 1; ?>
                                                 <form method="POST" action="">
+                                                   <form method="POST" action="">
                                                     @foreach($orders as $order)
-                                                        @if(count($order) > 0)
-                                                              <tr>
+
+                                                            <tr>
+
                                                                 <td>
-                                                                   {{$num++}}
+                                                                   {{$order->order_unique_reference}}
                                                                 </td>
                                                                 <td>
                                                                     @if(isset($order->created_at))
-                                                                    {{$order->created_at}}
+                                                                    {{$order->created_at->diffForHumans()}}
                                                                     @endif
                                                                 </td>
                                                                 <td> {{$order->total}} </td>
@@ -149,7 +151,17 @@
                                                                     </select>
                                                                  </td>
                                                                 <td>
-                                                                     <span id="payment{{$order->id}}" class="label payment label-sm" data-payload="{{$order->id}}" style="color:#222;"> {{$order->payment_status}} </span>                                                                   
+                                                                     
+
+                                                                     @if(strtolower($order->payment_status) == 'pending')
+
+                                                                       <span id="payment{{$order->id}}" class="label payment label-sm label-warning" data-payload="{{$order->id}}" style="color:white; "> {{$order->payment_status}} </span>
+
+                                                                    @elseif(strtolower($order->payment_status) == 'successful')
+                                                                         <span id="payment{{$order->id}}" class="label payment label-sm" data-payload="{{$order->id}}" style="color:#222; background-color:#1ebea5;"> {{$order->payment_status}} </span>
+                                                                    @elseif(strtolower($order->payment_status) == 'cancel')
+                                                                         <span id="payment{{$order->id}}" class="label payment label-danger label-sm" data-payload="{{$order->id}}" => {{$order->payment_status}} </span>
+                                                                    @endif                                                                
 
                                                                 </td>
 
@@ -165,9 +177,21 @@
                                                                     </select>
                                                                 </td>
                                                                 <td>
+                                                                        @if(strtolower($order->status) == 'delivered')
 
-                                                                        <span id="{{$order->id}}" class="label label-sm" style="color:#222;"> {{$order->status}} </span>
+                                                                            <span id="{{$order->id}}" class="label label-sm" style="color:#222; background-color:#5cb85c;"> {{$order->status}} </span>
 
+                                                                        @elseif(strtolower($order->status) == 'processing')
+                                                                             
+                                                                             <span id="{{$order->id}}" class="label label-sm" style="color:#222; background-color: orange;"> {{$order->status}} </span>
+
+                                                                        @elseif(strtolower($order->status) == 'confirmed')
+                                                                            
+                                                                            <span id="{{$order->id}}" class="label label-sm" style="color:#222; background-color: #22b9b7;"> {{$order->status}} </span>
+                                                                        @elseif(strtolower($order->status) == 'gone to market')
+                                                                            
+                                                                            <span id="{{$order->id}}" class="label label-sm" style="color:#222; background-color: #b92296;"> {{$order->status}} </span>
+                                                                        @endif 
                                                                 </td>
                                                             </form>
                                                                 <td>
@@ -178,15 +202,7 @@
                                                                 </td>
 
                                                             </tr>
-                                                        @else
-                                                           <h3>
-                                                                No Order Available Yet
-                                                           </h3>
-                                                        @endif
-
-                                                          
                                                     @endforeach
-
                                             </tbody>
                                         </table>
                                     </div>

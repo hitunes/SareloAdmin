@@ -185,7 +185,6 @@
             <div class="empty_bag dis-flex">
                 <div class="wrap text-center">
                     <span class="flaticon-shopping-basket f-150 m-b-50" style="font-size: 150px;"></span>
-                    <!--<img src="/assets/img/icon/Sarelo-basket.png" class="width-200">-->
 
                     <h4 class="m-b-50 l-spacing-2">Your food basket is empty</h4>
                     <br>

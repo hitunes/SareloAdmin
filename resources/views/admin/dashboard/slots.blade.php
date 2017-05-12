@@ -75,6 +75,15 @@
                     <!-- BEGIN PAGE BASE CONTENT -->
                     <div class="row">
                         <div class="col-md-12">
+                             @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @elseif(session('delete_message'))
+                                <div class="alert alert-danger">
+                                    {{ session('delete_message') }}
+                                </div>
+                            @endif
                             
                             <!-- Begin: life time stats -->
                             <div class="portlet light portlet-fit portlet-datatable bordered">
@@ -82,25 +91,31 @@
                                     <div class="caption">
                                         <i class="icon-settings font-green"></i>
                                         <span class="caption-subject font-green sbold uppercase"> Slots </span>
+                                        
                                     </div>
                               
                                 <div class="portlet-body">
                                     <div class="table-container">
                                         <div class="table-actions-wrapper">
+
                                             <span> </span>
                                             
                                         </div>
-                                            {{ $slots->links() }}  <br> <br>
+                                             <br> <br>
                                             <a href="{{ url('/admin/slots/create') }}" class="btn btn-success btn-sm" title="Add New Slot">
                                                 <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                                            </a>    
+                                            </a> <div class="pull-right">
+                                                {{ $slots->links() }} 
+                                            </div>   
+                                            
                                         <br><br>
                                         <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_orders">
                                             <thead>
                                                 <tr role="row" class="heading">
                                                     <th width="10%"> S/N&nbsp;</th>
                                                     <th width="15%"> Time Range</th>
-                                                    <th width="10%"> Slot Available </th>
+                                                    <th width="10%"> Day of Week </th>
+                                                    <th width="10%"> Number of Slot Available </th>
                                                     <th width="15%"> Actions</th>
                                                 </tr>
                                                 
@@ -110,8 +125,30 @@
                                                 <form method="POST" action="{{url('admin/slots/delete/,$slot->id')}}">
                                                     @foreach($slots as $item)
                                                         <tr>
-                                                            <td>{{ $item->id }}</td>
+                                                            <td>{{ $num++ }}</td>
                                                             <td>{{ $item->time_range }}</td>
+                                                            
+                                                                  <td> 
+                                                                      @if($item->day_of_week == 0)
+                                                                        {{ "Sunday" }} 
+                                                                      @elseif($item->day_of_week == 1)
+                                                                        {{ "Monday" }} 
+                                                                      @elseif($item->day_of_week == 2)
+                                                                        {{ "Tuesday"}}
+                                                                      @elseif($item->day_of_week == 3)
+                                                                        {{ "Wednesday" }} 
+                                                                      @elseif($item->day_of_week == 4) 
+                                                                        {{ "Thursday"}}
+                                                                      @elseif($item->day_of_week == 5)
+                                                                        {{ "Friday"}}
+                                                                      @elseif($item->day_of_week == 6)
+                                                                        {{ "Saturday" }} 
+                                                                      @else
+                                                                        {{"No date selected for this slot"}}
+                                                                      @endif
+                                                                  </td>  
+                                                           
+                                                                  
                                                             <td>{{ $item->slot_available }}</td>
                                                             <td>
                                                                 

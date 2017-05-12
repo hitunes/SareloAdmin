@@ -59,6 +59,22 @@
                 <!-- BEGIN CONTENT BODY -->
                 <div class="page-content">
                     <div class="row">
+                        @if (session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @elseif(session('delete_message'))
+                                <div class="alert alert-danger">
+                                    {{ session('delete_message') }}
+                                </div>
+                            @elseif(count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                @foreach($errors->all() as $error)
+                                    <strong>Error Upon Submission...</strong> {{ $error }}
+                                @endforeach
+                            </div>
+                        @endif
                         <div class="col-md-12">
                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                             <div class="portlet light bordered">
@@ -66,6 +82,19 @@
                                     <div class="caption font-dark">
                                         <i class="icon-settings font-dark"></i>
                                         <span class="caption-subject bold uppercase"> Users' Profile</span>
+                                    </div>
+                                       <div class="actions">
+                                         <form id="search_text" name="form_search" method="POST" action="{{url('admin/search_user')}}" class="form-inline">
+                                         {{csrf_field()}}
+                                           <div class="form-group">
+                                             <div class="input-group">
+                                              <input class="form-control" name="search" placeholder="Find a user here...." type="text">
+                                              <span class="input-group-btn">
+                                                 <input type="submit" class="btn btn-default"  value="Go!"/> 
+                                              </span>
+                                            </div>
+                                          </div>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="portlet-body">
@@ -76,12 +105,14 @@
                                                 <th> Last name</th>
                                                 <th> Email </th>
                                                 <th> Total Amount Ordered (NGN) </th>
-                                                <th> Date credit </th>
+                                                <th> Date registered </th>
                                                 <th> Phone Number </th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                                {{count($users)}}
                                             @foreach($users as $user)
+
                                                 <tr class="odd gradeX">
                                                     <td>
                                                         {{$user->first_name}} 
@@ -99,9 +130,20 @@
                                                         &#x20A6;{{number_format($user->total, 2)}}
                                                     </td>
 
-                                                    <td class="center"> {{$user->created_at}} </td>
+                                                    <td class="center">
+                                                    @if(isset($user->created_at))
+                                                     {{$user->created_at}} 
+                                                    @endif
+                                                     </td>
                                                     <td>
+                                                    @if(isset($user->phone))
                                                         {{$user->phone}}
+                                                    @else
+                                                        {{"No Phone Number Uploaded"}}
+                                                    @endif
+                                                    </td>
+                                                    <td>
+                                                        <a href="{{url('admin/users',$user->id)}}" data-toggle="modal" class="btn btn-primary" >View</a>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -116,4 +158,5 @@
                 </div>
             </div>            
         </div>
+
 @endsection

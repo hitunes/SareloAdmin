@@ -92,86 +92,25 @@
                                     @endforeach
                                 </div>
                             @endif
-                                {{-- <div id="error" style="display: none;" class="alert alert-danger">
-                                   <span>Please Input a product name or price to search....</span>
-                                </div> --}}
-
-                            <form method="POST"  enctype='multipart/form-data' action="{{url('admin/products')}}" class="form-horizontal form-row-seperated" action="#">
-                            {{csrf_field()}}
-                                <div class="portlet light">
-                                    <div class="portlet-title">
-                                        <div class="caption">
-                                            <i class="fa fa-shopping-cart"></i>Add Product </div>
-                                        <div class="actions btn-set">
-
-                                        </div>
-                                    </div>
-                                    <div class="portlet-body">
-
-                                        <div class="form-body">
-                                                        <div class="form-group">
-                                                            <label class="col-md-2 control-label">Name:
-                                                                <span class="required"> * </span>
-                                                            </label>
-                                                            <div class="col-md-5">
-                                                                <input type="text" class="form-control" name="name" placeholder=""> </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-md-2 control-label">Description:
-                                                                <span class="required"> * </span>
-                                                            </label>
-                                                            <div class="col-md-5">
-                                                                <textarea class="form-control" name="description"></textarea>
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-md-2 control-label">Unit:
-                                                                <span class="required"> * </span>
-                                                            </label>
-                                                            <div class="col-md-2">
-                                                                <input type="text" class="form-control" name="unit" placeholder="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="col-md-2 control-label">Unit Type:
-                                                                <span class="required"> * </span>
-                                                            </label>
-                                                            <div class="col-md-2">
-                                                                <select name="unit_type_id" id="unit_type_id" class="form-control" required="required">
-                                                                    <option value="">Select type</option>
-                                                                    @foreach($unit_type as $unit_types)
-                                                                         <option value="{{$unit_types->id}}">{{$unit_types->name}}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label class="col-md-2 control-label">Price:
-                                                                <span class="required"> * </span>
-                                                            </label>
-                                                            <div class="col-md-2">
-                                                                <input type="text" class="form-control" name="price" placeholder=""> </div>
-                                                        </div>
-
-
-                                                        <div class="prod_im\g">
-                                                            <div id="tab_images_uploader_container" class="margin-bottom-10">
-
-                                                                <input type="file" name="product_image"  id="tab_images_uploader_pickfiles" href="javascript:;" class="btn btn-success">
-                                                                </input>
-
-                                                            </div>
-                                                        </div>
-                                                        <button class="btn btn-success"><i class="fa fa-check"></i> Add</button>
-                                                        </div>
-                                                    </div>
-                                    </div>
-                                </div>
-                            </form>
+                                
                         </div>
 
                         <div class="col-md-12">
+                        @if(count($products) <= 0)
+                                <div class="row">
+                                    <div class="col-lg-6 col-lg-offset-3">
+                                            
+                                                    <div class="row">
+                                                        <h3> 
+                                                            <center>
+                                                                NO RESULT FOUND! FOR YOUR SEARCH <a href="{{url('admin/products')}}"><< back</a>
+                                                            </center>
+                                                        </h3>
+                                                    </div>
+                                    </div>
+                                </div>
+
+                        @else
                             <div class="portlet light">
                                     <div class="portlet-title">
                                         <div class="caption">
@@ -250,6 +189,7 @@
                                     </div>
                                      {{ $products->links() }}
                             </div>
+                        @endif
                         </div>
                     <!-- END PAGE BASE CONTENT -->
                     </div>

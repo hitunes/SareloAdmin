@@ -137,6 +137,40 @@
                                                     </ul>
                                                 @endif
                                                 <div class="col-lg-6">
+                                                     <div class="form-group {{ $errors->has('day_of_week') ? 'has-error' : ''}}">
+                                                        {!! Form::label('day_of_week', 'Day of week', ['class' => 'col-md-4 control-label']) !!}
+                                                        <div class="col-md-6">
+                                                            <select name="day_of_week" id="input" class="form-control" required="required">
+                                                            @if($slot->day_of_week == 0)
+                                                                <option value="0">Sunday</option>
+                                                            @elseif($slot->day_of_week == 1)
+                                                                <option value="1">Monday</option>
+                                                            @elseif($slot->day_of_week == 2)
+                                                                <option value="2">Tuesday</option>
+                                                            @elseif($slot->day_of_week == 3)
+                                                                <option value="3">Wednesday</option>
+                                                            @elseif($slot->day_of_week == 4) 
+                                                                <option value="4">Thursday</option>
+                                                              
+                                                            @elseif($slot->day_of_week == 5)
+                                                                <option value="5">Friday</option>
+                                                              
+                                                            @elseif($slot->day_of_week == 6)
+                                                                <option value="6">Saturday</option>
+                                                            @else
+                                                                <option value="">Select</option>
+                                                            @endif
+                                                                <option value="0">Sunday</option>
+                                                                <option value="1">Monday</option>
+                                                                <option value="2">Tuesday</option>
+                                                                <option value="3">Wednesday</option>
+                                                                <option value="4">Thursday</option>
+                                                                <option value="5">Friday</option>
+                                                                <option value="6">Saturday</option>
+                                                            </select>
+                                                            {!! $errors->first('day', '<p class="help-block">:message</p>') !!}
+                                                    </div> <br> <br> <br>
+
                                                      {!! Form::model($slot, [
                                                             
                                                             'class' => 'form-horizontal',
@@ -150,7 +184,7 @@
                                                                 {!! $errors->first('time_range', '<p class="help-block">:message</p>') !!}
                                                             </div> <br> <br>
                                                         </div><div class="form-group {{ $errors->has('slot_available') ? 'has-error' : ''}}">
-                                                            {!! Form::label('slot_available', 'Slot Available', ['class' => 'col-md-4 control-label']) !!}
+                                                            {!! Form::label('slot_available', 'No of slot available', ['class' => 'col-md-4 control-label']) !!}
                                                             <div class="col-md-6">
                                                                 {!! Form::number('slot_available', null, ['class' => 'form-control']) !!}
                                                                 {!! $errors->first('slot_available', '<p class="help-block">:message</p>') !!}

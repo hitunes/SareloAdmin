@@ -33,7 +33,45 @@
                                     <tr>
                                         <th>ID</th><td>{{ $slot->id }}</td>
                                     </tr>
-                                    <tr><th> Time Range </th><td> {{ $slot->time_range }} </td></tr><tr><th> Slot Available </th><td> {{ $slot->slot_available }} </td></tr>
+                                    <tr>
+                                        <th> Time Range </th><td> {{ $slot->time_range }} </td>
+                                    </tr>
+                                    <tr>
+                                        <th> Day of week </th>
+                                        @if($slot->slot_available == 0)
+                                              <td> 
+                                                  {{ "Sunday" }} 
+                                              </td>  
+                                        @elseif($slot->slot_available == 1)
+                                              <td> 
+                                                  {{ "Monday" }} 
+                                              </td> 
+                                        @elseif($slot->slot_available == 2)
+                                            <td> 
+                                                {{ "Tuesday" }} 
+                                            </td> 
+                                        @elseif($slot->slot_available == 3)
+                                            <td> 
+                                                {{ "Wednesday" }} 
+                                            </td>
+                                        @elseif($slot->slot_available == 4)
+                                            <td> 
+                                                {{ "Thursday" }} 
+                                            </td>
+                                        
+                                        @elseif($slot->slot_available == 5)
+                                            <td> 
+                                                {{ "Friday" }} 
+                                            </td>
+                                        @elseif($slot->slot_available == 6)
+                                            <td> 
+                                                {{ "Saturday" }} 
+                                            </td>
+                                        @endif
+                                    </tr>
+                                    <tr>
+                                        <th> Number of slot available </th><td> {{ $slot->slot_available }} </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

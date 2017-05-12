@@ -25,7 +25,7 @@ class Slot extends Model
      *
      * @var array
      */
-    protected $fillable = ['time_range', 'slot_available'];
+    protected $fillable = ['time_range', 'slot_available', 'day_of_week'];
 
     public function OrderSlot()
     {
