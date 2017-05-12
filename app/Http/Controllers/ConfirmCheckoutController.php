@@ -39,7 +39,7 @@ class ConfirmCheckoutController extends Controller
         $order = Cart::content();
 
         $slot = Slot::find(Session::get('order_details.slot_id'));
-        $slots = Slot::getAvailableSlot(Session::get('order_details.delivery_date'));
+        $slots = Slot::getAvailableSlot(Session::get('order_details.delivery_date'), $slot->id);
 
         $address = UserAddress::find(Session::get('order_details.user_address_id'));
         $addresses = UserAddress::where('user_id', Auth::user()->id)->get();
@@ -64,6 +64,8 @@ class ConfirmCheckoutController extends Controller
 
             $items = Cart::content();
 
+            $unique_id = uniqid(8);
+
             $order = Order::create([
                 'user_id' => Auth::user()->id,
                 'status' => 'pending',
@@ -71,7 +73,7 @@ class ConfirmCheckoutController extends Controller
                 'delivery_instruction' => Session::get('order_details.delivery_instruction'),
                 'user_address_id' => $user_address_id,
                 'receiver_phone' => Session::get('order_details.receiver_phone'),
-                'order_unique_reference' => Uuid::uuid4()->toString()
+                'order_unique_reference' => $unique_id
             ]);
 
             $order->orderSlot()->save(new OrderSlot([
