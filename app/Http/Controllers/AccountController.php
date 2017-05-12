@@ -35,7 +35,7 @@ class AccountController extends Controller
     			'email' => 'required',
     		]);
 
-    	Auth::user()->first_name = $request->email;
+    	Auth::user()->email = $request->email;
 
     	if(Auth::user()->save()){
     		return redirect()->back()->with('status_message', 'User email updated');
