@@ -116,7 +116,7 @@
                                                             <p>{{date('M d', strtotime($key))}}</p>
                                                         </a>
                                                     </li>
-                                                    <?php $++;?>
+                                                    <?php $i++;?>
                                                     @endforeach
                                                 </ul>
                                                 <div id="myTabContent" class="tab-content">
@@ -149,7 +149,7 @@
                                                                     @endif
                                                                         </tr>
                                                                         <?php $count++;?>
-
+                                                                        <?php $j++;?>
                                                                         @endforeach
 
                                                                 </tbody>
