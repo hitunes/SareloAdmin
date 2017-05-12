@@ -71,7 +71,7 @@ class Slot extends Model
 
             $start_point = array_search(intval(date('N', strtotime('today'))), $slot_items);
             $start_week = array_slice($slot_items, $start_point);
-            $days_series = self::continuum($slot_items, 10, $start_week);
+            $days_series = self::continuum($slot_items, 7, $start_week);
 
             foreach ($days_series as $key => $day) {
                 $days[] = $day;
