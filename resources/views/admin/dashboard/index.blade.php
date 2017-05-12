@@ -116,6 +116,7 @@
                                             <tbody>
                                                 <?php $num = 1; ?>
                                                 <form method="POST" action="">
+                                                @if(count($orders))
                                                     @foreach($orders as $order)
 
                                                             <tr>
@@ -140,7 +141,7 @@
                                                                  </td>
                                                                 <td>
                                                                     
-                                                                    @if(strtolower($order->payment_status) == 'pending')
+                                                                     @if(strtolower($order->payment_status) == 'pending')
 
                                                                        <span id="payment{{$order->id}}" class="label payment label-sm label-warning" data-payload="{{$order->id}}" style="color:white; "> {{$order->payment_status}} </span>
 
@@ -148,7 +149,8 @@
                                                                          <span id="payment{{$order->id}}" class="label payment label-sm" data-payload="{{$order->id}}" style="color:#222; background-color:#1ebea5;"> {{$order->payment_status}} </span>
                                                                     @elseif(strtolower($order->payment_status) == 'cancel')
                                                                          <span id="payment{{$order->id}}" class="label payment label-danger label-sm" data-payload="{{$order->id}}" => {{$order->payment_status}} </span>
-                                                                    @endif                                                                         
+                                                                    @endif     
+                                                                                                                                         
                                                                 </td>
 
                                                                 <td> {{$order->receiver_phone}} </td>
@@ -190,9 +192,11 @@
                                                                 </td>
 
                                                             </tr>
-                                                    @endforeach
-
-                                            </tbody>
+                                                        @endforeach
+                                                        @else
+                                                            
+                                                        @endif
+                                                    </tbody>
                                         </table>
                                     </div>
                                     {{ $orders->links() }}
@@ -204,8 +208,7 @@
             </div>
         </div>
         <script type="text/javascript">
-           // var div = $("#payment{{$order->id}}");
-           // console.log(div);
+
         </script>
 @endsection
 

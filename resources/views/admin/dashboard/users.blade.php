@@ -81,7 +81,7 @@
                                 <div class="portlet-title">
                                     <div class="caption font-dark">
                                         <i class="icon-settings font-dark"></i>
-                                        <span class="caption-subject bold uppercase"> Users' Profile</span>
+                                        <span class="caption-subject bold uppercase"> All Users</span>
                                     </div>
                                        <div class="actions">
                                          <form id="search_text" name="form_search" method="POST" action="{{url('admin/search_user')}}" class="form-inline">
@@ -104,13 +104,11 @@
                                                 <th> First name </th>
                                                 <th> Last name</th>
                                                 <th> Email </th>
-                                                <th> Total Amount Ordered (NGN) </th>
                                                 <th> Date registered </th>
                                                 <th> Phone Number </th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                                {{count($users)}}
                                             @foreach($users as $user)
 
                                                 <tr class="odd gradeX">
@@ -127,15 +125,12 @@
                                                     </td>
 
                                                     <td class="center">
-                                                        &#x20A6;{{number_format($user->total, 2)}}
-                                                    </td>
-
-                                                    <td class="center">
                                                     @if(isset($user->created_at))
                                                      {{$user->created_at}} 
                                                     @endif
                                                      </td>
                                                     <td>
+
                                                     @if(isset($user->phone))
                                                         {{$user->phone}}
                                                     @else
@@ -143,7 +138,7 @@
                                                     @endif
                                                     </td>
                                                     <td>
-                                                        <a href="{{url('admin/users',$user->id)}}" data-toggle="modal" class="btn btn-primary" >View</a>
+                                                        <a target="_blank" href="{{url('admin/users',$user->id)}}" data-toggle="modal" class="btn btn-primary" >Full Details</a>
                                                     </td>
                                                 </tr>
                                             @endforeach

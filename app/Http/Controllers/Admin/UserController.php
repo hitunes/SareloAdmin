@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Order;
-use App\UserAddress;
+use App\Models\UserAddress;
 
 use DB;
 
@@ -19,7 +19,8 @@ class UserController extends Controller
     {
         $completedOrders = DB::table('orders')->where('status', 'Completed')->sum('total');
         $ordersResult = number_format($completedOrders);
-        $users = DB::select("Select u.first_name, u.last_name, u.email, u.phone, u.created_at,u.id, u_addr.address, u_addr.city, o.user_id, o.status, o.total, o.receiver_phone, o.payment_status, o.order_unique_reference, o.payment_method, SUM(o.total) as total from users u LEFT JOIN roles r ON u.role_id = r.id LEFT JOIN orders o ON o.user_id = u.id LEFT JOIN user_addresses u_addr ON u_addr.user_id = u.id LEFT JOIN billing_addresses b_addr ON b_addr.user_id = u.id where r.name = 'User' GROUP By u.id,u.first_name, u.last_name, u.email, u.phone, u.created_at, u_addr.address, u_addr.city, o.user_id, o.status, o.total, o.receiver_phone, o.payment_status, o.order_unique_reference, o.payment_method");
+        $users = DB::select("Select u.first_name, u.last_name, u.email, u.phone, u.created_at,u.id from users u LEFT JOIN roles r ON u.role_id = r.id where r.name = 'User' GROUP By u.id,u.first_name, u.last_name, u.email, u.phone, u.created_at
+        ");
         // dd($users); exit;
         return view('admin.dashboard.users', compact('users'));
     }
@@ -55,14 +56,12 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::with(['user_addresses', 'role', 'orders' => function($q) {
+
                                 $q->with(['order_products'=> function($qq){
                                     $qq->with('product');
                                 }]);
                         }])
-                        ->join('roles', 'roles.id', '=', 'users.role_id')
-                        ->where('roles.name', '!=', 'Super Admin')
                         ->findOrFail($id);
-        // dd($user);exit;
         return view('admin.dashboard.user_view', compact('user'));
     }
 
