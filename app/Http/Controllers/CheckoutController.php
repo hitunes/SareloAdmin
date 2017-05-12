@@ -58,6 +58,13 @@ class CheckoutController extends Controller
                 'password' => bcrypt($request->password),
             ]);
 
+            $token = bcrypt($new_user->email);
+
+            \DB::table("password_resets")->insert([
+                'email' => $new_user->email,
+                'token' => $token
+            ]);
+
             $role = Role::where('name', 'User')->first();
 
             $new_user->role()->associate($role);
