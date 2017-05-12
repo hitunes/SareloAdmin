@@ -60,8 +60,8 @@ class UserController extends Controller
                                     $qq->with('product');
                                 }]);
                         }])
-                        ->join('roles', 'roles.id', '=', 'users.role_id')
-                        ->where('roles.name', '!=', 'Super Admin')
+                        // ->join('roles', 'roles.id', '=', 'users.role_id')
+                        // ->where('roles.name', '!=', 'Super Admin')
                         ->findOrFail($id);
         return view('admin.dashboard.user_view', compact('user'));
     }
