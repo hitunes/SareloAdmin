@@ -24,13 +24,13 @@
                                                             </sup class="important f-9">
                                                         </label>
                                                         <input type="text" class="form-control" id="address" name="address" placeholder="Street Address" value="{{old('address')}}" required>
-                                            
+
                                                             @if ($errors->has('address'))
                                                                 <span class="help-block">
                                                                     <strong>{{ $errors->first('address') }}</strong>
                                                                 </span>
                                                             @endif
-                                                     
+
                                                     </div>
                                                 </div>
                                                 {{-- <div class="col-md-6 p-b-20">
@@ -65,28 +65,33 @@
                                                          @endif
                                                     </div>
                                                 </div>
-                                               
+
                                             </div>
                                         </fieldset>
                                         <div class="divider">
                                             <hr>
                                         </div>
-                                   
+                                        <div class="f-left">
+                                            <a href="/checkout/choose-address" class="btn btn-md bg-transparent f-18">Back</a>
+                                        </div>
                                      {{-- <button type="submit" class="btn btn-md f-18 pull-right c-white">Add</button> --}}
-                                    <button type="submit" class="btn btn-md bg-brand-green pull-right f-18" id="submit">Add</button>
+                                     <div class="f-right">
+                                         <button type="submit" class="btn btn-md bg-brand-green pull-right f-18" id="submit">Add</button>
+                                     </div>
 
-                                        
+
+
                                     </form>
                                 </div>
                            </div>
                            <p class="text-center">*Terms and condtions apply on free delivery. <a href="#" class="c-brand-purple">Learn more</a></p>
                        </div>
                        <div class="col-md-4">
-                           
+
                                @include('checkout.billing-summary')
-                          
+
                        </div>
-                   </div> 
+                   </div>
                 </div>
             </section>
 @endsection
