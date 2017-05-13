@@ -10,7 +10,7 @@
         <meta content="" name="author" />
         <!-- BEGIN GLOBAL MANDATORY STYLES -->
         <link href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
-        <link href="/dashboard/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="/dashboard/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
         <link href="/dashboard/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="/dashboard/assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
@@ -33,6 +33,12 @@
         <link rel="shortcut icon" href="favicon.ico" /> </head>
     <!-- END HEAD -->
     <style type="text/css">
+        #payment_message{
+            display:none;
+        }
+        #order_message{
+            display:none;
+        }
         #edit_each_product{
             display: none;
         }
@@ -53,7 +59,7 @@
                 <!-- BEGIN LOGO -->
                 <div class="page-logo">
                     <a href="{{url('/admin/')}}">
-                        <img src="/dashboard/assets/layouts/layout4/img/sarelo2.svg" alt="logo" class="logo-default" />
+                        <img src="/dashboard/assets/layouts/layout4/img/sarelo2.svg" alt="Sarelo" class="logo-default" />
                     </a>
                 </div>
                 <!-- END LOGO -->
@@ -151,7 +157,6 @@
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="/dashboard/assets/pages/scripts/dashboard.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/pages/scripts/ecommerce-orders.min.js" type="text/javascript"></script>
-        <script src="/dashboard/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
                 <script src="/dashboard/assets/global/scripts/datatable.js" type="text/javascript"></script>
         <script src="/dashboard/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
         <script src="/dashboard/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
@@ -202,6 +207,13 @@
 
             function displayMessage(status, id) {
                 $("#"+id).css('color', '#fff');
+                    $("#order_message").show()
+                setTimeout(function(){
+                    $("#order_message").hide()
+                },3000);
+                $("#payment_message").hide();
+
+
 
                 switch (status) {
                     case "Delivered":
@@ -246,6 +258,11 @@
 
             function paymentMessage(payment_status, pay_id) {
                 $("#payment"+pay_id).css('color', '#fff');
+                    $("#payment_message").show()
+                setTimeout(function(){
+                    $("#payment_message").hide()
+                },3000);
+                $("#order_message").hide();
                 switch (payment_status) {
                     case "Pending":
                         $("#payment"+pay_id).css('background-color', 'orange').css('color','white');
