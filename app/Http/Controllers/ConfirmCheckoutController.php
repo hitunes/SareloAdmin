@@ -54,17 +54,13 @@ class ConfirmCheckoutController extends Controller
 
     public function checkout(Request $request)
     {
-
         if($request->isMethod('post')){
 
             $slot_id = $request->slot_id? $request->slot_id: Session::get('order_details.slot_id');
             $user_address_id =  $request->user_address_id? $request->slot_id: Session::get('order_details.user_address_id');
             $basket = Helpers::getCartSummary();
 
-
             $items = Cart::content();
-
-            $unique_id = uniqid(8);
 
             $order = Order::create([
                 'user_id' => Auth::user()->id,
@@ -73,8 +69,19 @@ class ConfirmCheckoutController extends Controller
                 'delivery_instruction' => Session::get('order_details.delivery_instruction'),
                 'user_address_id' => $user_address_id,
                 'receiver_phone' => Session::get('order_details.receiver_phone'),
-                'order_unique_reference' => $unique_id
+                'order_unique_reference' => " "
             ]);
+            $unique_id = base_convert($order->id, 10, 16);
+            $diff = 6 - strlen($unique_id);
+
+            if($diff < 0){
+                //reference should not be more than 6 character long
+                throw new Exception("Error Generating order unique reference", 1);
+            }
+
+            $order->order_unique_reference = str_pad($unique_id, 6, 0, 0);
+
+            $order->save();
 
             $order->orderSlot()->save(new OrderSlot([
                 'slot_id' => $slot_id,
@@ -97,6 +104,5 @@ class ConfirmCheckoutController extends Controller
         }
 
         return redirect('/checkout/payment/'.$order->order_unique_reference);
-
     }
 }
