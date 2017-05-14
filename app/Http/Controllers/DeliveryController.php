@@ -36,7 +36,7 @@ class DeliveryController extends Controller
 
         if($request->isMethod('post')){
             //check if slot is still available
-            dd($request->all());
+
             $this->validate($request, [
                 'delivery_date' => 'required',
                 'slot_id' => 'required',
