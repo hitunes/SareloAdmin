@@ -45,7 +45,7 @@ class ConfirmCheckoutController extends Controller
         if($request->isMethod('post')){
 
             $slot_id = $request->slot_id? $request->slot_id: Session::get('order_details.slot_id');
-            $user_address_id =  $request->user_address_id? $request->slot_id: Session::get('order_details.user_address_id');
+            $user_address_id =  isset($request->user_address_id)? $request->user_address_id: Session::get('order_details.user_address_id');
             $basket = Helpers::getCartSummary();
             $items = Cart::content();
 
