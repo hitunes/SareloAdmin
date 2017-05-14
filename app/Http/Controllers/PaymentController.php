@@ -1,22 +1,14 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Domain\Helpers;
-
-use App\Models\Charge;
-
-use App\Models\Order;
-
-use Illuminate\Support\Facades\Mail;
-
-use App\Mail\OrderInvoice;
-
-use \Cart;
-
 use Auth;
+use \Cart;
+use App\Models\Order;
+use App\Models\Charge;
+use App\Domain\Helpers;
+use App\Mail\OrderInvoice;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class PaymentController extends Controller
 {
@@ -41,7 +33,6 @@ class PaymentController extends Controller
 
         return view('payment.index', compact('order', 'charge_arr'));
     }
-
 
     public function complete($order_unique_reference)
     {

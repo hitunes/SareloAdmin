@@ -99,7 +99,12 @@
                     <div class="container m-t-75">
                         <div class="card col-md-8 col-md-offset-2 text-center m-t-40">
                             <div class="header">
-                                <p class="f-24 w-500">We received your order for {{$order->order_products->count()}} items</p>
+                            <?php   $count = 0;
+                                $order->order_products->each(function ($product) use (&$count){
+                                    $count += (int) $product->qty;
+                                });
+                                ?>
+                                <p class="f-24 w-500">We received your order for {{$count}} items</p>
                             </div>
                             <div class="content">
                                 <p class="f-24 m-t-0 m-b-10">Delivery time</p>
