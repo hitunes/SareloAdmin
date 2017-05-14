@@ -1,28 +1,17 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Domain\Helpers;
-
-use \Cart;
-
-use App\Models\UserAddress;
-
-use App\Models\Slot;
-
-use App\Models\OrderProduct;
-
-use App\Models\Order;
-
-use App\Models\OrderSlot;
 
 use Auth;
-
+use \Cart;
 use Session;
-
-use Ramsey\Uuid\Uuid;
+use App\Models\Slot;
+use App\Models\Order;
+use App\Domain\Helpers;
+use App\Models\OrderSlot;
+use App\Models\UserAddress;
+use Illuminate\Http\Request;
+use App\Models\OrderProduct;
 
 
 class ConfirmCheckoutController extends Controller
@@ -39,7 +28,7 @@ class ConfirmCheckoutController extends Controller
         $order = Cart::content();
 
         $slot = Slot::find(Session::get('order_details.slot_id'));
-        $slots = Slot::getAvailableSlot(Session::get('order_details.delivery_date'), $slot->id);
+        $slots = Slot::getSingleDaySlots(Session::get('order_details.delivery_date'), $slot->day_of_week);
 
         $address = UserAddress::find(Session::get('order_details.user_address_id'));
         $addresses = UserAddress::where('user_id', Auth::user()->id)->get();
@@ -51,7 +40,6 @@ class ConfirmCheckoutController extends Controller
         return view('checkout.confirm', compact('basket', 'order', 'options', 'addresses', 'slots'));
     }
 
-
     public function checkout(Request $request)
     {
         if($request->isMethod('post')){
@@ -59,7 +47,6 @@ class ConfirmCheckoutController extends Controller
             $slot_id = $request->slot_id? $request->slot_id: Session::get('order_details.slot_id');
             $user_address_id =  $request->user_address_id? $request->slot_id: Session::get('order_details.user_address_id');
             $basket = Helpers::getCartSummary();
-
             $items = Cart::content();
 
             $order = Order::create([
@@ -71,16 +58,8 @@ class ConfirmCheckoutController extends Controller
                 'receiver_phone' => Session::get('order_details.receiver_phone'),
                 'order_unique_reference' => " "
             ]);
-            $unique_id = base_convert($order->id, 10, 16);
-            $diff = 6 - strlen($unique_id);
 
-            if($diff < 0){
-                //reference should not be more than 6 character long
-                throw new Exception("Error Generating order unique reference", 1);
-            }
-
-            $order->order_unique_reference = str_pad($unique_id, 6, 0, 0);
-
+            $order->order_unique_reference = Helpers::generateOrderReference($order->id);
             $order->save();
 
             $order->orderSlot()->save(new OrderSlot([
@@ -100,7 +79,6 @@ class ConfirmCheckoutController extends Controller
             }
 
             $order->orderProducts()->saveMany($order_product);
-
         }
 
         return redirect('/checkout/payment/'.$order->order_unique_reference);

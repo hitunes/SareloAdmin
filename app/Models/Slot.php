@@ -129,15 +129,27 @@ class Slot extends Model
 
     public static function isAvailable($slot_id, $date)
     {
-        $status = (bool)  \DB::select("Select * from slots where id = $slot_id AND slot_available
-                            > (SELECT count(os.slot_id) from slots s
-                             left join order_slots os ON s.id = os.slot_id
-                             where os.delivery_date=:date AND os.slot_id =:slot_id)",
+        $status = (bool)  \DB::select("SELECT * FROM slots WHERE id = $slot_id AND slot_available
+                            > (SELECT count(os.slot_id) FROM slots s
+                             LEFT JOIN order_slots os ON s.id = os.slot_id
+                             WHERE os.delivery_date=:date AND os.slot_id =:slot_id)",
                              ["date" => date('Y-m-d', strtotime($date)), 'slot_id' => $slot_id,]);
 
-                            //  dd($status);
         return $status;
 
+    }
+
+    public static function getSingleDaySlots($date, $day)
+    {
+        $slots = \DB::select("SELECT s.*, count(os.id) AS count from slots s
+                            LEFT JOIN order_slots os ON os.slot_id = s.id
+                            WHERE s.day_of_week =:day AND (os.delivery_date =:date
+                            OR os.delivery_date is null)
+                            GROUP BY s.id
+                            HAVING  count < s.slot_available",
+                            ['day' => $day, 'date'=> $date]);
+
+        return $slots;
     }
 
 

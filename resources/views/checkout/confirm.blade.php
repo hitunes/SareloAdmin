@@ -125,7 +125,7 @@
                                                             <select name="slot_id" class="no-bd bg-none location" disabled>
                                                                 @foreach($slots as $slot)
                                                                     <option value="{{$slot->id}}" @if($slot->id == Session::get('order_details.slot_id')) selected @endif>
-                                                                        {{date('l, M d')}}, {{$slot->time_range}}
+                                                                        {{date('l, M d', strtotime(Session::get('order_details.delivery_date')))}}, {{$slot->time_range}}
                                                                     </option>
                                                                 @endforeach
                                                             </select>
