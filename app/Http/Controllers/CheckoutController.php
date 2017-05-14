@@ -1,29 +1,21 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-
 use Auth;
-
 use \Cart;
-
+use Session;
+use App\User;
 use Carbon\Carbon;
-
-use App\Domain\Helpers;
-
-use App\Models\Charge;
 use App\Models\Slot;
 use App\Models\Order;
-use App\Models\OrderProduct;
-use App\Models\OrderSlot;
-use App\Models\UserAddress;
-use App\User;
 use App\Models\Role;
+use App\Models\Charge;
+use App\Domain\Helpers;
+use App\Models\OrderSlot;
 use App\Models\Transaction;
-
-use Session;
+use App\Models\UserAddress;
+use App\Models\OrderProduct;
+use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
 {

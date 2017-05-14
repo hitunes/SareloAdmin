@@ -1,15 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use Carbon\Carbon;
-
-use App\Domain\Helpers;
-
 use App\Models\Slot;
-
+use App\Domain\Helpers;
+use Illuminate\Http\Request;
 
 class DeliveryController extends Controller
 {

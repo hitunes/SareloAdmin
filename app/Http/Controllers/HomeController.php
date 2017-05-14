@@ -1,13 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use App\Models\Order;
-
 use App\Models\UserAddress;
-
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class HomeController extends Controller
@@ -20,7 +16,6 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-
     }
 
     /**
@@ -71,11 +66,8 @@ class HomeController extends Controller
 
             return redirect()->back()->with('status_message', 'Address added');
         }
-
         return view('account.new-address');
-
     }
-
 
     public function cancelOrder($order_id)
     {

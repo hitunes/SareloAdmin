@@ -1,14 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Models\UserAddress;
-
-use App\Domain\Helpers;
-
 use Auth;
+use App\Domain\Helpers;
+use App\Models\UserAddress;
+use Illuminate\Http\Request;
 
 class AddressController extends Controller
 {

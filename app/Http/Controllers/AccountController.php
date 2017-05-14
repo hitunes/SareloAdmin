@@ -1,12 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 use Auth;
-
 use App\Models\UserAddress;
+use Illuminate\Http\Request;
 
 class AccountController extends Controller
 {

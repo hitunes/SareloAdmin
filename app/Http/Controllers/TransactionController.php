@@ -1,14 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
-use App\Models\Order;
-
-use App\Models\Transaction;
-
 use \Cart;
+use App\Models\Order;
+use App\Models\Transaction;
+use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {

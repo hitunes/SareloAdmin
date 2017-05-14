@@ -2,17 +2,11 @@
 namespace App\Http\Controllers;
 
 use \Cart;
-
-use Illuminate\Http\Request;
-
 use League\Fractal;
-
-use League\Fractal\Serializer\DataArraySerializer;
-
-use App\Transformers\ChargeTransformer;
-
-
 use App\Models\Charge;
+use Illuminate\Http\Request;
+use App\Transformers\ChargeTransformer;
+use League\Fractal\Serializer\DataArraySerializer;
 
 class CartsController extends Controller
 {
