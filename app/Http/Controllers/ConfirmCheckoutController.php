@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 
-
 use Auth;
 use \Cart;
 use Session;
@@ -12,7 +11,6 @@ use App\Models\OrderSlot;
 use App\Models\UserAddress;
 use Illuminate\Http\Request;
 use App\Models\OrderProduct;
-
 
 class ConfirmCheckoutController extends Controller
 {

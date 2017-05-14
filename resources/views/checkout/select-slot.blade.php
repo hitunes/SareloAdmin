@@ -105,8 +105,7 @@
                                                 <ul id="myTab" class="nav nav-tabs">
                                                     <?php $i = 0;?>
                                                     @foreach($slots as $key=>$value)
-                                                    <li @if($i == 0) class="active delivery_date" @else class="delivery_date"@endif @if($i ==0) data-payload="{{date('Y-m-d', strtotime($key))}}"
-                                                        @else data-payload="{{date('Y-m-d', strtotime($key))}}" @endif>
+                                                    <li @if($i == 0) class="active delivery_date" @else class="delivery_date"@endif data-payload="{{date('Y-m-d', strtotime($key))}}">
                                                         <a href="#{{$key}}" data-toggle="tab">
                                                             @if($key == date('Y-m-d'))
                                                                 <p>Today</p>
@@ -160,7 +159,12 @@
                                                 @endforeach
                                                 </div>
                                             </div>
-                                            <input type="hidden" class="delivery_date_v" name="delivery_date" value="{{date('Y-m-d')}}">
+                                            <?php
+                                            $slot_x = $slots;
+                                            reset($slot_x);
+                                            $first_key = key($slot_x);
+                                            ?>
+                                            <input type="hidden" class="delivery_date_v" name="delivery_date" value="{{$first_key}}">
 
                                     </div>
                                     <!-- starts here end -->
