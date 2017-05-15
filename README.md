@@ -1,7 +1,7 @@
-#SARELO
+# SARELO
 
 
-##Installation
+## Installation
 * Navigate to the project root and run `composer install` to install all the project's dependencies.
 * copy `.env.example` and name the copy `.env`
 * change all necessary settings in the  `.env` file (e.g APP_URL, database configs).
