@@ -130,7 +130,7 @@
                                                     <div class="portlet blue-hoki box">
                                                         <div class="portlet-title">
                                                             <div class="caption">
-                                                                <i class="fa fa-cogs"></i>Address 
+                                                                <i class="fa fa-cogs"></i>Addresses 
                                                                 ({{count($user->user_addresses)}})</div>
                                                             <!--<div class="actions">
                                                                 <a href="javascript:;" class="btn btn-default btn-sm">
@@ -155,6 +155,14 @@
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12 col-sm-12">
+                                                <div id="order_message" class="alert alert-success">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                    <strong>Success:</strong> Order Updated Successfully
+                                                </div>
+                                                <div id="payment_message" class="alert alert-success">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                    <strong>Success:</strong> Payment Updated Successfully
+                                                </div>
                                                     <div class="portlet grey-cascade box">
                                                         <div class="portlet-title">
                                                             <div class="caption">
@@ -168,8 +176,8 @@
                                                                            <tr role="row" class="heading">
                                                                                <th width="10%"> Order&nbsp;# </th>
                                                                                <th width="15%"> Order Date</th>
-                                                                               <th width="15%"> Order Status</th>
-                                                                               <th width="15%"> Payment Satus</th>
+                                                                               <th width="15%"> Update Status</th>
+                                                                               <th width="15%"> Update Payment</th>
                                                                                <th width="15%"> Reciever's Phone</th>
                                                                                <th width="15%"> Total</th>
                                                                            </tr>
@@ -188,36 +196,24 @@
                                                                                        
                                                                                         <td> 
 
-
-                                                                                        @if(strtolower($item->status) == 'delivered')
-
-                                                                            <span id="{{$item->id}}" class="label label-sm" style="color:#222; background-color:#5cb85c;"> {{$item->status}} </span>
-
-                                                                        @elseif(strtolower($item->status) == 'processing')
-                                                                             
-                                                                             <span id="{{$item->id}}" class="label label-sm" style="color:#222; background-color: orange;"> {{$item->status}} </span>
-
-                                                                        @elseif(strtolower($item->status) == 'confirmed')
-                                                                            
-                                                                            <span id="{{$item->id}}" class="label label-sm" style="color:#222; background-color: #22b9b7;"> {{$item->status}} </span>
-                                                                        @elseif(strtolower($item->status) == 'gone to market')
-                                                                            
-                                                                            <span id="{{$item->id}}" class="label label-sm" style="color:#222; background-color: #b92296;"> {{$item->status}} </span>
-                                                                        @endif 
-                                                                                       
+                                                                                        <select class="updateStatus" name="order_status" class="form-control" data-payload="{{$item->id}}">
+                                                                                                <option value="{{$item->status}}">{{$item->status}}</option>
+                                                                                                <option value="Confirmed">Confirmed</option>
+                                                                                                <option value="Processing">Processing</option>
+                                                                                                <option value="Gone to Market">Gone to Market</option>
+                                                                                                <option value="Delivered">Delivered</option>
+                                                                                            </select>
+                                                                                    
 
                                                                                          </td>
                                                                                         <td> 
-
-                                                                                             @if(strtolower($item->payment_status) == 'pending')
-
-                                                                       <span id="payment{{$item->id}}" class="label payment label-sm label-warning" data-payload="{{$item->id}}" style="color:white; background-color: orange; "> {{$item->payment_status}} </span>
-
-                                                                    @elseif(strtolower($item->payment_status) == 'successful')
-                                                                         <span id="payment{{$item->id}}" class="label payment label-success label-sm" style="color: white;" data-payload="{{$item->id}}" => {{$item->payment_status}} </span>
-                                                                    @elseif(strtolower($item->payment_status) == 'cancel')
-                                                                         <span id="payment{{$item->id}}" class="label payment label-danger label-sm" data-payload="{{$item->id}}" => {{$item->payment_status}} </span>
-                                                                    @endif     
+                                                                                              <select class="paymentStatus" name="paymentStatus" class="form-control form-filter input-sm" data-payload="{{$item->id}}">
+                                                                                                <option value="{{$item->payment_status}}">{{$item->payment_status}}</option>
+                                                                                                <option value="Pending">Pending</option>
+                                                                                                <option value="Cancel">Cancel</option>
+                                                                                                <option value="Successfull">Successfull</option>
+                                                                                            </select>
+                                                                                           
 
                                                                                         </td>
                                                                                         <td> {{$item->receiver_phone}} </td>

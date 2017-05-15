@@ -74,7 +74,7 @@ class AdminController extends Controller
                         ]);
                         $authenticate_user = Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')]);
                         if ($authenticate_user) {
-                            return redirect('admin/dashboard')->with('success','Welcome Admin');
+                            return redirect('admin/dashboard');
                         }else{
                             return redirect('/admin')->with('delete_message', 'Wrong Email or Password');
                         }

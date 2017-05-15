@@ -95,6 +95,14 @@
                                             <div class="tab-pane active" id="tab_1">
                                                 <div class="row">
                                                     <div class="col-md-6 col-sm-12">
+                                                    <div id="order_message" class="alert alert-success">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                        <strong>Success:</strong> Order Updated Successfully
+                                                    </div>
+                                                    <div id="payment_message" class="alert alert-success">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                                        <strong>Success:</strong> Payment Updated Successfully
+                                                    </div>
                                                         <div class="portlet yellow-crusta box">
                                                             <div class="portlet-title">
                                                                 <div class="caption">
@@ -121,28 +129,13 @@
                                                                 <div class="row static-info">
                                                                     <div class="col-md-5 name"> Order Status: </div>
                                                                     <div class="col-md-7 value">
-                                                                        @if(strtolower($order->status) == 'delivered')
-
-                                                                            <span id="{{$order->id}}" class="label label-sm" style="color:#222; background-color:#5cb85c;"> {{$order->status}} </span>
-
-                                                                        @elseif(strtolower($order->status) == 'processing')
-                                                                             
-                                                                             <span id="{{$order->id}}" class="label label-sm" style="color:#222; background-color: orange;"> {{$order->status}} </span>
-
-                                                                        @elseif(strtolower($order->status) == 'confirmed')
-                                                                            
-                                                                            <span id="{{$order->id}}" class="label label-sm" style="color:#222; background-color: #22b9b7;"> {{$order->status}} </span>
-                                                                        @elseif(strtolower($order->status) == 'gone to market')
-                                                                            
-                                                                            <span id="{{$order->id}}" class="label label-sm" style="color:white; background-color: #b92296;"> {{$order->status}} </span>
-                                                                        @endif 
-                                                                        <select class="updateStatus" name="order_status" class="form-control" data-payload="{{$order->id}}">
-                                                                        <option value="">Change</option>
-                                                                        <option value="Confirmed">Confirmed</option>
-                                                                        <option value="Processing">Processing</option>
-                                                                        <option value="Gone to Market">Gone to Market</option>
-                                                                        <option value="Delivered">Delivered</option>
-                                                                    </select>
+                                                                    <select class="updateStatus" name="order_status" class="form-control" data-payload="{{$order->id}}">
+                                                                            <option value="{{$order->status}}">{{$order->status}}</option>
+                                                                            <option value="Confirmed">Confirmed</option>
+                                                                            <option value="Processing">Processing</option>
+                                                                            <option value="Gone to Market">Gone to Market</option>
+                                                                            <option value="Delivered">Delivered</option>
+                                                                        </select>
                                                                 </div>
                                                                      
                                                                 </div>
@@ -157,21 +150,12 @@
                                                                  <div class="row static-info">
                                                                     <div class="col-md-5 name"> Payment Status: </div>
                                                                     <div class="col-md-7 value">
-
-                                                                     @if(strtolower($order->payment_status) == 'pending')
-
-                                                                       <span id="payment{{$order->id}}" class="label payment label-sm label-warning" data-payload="{{$order->id}}" style="color:white; "> {{$order->payment_status}} </span>
-
-                                                                    @elseif(strtolower($order->payment_status) == 'successful')
-                                                                         <span id="payment{{$order->id}}" class="label payment label-sm" data-payload="{{$order->id}}" style="color:#222; background-color:#1ebea5;"> {{$order->payment_status}} </span>
-                                                                    @elseif(strtolower($order->payment_status) == 'cancel')
-                                                                         <span id="payment{{$order->id}}" class="label payment label-danger label-sm" data-payload="{{$order->id}}" => {{$order->payment_status}} </span>
-                                                                    @endif     
-                                                                       <select class="paymentStatus" name="paymentStatus" class="form-control form-filter input-sm" data-payload="{{$order->id}}">
-                                                                        <option value="">Select...</option>
-                                                                        <option value="Pending">Pending</option>
-                                                                        <option value="Cancel">Cancel</option>
-                                                                        <option value="Successfull">Successfull</option>
+                                                                         <select class="paymentStatus" name="paymentStatus" class="form-control form-filter input-sm" data-payload="{{$order->id}}">
+                                                                           <option value="{{$order->payment_status}}">{{$order->payment_status}}</option>
+                                                                           <option value="Pending">Pending</option>
+                                                                           <option value="Cancel">Cancel</option>
+                                                                           <option value="Successfull">Successfull</option>
+                                                                       </select>
                                                                     </select>
                                                                     </div>
                                                                 </div>

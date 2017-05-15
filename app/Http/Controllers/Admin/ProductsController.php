@@ -64,15 +64,14 @@ class ProductsController extends Controller
     {
 
         $this->validate($request, [
-            'name' => 'required',
-            'description' => 'required',
+            'name' => 'required|min:3',
+            'description' => 'required|min:4',
             'price' => 'required|int',
             'unit' => 'required|integer',
             'unit_type_id' => 'required',
             'product_image' => 'required|image'
         ]);
-        $filename =
-
+        $filename = $filename = $request->file('product_image')->getClientOriginalName();
 
         $img_ext = ['.jpg', '.jpeg', '.PNG', '.png'];
         $filename = str_replace($img_ext, '', $filename);

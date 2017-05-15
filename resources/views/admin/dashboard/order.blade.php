@@ -58,6 +58,14 @@
             <div class="page-content-wrapper">
                 <div class="page-content">
                     <div class="row">
+                        <div id="order_message" class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>Success:</strong> Order Updated Successfully
+                        </div>
+                        <div id="payment_message" class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>Success:</strong> Payment Updated Successfully
+                        </div>
                         @if (session('success'))
                                 <div class="alert alert-success">
                                     {{ session('success') }}
@@ -116,10 +124,8 @@
                                                     <th width="10%"> Price </th>
                                                     <th width="15%"> Payment Method</th>
                                                     <th width="15%"> Update Payment</th>
-                                                    <th width="15%"> Payment Satus</th>
                                                     <th width="15%"> Phone</th>
                                                     <th width="15%"> Update Status </th>
-                                                    <th width="15%"> Current Status </th>
                                                     <th width="5%"> Details </th>
                                                 </tr>
 
@@ -143,55 +149,23 @@
                                                                 <td> {{$order->total}} </td>
                                                                 <td> {{$order->payment_method}} </td>
                                                                  <td>
-                                                                      <select class="paymentStatus" name="paymentStatus" class="form-control form-filter input-sm" data-payload="{{$order->id}}">
-                                                                        <option value="">Select...</option>
-                                                                        <option value="Pending">Pending</option>
-                                                                        <option value="Cancel">Cancel</option>
-                                                                        <option value="Successfull">Successfull</option>
-                                                                    </select>
-                                                                 </td>
-                                                                <td>
-                                                                     
-
-                                                                        @if(strtolower($order->payment_status) == 'pending')
-
-                                                                       <span id="payment{{$order->id}}" class="label payment label-sm label-warning" data-payload="{{$order->id}}" style="color:white; background-color: orange; "> {{$order->payment_status}} </span>
-
-                                                                    @elseif(strtolower($order->payment_status) == 'successful')
-                                                                         <span id="payment{{$order->id}}" class="label payment label-success label-sm" data-payload="{{$order->id}}" style="color:#fff; background-color:#1ebea5;"> {{$order->payment_status}} </span>
-                                                                    @elseif(strtolower($order->payment_status) == 'cancel')
-                                                                         <span id="payment{{$order->id}}" class="label payment label-danger label-sm" data-payload="{{$order->id}}" => {{$order->payment_status}} </span>
-                                                                    @endif                                                                  
-
+                                                                       <select class="paymentStatus" name="paymentStatus" class="form-control form-filter input-sm" data-payload="{{$order->id}}">
+                                                                         <option value="{{$order->payment_status}}">{{$order->payment_status}}</option>
+                                                                         <option value="Pending">Pending</option>
+                                                                         <option value="Cancel">Cancel</option>
+                                                                         <option value="Successfull">Successfull</option>
+                                                                     </select>
                                                                 </td>
-
                                                                 <td> {{$order->receiver_phone}} </td>
                                                                 <td>
-
-                                                                    <select class="updateStatus" name="order_status" class="form-control" data-payload="{{$order->id}}">
-                                                                        <option value="">Select...</option>
+                                                                <select class="updateStatus" name="order_status" class="form-control" data-payload="{{$order->id}}">
+                                                                        <option value="{{$order->status}}">{{$order->status}}</option>
                                                                         <option value="Confirmed">Confirmed</option>
                                                                         <option value="Processing">Processing</option>
                                                                         <option value="Gone to Market">Gone to Market</option>
                                                                         <option value="Delivered">Delivered</option>
                                                                     </select>
-                                                                </td>
-                                                                <td>
-                                                                        @if(strtolower($order->status) == 'delivered')
-
-                                                                            <span id="{{$order->id}}" class="label label-sm" > {{$order->status}} </span>
-
-                                                                        @elseif(strtolower($order->status) == 'processing')
-                                                                             
-                                                                             <span id="{{$order->id}}" class="label label-sm" > {{$order->status}} </span>
-
-                                                                        @elseif(strtolower($order->status) == 'confirmed')
-                                                                            
-                                                                            <span id="{{$order->id}}" class="label label-sm" > {{$order->status}} </span>
-                                                                        @elseif(strtolower($order->status) == 'gone to market')
-                                                                            
-                                                                            <span id="{{$order->id}}" class="label label-sm" > {{$order->status}} </span>
-                                                                        @endif 
+                                                                
                                                                 </td>
                                                             </form>
                                                                 <td>
