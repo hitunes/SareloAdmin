@@ -42,7 +42,7 @@ class HomeController extends Controller
 
         $gone_to_market = Order::GetOrderDetails(\Auth::user()->id, 'gone-to-market')->get();
 
-        $pending_orders = Order::GetOrderDetails(\Auth::user()->id, 'pending')->get();
+        $pending_orders = Order::GetOrderDetails(\Auth::user()->id, 'processing')->get();
 
         return view('account.my-orders', compact('completed_orders', 'gone_to_market', 'confirmed_orders', 'pending_orders'));
     }
