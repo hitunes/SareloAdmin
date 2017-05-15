@@ -131,10 +131,10 @@
                                                                     <div class="col-md-7 value">
                                                                     <select class="updateStatus" name="order_status" class="form-control" data-payload="{{$order->id}}">
                                                                             <option value="{{$order->status}}">{{$order->status}}</option>
-                                                                            <option value="Confirmed">Confirmed</option>
-                                                                            <option value="Processing">Processing</option>
-                                                                            <option value="Gone to Market">Gone to Market</option>
-                                                                            <option value="Delivered">Delivered</option>
+                                                                            <option value="confirmed">Confirmed</option>
+                                                                            <option value="processing">Processing</option>
+                                                                            <option value="gone-to-market">Gone to Market</option>
+                                                                            <option value="delivered">Delivered</option>
                                                                         </select>
                                                                 </div>
                                                                      
@@ -152,9 +152,9 @@
                                                                     <div class="col-md-7 value">
                                                                          <select class="paymentStatus" name="paymentStatus" class="form-control form-filter input-sm" data-payload="{{$order->id}}">
                                                                            <option value="{{$order->payment_status}}">{{$order->payment_status}}</option>
-                                                                           <option value="Pending">Pending</option>
-                                                                           <option value="Cancel">Cancel</option>
-                                                                           <option value="Successfull">Successfull</option>
+                                                                           <option value="pending">Pending</option>
+                                                                           <option value="cancel">Cancel</option>
+                                                                           <option value="successful">Successful</option>
                                                                        </select>
                                                                     </select>
                                                                     </div>
