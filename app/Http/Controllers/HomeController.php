@@ -38,9 +38,13 @@ class HomeController extends Controller
 
         $completed_orders = Order::GetOrderDetails(\Auth::user()->id, 'completed')->get();
 
+        $confirmed_orders = Order::GetOrderDetails(\Auth::user()->id, 'confirmed')->get();
+
+        $gone_to_market = Order::GetOrderDetails(\Auth::user()->id, 'gone-to-market')->get();
+
         $pending_orders = Order::GetOrderDetails(\Auth::user()->id, 'pending')->get();
 
-        return view('account.my-orders', compact('completed_orders', 'pending_orders'));
+        return view('account.my-orders', compact('completed_orders', 'gone_to_market', 'confirmed_orders', 'pending_orders'));
     }
 
 
