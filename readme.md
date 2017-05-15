@@ -10,3 +10,5 @@
 * Modify sender's name in email template and signature in email template
 * setup a subdomain to serve as cdn for uploaded images e.g `media.sarelo.com`
 * change APP_URL in`env.example` to the site domain
+
+
