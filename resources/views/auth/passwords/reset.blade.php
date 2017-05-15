@@ -21,7 +21,7 @@
                         <div class="collapse navbar-collapse" id="navcol-1">
                             <ul class="nav navbar-nav navbar-right">
                                 <li role="presentation">
-                                    <a href="/signup">
+                                    <a href="#">
                                         <button class="btn btn-md bg-transparent-white">How Sarelo Works</button>
                                     </a>
                                 </li>

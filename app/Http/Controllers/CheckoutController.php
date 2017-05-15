@@ -34,10 +34,10 @@ class CheckoutController extends Controller
             $this->validate($request,[
                 'phone' => 'required|digits:11',
                 'address' => 'required|min:10',
-                'city' => 'required|min:3',
+                'city' => 'required|min:3|alpha',
                 'password' => 'required',
-                'first_name' => 'required',
-                'last_name' => 'required',
+                'first_name' => 'required|alpha',
+                'last_name' => 'required|alpha',
                 'email' => 'required|unique:users'
             ]);
 

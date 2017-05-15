@@ -10,9 +10,9 @@ class AccountController extends Controller
     public function updateUserDetails(Request $request)
     {
     	$this->validate($request, [
-    			'first_name' => 'required',
-    			'last_name' => 'required',
-    			'phone' => 'required',
+    			'first_name' => 'required|alpha',
+    			'last_name' => 'required|alpha',
+    			'phone' => 'required|digits:11',
     		]);
 
     	Auth::user()->first_name = $request->first_name;
@@ -29,7 +29,7 @@ class AccountController extends Controller
     public function updateEmail(Request $request)
     {
     	$this->validate($request, [
-    			'email' => 'required',
+    			'email' => 'required|unique:users',
     		]);
 
     	Auth::user()->email = $request->email;
