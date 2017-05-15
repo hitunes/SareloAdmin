@@ -150,10 +150,11 @@
                                                                  <div class="row static-info">
                                                                     <div class="col-md-5 name"> Payment Status: </div>
                                                                     <div class="col-md-7 value">
+                                                                    
                                                                          <select class="paymentStatus" name="paymentStatus" class="form-control form-filter input-sm" data-payload="{{$order->id}}">
                                                                            <option value="{{$order->payment_status}}">{{$order->payment_status}}</option>
                                                                            <option value="pending">Pending</option>
-                                                                           <option value="cancel">Cancel</option>
+                                                                           <option value="cancelled">Cancelled</option>
                                                                            <option value="successful">Successful</option>
                                                                        </select>
                                                                     </select>
