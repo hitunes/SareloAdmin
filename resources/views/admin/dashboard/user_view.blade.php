@@ -210,7 +210,7 @@
                                                                                               <select class="paymentStatus" name="paymentStatus" class="form-control form-filter input-sm" data-payload="{{$item->id}}">
                                                                                                 <option value="{{$item->payment_status}}">{{$item->payment_status}}</option>
                                                                                                 <option value="pending">Pending</option>
-                                                                                                <option value="cancel">Cancel</option>
+                                                                                                <option value="cancelled">Cancelled</option>
                                                                                                 <option value="successful">Successfull</option>
                                                                                             </select>
                                                                                            
