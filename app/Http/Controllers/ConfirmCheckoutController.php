@@ -49,7 +49,7 @@ class ConfirmCheckoutController extends Controller
 
             $order = Order::create([
                 'user_id' => Auth::user()->id,
-                'status' => 'pending',
+                'status' => 'processing',
                 'total' => $basket['total'],
                 'delivery_instruction' => Session::get('order_details.delivery_instruction'),
                 'user_address_id' => $user_address_id,

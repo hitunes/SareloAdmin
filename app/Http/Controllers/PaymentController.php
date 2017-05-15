@@ -31,7 +31,6 @@ class PaymentController extends Controller
                 $charge_arr['ten_percent'] = $order->sub_total * ($charge['percentage']/100);
          }
 
-         dd($order);
         return view('payment.index', compact('order', 'charge_arr'));
     }
 
