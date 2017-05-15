@@ -171,7 +171,7 @@ class CheckoutController extends Controller
          $order = Order::create([
              'user_id' => Auth::user()->id,
              'total' => $total,
-             'status' => 'pending'
+             'status' => 'processing'
          ]);
 
          $transaction_arr = [
