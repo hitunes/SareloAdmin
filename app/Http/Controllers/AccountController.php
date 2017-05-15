@@ -60,7 +60,8 @@ class AccountController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-                'address' => 'required'
+                'address' => 'required',
+                'city' => 'required|min:3|alpha'
             ]);
 
         $address = UserAddress::where('id', $id)->update($request->all());
