@@ -189,7 +189,9 @@
                                                 <span>Delivery Charge</span>
                                                 <span class="pull-right">
                                                     &#8358;
-                                                    <span class="cash">{{$order->orderProducts->sum('sub_total') * .1}}</span>
+                                                    <span class="cash">
+                                                    {{$order->orderProducts->sum('sub_total') * 0.1}}
+                                                    </span>
                                                 </span>
                                             </p>
                                         </li>
