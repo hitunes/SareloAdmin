@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>checkout_1</title>
+        <!--my icons here -->
+        <link rel="stylesheet" type="text/css" href="../assets/icon/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="../assets/icon/flaticon/flaticon.css">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.min.css">
+        <!-- Main CSS here -->
+        <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
+
+        <!--Responsive CSS added here -->
+        <link rel="stylesheet" type="text/css" href="../assets/css/responsive.css">
+        
+        <link href="https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    </head>
+    <body>
+    
+        <div class="wrapper clearfix">
+            <header class="m-b-30">
+                <!-- ===Nav bar starts here == -->
+                <nav class="navbar navbar-default">
+                    <div class="container-fluid dis-flex">
+                        <div class="navbar-header">
+                            <a class="navbar-brand navbar-link" href="index.html">
+                                <img src="../assets/img/logo/sarelo3.svg">
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+                <!-- ===Nav bar endss here == -->
+                <!-- Progress -->
+                <!--wizard here-->
+                <div class="progressContainer dis-flex">
+                    <div class="wizard">
+                        <div class="wizard-inner">
+                            
+                            <ul class="nav nav-tabs">
+
+                                <li role="presentation"  class="active">
+                                    <a href="#">
+                                        <span class="round-tab">
+                                            <span class="badge bg-transparent">
+                                                <i class="fa fa-check"></i>
+                                            </span>
+                                            Address
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li role="presentation" class="active">
+                                    <a href="#">
+                                        <span class="round-tab">
+                                            <span class="badge bg-brand-green">
+                                                2
+                                            </span>
+                                            Delivery Slot
+                                        </span>
+                                    </a>
+                                </li>
+                                <li role="presentation"  class="active">
+                                    <a href="#">
+                                        <span class="round-tab">
+                                            <span class="badge bg-brand-green">3</span>
+                                            Confirmation
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li role="presentation"  class="active">
+                                    <a href="#">
+                                        <span class="round-tab">
+                                            <span class="badge bg-brand-green">4</span>
+                                            Payment
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- wizard ended -->
+                <!-- Progress -->
+            </header>
+            <section>
+                <div class="container width-94p">
+                   <div class="row">
+                       <div class="col-md-8">
+                           <div class="card">
+                                <div class="content clearfix">
+                                    <form id="addressForm" data-parsley-validate="">
+                                        <fieldset>
+                                            <h4 class="title">
+                                                <i class="fa fa-map-marker c-brand-green f-27"></i>
+                                                Enter Delivery Address
+                                            </h4>
+                                            <div class="row p-t-30">
+                                                <div class="col-md-6 p-b-20">
+                                                    <div class="form-group">
+                                                        <label for="address" class="w-500">
+                                                            Street Address
+                                                            <sup class="important f-9">
+                                                                <i class="fa fa-asterisk"></i>
+                                                            </sup class="important f-9">
+                                                        </label>
+                                                        <input type="text" class="form-control" id="address" name="address" placeholder="Street Address" required="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 p-b-20">
+                                                    <div class="form-group">
+                                                        <label for="number" class="w-500">
+                                                            Phone Number
+                                                            <sup class="important f-9">
+                                                                <i class="fa fa-asterisk"></i>
+                                                            </sup class="important f-9">
+                                                        </label>
+                                                        <input type="text" class="form-control" id="number" name="number" placeholder="Phone Number" required=""  data-parsley-type="number" data-parsley-length="[11, 13]" data-parsley-id="11">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="city" class="w-500">
+                                                            City
+                                                            <sup class="important f-9">
+                                                                <i class="fa fa-asterisk"></i>
+                                                            </sup class="important f-9">
+                                                        </label>
+                                                        <input type="text" class="form-control" id="city" name="city" placeholder="City" required="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label for="instruction" class="w-500">
+                                                            Instruction for Delivery <span class="opacity-50">(optional)</span>
+                                                        </label>
+                                                        <textarea class="form-control" name="instruction" id="instruction" placeholder="(e.g you have vicious dogs)" ></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <div class="divider">
+                                            <hr>
+                                        </div>
+                                        <fieldset>
+                                            <h4 class="title">
+                                                <i class="fa fa-user-circle-o c-brand-green f-27"></i>
+                                                Personal Details
+                                            </h4>
+                                            <div class="row p-t-30">
+                                                <div class="col-md-6 p-b-20">
+                                                    <div class="form-group">
+                                                        <label for="first_name" class="w-500">
+                                                            First Name
+                                                            <sup class="important f-9">
+                                                                <i class="fa fa-asterisk"></i>
+                                                            </sup class="important f-9">
+                                                        </label>
+                                                        <input type="text" class="form-control" id="first_name" name="first_name" required="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 p-b-20">
+                                                    <div class="form-group">
+                                                        <label for="last_name" class="w-500">
+                                                            Last Name
+                                                            <sup class="important f-9">
+                                                                <i class="fa fa-asterisk"></i>
+                                                            </sup class="important f-9">
+                                                        </label>
+                                                        <input type="text" class="form-control" id="last_name" name="last_name" required="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 p-b-20">
+                                                    <div class="form-group">
+                                                        <label for="email" class="w-500">
+                                                            Email Address
+                                                            <sup class="important f-9">
+                                                                <i class="fa fa-asterisk"></i>
+                                                            </sup class="important f-9">
+                                                        </label>
+                                                        <input type="email" class="form-control" id="email" name="email" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 p-b-20">
+                                                    <div class="form-group">
+                                                        <label for="password" class="w-500">
+                                                            Password
+                                                        </label>
+                                                       <input type="password" class="form-control" name="password" id="password" required="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        <button type="submit" class="btn btn-md bg-brand-green pull-right f-18" id="submit">Continue</button>
+                                    </form>
+                                </div>
+                           </div>
+                           <p class="text-center">*Terms and condtions apply on free delivery. <a href="#" class="c-brand-purple">Learn more</a></p>
+                       </div>
+                       <div class="col-md-4">
+                           <div class="card">
+                                <div class="header">
+                                    <h4 class="title">Cart Summary</h4>
+                                </div>
+                                <div class="content">
+                                    <p class="category">The total cost is inclusive of tax, delivery and service charge.</p>
+                                    <ul class="p-l-0 list-style-none">
+                                        <li>
+                                            <hr>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Your Basket</span>
+                                                <span class="pull-right"> 
+                                                    &#8358;
+                                                    <span class="cash" id="totalP">9882</span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Sales Tax</span>
+                                                <span class="pull-right"> 
+                                                    &#8358;
+                                                    <span class="cash">9882</span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Service charge</span>
+                                                <span class="pull-right"> 
+                                                    &#8358;
+                                                    <span class="cash" id="serviceCharge">9882</span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Delivery Charge</span>
+                                                <span class="pull-right"> 
+                                                    &#8358;
+                                                    <span class="cash" id="deliveryFee">9882</span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                        <li>
+                                            <hr>
+                                        </li>
+                                        <li>
+                                            <p class="menus">
+                                                <span>Total Due</span>
+                                                <span class="pull-right c-brand-green f-20"> 
+                                                    &#8358;
+                                                    <span class="cash" id="grandTP">9882</span>
+                                                </span>
+                                            </p>
+                                        </li>
+                                    </ul>
+                                </div>
+                           </div>
+                       </div>
+                   </div> 
+                </div>
+            </section>
+        </div>
+
+        
+        <!-- jQuery -->
+        <script src="../assets/js/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="../assets/js/bootstrap/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../assets/js/parsley.min.js"></script>
+        <script src="../assets/js/main.js"></script>
+        <script>
+            app.cartCtrl();
+            app.validator();
+        </script>
+
+    </body>
+</html>

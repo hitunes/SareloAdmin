@@ -1,0 +1,9 @@
+/* here you can put your own css to customize and override the theme */
+.btn-blue{
+    background-color: #F90707;
+    border: none;
+    color: white;
+}
+.center{
+    text-align: center;
+}
