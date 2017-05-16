@@ -1,6 +1,6 @@
-#SARELO
+# SARELO
 
-##Installation
+## Installation
 * Navigate to the project root and run `composer install` to install all the project's dependencies.
 * copy `.env.example` and name the copy `.env`
 * run laravel migration `php artisan migrate`

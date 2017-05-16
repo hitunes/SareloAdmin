@@ -69,7 +69,7 @@ class Slot extends Model
 
         if(collect($slot_items)->count() > 0){
 
-            $start_point = array_search(intval(date('N', strtotime('today'))), $slot_items);
+            $start_point = self::getStartPoint($slot_items, intval(date('N', strtotime('today'))));
             $start_week = array_slice($slot_items, $start_point);
             $days_series = self::continuum($slot_items, 7, $start_week);
 
@@ -107,6 +107,19 @@ class Slot extends Model
 
         return $days;
 
+    }
+
+
+    public static function getStartPoint($slot_items, $day)
+    {
+        //handle case where start point is null
+        $start_point = array_search($day, $slot_items);
+
+        if(!$start_point){
+            $start_point = self::getStartPoint($slot_items, intval($day+1));
+        }
+
+        return $start_point;
     }
 
     public static function continuum($days, $count, $present_week)
