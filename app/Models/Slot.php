@@ -1,10 +1,8 @@
 <?php
-
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 
 class Slot extends Model
 {
@@ -108,7 +106,6 @@ class Slot extends Model
         return $days;
 
     }
-
 
     public static function getStartPoint($slot_items, $day)
     {
