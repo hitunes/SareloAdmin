@@ -17,16 +17,18 @@ class SocialAccountService
                                 ->first();
         if ($account) {
                 return $account->user;
-            } 
+            }
             else {
 
                 $account = new SocialAccount([
                     'provider_user_id' => $providerUser->getId(),
                     'provider' => $provider
                 ]);
+                if(!isset($providerUser->getEmail()))
+                    throw new Exception("Something went wrong (email not found) <br><a href='/login'>Login again</a>", 1);
 
                 $user = User::whereEmail($providerUser->getEmail())->first();
-            
+
                 if (!$user) {
                     $name = explode(" ", $providerUser->getName());
 
