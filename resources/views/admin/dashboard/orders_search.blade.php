@@ -6,58 +6,75 @@
         <div class="page-container">
             <div class="page-sidebar-wrapper">
                 <div class="page-sidebar navbar-collapse collapse">
-                        <ul class="page-sidebar-menu">
-                            <li class="nav-item  ">
-                                <a href="{{url('/admin')}}" class="nav-link ">
-                                    <i class="icon-home"></i>
-                                    <span class="title">Dashboard</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
+                         <ul class="page-sidebar-menu">
+                        <li class="nav-item  ">
+                            <a href="{{url('/admin/dashboard')}}" class="nav-link ">
+                                <i class="icon-home"></i>
+                                <span class="title">Dashboard</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="nav-item  active open">
+                            <a href="{{url('/admin/orders')}}" class="nav-link ">
+                                <i class="icon-basket"></i>
+                                <span class="title">Orders</span>
+                            </a>
+                        </li>
+                        
+                        <li class="nav-item  ">
+                            <a href="{{url('/admin/products')}}" class="nav-link ">
+                                <i class="icon-graph"></i>
+                                <span class="title">Products</span>
+                            </a>
+                        </li>
+                        <li class="dropdown ">
+                            <a href="{{url('/admin/unit-types')}}" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-basket"></i>
+                            Unit Types <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{url('admin/unit-types/create')}}">Add Unit-Type</a></li>
+                                <li><a href="{{url('/admin/unit-types')}}">Edit Product</a></li>
+                                <li><a href="{{url('/admin/unit-types')}}">Delete Unit-Type</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown ">
+                            <a href="{{url('/admin/slots')}}" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-basket"></i>
+                            Slots <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{url('admin/slots/create')}}">Add Slot</a></li>
+                                <li><a href="{{url('/admin/slots')}}">Edit Slot</a></li>
+                                <li><a href="{{url('/admin/slots')}}">Delete Slot</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
                                 <a href="{{url('/admin/users')}}" class="nav-link ">
                                     <i class="icon-user"></i>
                                     <span class="title">Users</span>
                                     <span class="selected"></span>
                                 </a>
-                            </li>
-                            <li class="nav-item  active open">
-                                <a href="{{url('/admin/orders')}}" class="nav-link ">
-                                    <i class="icon-basket"></i>
-                                    <span class="title">Orders</span>
-                                    <span class="selected"></span>
-                                </a>
-                            </li>
-                            <li class="nav-item  ">
-                                <a href="{{url('/admin/products')}}" class="nav-link ">
-                                    <i class="icon-graph"></i>
-                                    <span class="title">Products</span>
-                                </a>
-                            </li>
-                            <li class="nav-item  ">
-                                <a href="{{url('/admin/slots')}}" class="nav-link ">
-                                    <i class="icon-graph"></i>
-                                    <span class="title">Slots</span>
-                                </a>
-                            </li>
-                            <li class="nav-item  ">
-                                <a href="{{url('/admin/unit-types')}}" class="nav-link ">
-                                    <i class="icon-graph"></i>
-                                    <span class="title">Unit Types</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="{{url('/admin/create')}}" class="nav-link ">
-                                    <i class="icon-user"></i>
-                                    <span class="title">Manage Admin</span>
-                                    <span class="selected"></span>
-                                </a>
                         </li>
-                        </ul>
+                        <li class="dropdown ">
+                            <a href="{{url('/admin/show')}}" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-basket"></i>
+                            Manage Admin <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="{{url('admin/create')}}">Add Admin</a></li>
+                                <li><a href="{{url('/admin/show')}}">Edit Admin</a></li>
+                                <li><a href="{{url('/admin/show')}}">Delete</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div class="page-content-wrapper">
                 <div class="page-content">
                     <div class="row">
+                        <div id="order_message" class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>Success:</strong> Order Updated Successfully
+                        </div>
+                        <div id="payment_message" class="alert alert-success">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <strong>Success:</strong> Payment Updated Successfully
+                        </div>
                         @if (session('success'))
                                 <div class="alert alert-success">
                                     {{ session('success') }}
@@ -156,13 +173,22 @@
                                                                         @endif
                                                                     </td>
                                                                     <td> {{$order->total}} </td>
-                                                                    <td> {{$order->payment_method}} </td>
+                                                                    <td> @if(!empty($order->payment_method))
+                                                                        {{ucfirst($order->payment_method)}}
+                                                                        @else
+                                                                            {{"Bank"}}
+                                                                        @endif
+                                                                    </td>
                                                                      <td>
-                                                                          <select class="paymentStatus" name="paymentStatus" class="form-control form-filter input-sm" data-payload="{{$order->id}}">
-                                                                            <option value="">Select...</option>
-                                                                            <option value="pending">Pending</option>
-                                                                            <option value="cancel">Cancel</option>
-                                                                            <option value="successful">Successful</option>
+                                                                          <select class="paymentStatus" name="paymentStatus" class="form-control form-filter input-sm" data-payload="{{$order->id}}">     
+                                                                        @if($order->payment_status ==  "paid")
+                                                                        <option value="{{$order->payment_status}}"> {{ ucfirst($order->payment_status)}}</option>
+                                                                        <option value="unpaid">Unpaid</option>
+                                                                        @elseif($order->payment_status == "unpaid")
+                                                                             <option value="{{$order->payment_status}}">{{ucfirst($order->payment_status)}}</option>
+                                                                             <option value="paid">Paid</option>
+                                                                        @endif
+
                                                                         </select>
                                                                      </td>
                                                                     <td>
@@ -174,16 +200,32 @@
                                                                     <td>
 
                                                                         <select class="updateStatus" name="order_status" class="form-control" data-payload="{{$order->id}}">
-                                                                            <option value="">Select...</option>
-                                                                            <option value="confirmed">Confirmed</option>
-                                                                            <option value="Processing">Processing</option>
+                                                                        @if($order->status == "confirmed")
+                                                                            <option value="{{$order->status}}">{{ucfirst($order->status)}}</option>
+                                                                            <option value="processing">Processing</option>
                                                                             <option value="gone-to-market">Gone to Market</option>
                                                                             <option value="delivered">Delivered</option>
+                                                                        @elseif($order->status == "processing")
+                                                                            <option value="{{$order->status}}">{{ucfirst($order->status)}}</option>
+                                                                            <option value="confirmed">Confirmed</option>
+                                                                            <option value="gone-to-market">Gone to Market</option>
+                                                                            <option value="delivered">Delivered</option>
+                                                                        @elseif($order->status == "gone-to-market")
+                                                                            <option value="{{$order->status}}">{{ucfirst($order->status)}}</option>
+                                                                            <option value="processing">Processing</option>
+                                                                            <option value="confirmed">Confirmed</option>
+                                                                            <option value="delivered">Delivered</option>
+                                                                       @elseif($order->status == "delivered")
+                                                                            <option value="{{$order->status}}">{{ucfirst($order->status)}}</option>
+                                                                            <option value="processing">Processing</option>
+                                                                            <option value="confirmed">Confirmed</option>
+                                                                            <option value="gone-to-market">Gone to Market</option>
+                                                                        @endif
                                                                         </select>
                                                                     </td>
                                                                     <td>
 
-                                                                            <span id="{{$order->id}}" class="label label-sm" style="color:#222;"> {{$order->status}} </span>
+                                                                           {{ucfirst($order->status)}}
 
                                                                     </td>
                                                                 </form>
