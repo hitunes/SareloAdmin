@@ -76,7 +76,7 @@ class Helpers
             //reference should not be more than 6 character long
             throw new Exception("Error Generating order unique reference", 1);
         }
-        $curr_string = strtoupper(self::randomAlpha(2)).str_pad($unique_id, 6, 0, 0);
+        $curr_string = strtolower(self::randomAlpha(2)).str_pad($unique_id, 6, 0, 0);
 
         return $curr_string;
     }
