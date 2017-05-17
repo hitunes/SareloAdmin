@@ -1,11 +1,11 @@
 <?php
 namespace App\Services;
 
+use App\User;
+use App\SocialAccount;
+use Illuminate\Support\Facades\Redirect;
 use Laravel\Socialite\Contracts\User as ProviderUser;
 
-use App\SocialAccount;
-
-use App\User;
 
 //dont remmeber to set up twitter ouath to return email address
 class SocialAccountService
@@ -25,7 +25,7 @@ class SocialAccountService
                     'provider' => $provider
                 ]);
                 if(!$providerUser->getEmail())
-                    return redirect()->('/login')->with(['status' => 'error', 'message' => 'No email found in your social account']);
+                    return redirect('/login')->with(['status' => 'error', 'message' => 'No email found in your social account']);
 
 
                 $user = User::whereEmail($providerUser->getEmail())->first();
