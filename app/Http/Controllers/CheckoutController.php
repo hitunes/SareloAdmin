@@ -147,39 +147,39 @@ class CheckoutController extends Controller
 
     public function makeOrder(Request $request)
     {
-         $total = 0;
+        $total = 0;
 
-         $items = Cart::content();
+        $items = Cart::content();
 
-         foreach ($items as $item) {
-             $total += $item->price * $item->qty;
-         }
+        foreach ($items as $item) {
+            $total += $item->price * $item->qty;
+        }
 
-         $charges = Charge::all();
+        $charges = Charge::all();
 
         $charges_subtotal = 0;
 
-         foreach ($charges as $charge) {
+        foreach ($charges as $charge) {
             if($charge['percentage'] <= 0)
                 $charges_subtotal += $charge['fixed_amount'];
             else
                 $charges_subtotal += $total * ($charge['percentage']/100);
-         }
+        }
 
-         $total += $charges_subtotal;
+        $total += $charges_subtotal;
 
-         $order = Order::create([
+        $order = Order::create([
              'user_id' => Auth::user()->id,
              'total' => $total,
              'status' => 'processing'
-         ]);
+        ]);
 
-         $transaction_arr = [
+        $transaction_arr = [
              'reference' => $request->reference,
-             'status' => 'pending',
+             'status' => 'unpaid',
              'response' => 'transaction started'
-         ];
-         $order->transactions()->save(new Transaction($transaction_arr));
+        ];
+        $order->transactions()->save(new Transaction($transaction_arr));
     }
 
 }

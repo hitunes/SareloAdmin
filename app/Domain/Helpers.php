@@ -67,6 +67,7 @@ class Helpers
 
     public static function generateOrderReference($order_id)
     {
+
         $unique_id = base_convert($order_id, 10, 16);
 
         $diff = 6 - strlen($unique_id);
@@ -75,8 +76,22 @@ class Helpers
             //reference should not be more than 6 character long
             throw new Exception("Error Generating order unique reference", 1);
         }
+        $curr_string = strtoupper(self::randomAlpha(2)).str_pad($unique_id, 6, 0, 0);
 
-        return str_pad($unique_id, 6, 0, 0);
+        return $curr_string;
+    }
+
+
+    public static function randomAlpha($length)
+    {
+        $str = "";
+        $characters = array_merge(range('A','Z'), range('a','z'));
+        $max = count($characters) - 1;
+        for ($i = 0; $i < $length; $i++) {
+            $rand = mt_rand(0, $max);
+            $str .= $characters[$rand];
+        }
+        return substr($str, 0, $length);
     }
 }
 
