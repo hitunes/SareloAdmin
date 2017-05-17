@@ -23,8 +23,8 @@ class SocialAccountService
                     'provider_user_id' => $providerUser->getId(),
                     'provider' => $provider
                 ]);
-
-                abort_if(!$providerUser->getEmail(), 422);
+                if(!$providerUser->getEmail())
+                    abort('No email found in social account' , 403);
 
                 $user = User::whereEmail($providerUser->getEmail())->first();
 

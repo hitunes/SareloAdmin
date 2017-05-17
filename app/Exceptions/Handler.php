@@ -6,7 +6,6 @@ use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -48,9 +47,6 @@ class Handler extends ExceptionHandler
     {
         if($exception instanceof NotFoundHttpException ){
             return response()->view('errors.missing', [], 404);
-        }
-        if($exception instanceof UnprocessableEntityHttpException ){
-            return response()->view('errors.unprocessed', ['message' => 'something went wrong (email not found in social account)'], 422);
         }
 
         return parent::render($request, $exception);
