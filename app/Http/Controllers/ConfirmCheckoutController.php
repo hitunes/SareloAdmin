@@ -28,6 +28,7 @@ class ConfirmCheckoutController extends Controller
         $slot = Slot::find(Session::get('order_details.slot_id'));
         $slots = Slot::getSingleDaySlots(Session::get('order_details.delivery_date'), $slot->day_of_week);
 
+
         $address = UserAddress::find(Session::get('order_details.user_address_id'));
         $addresses = UserAddress::where('user_id', Auth::user()->id)->get();
 
