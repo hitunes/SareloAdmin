@@ -40,15 +40,7 @@
                                 </div>
                                 <div class="content p-t-0">
                                     <div class="">
-                                        @if (session('status'))
-                                            <div class="alert alert-danger">
-                                                @if(session('message'))
-                                                    {{ session('message') }}
-                                                @else
-                                                    {{ session('status') }}
-                                                @endif
-                                            </div>
-                                        @endif
+
                                         <div class="p-50 p-t-10 p-b-10 text-center">
                                             <h4>Reset password</h4>
                                             {{-- <p>Log in with your email address and password</p> --}}
