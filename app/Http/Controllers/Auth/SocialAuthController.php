@@ -31,8 +31,12 @@ class SocialAuthController extends Controller
     {
         $user = $service->createOrGetUser(Socialite::driver($provider)->user(), $provider);
 
-        auth()->login($user);
+        if($user instanceof User){
+            auth()->login($user);
 
-        return redirect()->to('/my-account');
+            return redirect()->to('/my-account');
+        }
+
+        return redirect('/login')->with(['status' => 'error', 'message' => 'No Email/Name found in social account']);
     }
 }

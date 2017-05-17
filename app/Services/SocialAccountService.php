@@ -23,25 +23,26 @@ class SocialAccountService
                     'provider_user_id' => $providerUser->getId(),
                     'provider' => $provider
                 ]);
-                if(!$providerUser->getEmail())
-                    abort('No email found in social account' , 403);
+                if($providerUser->getEmail() && $providerUser->getName()){
 
-                $user = User::whereEmail($providerUser->getEmail())->first();
+                    $user = User::whereEmail($providerUser->getEmail())->first();
 
-                if (!$user) {
-                    $name = explode(" ", $providerUser->getName());
+                    if (!$user) {
+                        $name = explode(" ", $providerUser->getName());
 
-                    $user = User::create([
-                        'email' => $providerUser->getEmail(),
-                        'first_name' => $name[0],
-                        'last_name' => isset($name[1])? $name[1] : "",
-                    ]);
+                        $user = User::create([
+                            'email' => $providerUser->getEmail(),
+                            'first_name' => $name[0],
+                            'last_name' => isset($name[1])? $name[1] : "",
+                        ]);
+                    }
+                    $account->user()->associate($user);
+
+                    $account->save();
+
+                    return $user;
                 }
-                $account->user()->associate($user);
-
-                $account->save();
-
-                return $user;
+                return [];
         }
     }
 }
