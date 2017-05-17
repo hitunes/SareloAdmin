@@ -54,7 +54,8 @@ class ConfirmCheckoutController extends Controller
                 'delivery_instruction' => Session::get('order_details.delivery_instruction'),
                 'user_address_id' => $user_address_id,
                 'receiver_phone' => Session::get('order_details.receiver_phone'),
-                'order_unique_reference' => " "
+                'order_unique_reference' => " ",
+                'payment_status' => 'unpaid'
             ]);
 
             $order->order_unique_reference = Helpers::generateOrderReference($order->id);
