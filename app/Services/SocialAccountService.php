@@ -24,7 +24,7 @@ class SocialAccountService
                     'provider_user_id' => $providerUser->getId(),
                     'provider' => $provider
                 ]);
-                if(!isset($providerUser->getEmail()))
+                if(!$providerUser->getEmail())
                     throw new Exception("Something went wrong (email not found) <br><a href='/login'>Login again</a>", 1);
 
                 $user = User::whereEmail($providerUser->getEmail())->first();
