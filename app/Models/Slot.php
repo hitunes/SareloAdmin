@@ -151,20 +151,14 @@ class Slot extends Model
 
     public static function getSingleDaySlots($date, $day)
     {
-        $slots =   \DB::select("SELECT * FROM slots WHERE day_of_week =:day AND slot_available
+
+            $slots = \DB::select("SELECT * FROM slots WHERE day_of_week =:day AND slot_available
                             > (SELECT count(os.slot_id) FROM slots s
                              LEFT JOIN order_slots os ON s.id = os.slot_id
                              WHERE os.delivery_date=:date)",
-                             ["date" => date('Y-m-d', strtotime($date)), 'day' => $day]);
-        // $slots = \DB::select("SELECT s.*, count(os.id) AS count from slots s
-        //                     LEFT JOIN order_slots os ON os.slot_id = s.id
-        //                     WHERE s.day_of_week =:day AND (os.delivery_date =:date
-        //                     OR os.delivery_date is null)
-        //                     GROUP BY s.id
-        //                     HAVING  count < s.slot_available",
-        //                     ['day' => $day, 'date'=> $date]);
+                             ['day' => $day, 'date' => $date]);
 
-        return $slots;
+            return $slots;
     }
 
 
