@@ -41,7 +41,7 @@
                                 <div class="content p-t-0">
                                     <div class="">
                                         @if (session('status'))
-                                            <div class="alert alert-success">
+                                            <div class="alert alert-warning">
                                                 @if(session('message'))
                                                     {{ session('message') }}
                                                 @else
