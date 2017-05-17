@@ -3,7 +3,6 @@ namespace App\Services;
 
 use App\User;
 use App\SocialAccount;
-use Illuminate\Support\Facades\Redirect;
 use Laravel\Socialite\Contracts\User as ProviderUser;
 
 
@@ -24,9 +23,8 @@ class SocialAccountService
                     'provider_user_id' => $providerUser->getId(),
                     'provider' => $provider
                 ]);
-                if(!$providerUser->getEmail())
-                    return redirect('/login')->with(['status' => 'error', 'message' => 'No email found in your social account']);
 
+                abort_if(!$providerUser->getEmail(), 422);
 
                 $user = User::whereEmail($providerUser->getEmail())->first();
 
