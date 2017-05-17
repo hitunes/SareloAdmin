@@ -25,7 +25,8 @@ class SocialAccountService
                     'provider' => $provider
                 ]);
                 if(!$providerUser->getEmail())
-                    throw new \Exception("Something went wrong (email not found) <br><a href='/login'>Login again</a>", 1);
+                    return redirect()->('/login')->with(['status' => 'error', 'message' => 'No email found in your social account']);
+
 
                 $user = User::whereEmail($providerUser->getEmail())->first();
 

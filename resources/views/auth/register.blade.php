@@ -40,6 +40,11 @@
                                 </div>
                                 <div class="content p-t-0">
                                     <div class="">
+                                        @if(session('message'))
+                                            {{ session('message') }}
+                                        @else
+                                            {{ session('status') }}
+                                        @endif
                                         <div class="p-50 p-t-10 p-b-10 text-center">
                                             <h4>Register</h4>
                                             <p></p>
