@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangeResponseToAmount extends Migration
+class ChangePaymentStatusDefaultAttribute extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class ChangeResponseToAmount extends Migration
      */
     public function up()
     {
-        Schema::table('transactions', function (Blueprint $table) {
-		$table->dropColumn('response');
-		$table->double('amount')->after('reference');
+        Schema::table('orders', function($table) {
+            $table->string('payment_status')->default('unpaid')->change();
         });
     }
 
@@ -26,7 +25,7 @@ class ChangeResponseToAmount extends Migration
      */
     public function down()
     {
-        Schema::table('transactions', function (Blueprint $table) {
+        Schema::table('payment_status', function (Blueprint $table) {
             
         });
     }
