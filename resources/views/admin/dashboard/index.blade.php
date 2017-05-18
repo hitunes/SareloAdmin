@@ -149,9 +149,6 @@
                                                                 </td>
                                                                  <td>
                                                                        <select class="paymentStatus" name="paymentStatus" class="form-control form-filter input-sm" data-payload="{{$order->id}}">
-                                                                       <option value="unpaid">Unpaid</option>
-                                                                       <option value="paid"> paid</option>
-                                                                        
                                                                        @if($order->payment_status ==  "paid")
                                                                         <option value="{{$order->payment_status}}"> {{ ucfirst($order->payment_status)}}</option>
                                                                         <option value="unpaid">Unpaid</option>
