@@ -129,7 +129,7 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="row static-info">
-                                                                    <div class="col-md-5 name"> Order Date& Time: </div>
+                                                                    <div class="col-md-5 name"> Order Date</div>
                                                                     <div class="col-md-7 value">
                                                                     @if(isset($order->created_at))
                                                                     {{$order->created_at->diffForHumans()}} @endif
@@ -183,6 +183,7 @@
                                                                       @elseif($order->payment_status == "unpaid")
                                                                          <option value="{{$order->payment_status}}">{{ucfirst($order->payment_status)}}</option>
                                                                          <option value="paid">Paid</option>
+                                                                    
                                                                        @endif
                                                                        </select>
                                                                     </select>

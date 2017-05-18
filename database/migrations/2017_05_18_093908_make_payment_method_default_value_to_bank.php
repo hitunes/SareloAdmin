@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class ChangePaymentStatusDefaultAttribute extends Migration
+class MakePaymentMethodDefaultValueToBank extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class ChangePaymentStatusDefaultAttribute extends Migration
     public function up()
     {
         Schema::table('orders', function($table) {
-            $table->string('payment_status')->default('unpaid')->change();
+            $table->string('payment_method')->default('bank')->change();
         });
     }
 
