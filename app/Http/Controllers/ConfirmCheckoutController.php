@@ -28,6 +28,7 @@ class ConfirmCheckoutController extends Controller
         $slot = Slot::find(Session::get('order_details.slot_id'));
         $slots = Slot::getSingleDaySlots(Session::get('order_details.delivery_date'), $slot->day_of_week);
 
+
         $address = UserAddress::find(Session::get('order_details.user_address_id'));
         $addresses = UserAddress::where('user_id', Auth::user()->id)->get();
 
@@ -54,7 +55,8 @@ class ConfirmCheckoutController extends Controller
                 'delivery_instruction' => Session::get('order_details.delivery_instruction'),
                 'user_address_id' => $user_address_id,
                 'receiver_phone' => Session::get('order_details.receiver_phone'),
-                'order_unique_reference' => " "
+                'order_unique_reference' => " ",
+                'payment_status' => 'unpaid'
             ]);
 
             $order->order_unique_reference = Helpers::generateOrderReference($order->id);

@@ -18,7 +18,7 @@ class TransactionController extends Controller
             'order_id' => $order->id,
             'amount' => $order->total,
             'reference' => $order->order_unique_reference,
-            'status' => 'pending',
+            'status' => 'unpaid',
         ];
 
         $transaction = (Transaction::create($data))->toArray();
@@ -30,7 +30,6 @@ class TransactionController extends Controller
         return response()->json($transaction);
     }
 
-
     public function update(Request $request, $transaction_id)
     {
         $transaction = Transaction::find($transaction_id)->update($request->all());
@@ -39,14 +38,13 @@ class TransactionController extends Controller
 
             $transaction = Transaction::find($transaction_id);
 
-            Order::where('id', $transaction->order_id)->update(['payment_status' => 'success']);
+            Order::where('id', $transaction->order_id)->update(['payment_status' => 'paid']);
 
             Cart::destroy();
         }
 
         return response()->json(['status' => 'success']);
     }
-
 
     public function bankCheckout($order_unique_reference)
     {

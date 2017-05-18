@@ -27,7 +27,7 @@ class ChangeResponseToAmount extends Migration
     public function down()
     {
         Schema::table('transactions', function (Blueprint $table) {
-            //
+            
         });
     }
 }

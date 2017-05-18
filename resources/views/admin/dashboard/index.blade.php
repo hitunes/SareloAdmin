@@ -1,6 +1,7 @@
 @extends('layouts.dashboard')
     @section('title')
-        Dashboard | Dashoard
+        Dashboard | Dashoard 
+        {{-- manage admin wen clicked should show all admins by default --}}
     @endsection
     @section('content')
         <div class="page-container">
@@ -140,25 +141,49 @@
                                                                     @endif
                                                                 </td>
                                                                 <td> {{$order->total}} </td>
-                                                                <td> {{$order->payment_method}} </td>
+                                                                <td> @if(!empty($order->payment_method))
+                                                                        {{ucfirst($order->payment_method)}}
+                                                                    @else
+                                                                        {{"Bank"}}
+                                                                    @endif
+                                                                </td>
                                                                  <td>
                                                                        <select class="paymentStatus" name="paymentStatus" class="form-control form-filter input-sm" data-payload="{{$order->id}}">
-                                                                         <option value="{{$order->payment_status}}">{{$order->payment_status}}</option>
-                                                                         <option value="pending">Pending</option>
-                                                                         <option value="cancelled">Cancelled</option>
-                                                                         <option value="successful">Successful</option>
+                                                                       @if($order->payment_status ==  "paid")
+                                                                        <option value="{{$order->payment_status}}"> {{ ucfirst($order->payment_status)}}</option>
+                                                                        <option value="unpaid">Unpaid</option>
+                                                                       @elseif($order->payment_status == "unpaid")
+                                                                         <option value="{{$order->payment_status}}">{{ucfirst($order->payment_status)}}</option>
+                                                                         <option value="paid">Paid</option>
+                                                                       @endif
+                                                                         
                                                                      </select>
                                                                 </td>
                                                                 <td> {{$order->receiver_phone}} </td>
                                                                 <td>
                                                                 <select class="updateStatus" name="order_status" class="form-control" data-payload="{{$order->id}}">
-                                                                        <option value="{{$order->status}}">{{$order->status}}</option>
-                                                                        <option value="confirmed">Confirmed</option>
-                                                                        <option value="processing">Processing</option>
-                                                                        <option value="gone-to-market">Gone to Market</option>
-                                                                        <option value="delivered">Delivered</option>
+                                                                        @if($order->status == "confirmed")
+                                                                            <option value="{{$order->status}}">{{ucfirst($order->status)}}</option>
+                                                                            <option value="processing">Processing</option>
+                                                                            <option value="gone-to-market">Gone to Market</option>
+                                                                            <option value="delivered">Delivered</option>
+                                                                        @elseif($order->status == "processing")
+                                                                            <option value="{{$order->status}}">{{ucfirst($order->status)}}</option>
+                                                                            <option value="confirmed">Confirmed</option>
+                                                                            <option value="gone-to-market">Gone to Market</option>
+                                                                            <option value="delivered">Delivered</option>
+                                                                        @elseif($order->status == "gone-to-market")
+                                                                            <option value="{{$order->status}}">{{ucfirst($order->status)}}</option>
+                                                                            <option value="processing">Processing</option>
+                                                                            <option value="confirmed">Confirmed</option>
+                                                                            <option value="delivered">Delivered</option>
+                                                                       @elseif($order->status == "delivered")
+                                                                            <option value="{{$order->status}}">{{ucfirst($order->status)}}</option>
+                                                                            <option value="processing">Processing</option>
+                                                                            <option value="confirmed">Confirmed</option>
+                                                                            <option value="gone-to-market">Gone to Market</option>
+                                                                        @endif
                                                                     </select>
-                                                                
                                                                 </td>
                                                             </form>
                                                                 <td>
