@@ -170,6 +170,7 @@
                                                                        @elseif($order->payment_status == "unpaid")
                                                                          <option value="{{$order->payment_status}}">{{ucfirst($order->payment_status)}}</option>
                                                                          <option value="paid">Paid</option>
+                                                                       
                                                                        @endif
                                                                      </select>
                                                                 </td>
