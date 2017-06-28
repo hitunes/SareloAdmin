@@ -72,7 +72,7 @@ class ProductsController extends Controller
             // 'product_image' => 'required|image'
         ]);
 
-        $filename = $request->product_image ? NULL : $request->file('product_image')->getClientOriginalName();
+        $filename = ! $request->product_image ? NULL : $request->file('product_image')->getClientOriginalName();
 
         $img_ext = ['.jpg', '.jpeg', '.PNG', '.png'];
         $filename = str_replace($img_ext, '', $filename);
