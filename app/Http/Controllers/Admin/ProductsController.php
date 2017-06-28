@@ -69,14 +69,21 @@ class ProductsController extends Controller
             'price' => 'required|int',
             'unit' => 'required|integer',
             'unit_type_id' => 'required',
-            // 'product_image' => 'required|image'
+            'product_image' => 'required|image'
         ]);
 
-        $filename = ! $request->product_image ? NULL : $request->file('product_image')->getClientOriginalName();
 
-        $img_ext = ['.jpg', '.jpeg', '.PNG', '.png'];
-        $filename = str_replace($img_ext, '', $filename);
-        $store  = Storage::disk('custom')->put($filename, $request->file('product_image')); // first param name of folder second the content
+        try {
+            $filename = $filename = $request->file('product_image')->getClientOriginalName();
+            $img_ext = ['.jpg', '.jpeg', '.PNG', '.png'];
+            $filename = str_replace($img_ext, '', $filename);
+            $store  = Storage::disk('custom')->put($filename, $request->file('product_image')); // first param name of folder second the content
+        
+        } catch (\Exception $e)
+        {
+            $store = NULL;
+        }
+
         $product = new Product([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
