@@ -23,6 +23,7 @@ class CreateProductsTable extends Migration
             $table->integer('unit_type_id');
             $table->index('unit_type_id')->foreign('unit_type_id')->refrences('id')->on('unit_types')->nullable();
             $table->string('products_');
+            $table->string('products_image')->nullable();
 
 
 
