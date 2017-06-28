@@ -69,7 +69,7 @@ class ProductsController extends Controller
             'price' => 'required|int',
             'unit' => 'required|integer',
             'unit_type_id' => 'required',
-            'product_image' => 'required|image'
+            // 'product_image' => 'required|image'
         ]);
 
 
