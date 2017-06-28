@@ -15,7 +15,7 @@ class UpdateTable extends Migration
     {
         Schema::table('products', function (Blueprint $table)
         {
-            $table->string('products_image')->nullable()->change();
+            $table->string('products_')->nullable()->change();
         });
     }
 
