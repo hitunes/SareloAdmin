@@ -1,286 +1,209 @@
-const app = {
-  dataFetcher : function(){
+var app = {
 
-    const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
-
-    const cities = [];
-    fetch(endpoint)
-      .then(blob => blob.json())
-      .then(data => cities.push(...data));
-
-    function triga(){
-       const $html = document.getElementsByTagName('html')[0];
-       $html.classList.add("sidebar-lg")
-        //console.log(1);
-    }
-
-    //console.log(cities);
-    function findMatches(wordToMatch, cities) {
-      return cities.filter(place => {
-        // here we need to figure out if the city or state matches what was searched
-        const regex = new RegExp(wordToMatch, 'gi');
-        return place.city.match(regex) || place.state.match(regex)
-      });
-    }
-
-    function numberWithCommas(x) {
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
-
-    function displayMatches(e) {
-
-      const matchArray = findMatches(this.value, cities);
-      const html = matchArray.map(place => {
-        const regex = new RegExp(this.value, 'gi');
-        const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
-        const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
-        //console.log(place);
-        return `
-          <li>
-              <span class="name">${cityName}, ${stateName}</span>
-              <span class="population">${numberWithCommas(place.population)}</span>
-          </li>
-        `;
-      }).join('');
-      suggestions.innerHTML = html;
-      const lists = Array.from(suggestions.querySelectorAll("li"));
-      // stop stopPropagation of this event.........
-      e.stopPropagation();
-      lists.forEach(function(list){
-        list.addEventListener('click', triga);
-      })
-
-      /* ternary operator to hide or show list */
-      this.value.length > 0 ? suggestions.style.display = 'block' : suggestions.style.display = 'none';
-    }
-
-
-
-    const searchInput = document.querySelector('.search');
-    const suggestions = document.querySelector('.suggestions');
-
-    searchInput.addEventListener('change', displayMatches);
-    searchInput.addEventListener('keyup', displayMatches);
-
-    //a function to show sidebar as soon as I click on the list of products filtered...
-    /*const $html = document.getElementsByTagName('html')[0];
-    const lists = Array.from(suggestions.querySelectorAll("li"));
-
-
-    lists.forEach(function(list){
-      list.addEventListener('click', function(){
-        $html.classList.add("sidebar-lg")
-        console.log(this.textContent);
-      });
-    })*/
-
-
-  },
   fecther: function(){
 
-  var obj = {
-    products: [
-      {
-        id: 1,
-        product: "Yam",
-        price: 2150,
-        unit: "per 10kg",
-        img: "http://www.foodsubs.com/Photos/yamaimo.jpg"
-      },
-      {
-        id: 2,
-        product: "Rice",
-        price: 2450,
-        unit: "per 10kg",
-        img: "https://thumbs.dreamstime.com/z/unpolished-rice-whole-grain-burlap-bag-25395443.jpg"
-      },
-      {
-        id: 3,
-        product: "Egusi",
-        price: 250,
-        unit: "per Tin",
-        img: "http://africanchop.com/smallchop/wp-content/uploads/2014/08/egusi1.jpg"
-      },
-      {
-          id: 4,
-          product: "Suya",
+    var obj = {
+      products: [
+        {
+          id: 1,
+          product: "Yam",
+          price: 2150,
+          unit: "per 10kg",
+          img: "http://www.foodsubs.com/Photos/yamaimo.jpg"
+        },
+        {
+          id: 2,
+          product: "Rice",
+          price: 2450,
+          unit: "per 10kg",
+          img: "https://thumbs.dreamstime.com/z/unpolished-rice-whole-grain-burlap-bag-25395443.jpg"
+        },
+        {
+          id: 3,
+          product: "Egusi",
           price: 250,
-          unit: "per wrap",
-          img: "http://www.travelstart.com.ng/blog/wp-content/uploads/2014/03/Suya-1024x803.jpg"
+          unit: "per Tin",
+          img: "http://africanchop.com/smallchop/wp-content/uploads/2014/08/egusi1.jpg"
         },
         {
-          id: 5,
-          product: "Semovita",
+            id: 4,
+            product: "Suya",
+            price: 250,
+            unit: "per wrap",
+            img: "http://www.travelstart.com.ng/blog/wp-content/uploads/2014/03/Suya-1024x803.jpg"
+          },
+          {
+            id: 5,
+            product: "Semovita",
+            price: 2500,
+            unit: "per bag",
+            img: "http://www.katointernational.com/wp-content/uploads/2015/01/semovita.png"
+          },
+          {
+            id: 6,
+            product: "Cornflakes",
+            price: 1500,
+            unit: "per Sachet",
+            img: "http://www.sunpring.com/wp-content/uploads/2015/03/corn-flakes-manufacturing.jpg"
+          },
+        {
+          id: 7,
+          product: "Elubo",
           price: 2500,
-          unit: "per bag",
-          img: "http://www.katointernational.com/wp-content/uploads/2015/01/semovita.png"
+          unit: "per Bag",
+          img: "http://zippum.com/image/cache/data/swallow/sw10-500x500.jpg"
         },
         {
-          id: 6,
-          product: "Cornflakes",
-          price: 1500,
-          unit: "per Sachet",
-          img: "http://www.sunpring.com/wp-content/uploads/2015/03/corn-flakes-manufacturing.jpg"
+          id: 8,
+          product: "Garri",
+          price: 2500,
+          unit: "per Bag",
+          img: "http://madamsabi.com/image/cache/data/prodsupload/white%20garri-500x500.jpg"
         },
-      {
-        id: 7,
-        product: "Elubo",
-        price: 2500,
-        unit: "per Bag",
-        img: "http://zippum.com/image/cache/data/swallow/sw10-500x500.jpg"
-      },
-      {
-        id: 8,
-        product: "Garri",
-        price: 2500,
-        unit: "per Bag",
-        img: "http://madamsabi.com/image/cache/data/prodsupload/white%20garri-500x500.jpg"
-      },
-      {
-        id: 9,
-        product: "Pando Yam",
-        price: 2500,
-        unit: "per Bag",
-        img: "http://www.healthysupplies.co.uk/pics/400x400/pounded-yam.jpg"
-      },
-      {
-        id: 10,
-        product: "Eggs",
-        price: 2500,
-        unit: "per Create",
-        img: "https://cdn.pixabay.com/photo/2016/12/04/23/36/eggs-1882837_960_720.jpg"
-      },
-      {
-        id: 11,
-        product: "Bananas",
-        price: 2500,
-        unit: "per Bunch",
-        img: "http://pngimg.com/uploads/banana/banana_PNG817.png"
-      },
-      {
-        id: 12,
-        product: "chicken",
-        price: 2500,
-        unit: "per kg",
-        img: "http://dialnsearch.com/image/Whole%20Chicken167615.jpg"
-      },
-      {
-        id: 13,
-        product: "Rodo",
-        price: 2500,
-        unit: "per basket",
-        img: "http://www.9jafoods.co/wp-content/uploads/2016/11/rodo-rspwxyz59_rodo_big_basket-400x350.jpg"
-      },
-      {
-        id: 14,
-        product: "Tomato",
-        price: 2500,
-        unit: "per basket",
-        img: "http://www.naushieexports.com/img/tomato4_big.jpg"
-      },
-      {
-        id: 15,
-        product: "Potatoes",
-        price: 2150,
-        unit: "per 10kg",
-        img: "http://wisconsinpotatoes.com/admin/wp-content/uploads/2014/09/yellow_potatoes.jpg"
-      },
-      {
-        id: 16,
-        product: "Efo Tete",
-        price: 2150,
-        unit: "per Bunch",
-        img: "http://justfreshfood.com.ng/resources/image/18/7a/9.jpg"
-      },
-      {
-        id: 17,
-        product: "Wheat flour",
-        price: 2150,
-        unit: "per Kg",
-        img: "http://i.ndtvimg.com/i/2015-06/wheat-flour-625_625x350_61434435605.jpg"
-      },
-      {
-        id: 18,
-        product: "Sugar",
-        price: 2150,
-        unit: "per kg",
-        img: "http://www.mcnicholsplc.com/wp-content/uploads/family-granulated-sugar.png"
-      },
-      {
-        id: 19,
-        product: "Soap",
-        price: 2150,
-        unit: "per Park",
-        img: "http://ecx.images-amazon.com/images/I/61CpVvyqSzL._SL1000_.jpg"
-      },
-      {
-        id: 20,
-        product: "Fish",
-        price: 700,
-        unit: "per Kg",
-        img: "http://www.nairaland.com/attachments/3217770_mackerelbig_jpeg0de3d657ba3bc05478f7590c7ab76e55"
-      }
-    ],
-    serviceChargePercent: 10,
-    delivery: 1000
-  };
+        {
+          id: 9,
+          product: "Pando Yam",
+          price: 2500,
+          unit: "per Bag",
+          img: "http://www.healthysupplies.co.uk/pics/400x400/pounded-yam.jpg"
+        },
+        {
+          id: 10,
+          product: "Eggs",
+          price: 2500,
+          unit: "per Create",
+          img: "https://cdn.pixabay.com/photo/2016/12/04/23/36/eggs-1882837_960_720.jpg"
+        },
+        {
+          id: 11,
+          product: "Bananas",
+          price: 2500,
+          unit: "per Bunch",
+          img: "http://pngimg.com/uploads/banana/banana_PNG817.png"
+        },
+        {
+          id: 12,
+          product: "chicken",
+          price: 2500,
+          unit: "per kg",
+          img: "http://dialnsearch.com/image/Whole%20Chicken167615.jpg"
+        },
+        {
+          id: 13,
+          product: "Rodo",
+          price: 2500,
+          unit: "per basket",
+          img: "http://www.9jafoods.co/wp-content/uploads/2016/11/rodo-rspwxyz59_rodo_big_basket-400x350.jpg"
+        },
+        {
+          id: 14,
+          product: "Tomato",
+          price: 2500,
+          unit: "per basket",
+          img: "http://www.naushieexports.com/img/tomato4_big.jpg"
+        },
+        {
+          id: 15,
+          product: "Potatoes",
+          price: 2150,
+          unit: "per 10kg",
+          img: "http://wisconsinpotatoes.com/admin/wp-content/uploads/2014/09/yellow_potatoes.jpg"
+        },
+        {
+          id: 16,
+          product: "Efo Tete",
+          price: 2150,
+          unit: "per Bunch",
+          img: "http://justfreshfood.com.ng/resources/image/18/7a/9.jpg"
+        },
+        {
+          id: 17,
+          product: "Wheat flour",
+          price: 2150,
+          unit: "per Kg",
+          img: "http://i.ndtvimg.com/i/2015-06/wheat-flour-625_625x350_61434435605.jpg"
+        },
+        {
+          id: 18,
+          product: "Sugar",
+          price: 2150,
+          unit: "per kg",
+          img: "http://www.mcnicholsplc.com/wp-content/uploads/family-granulated-sugar.png"
+        },
+        {
+          id: 19,
+          product: "Soap",
+          price: 2150,
+          unit: "per Park",
+          img: "http://ecx.images-amazon.com/images/I/61CpVvyqSzL._SL1000_.jpg"
+        },
+        {
+          id: 20,
+          product: "Fish",
+          price: 700,
+          unit: "per Kg",
+          img: "http://www.nairaland.com/attachments/3217770_mackerelbig_jpeg0de3d657ba3bc05478f7590c7ab76e55"
+        }
+      ],
+      serviceChargePercent: 10,
+      delivery: 1000
+    };
 
-  var dataLog = obj.products;
+    var dataLog = obj.products;
 
-  $("input.search").focus();
+    $("input.search").focus();
 
-  $("#querySelector").on("keyup", function(e){
+    $("#querySelector").on("keyup", function(e){
 
-      $.getJSON('/api/search/'+ $("#querySelector").val())
+        $.getJSON('/api/search/'+ $("#querySelector").val())
 
-      .done(function(response) {
+        .done(function(response) {
 
-          var output = '<ul class="suggestions">';
-          $.each(response.data.products, function(key, val){
+            var output = '<ul class="suggestions">';
+            $.each(response.data.products, function(key, val){
 
-              output += `<li id="${val.id}" data-product-id="${val.id}" data-product = "${val.name}" data-price = "${val.price}" data-unit = "${val.unit}" data-img = "${val.img}">`;
-              output += `<div class="clearfix pos-rel">
-                    <span class="pull-left products pos-abs">${val.name}</span>
-                    <span class="pull-right price">&#8358; ${val.price}</span><br>
-                    <small class="pull-right">${val.unit}</small>
-                </div>`;
-              output += "</li>";
+                output += '<li id="' + val.id + ' " data-product-id=" ' + val.id + ' " data-product = "' + val.name + '" data-price = "' + val.price + '" data-unit = "' + val.unit + '" data-img = "' + val.img + '">';
+                output += '<div class="clearfix pos-rel">'+
+                      '<span class="pull-left products pos-abs">' + val.name + '</span>'+
+                      '<span class="pull-right price">&#8358;' + val.price + '</span><br>'+
+                      '<small class="pull-right">' + val.unit + '</small>'+
+                  '</div>';
+                output += '</li>';
+            });
+            output += '</ul>';
 
-          });
-          output += '</ul>';
-
-         $(".update").html(output);
-
-      }).fail(function() {
-          var searchField = $("#querySelector").val();
-
-          // var myExp = new RegExp(searchField, 'i');
-
-          // var output = '<ul class="suggestions">';
-          // $.each(dataLog, function(key, val){
-
-          //   if((val.unit.search(myExp) != -1) || (val.product.search(myExp) != -1)) {
-
-          //       output += `<li id="${val.id}" data-product-id="${val.id}" data-product = "${val.product}" data-price = "${val.price}" data-unit = "${val.unit}" data-img = "${val.img}">`;
-          //       output += `<div class="clearfix pos-rel">
-          //                     <span class="pull-left products pos-abs">${val.product}</span>
-          //                     <span class="pull-right price">&#8358; ${val.price}</span><br>
-          //                     <small class="pull-right">${val.unit}</small>
-          //                 </div>`;
-          //       output += "</li>";
-          //   }
-
-          // });
-          // output += '</ul>';
-
-          if(searchField.length === 0){
-            output = "";
-          }
           $(".update").html(output);
-      }).always(function(){
 
-        $('.loading').hide();
-      });
+        }).fail(function() {
+            var searchField = $("#querySelector").val();
+
+            // var myExp = new RegExp(searchField, 'i');
+
+            // var output = '<ul class="suggestions">';
+            // $.each(dataLog, function(key, val){
+
+            //   if((val.unit.search(myExp) != -1) || (val.product.search(myExp) != -1)) {
+
+            //       output += `<li id="${val.id}" data-product-id="${val.id}" data-product = "${val.product}" data-price = "${val.price}" data-unit = "${val.unit}" data-img = "${val.img}">`;
+            //       output += `<div class="clearfix pos-rel">
+            //                     <span class="pull-left products pos-abs">${val.product}</span>
+            //                     <span class="pull-right price">&#8358; ${val.price}</span><br>
+            //                     <small class="pull-right">${val.unit}</small>
+            //                 </div>`;
+            //       output += "</li>";
+            //   }
+
+            // });
+            // output += '</ul>';
+
+            if(searchField.length === 0){
+              output = "";
+            }
+            $(".update").html(output);
+        }).always(function(){
+
+          $('.loading').hide();
+        });
     });
   },
   cartCtrl: function(){
@@ -299,13 +222,6 @@ const app = {
     //addItemToCart(name, price, count)
     function addItemToCart(name, price, count, unit, img, product_id){
       console.log(unit);
-      // for(var i in cart){
-      //   if(cart[i].name === name){
-      //     cart[i].count += count;
-      //     saveCart();
-      //     return;
-      //   }
-      // }
       var item = new Item(name, price, count, unit, img, product_id);
 
       saveCartItem(item);
@@ -334,14 +250,7 @@ const app = {
     function removeItemFromCartAll(cart_item_id){
       $.getJSON('/cart/delete/' + cart_item_id ).done(function () {
          displayCart();
-      })
-      // for(var i in cart){
-      //   if(cart[i].name === name){
-      //       cart.splice(i, 1);
-      //       break;
-      //   }
-      // }
-      // saveCart();
+      });
     }
 
     //clear cart
@@ -419,10 +328,15 @@ const app = {
 
     //function that animates counter
     function aniCounter(){
-       setTimeout(function(){
+      setTimeout(function(){
           $(".items").addClass("shakers");
-        }, 50);
-        $(".items").removeClass("shakers");
+      }, 50);
+      $(".items").removeClass("shakers");
+    }
+
+    //round to two...
+    function roundToTwo(num) {
+        return +(Math.round(num + "e+2")  + "e-2");
     }
 
 
@@ -439,77 +353,75 @@ const app = {
 
             $.each(response.data.cart, function(key, val){
 
-              output += `
-              <li class="pos-rel animated" data-product="${val.name}" id="pr_${val.name}">
-                <div class="row">
-                    <div class="col-xs-6">
-                        <div class="row">
-                            <div class="col-xs-5 p-r-0">
-                                <div class="thumbnail">
-                                    <img src="${val.options.img}">
-                                </div>
-                            </div>
-                            <div class="col-xs-7 p-l-0">
-                                <div class="pr-text">
-                                    <h4 class="m-b-0 m-t-5">${val.name}</h4>
-                                    <small>${val.options.unit}</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-3 p-l-0">
-                        <div class="counter">
-                            <div class="minus" data-price = "${val.price}" data-product="${val.name}" data-cart-item-id="${key}">-</div>
-                            <div class="count">${val.qty}</div>
-                            <div class="plus" data-price = "${val.price}" data-product="${val.name}" data-cart-item-id="${key}">+</div>
-                        </div>
-                    </div>
-                    <div class="col-xs-3">
-                        <h4 class="m-b-0 m-t-5">&#8358; ${roundToTwo(val.price).toLocaleString()}</h4>
-                    </div>
-                </div>
-                <span class="fa fa-trash pos-abs" data-product="${val.name}" data-cart-item-id="${key}"></span>
-             </li>`;
+              output += '<li class="pos-rel animated"' + 'data-product="' + val.name + '"' +  'id="pr_' + val.name+ '">'+
+                            '<div class="row">'+
+                                '<div class="col-xs-6">'+
+                                    '<div class="row">'+
+                                        '<div class="col-xs-5 p-r-0">'+
+                                            '<div class="thumbnail">'+
+                                                '<img src="' + val.options.img + '">'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<div class="col-xs-7 p-l-0">'+
+                                            '<div class="pr-text">'+
+                                                '<h4 class="m-b-0 m-t-5">' + val.name + '</h4>'+
+                                                '<small>' + val.options.unit + '</small>'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="col-xs-3 p-l-0">'+
+                                    '<div class="counter">'+
+                                        '<div class="minus" data-price = "'+ val.price + '" data-product="' + val.name + '" data-cart-item-id="'+ key+ '">-</div>'+
+                                        '<div class="count">' + val.qty + '</div>'+
+                                        '<div class="plus" data-price = "' + val.price+ '" data-product="' + val.name + '" data-cart-item-id="' + key+ '">+</div>'+
+                                    '</div>'+
+                                '</div>'+
+                                '<div class="col-xs-3">'+
+                                    '<h4 class="m-b-0 m-t-5">&#8358;' + roundToTwo(val.price).toLocaleString() + '</h4>'+
+                                '</div>'+
+                            '</div>'+
+                            '<span class="fa fa-trash pos-abs" data-product="'+ val.name+ '" data-cart-item-id="' + key + '"></span>'+
+                        '</li>';
 
-             output2 += `
-            <tr class="p-t-14 width-33_3p" data-product="${val.name}" id="pr_${val.name}">
-                <td class="">
-                    <div class="clearfix">
-                        <div class="f-left p-r-15">
-                            <img src="${val.options.img}" class="width-40 h-40 bd-50p">
-                        </div>
-                        <div class="f-left">
-                            <div>${val.name}</div>
-                            <div class="f-12 opacity-50">${val.options.unit}</div>
-                        </div>
-                    </div>
-                </td>
-                <td class="width-33_3p">
-                    <div class="counter text-center p-t-0">
-                        <div class="minus" data-price = "${val.price}" data-cart-item-id="${key}">-</div>
-                        <div class="count">${val.qty}</div>
-                        <div class="plus" data-price = "${val.price}" data-cart-item-id="${key}">+</div>
-                    </div>
-                </td>
-                <td class="p-t-14 width-33_3p text-right">
-                    <div class="w-600 p-r-12">
-                        ₦ <span class="cash">${roundToTwo(val.price).toLocaleString()}</span>
-                    </div>
-                    <button class="btn bg-transparent-black opacity-50 f-12 removeItem" data-cart-item-id="${key}">REMOVE</button>
-                </td>
-            </tr>`;
+             output2 += '<tr class="p-t-14 width-33_3p" data-product="' + val.name + '" id="pr_' + val.name + '">'+
+                            '<td class="">'+
+                                '<div class="clearfix">'+
+                                    '<div class="f-left p-r-15">'+
+                                        '<img src="' + val.options.img + '" class="width-40 h-40 bd-50p">'+
+                                    '</div>'+
+                                    '<div class="f-left">'+
+                                        '<div>' + val.name + '</div>'+
+                                        '<div class="f-12 opacity-50">' + val.options.unit + '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</td>'+
+                            '<td class="width-33_3p">'+
+                                '<div class="counter text-center p-t-0">'+
+                                    '<div class="minus" data-price = "' + val.price + '" data-cart-item-id="' + key + '">-</div>'+
+                                    '<div class="count">' + val.qty + '</div>'+
+                                    '<div class="plus" data-price = "' + val.price + '" data-cart-item-id="' + key + '">+</div>'+
+                                '</div>'+
+                            '</td>'+
+                            '<td class="p-t-14 width-33_3p text-right">'+
+                                '<div class="w-600 p-r-12">'+
+                                    '₦ <span class="cash">' + roundToTwo(val.price).toLocaleString() + '</span>'+
+                                '</div>'+
+                                '<button class="btn bg-transparent-black opacity-50 f-12 removeItem" data-cart-item-id="' + key + '">REMOVE</button>'+
+                            '</td>'+
+                        '</tr>';
 
               totalCount += val.qty;
               total_cost += val.subtotal;
 
-          })
+          });
           total_cost =  roundToTwo(total_cost)
           total_cost === 0 ? a() : b();
             for (var i = 0; i < response.data.charges.length; i++) {
 
                if(response.data.charges[i].name == "Delivery fee"){
                  var delivery_fee = deliveryCtrl(response.data.charges[i].fixed_amount);
-                 $("#deliveryFee").html(roundToTwo(delivery_fee.toLocaleString()));
+                 $("#deliveryFee").html(roundToTwo(delivery_fee).toLocaleString());
 
                }
 
@@ -526,10 +438,10 @@ const app = {
 
             $(".items").html(totalCount);
 
-            $("#totalP").html(total_cost.toLocaleString());
+            $("#totalP").html(Number(total_cost.toLocaleString()));
             $("#cartTable").html(output2);
 
-            $("#grandTP").html((total_cost + service_charge + delivery_fee).toLocaleString('en-NG'));
+            $("#grandTP").html(Number((total_cost + service_charge + delivery_fee).toLocaleString('en-NG')));
             $('#loader').hide();
         })
         .fail(function() {
@@ -667,7 +579,6 @@ const app = {
     saveCart();
     loadCart();
     displayCart();
-
 
   },
 
@@ -813,17 +724,17 @@ selectDeliveryDate: function () {
     return parts.join(".");
   },
    toggleCollapse: function(){
-		const mores = Array.from(document.querySelectorAll(".mores"));
+		var mores = Array.from(document.querySelectorAll(".mores"));
 
-	  const tables = Array.from(document.querySelectorAll(".tables"));
+	  var tables = Array.from(document.querySelectorAll(".tables"));
 
 		//textcontent varaible;
-		let texts;
+		var texts;
 		//css display properties block and none...
-		let c, d;
+		var c, d;
 
 		//boolean to control toggle function....
-		let booled = true;
+		var booled = true;
 
 		//first function to show more
 		function showMore(){
@@ -855,7 +766,7 @@ selectDeliveryDate: function () {
 	},
   //move navbar content and sidebar into right bar content.....
   sidebarCtrl: function(){
-      let navbar_initialized = false,
+      var navbar_initialized = false,
       misc = {
           navbar_menu_visible: 0
       },
@@ -1017,7 +928,4 @@ selectDeliveryDate: function () {
         return succeed;
     }
   }
-}
-function roundToTwo(num) {
-    return +(Math.round(num + "e+2")  + "e-2");
 }
