@@ -1,156 +1,6 @@
 var app = {
 
   fecther: function(){
-
-    var obj = {
-      products: [
-        {
-          id: 1,
-          product: "Yam",
-          price: 2150,
-          unit: "per 10kg",
-          img: "http://www.foodsubs.com/Photos/yamaimo.jpg"
-        },
-        {
-          id: 2,
-          product: "Rice",
-          price: 2450,
-          unit: "per 10kg",
-          img: "https://thumbs.dreamstime.com/z/unpolished-rice-whole-grain-burlap-bag-25395443.jpg"
-        },
-        {
-          id: 3,
-          product: "Egusi",
-          price: 250,
-          unit: "per Tin",
-          img: "http://africanchop.com/smallchop/wp-content/uploads/2014/08/egusi1.jpg"
-        },
-        {
-            id: 4,
-            product: "Suya",
-            price: 250,
-            unit: "per wrap",
-            img: "http://www.travelstart.com.ng/blog/wp-content/uploads/2014/03/Suya-1024x803.jpg"
-          },
-          {
-            id: 5,
-            product: "Semovita",
-            price: 2500,
-            unit: "per bag",
-            img: "http://www.katointernational.com/wp-content/uploads/2015/01/semovita.png"
-          },
-          {
-            id: 6,
-            product: "Cornflakes",
-            price: 1500,
-            unit: "per Sachet",
-            img: "http://www.sunpring.com/wp-content/uploads/2015/03/corn-flakes-manufacturing.jpg"
-          },
-        {
-          id: 7,
-          product: "Elubo",
-          price: 2500,
-          unit: "per Bag",
-          img: "http://zippum.com/image/cache/data/swallow/sw10-500x500.jpg"
-        },
-        {
-          id: 8,
-          product: "Garri",
-          price: 2500,
-          unit: "per Bag",
-          img: "http://madamsabi.com/image/cache/data/prodsupload/white%20garri-500x500.jpg"
-        },
-        {
-          id: 9,
-          product: "Pando Yam",
-          price: 2500,
-          unit: "per Bag",
-          img: "http://www.healthysupplies.co.uk/pics/400x400/pounded-yam.jpg"
-        },
-        {
-          id: 10,
-          product: "Eggs",
-          price: 2500,
-          unit: "per Create",
-          img: "https://cdn.pixabay.com/photo/2016/12/04/23/36/eggs-1882837_960_720.jpg"
-        },
-        {
-          id: 11,
-          product: "Bananas",
-          price: 2500,
-          unit: "per Bunch",
-          img: "http://pngimg.com/uploads/banana/banana_PNG817.png"
-        },
-        {
-          id: 12,
-          product: "chicken",
-          price: 2500,
-          unit: "per kg",
-          img: "http://dialnsearch.com/image/Whole%20Chicken167615.jpg"
-        },
-        {
-          id: 13,
-          product: "Rodo",
-          price: 2500,
-          unit: "per basket",
-          img: "http://www.9jafoods.co/wp-content/uploads/2016/11/rodo-rspwxyz59_rodo_big_basket-400x350.jpg"
-        },
-        {
-          id: 14,
-          product: "Tomato",
-          price: 2500,
-          unit: "per basket",
-          img: "http://www.naushieexports.com/img/tomato4_big.jpg"
-        },
-        {
-          id: 15,
-          product: "Potatoes",
-          price: 2150,
-          unit: "per 10kg",
-          img: "http://wisconsinpotatoes.com/admin/wp-content/uploads/2014/09/yellow_potatoes.jpg"
-        },
-        {
-          id: 16,
-          product: "Efo Tete",
-          price: 2150,
-          unit: "per Bunch",
-          img: "http://justfreshfood.com.ng/resources/image/18/7a/9.jpg"
-        },
-        {
-          id: 17,
-          product: "Wheat flour",
-          price: 2150,
-          unit: "per Kg",
-          img: "http://i.ndtvimg.com/i/2015-06/wheat-flour-625_625x350_61434435605.jpg"
-        },
-        {
-          id: 18,
-          product: "Sugar",
-          price: 2150,
-          unit: "per kg",
-          img: "http://www.mcnicholsplc.com/wp-content/uploads/family-granulated-sugar.png"
-        },
-        {
-          id: 19,
-          product: "Soap",
-          price: 2150,
-          unit: "per Park",
-          img: "http://ecx.images-amazon.com/images/I/61CpVvyqSzL._SL1000_.jpg"
-        },
-        {
-          id: 20,
-          product: "Fish",
-          price: 700,
-          unit: "per Kg",
-          img: "http://www.nairaland.com/attachments/3217770_mackerelbig_jpeg0de3d657ba3bc05478f7590c7ab76e55"
-        }
-      ],
-      serviceChargePercent: 10,
-      delivery: 1000
-    };
-
-    var dataLog = obj.products;
-
     $("input.search").focus();
 
     $("#querySelector").on("keyup", function(e){
@@ -160,6 +10,7 @@ var app = {
         .done(function(response) {
 
             var output = '<ul class="suggestions">';
+            // console.log(response.data);
             $.each(response.data.products, function(key, val){
 
                 output += '<li id="' + val.id + ' " data-product-id=" ' + val.id + ' " data-product = "' + val.name + '" data-price = "' + val.price + '" data-unit = "' + val.unit + '" data-img = "' + val.img + '">';
@@ -221,7 +72,7 @@ var app = {
 
     //addItemToCart(name, price, count)
     function addItemToCart(name, price, count, unit, img, product_id){
-      console.log(unit);
+      // console.log(unit);
       var item = new Item(name, price, count, unit, img, product_id);
 
       saveCartItem(item);
@@ -352,6 +203,7 @@ var app = {
             var total_cost = 0;
 
             $.each(response.data.cart, function(key, val){
+              // console.log(val.options.img
 
               output += '<li class="pos-rel animated"' + 'data-product="' + val.name + '"' +  'id="pr_' + val.name+ '">'+
                             '<div class="row">'+
@@ -412,10 +264,13 @@ var app = {
                         '</tr>';
 
               totalCount += val.qty;
+             
               total_cost += val.subtotal;
+              // console.log(val.subtotal);
 
           });
-          total_cost =  roundToTwo(total_cost)
+          total_cost =  roundToTwo(total_cost);
+          // console.log(total_cost);
           total_cost === 0 ? a() : b();
             for (var i = 0; i < response.data.charges.length; i++) {
 
@@ -438,10 +293,12 @@ var app = {
 
             $(".items").html(totalCount);
 
-            $("#totalP").html(Number(total_cost.toLocaleString()));
+            // console.log(total_cost.toLocaleString());//16,200
+
+            $("#totalP").html(total_cost.toLocaleString());
             $("#cartTable").html(output2);
 
-            $("#grandTP").html(Number((total_cost + service_charge + delivery_fee).toLocaleString('en-NG')));
+            $("#grandTP").html((total_cost + service_charge + delivery_fee).toLocaleString('en-NG'));
             $('#loader').hide();
         })
         .fail(function() {
@@ -469,7 +326,7 @@ var app = {
       $.getJSON('/cart/update/' + cart_id + '/' + action).done(function () {
          displayCart(inc_dec);
       }).fail(function(error) {
-          console.log(error);
+          // console.log(error);
       })
     }
 
@@ -488,12 +345,13 @@ var app = {
         var name = $(this).attr("data-product");
         var price = $(this).attr("data-price");
         var unit = $(this).attr("data-unit");
-        var img = $(this).attr("data-img");
+        var img = $(this).attr("data-img") || 'assets/img/avatar.png';
         var product_id = $(this).attr("data-product-id");
         addItemToCart(name, price, 1, unit, img, product_id);
         // displayCart();
         aniCounter();
         e.stopImmediatePropagation();
+        // Pepsi-Can-01/mURTfEcPm67gLv7oeSXw9tK5Ef59Yts7Q5gcbZB4.jpeg
     });
 
     //remove items from cart
@@ -616,7 +474,7 @@ var app = {
       e.preventDefault();
 
         if (!editor[0].isContentEditable) {
-            console.log(editor);
+            // console.log(editor);
             editor[0].contentEditable = true;
             editor[0].focus();
             editBtn.text('Save');
@@ -750,7 +608,7 @@ selectDeliveryDate: function () {
 		}
 		//interestHandler handles toggling between first and second function
 		function moreHandler(){
-				console.log(this.textContent);
+				// console.log(this.textContent);
 
 				booled ? showMore() : showLess();
 				//change button textcontent..
@@ -796,7 +654,7 @@ selectDeliveryDate: function () {
 
               ul_content = '<ul class="nav navbar-nav">' + ul_content + '</ul>';
 
-              console.log(ul_content);
+              // console.log(ul_content);
               //navbar_content = ul_content;
 
               //$navbar.html(navbar_content);
