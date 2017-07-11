@@ -68,7 +68,6 @@ class AdminController extends Controller
             // dd($method);
             switch ($method) {
                 case true:
-                dd($request);
                         $this->validate($request, [
                             'email' => 'required|required',
                             'password' => 'required|min:4'
