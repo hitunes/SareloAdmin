@@ -27,7 +27,7 @@
                                 <span class="title">Products</span>
                             </a>
                         </li>
-                        <li class="dropdown ">
+                        <li class="dropdown">
                             <a href="{{url('/admin/unit-types')}}" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-basket"></i>
                             Unit Types <b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -61,7 +61,7 @@
                                 <li><a href="{{url('/admin/show')}}">Delete</a></li>
                             </ul>
                         </li>
-                    </ul>
+                        </ul>
                 </div>
             </div>
             <div class="page-content-wrapper">
@@ -167,10 +167,10 @@
                                                                        @if($order->payment_status ==  "paid")
                                                                         <option value="{{$order->payment_status}}"> {{ ucfirst($order->payment_status)}}</option>
                                                                         <option value="unpaid">Unpaid</option>
-                                                                       @elseif($order->payment_status == "unpaid")
+                                                                      @elseif($order->payment_status == "unpaid")
                                                                          <option value="{{$order->payment_status}}">{{ucfirst($order->payment_status)}}</option>
                                                                          <option value="paid">Paid</option>
-                                                                       
+                                                                    
                                                                        @endif
                                                                      </select>
                                                                 </td>
@@ -223,7 +223,6 @@
                 </div>
             </div>
         </div>
-        <script src="/js/jquery.min.js" type="text/javascript"></script>
         <script type="text/javascript">
                 function ConfirmDelete()
               {

@@ -67,7 +67,7 @@
                                 <li><a href="{{url('/admin/show')}}">Delete</a></li>
                             </ul>
                         </li>
-                    </ul>
+                        </ul>
                     <!-- END SIDEBAR MENU -->
                 </div>
                 <!-- END SIDEBAR -->
