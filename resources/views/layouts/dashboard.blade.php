@@ -290,17 +290,17 @@
                    
             //     }
             // });
-            $.ajax({
-                            url: "/admin/category",
-                            type: "POST",
-                            data: {payment_status:payment_status},
-                            success: function(data){
-                                paymentMessage(payment_status, pay_id);
-                                $("#payment"+pay_id).html(data);
-                            },error:function(){
-                                alert("Please pick a valid payment status");
-                            }
-                    });
+            // $.ajax({
+            //                 url: "/admin/category",
+            //                 type: "POST",
+            //                 data: {payment_status:payment_status},
+            //                 success: function(data){
+            //                     paymentMessage(payment_status, pay_id);
+            //                     $("#payment"+pay_id).html(data);
+            //                 },error:function(){
+            //                     alert("Please pick a valid payment status");
+            //                 }
+            //         });
             </script>
     </body>
 

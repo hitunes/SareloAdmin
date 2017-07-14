@@ -42,6 +42,7 @@ class ConfirmCheckoutController extends Controller
     public function checkout(Request $request)
     {
         if($request->isMethod('post')){
+            // dd("jd");
 
             $slot_id = $request->slot_id? $request->slot_id: Session::get('order_details.slot_id');
             $user_address_id =  isset($request->user_address_id)? $request->user_address_id: Session::get('order_details.user_address_id');

@@ -89,7 +89,9 @@
                                     <div class="caption">
                                         <i class="icon-settings font-dark"></i>
                                         <span class="caption-subject font-dark sbold uppercase"> Order {{$order->user_id}}
-                                            <span class="hidden-xs">| Dec 27, 2013 7:16:25 </span>
+                                        @if(isset($order->created_at))
+                                            <span class="hidden-xs">| {{$order->created_at->diffForHumans()}} </span>
+                                        @endif
                                         </span>
                                     </div>
                                 </div>
