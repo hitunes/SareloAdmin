@@ -181,9 +181,9 @@ class ProductsController extends Controller
                 if(!$search){
                     return redirect()->back()->with(['delete_message'=>'Please! type to search for a product']);
                 }else{
-                    $products = Product::latest()->where('name', 'LIKE', "%$search%")
-                                            ->orWhere('description', 'LIKE', "%$search%")
-                                            ->orWhere('price', 'LIKE', "%$search%")
+                    $products = Product::latest()->where('name', 'LIKE', "%{$search}%")
+                                            ->orWhere('description', 'LIKE', "%{$search}%")
+                                            ->orWhere('price', 'LIKE', "%{$search}%")
                                             ->paginate(10);
                     $unit_type = UnitType::all();
                     return view('admin.dashboard.product_search', compact('products', 'unit_type'))->with('success' ,'Search result completed for '.$search);
