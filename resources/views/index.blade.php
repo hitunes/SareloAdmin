@@ -116,7 +116,7 @@
                     <form class="query pos-rel">
                         <input class="form-control search p-r-20 p-l-40" type="search" placeholder="What do you want to buy?...." id="querySelector" autocomplete="off">
                         <div class="update">
-
+                             <ul class="suggestions" id="overScroll"></ul>
                         </div>
                     </form>
                 </div>
@@ -221,6 +221,14 @@
                 app.preventFormSubmit();
                 app.toggleSidebars();
                 $("#basketList").slimScroll({
+                    height: '100%',
+                    size: '2px',
+                    railVisible: true,
+                    railColor: '#222',
+                    railOpacity: 0.3,
+                    wheelStep: 10
+                });
+                $("#overScroll").slimScroll({
                     height: '100%',
                     size: '2px',
                     railVisible: true,

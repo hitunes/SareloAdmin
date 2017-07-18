@@ -9,7 +9,7 @@ var app = {
 
         .done(function(response) {
 
-            var output = '<ul class="suggestions">';
+            var output = '';
             // console.log(response.data);
             $.each(response.data.products, function(key, val){
 
@@ -21,9 +21,9 @@ var app = {
                   '</div>';
                 output += '</li>';
             });
-            output += '</ul>';
+           // output += '</ul>';
 
-          $(".update").html(output);
+          $("#overScroll").html(output);
 
         }).fail(function() {
             var searchField = $("#querySelector").val();
@@ -50,7 +50,7 @@ var app = {
             if(searchField.length === 0){
               output = "";
             }
-            $(".update").html(output);
+            $("#overScroll").html(output);
         }).always(function(){
 
           $('.loading').hide();
