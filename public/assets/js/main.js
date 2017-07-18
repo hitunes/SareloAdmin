@@ -10,7 +10,7 @@ var app = {
         .done(function(response) {
 
             var output = '';
-            // console.log(response.data);
+            console.log(response.data);
             $.each(response.data.products, function(key, val){
 
                 output += '<li id="' + val.id + ' " data-product-id=" ' + val.id + ' " data-product = "' + val.name + '" data-price = "' + val.price + '" data-unit = "' + val.unit + '" data-img = "' + val.img + '">';
@@ -21,9 +21,9 @@ var app = {
                   '</div>';
                 output += '</li>';
             });
-           // output += '</ul>';
+            //output += '</ul>';
 
-          $("#overScroll").html(output);
+          $("#overscroll").html(output);
 
         }).fail(function() {
             var searchField = $("#querySelector").val();
@@ -50,7 +50,7 @@ var app = {
             if(searchField.length === 0){
               output = "";
             }
-            $("#overScroll").html(output);
+            $("#overscroll").html(output);
         }).always(function(){
 
           $('.loading').hide();
