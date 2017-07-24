@@ -69,13 +69,22 @@ class ProductsController extends Controller
             'price' => 'required|int',
             'unit' => 'required|integer',
             'unit_type_id' => 'required',
-            'product_image' => 'required|image'
+            'product_image' => 'image'
         ]);
-        $filename = $filename = $request->file('product_image')->getClientOriginalName();
 
-        $img_ext = ['.jpg', '.jpeg', '.PNG', '.png'];
-        $filename = str_replace($img_ext, '', $filename);
-        $store  = Storage::disk('custom')->put($filename, $request->file('product_image')); // first param name of folder second the content
+
+        if ($request->product_image)
+        {
+            $filename = $filename = $request->file('product_image')->getClientOriginalName();
+            $img_ext = ['.jpg', '.jpeg', '.PNG', '.png'];
+            $filename = str_replace($img_ext, '', $filename);
+            $store  = Storage::disk('custom')->put($filename, $request->file('product_image')); // first param name of folder second the content
+        
+        } else
+        {
+            $store = NULL;
+        }
+
         $product = new Product([
             'name' => $request->input('name'),
             'description' => $request->input('description'),
@@ -172,9 +181,9 @@ class ProductsController extends Controller
                 if(!$search){
                     return redirect()->back()->with(['delete_message'=>'Please! type to search for a product']);
                 }else{
-                    $products = Product::latest()->where('name', 'LIKE', "%$search%")
-                                            ->orWhere('description', 'LIKE', "%$search%")
-                                            ->orWhere('price', 'LIKE', "%$search%")
+                    $products = Product::latest()->where('name', 'LIKE', "%{$search}%")
+                                            ->orWhere('description', 'LIKE', "%{$search}%")
+                                            ->orWhere('price', 'LIKE', "%{$search}%")
                                             ->paginate(10);
                     $unit_type = UnitType::all();
                     return view('admin.dashboard.product_search', compact('products', 'unit_type'))->with('success' ,'Search result completed for '.$search);

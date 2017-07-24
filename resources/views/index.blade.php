@@ -111,7 +111,7 @@
             </header>
             <section class="p-l-100">
                 <div class="contents m-t-160 m-b-100 width-50p">
-                    <h1 class="text-left l-spacing-2 fw-900 line-40 w-600">We will buy & deliver <span class="c-brand-green">fresh<br> foodstuff!</span> from the market to you.</h1>
+                    <h1 class="text-left l-spacing-2 fw-900 line-40 w-600">We will buy & deliver <span class="c-brand-green">fresh<br> foodstuff</span> from the market to you.</h1>
                     <br><br><br>
                     <form class="query pos-rel">
                         <input class="form-control search p-r-20 p-l-40" type="search" placeholder="What do you want to buy?...." id="querySelector" autocomplete="off">

@@ -8,3 +8,5 @@ Homestead.json
 Homestead.yaml
 .env
 /.vscode
+dev
+/database/migrations/9999_99_99_999999_update_table.php

@@ -12,7 +12,12 @@ class ProductsController extends ApiController
 
     public function search(Request $request)
     {
+<<<<<<< HEAD
         $products = Product::with('unit_type')->where('name', 'like', '%'.$request->search_term.'%')->get();
+=======
+        $products = Product::with('unit_type')->where('name', 'like', $request->search_term.'%')->get();
+        // dd()
+>>>>>>> e74434416fe50bc2951001b5a0847dd8b253bf5f
 
         $resource = new Fractal\Resource\Collection($products, new ProductTransformer);
         
