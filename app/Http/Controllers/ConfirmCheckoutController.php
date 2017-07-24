@@ -36,6 +36,8 @@ class ConfirmCheckoutController extends Controller
 
         $options['slot'] = $slot->toArray();
 
+        // dd($basket);
+
         return view('checkout.confirm', compact('basket', 'order', 'options', 'addresses', 'slots'));
     }
 
@@ -53,6 +55,8 @@ class ConfirmCheckoutController extends Controller
                 'user_id' => Auth::user()->id,
                 'status' => 'processing',
                 'total' => $basket['total'],
+                'delivery_fee' => $basket['taxes']['delivery_fee'],
+                'service_charge' => $basket['taxes']['service_charge'],
                 'delivery_instruction' => Session::get('order_details.delivery_instruction'),
                 'user_address_id' => $user_address_id,
                 'receiver_phone' => Session::get('order_details.receiver_phone'),

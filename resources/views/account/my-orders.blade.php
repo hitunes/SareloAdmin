@@ -1,4 +1,4 @@
-@extends('layouts.account')
+    @extends('layouts.account')
 @section('content')
 
 <!-- BEGIN CONTENT BODY -->
@@ -28,6 +28,19 @@
                                         @if($order->status != 'cancelled')<td class="text-right no-bd">
                                         <a href="/order/{{$order->id}}/cancel" class="btn bg-transparent no-bd c-blue m-r-0 p-r-0">Cancel Order</a></td>
                                         @endif
+                                    </tr>
+                                    <tr>
+                                        <td class="p-t-14 no-bd"> 
+                                            Delivery Fee : &#8358; @if(!empty($order->delivery_fee)) {{number_format($order->delivery_fee, 1)}} @else 0.00 @endif
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                    
+                                        <td class="p-t-14 no-bd"> 
+                                            Service Charge : &#8358; @if(!empty($order->service_charge)) {{number_format($order->service_charge, 1)}} @else 0.00 @endif
+
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -63,6 +76,7 @@
                                             </div>
                                         </td>
                                     </tr>
+
                                 @endforeach
                                 </tbody>
                             </table>
@@ -115,6 +129,19 @@
                                     <tr>
                                         <td class="p-t-14 no-bd">{{$order->user_address->address}}</td>
                                         <td class="text-right no-bd"><button class="btn bg-transparent no-bd c-blue m-r-0 p-r-0">Cancel Order</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-t-14 no-bd"> 
+                                            Delivery Fee : &#8358; @if(!empty($order->delivery_fee)) {{number_format($order->delivery_fee, 1)}} @else 0.00 @endif
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                    
+                                        <td class="p-t-14 no-bd"> 
+                                            Service Charge : &#8358; @if(!empty($order->service_charge)) {{number_format($order->service_charge, 1)}} @else 0.00 @endif
+
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -204,6 +231,19 @@
                                         <td class="p-t-14 no-bd">{{$order->user_address->address}}</td>
                                         {{-- <td class="text-right no-bd"><button class="btn bg-transparent no-bd c-blue m-r-0 p-r-0">Cancel Order</button></td> --}}
                                     </tr>
+                                    <tr>
+                                        <td class="p-t-14 no-bd"> 
+                                            Delivery Fee : &#8358; @if(!empty($order->delivery_fee)) {{number_format($order->delivery_fee, 1)}} @else 0.00 @endif
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                    
+                                        <td class="p-t-14 no-bd"> 
+                                            Service Charge : &#8358; @if(!empty($order->service_charge)) {{number_format($order->service_charge, 1)}} @else 0.00 @endif
+
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -287,6 +327,19 @@
                                         <td class="p-t-14 no-bd">{{$order->user_address->address}}</td>
                                         {{-- <td class="text-right no-bd"><button class="btn bg-transparent no-bd c-blue m-r-0 p-r-0">Cancel Order</button></td> --}}
                                     </tr>
+                                    <tr>
+                                        <td class="p-t-14 no-bd"> 
+                                            Delivery Fee : &#8358; @if(!empty($order->delivery_fee)) {{number_format($order->delivery_fee, 1)}} @else 0.00 @endif
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                    
+                                        <td class="p-t-14 no-bd"> 
+                                            Service Charge : &#8358; @if(!empty($order->service_charge)) {{number_format($order->service_charge, 1)}} @else 0.00 @endif
+
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -368,6 +421,19 @@
                                     <tr>
                                         <td class="p-t-14 no-bd">{{$order->user_address->address}}</td>
                                         {{-- <td class="text-right no-bd"><button class="btn bg-transparent no-bd c-blue m-r-0 p-r-0">Cancel Order</button></td> --}}
+                                    </tr>
+                                    <tr>
+                                        <td class="p-t-14 no-bd"> 
+                                            Delivery Fee : &#8358; @if(!empty($order->delivery_fee)) {{number_format($order->delivery_fee, 1)}} @else 0.00 @endif
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                    
+                                        <td class="p-t-14 no-bd"> 
+                                            Service Charge : &#8358; @if(!empty($order->service_charge)) {{number_format($order->service_charge, 1)}} @else 0.00 @endif
+
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

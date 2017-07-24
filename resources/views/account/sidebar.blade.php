@@ -24,7 +24,7 @@
                                                 </li>
 
                                                 <li class="nav-item bd-gray-lite">
-                                                
+
                                                     <a class="clearfix c-brand-green nav-link" href="{{ route('logout') }}"
                                                         onclick="event.preventDefault();
                                                                 document.getElementById('logout-form').submit();">

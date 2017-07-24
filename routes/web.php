@@ -16,7 +16,6 @@
 Route::group(['middleware' => ['admin']], function() {
     Route::group(['prefix' => 'admin'], function() {
             Route::get('/users/{id}', 'Admin\UserController@show');
-
             Route::post('/search_user', 'Admin\UserController@search');
             Route::post('/search_order', 'Admin\OrdersController@search');
             Route::post('/search_product', 'Admin\ProductsController@search');

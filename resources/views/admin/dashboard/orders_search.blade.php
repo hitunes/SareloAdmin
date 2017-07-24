@@ -108,7 +108,7 @@
 
                                                                 <tr>
                                                                     <td>
-                                                                       {{$num++}}
+                                                                       {{$order->order_unique_reference}}
                                                                     </td>
                                                                     <td>
                                                                         @if(isset($order->created_at))

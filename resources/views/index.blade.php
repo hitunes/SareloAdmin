@@ -153,7 +153,7 @@
                         <li>
                             <p class="menus">
                                 <span>
-                                    10% Service Charge
+                                    {{$charge[1]}}% Service Charge
                                 </span>
                                 <span class="pull-right">&#8358; <span id="serviceCharge">9480</span></span>
                             </p>

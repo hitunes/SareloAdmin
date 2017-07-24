@@ -18,6 +18,11 @@ class AdminController extends Controller
     {
         $completedOrders = DB::table('orders')->where('status', 'Delivered')->sum('total');
         $ordersResult = number_format($completedOrders);
+        $totalOrders = number_format(Order::all()->sum('total'));
+        $goneToMarket = number_format(Order::where('status', 'gone-to-market')->sum('total'));
+        $cancelledOrders = number_format(Order::where('status', 'cancelled')->sum('total'));
+        $processingOrders = number_format(Order::where('status', 'processing')->sum('total'));
+
         $users = User::join('roles', 'users.role_id', 'roles.id')
                     ->where('roles.name', 'User')->count();
         $products = Product::count();
@@ -30,7 +35,7 @@ class AdminController extends Controller
         } else {
             $orders = Order::latest()->paginate($perPage);
         }
-    	return view('admin.dashboard.index', compact('ordersResult', 'users', 'products', 'orders'));
+    	return view('admin.dashboard.index', compact('ordersResult', 'users', 'products', 'orders', 'totalOrders', 'goneToMarket', 'cancelledOrders', 'processingOrders'));
     }
      public function show()
     {
